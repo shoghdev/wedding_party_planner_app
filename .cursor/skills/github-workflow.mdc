@@ -1,0 +1,23 @@
+---
+description: Skill for Git branch management, commits, and PR reviews
+globs: **/*
+---
+
+# GitHub & Workflow Automation
+
+## 1. Smart Commits
+- **Format**: Follow Conventional Commits: `type(scope): description`.
+- **Automatic Summary**: After coding, provide a "Branch Summary" highlighting:
+  - What was changed.
+  - Why it was changed.
+  - Any new dependencies added.
+
+## 2. Branch Logic
+- **Naming**: `feat/`, `fix/`, `refactor/`, or `docs/`.
+- **Context**: Before pushing, summarize the work done to be used for the Pull Request description.
+
+## 3. Self-Review
+- Before suggesting a completion, perform a "PR Review" check:
+  - Are there any console.logs left?
+  - Are all TypeScript errors resolved?
+  - Is the code following the project's i18n rules?

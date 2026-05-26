@@ -1,0 +1,16 @@
+---
+description: Advanced React/TS architectural standards
+globs: src/**/*.{ts,tsx}
+---
+
+# Architectural Standards
+
+## 1. Component Composition
+- **Folder Pattern**: Every component gets a folder: `index.tsx`, `types.ts`, `styles.ts`, and `consts.ts`.
+- **Logic Separation**: Components are for UI. Business logic, API calls, and complex state must reside in `src/hooks/`.
+- **Types**: Interfaces must be defined in `src/types/` for shared models or `types.ts` for component-specific props. No `any`.
+
+## 2. Data Strategy
+- **React Query**: Use for all server state. Define query keys as constants.
+- **Axios**: Use the centralized instance in `src/api/`.
+- **Mocks**: When API is unavailable, create mock data in `src/api/mocks/` to keep development moving.

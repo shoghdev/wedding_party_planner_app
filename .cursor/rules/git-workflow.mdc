@@ -1,0 +1,19 @@
+---
+description: Git branching and commit message standards
+globs: **/*
+---
+
+# Git & Workflow
+
+## Branching Strategy
+- `feat/feature-name`: New features.
+- `fix/bug-name`: Bug fixes.
+- `refactor/component-name`: Code improvements without functional changes.
+
+## Commit Messages (Conventional Commits)
+- Format: `<type>(<scope>): <description>`
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`.
+- Example: `feat(ui): add primary button to login page`
+
+## Summary Requirement
+- After significant changes, provide a brief summary of what was done to be used in a Pull Request description.

@@ -1,0 +1,19 @@
+---
+description: Standards for API calls, React Query, and Axios implementation
+globs: src/{api,hooks,pages}/**/*
+---
+
+# Data Fetching & State Management
+
+## Axios & API Layer
+- **Axios Instance**: Use a centralized axios instance from `src/api/`.
+- **Service Pattern**: Define API calls as exported functions: `export const getCatalog = () => api.get('/catalog');`.
+
+## React Query (TanStack Query)
+- **Hooks for Fetching**: Always wrap API calls in a `useQuery` or `useMutation` hook.
+- **Query Keys**: Use a central object for query keys to avoid typos.
+- **Server State**: Do not sync server data into global state (Redux/Zustand) unless absolutely necessary; use the React Query cache.
+
+## Error Handling
+- Use Axios interceptors for global error handling.
+- Use React Query's `onError` or Error Boundaries for UI-level feedback.

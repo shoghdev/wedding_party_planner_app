@@ -1,0 +1,16 @@
+---
+description: Strict enforcement of i18n for EN, RU, and AM languages
+globs: src/{components,pages}/**/*.tsx
+---
+
+# Internationalization (i18n)
+
+## Translation Keys
+- **No Hardcoding**: Every string visible to the user MUST be wrapped in the `t()` function (e.g., `{t('catalog.title')}`).
+- **Key Format**: Use lowercase dot notation: `feature.component.element`.
+- **Supported Languages**: English (EN), Russian (RU), and Armenian (AM).
+
+## Implementation
+- **Dynamic Content**: Use interpolation for dynamic values: `t('welcome', { name: user.name })`.
+- **Hooks**: Use the `useTranslation` hook from `react-i18next`.
+- **Check**: Before finishing a task, verify that all new keys are added to the translation JSON files in the public or assets folder.

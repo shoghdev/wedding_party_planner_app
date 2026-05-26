@@ -1,0 +1,20 @@
+---
+description: Skill for high-fidelity UI implementation using Ant Design
+globs: src/**/*.{tsx,css}
+---
+
+# Design & Implementation Skill
+
+## 1. Ant Design Fidelity
+- **Token System**: Use `theme.useToken()` to access design variables (colors, spacing, shadows). 
+- **Consistency**: Never use hardcoded hex codes if a theme token exists.
+- **Form Mastery**: Use AntD `<Form>` with built-in validation rules. Do not use manual state for inputs.
+
+## 2. Internationalization (i18n)
+- **Zero Hardcoding**: All strings must use `t('key.path')`.
+- **Language Support**: Support Armenian (AM), Russian (RU), and English (EN).
+- **Format**: Dates and numbers must be localized using `dayjs` or i18n formatters.
+
+## 3. Responsive UX
+- Use AntD Grid (`Row`, `Col`) and `Space` for all layouts.
+- Components must be tested for mobile (xs), tablet (md), and desktop (xl).

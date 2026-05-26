@@ -1,0 +1,18 @@
+---
+description: Rules for Ant Design components and styling consistency
+globs: **/*.tsx
+---
+
+# UI & Ant Design Implementation
+
+## Component Selection
+- **AntD First**: Always use an Ant Design component (`Button`, `Table`, `Modal`, `Form`) before creating a custom HTML element.
+- **Enterprise UI**: Follow Ant Design’s spacing and alignment tokens (`token.marginMD`, etc.).
+
+## Forms
+- **AntD Form**: Use `<Form>` with `onFinish`. Do not use `useState` for individual input fields.
+- **Validation**: Place validation rules directly in the `<Form.Item rules={[...]}>`.
+
+## Styling
+- **Theme Tokens**: Use `theme.useToken()` from `antd` for any custom styling to stay consistent with the global theme.
+- **Flexbox/Grid**: Use AntD `<Row>`, `<Col>`, and `<Space>` for layouts. Avoid raw CSS `gap` or `margin` where AntD components can handle it.

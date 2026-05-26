@@ -1,0 +1,18 @@
+---
+description: Skill to prevent code duplication and maintain DRY principles
+globs: **/*
+alwaysApply: true
+---
+
+# Pattern Scout & Anti-Redundancy
+
+## 1. Search Before Code
+- **Action**: Before creating a new component or hook, search `src/components/common/` and `src/hooks/` for existing solutions.
+- **Refactor Over Create**: If a similar component exists, suggest refactoring it to be reusable rather than creating a duplicate.
+
+## 2. Logic Centralization
+- **Utility Functions**: All pure helper functions go in `src/utils/`.
+- **Shared Constants**: Global constants (API endpoints, date formats) go in `src/consts/`.
+
+## 3. Dependency Management
+- Check `package.json` before suggesting new libraries. Maximize the use of Lodash, Dayjs, and AntD.

@@ -1,0 +1,19 @@
+---
+description: Enforces the specific src folder structure and file placement
+alwaysApply: false
+---
+# Project Structure Standards
+
+## Folder Hierarchy
+All files must strictly follow this directory structure:
+- `src/api/`: All Axios instance configurations and fetch logic (use mocks for now if API is not ready).
+- `src/components/`: Reusable UI atoms and molecules.
+- `src/pages/`: Main route screens/views.
+- `src/types/`: All TypeScript interfaces and models (TS models).
+- `src/store/`: Global state management files.
+- `src/hooks/`: Custom React hooks for business logic.
+
+## File Organization Rules
+- **One Component per File**: Each file in `components/` or `pages/` should export exactly one component.
+- **Hook Separation**: If a component's logic exceeds 30 lines, move the logic into a custom hook in `src/hooks/`.
+- **Centralized Types**: Never define interfaces inside component files. Always place them in `src/types/` and export them.

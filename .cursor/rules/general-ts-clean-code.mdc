@@ -1,0 +1,15 @@
+---
+description: TypeScript standards and Anti-Redundancy rules
+globs: **/*.{ts,tsx}
+---
+
+# Clean Code & TS Standards
+
+- **TypeScript Strictness**: 
+  - `no-any`: Use of `any` is strictly forbidden.
+  - Use `Readonly` for arrays/objects that shouldn't change.
+- **Anti-Redundancy (DRY)**:
+  - If a logic block is repeated 3 times, it must be moved to `src/hooks/` or `src/api/`.
+  - Search the existing codebase for similar utility functions before creating a new one.
+- **Vite Optimization**:
+  - Use absolute imports (e.g., `@/components/...`) as configured in `vite.config.ts`.
