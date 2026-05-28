@@ -1,0 +1,31 @@
+.selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  min-height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-rose);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.selector:hover {
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+}
+
+.flag {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.chevron {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}

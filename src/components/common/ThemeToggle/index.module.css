@@ -1,0 +1,78 @@
+.toggle {
+  display: inline-flex;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 72px;
+  height: 36px;
+  padding: 0 6px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: inset 0 1px 2px rgba(44, 44, 44, 0.04);
+}
+
+.thumb {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thumbLight {
+  background: var(--color-rose);
+  transform: translateX(0);
+}
+
+.thumbDark {
+  background: var(--color-rose);
+  transform: translateX(36px);
+}
+
+.icon {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.iconLeft {
+  margin-left: 2px;
+  left: -4px;
+}
+
+.iconRight {
+  margin-right: 2px;
+  right: -4px;
+}
+
+.iconOnThumb {
+  color: var(--color-white);
+}
+
+.iconAccent {
+  color: var(--color-rose);
+}
+
+.iconMuted {
+  color: var(--color-text-muted);
+}

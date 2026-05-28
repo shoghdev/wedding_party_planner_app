@@ -1,0 +1,24 @@
+.section {
+  padding-block: 80px;
+  background: var(--color-white);
+}
+
+.content {
+  margin-bottom: 32px;
+}
+
+.storiesTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0 0 24px;
+  color: var(--color-text);
+}
+
+@media (min-width: 992px) {
+  .content {
+    margin-bottom: 0;
+    padding-right: 32px;
+  }
+}

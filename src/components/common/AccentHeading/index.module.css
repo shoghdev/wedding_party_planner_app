@@ -1,0 +1,16 @@
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0 0 20px;
+}
+
+.accent {
+  font-family: var(--font-serif);
+  font-size: inherit;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-rose);
+}

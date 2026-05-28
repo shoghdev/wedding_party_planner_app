@@ -1,0 +1,29 @@
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.1;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.ampersand {
+  font-family: var(--font-script);
+  color: var(--color-gold);
+  font-style: normal;
+}
+
+.tagline {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}

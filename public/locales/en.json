@@ -1,0 +1,117 @@
+{
+  "header": {
+    "logo": {
+      "title": "Dream & Celebrate",
+      "tagline": "EVENT PLANNING"
+    },
+    "nav": {
+      "home": "HOME",
+      "about": "ABOUT",
+      "services": "SERVICES",
+      "portfolio": "PORTFOLIO",
+      "experience": "EXPERIENCE",
+      "blog": "BLOG",
+      "contact": "CONTACT"
+    },
+    "cta": "BOOK A CONSULTATION",
+    "language": "EN",
+    "menuToggle": "Open navigation menu",
+    "themeToggle": "Toggle color theme"
+  },
+  "home": {
+    "hero": {
+      "overline": "PLANNING IS A WORK OF HEART",
+      "titlePrefix": "Creating",
+      "titleAccent": "unforgettable",
+      "titleSuffix": "celebrations",
+      "description": "We design and execute stylish, heartfelt weddings and events with care, imagination, and attention to every detail.",
+      "primaryCta": "VIEW PACKAGES",
+      "secondaryCta": "OUR SERVICES",
+      "badge": "LET'S PLAN YOUR DREAM DAY"
+    },
+    "about": {
+      "overline": "ABOUT US",
+      "titlePrefix": "We don't just plan events, we create",
+      "titleAccent": "memories.",
+      "description": "With over a decade of experience in luxury event planning, our team transforms your vision into an extraordinary celebration. Every detail is thoughtfully curated to create moments that last a lifetime.",
+      "values": {
+        "expertise": {
+          "title": "Event Expertise",
+          "description": "Seasoned planners with luxury event mastery."
+        },
+        "decorations": {
+          "title": "Luxury Decorations",
+          "description": "Bespoke florals and décor for every setting."
+        },
+        "personalized": {
+          "title": "Personalized Services",
+          "description": "Tailored experiences shaped around your story."
+        },
+        "stressFree": {
+          "title": "Stress-Free Planning",
+          "description": "We handle every detail so you can enjoy the day."
+        }
+      }
+    },
+    "services": {
+      "overline": "THOUGHTFULLY PLANNED.",
+      "titlePrefix": "Beautifully",
+      "titleAccent": "executed.",
+      "learnMore": "LEARN MORE",
+      "cards": {
+        "wedding": {
+          "title": "Wedding Planning",
+          "description": "Full-service wedding design and coordination from engagement to farewell."
+        },
+        "parties": {
+          "title": "Parties & Celebrations",
+          "description": "Milestone birthdays, anniversaries, and joyful gatherings crafted with care."
+        },
+        "destination": {
+          "title": "Destination Events",
+          "description": "Unforgettable celebrations in the world's most breathtaking locations."
+        }
+      }
+    },
+    "stories": {
+      "overline": "PLANNING STORIES",
+      "title": "Love, laughter & beautiful memories.",
+      "cta": "START PLANNING",
+      "prev": "Previous story",
+      "next": "Next story",
+      "slides": {
+        "one": "Garden wedding reception",
+        "two": "Elegant table setting detail",
+        "three": "Floral ceremony arch",
+        "four": "Evening celebration lighting",
+        "five": "Bridal bouquet close-up",
+        "six": "Reception dance floor",
+        "seven": "Outdoor ceremony aisle",
+        "eight": "Cake and dessert display"
+      }
+    }
+  },
+  "footer": {
+    "quickLinks": "QUICK LINKS",
+    "services": "SERVICES",
+    "contact": "CONTACT US",
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Contact"
+    },
+    "serviceLinks": {
+      "weddings": "Weddings",
+      "corporate": "Corporate Events",
+      "private": "Private Parties",
+      "consultation": "Consultation"
+    },
+    "phone": "+1 (555) 123-4567",
+    "email": "hello@dreamandcelebrate.com",
+    "address": "123 Celebration Lane, New York, NY 10001",
+    "copyright": "© 2025 Dream & Celebrate. All rights reserved."
+  }
+}

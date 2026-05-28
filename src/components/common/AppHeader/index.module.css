@@ -1,0 +1,200 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+}
+
+.headerScrolled {
+  border-bottom-color: var(--color-border);
+  box-shadow: 0 4px 24px rgba(44, 44, 44, 0.06);
+}
+
+.mainBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 80px;
+}
+
+.logoSlot {
+  flex-shrink: 0;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex: 1;
+  padding-inline: 24px;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  position: relative;
+  padding-bottom: 8px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: var(--color-rose);
+}
+
+.navLinkActive {
+  color: var(--color-rose);
+}
+
+.navLinkActive::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--color-rose);
+  border-radius: 1px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.desktopUtilities {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobileMenuBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.utilityBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-block: 10px;
+  border-top: 1px solid var(--color-border);
+}
+
+.mobileCta :global(.ant-btn) {
+  font-size: 10px;
+  padding-inline: 14px;
+  height: 38px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.desktopCta {
+  display: none;
+}
+
+.desktopCta :global(.ant-btn) {
+  height: 44px;
+  padding-inline: 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 6px;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.drawerNavLink {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .utilityBar {
+    display: none;
+  }
+
+  .desktopUtilities {
+    display: flex;
+  }
+
+  .mobileMenuBtn {
+    display: none;
+  }
+
+  .logoSlot {
+    flex: 0;
+    justify-content: flex-start;
+  }
+
+  .mobileCta {
+    display: none;
+  }
+
+  .desktopCta {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+  }
+
+  .mainBar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 32px;
+  }
+
+  .logoSlot {
+    grid-column: 1;
+    flex: unset;
+    justify-content: flex-start;
+  }
+
+  .nav {
+    grid-column: 2;
+    display: flex;
+    padding-inline: 0;
+  }
+
+  .actions {
+    grid-column: 3;
+    margin-left: 0;
+  }
+}
