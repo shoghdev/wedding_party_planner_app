@@ -5,7 +5,7 @@ export const Logo = () => {
   const { t } = useTranslation();
 
   return (
-    <a href="#home" className={styles.logo} aria-label={t('header.logo.title')}>
+    <a href="/" className={styles.logo} aria-label={t('header.logo.title')}>
       <span className={styles.title}>
         Dream <em className={styles.ampersand}>&</em> Celebrate
       </span>

@@ -2,12 +2,13 @@ import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { LanguageSelector } from '@/components/common/LanguageSelector';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import type { ThemeMode } from '@/types/theme';
-import { ACTIVE_NAV_KEY, NAV_ITEMS } from './consts';
+import { getActiveNavKey, NAV_ITEMS } from './consts';
 import { styles } from './styles';
 
 type AppHeaderProps = Readonly<{
@@ -17,6 +18,8 @@ type AppHeaderProps = Readonly<{
 
 export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const activeNavKey = getActiveNavKey(pathname);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -60,7 +63,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
                 href={item.href}
                 className={[
                   styles.navLink,
-                  item.key === ACTIVE_NAV_KEY && styles.navLinkActive,
+                  item.key === activeNavKey && styles.navLinkActive,
                 ]
                   .filter(Boolean)
                   .join(' ')}

@@ -4,4 +4,7 @@ export const QUERY_KEYS = {
     services: ['home', 'services'] as const,
     stories: ['home', 'stories'] as const,
   },
+  services: {
+    page: ['services', 'page'] as const,
+  },
 } as const;

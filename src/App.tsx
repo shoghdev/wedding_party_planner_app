@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { HomePage } from '@/pages/HomePage';
+import { ServicesPage } from '@/pages/ServicesPage';
 import { getAntdTheme } from '@/theme/antdTheme';
 
 const queryClient = new QueryClient({
@@ -30,6 +31,7 @@ const App = () => {
           <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>

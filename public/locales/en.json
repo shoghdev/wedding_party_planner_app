@@ -91,6 +91,33 @@
       }
     }
   },
+  "servicesPage": {
+    "hero": {
+      "overline": "OUR SERVICES",
+      "title": "From intimate gatherings to grand celebrations, we do it all.",
+      "subtitle": "Full-service planning, breathtaking design, and seamless execution.",
+      "badge": "CELEBRATE YOUR WAY"
+    },
+    "learnMore": "LEARN MORE",
+    "cards": {
+      "fullPlanning": {
+        "title": "Full Wedding Planning",
+        "description": "Complete planning from start to finish."
+      },
+      "partialPlanning": {
+        "title": "Partial Planning",
+        "description": "Guidance and planning for key parts."
+      },
+      "designStyling": {
+        "title": "Event Design & Styling",
+        "description": "Beautiful themes, decor & styling."
+      },
+      "dayCoordination": {
+        "title": "Micro / Day Coordination",
+        "description": "On-the-day management and coordination."
+      }
+    }
+  },
   "footer": {
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",
