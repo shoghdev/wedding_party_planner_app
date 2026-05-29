@@ -91,6 +91,63 @@
       }
     }
   },
+  "about": {
+    "hero": {
+      "overline": "ABOUT US",
+      "titleBefore": "We create experiences that stay in your",
+      "titleAccent": "heart",
+      "titleAfter": "forever.",
+      "description": "We turn your vision into meaningful moments, crafted with love, creativity and attention to every detail.",
+      "cta": "OUR STORY",
+      "imageAlt": "Event planners reviewing details on a tablet"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraphOne": "Dream & Celebrate was born from a love for beautiful details and meaningful moments.",
+      "paragraphTwo": "We believe every celebration is unique and deserves to be planned with care, passion and flawless execution.",
+      "signature": "— The Dream & Celebrate Team ♡",
+      "imageAlt": "Elegant wedding table setting with roses and candles"
+    },
+    "stats": {
+      "events": {
+        "value": "150+",
+        "label": "Events Planned"
+      },
+      "years": {
+        "value": "8+",
+        "label": "Years Experience"
+      },
+      "couples": {
+        "value": "50+",
+        "label": "Happy Couples"
+      },
+      "dedication": {
+        "value": "100%",
+        "label": "Dedication"
+      }
+    },
+    "different": {
+      "title": "What Makes Us Different",
+      "items": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every event is tailored to reflect your unique story, style, and vision."
+        },
+        "creative": {
+          "title": "Creative & Stylish Design",
+          "description": "Fresh, elegant concepts that make your celebration feel truly one of a kind."
+        },
+        "stressFree": {
+          "title": "Stress-Free Experience",
+          "description": "We manage every detail so you can stay present and enjoy the moment."
+        },
+        "trusted": {
+          "title": "Trusted Relationships",
+          "description": "Lasting partnerships with couples, vendors, and venues you can rely on."
+        }
+      }
+    }
+  },
   "footer": {
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",

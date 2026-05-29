@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
+import { AboutPage } from '@/pages/AboutPage';
 import { HomePage } from '@/pages/HomePage';
 import { getAntdTheme } from '@/theme/antdTheme';
 
@@ -30,6 +31,7 @@ const App = () => {
           <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>

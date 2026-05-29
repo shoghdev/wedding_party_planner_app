@@ -2,12 +2,14 @@ import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
 import { LanguageSelector } from '@/components/common/LanguageSelector';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
+import type { NavItem } from '@/types/home';
 import type { ThemeMode } from '@/types/theme';
-import { ACTIVE_NAV_KEY, NAV_ITEMS } from './consts';
+import { NAV_ITEMS } from './consts';
 import { styles } from './styles';
 
 type AppHeaderProps = Readonly<{
@@ -15,8 +17,19 @@ type AppHeaderProps = Readonly<{
   onThemeToggle: () => void;
 }>;
 
+const isNavActive = (pathname: string, item: NavItem) => {
+  if (item.key === 'home') {
+    return pathname === '/';
+  }
+  if (item.key === 'about') {
+    return pathname === '/about';
+  }
+  return false;
+};
+
 export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -55,18 +68,18 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
 
           <nav className={styles.nav} aria-label="Main navigation">
             {NAV_ITEMS.map((item) => (
-              <a
+              <Link
                 key={item.key}
-                href={item.href}
+                to={item.href}
                 className={[
                   styles.navLink,
-                  item.key === ACTIVE_NAV_KEY && styles.navLinkActive,
+                  isNavActive(pathname, item) && styles.navLinkActive,
                 ]
                   .filter(Boolean)
                   .join(' ')}
               >
                 {t(`header.nav.${item.key}`)}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -95,14 +108,14 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
       >
         <nav className={styles.drawerNav} aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.key}
-              href={item.href}
+              to={item.href}
               className={styles.drawerNavLink}
               onClick={() => setMenuOpen(false)}
             >
               {t(`header.nav.${item.key}`)}
-            </a>
+            </Link>
           ))}
         </nav>
       </Drawer>
