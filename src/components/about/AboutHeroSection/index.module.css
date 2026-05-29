@@ -121,10 +121,10 @@
   visibility: hidden;
 }
 
-/* .skeleton {
+.skeleton {
   width: 100% !important;
   min-height: clamp(16rem, 50vw, 24rem) !important; 
-}*/
+}
 
 @media (hover: hover) {
   .heroImage:hover {

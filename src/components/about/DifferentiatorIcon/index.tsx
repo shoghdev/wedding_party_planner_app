@@ -19,7 +19,7 @@ export const DifferentiatorIcon = ({ iconKey }: DifferentiatorIconProps) => (
       )}
       {iconKey === 'creative' && (
         <path
-          d="M6 18c4-8 8-12 14-14-2 6-2 12 2 18-4-1-8 0-12 2-2-4-2-8 0-12 2"
+          d="M6 18c4-8 8-12 14-14-2 6-2 12 2 18-4-1-8 0-12 2-2-4-2-8 0-12z"
           stroke="currentColor"
           strokeWidth="1.2"
           strokeLinecap="round"
