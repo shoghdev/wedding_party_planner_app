@@ -114,6 +114,13 @@
   border-radius: 0 50% 0 0;
 }
 
+:global([data-theme='dark']) .floralLeft,
+:global([data-theme='dark']) .floralRight {
+  display: none !important;
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* .skeleton {
   width: 100% !important;
   min-height: clamp(16rem, 50vw, 24rem) !important; 
@@ -223,6 +230,5 @@
     padding-left: clamp(2rem, 5vw, 4rem);
     padding-right: clamp(2rem, 5vw, 4rem);
   }
-
-
 }
+
