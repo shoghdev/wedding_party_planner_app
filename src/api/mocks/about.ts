@@ -1,8 +1,8 @@
 import type { AboutContent, AboutDifferentiator, AboutStat } from '@/types/about';
 
 export const MOCK_ABOUT_CONTENT: AboutContent = {
-  heroImageUrl: '/images/about/hero.png',
-  storyImageUrl: '/images/about/story.png',
+  heroImageUrl: '/images/about/hero.webp',
+  storyImageUrl: '/images/about/story.webp',
 };
 
 export const MOCK_ABOUT_STATS: readonly AboutStat[] = [

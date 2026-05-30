@@ -38,13 +38,13 @@ export const AboutHeroSection = () => {
           <Col xs={24} lg={14} xl={14} className={styles.visualCol}>
             <div className={styles.mediaStage} aria-hidden={isLoading}>
               <img
-                src="/images/about/center-floral-background.png"
+                src="/images/about/center-floral-background.webp"
                 alt=""
                 aria-hidden
                 className={styles.floralLeft}
               />
               <img
-                src="/images/about/right-floral-background.png"
+                src="/images/about/right-floral-background.webp"
                 alt=""
                 aria-hidden
                 className={styles.floralRight}

@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { FOOTER_QUICK_LINKS, FOOTER_SERVICE_LINKS } from './consts';
@@ -14,9 +15,14 @@ import { styles } from './styles';
 
 export const AppFooter = () => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const isAboutPage = pathname === '/about';
 
   return (
-    <footer id="contact" className={styles.footer}>
+    <footer
+      id="contact"
+      className={[styles.footer, isAboutPage && styles.aboutPageFooter].filter(Boolean).join(' ')}
+    >
       <PageContainer>
         <Row gutter={[32, 40]} className={styles.grid}>
           <Col xs={24} sm={12} lg={6}>
