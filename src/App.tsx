@@ -7,6 +7,7 @@ import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { ExperiencePage } from '@/pages/ExperiencePage';
 import { HomePage } from '@/pages/HomePage';
+import { PortfolioPage } from '@/pages/PortfolioPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { getAntdTheme } from '@/theme/antdTheme';
 
@@ -38,6 +39,7 @@ const App = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>

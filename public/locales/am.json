@@ -132,6 +132,8 @@
         "title": "Օրվա կոորդինացիա",
         "description": "Օրվա կառավարում և կոորդինացիա։"
       }
+    }
+  },
   "about": {
     "hero": {
       "overline": "ՄԵՐ ՄԱՍԻՆ",
@@ -337,5 +339,37 @@
     "email": "hello@dreamandcelebrate.com",
     "address": "Երևան, ՀՀ",
     "copyright": "© 2025 Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։"
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "ՊՈՐՏՖՈԼԻՈ",
+      "title": "Սեր, ուրախություն և գեղեցիկ տոնակատարությունների հավաքածու։"
+    },
+    "filters": {
+      "label": "Ֆիլտրել պորտֆոլիոն",
+      "all": "ԲՈԼՈՐԸ",
+      "weddings": "ՀԱՐՍԱՆԻՔՆԵՐ",
+      "parties": "ԽՆՋՈՒՅՔՆԵՐ",
+      "destinations": "ՆՊԱՏԱԿԱԿԵՏ",
+      "engagements": "ՆՇԱՆԱԴՐՈՒԹՅՈՒՆ",
+      "showers": "ՏՈՆԱԿԱՏԱՐՈՒԹՅՈՒՆՆԵՐ",
+      "corporate": "ԿՈՐՊՈՐԱՏԻՎ"
+    },
+    "loadMore": "ԲԵՌՆԵԼ ԱՎԵԼԻՆ",
+    "empty": "Այս բաժնում դեռ աշխատանքներ չկան։",
+    "items": {
+      "floralArch": "Ծաղկային արarքi kamar",
+      "outdoorCeremony": "Այgi harsaniki ararq",
+      "tableSetting": "Նrbagegh momerov seghani dekor",
+      "candlelitReception": "Yndunelutyan seghan tsaghiknerov",
+      "gardenCelebration": "Այgi tonakatarutyun tsaghiknerov",
+      "dessertDisplay": "Kaghadogh tsughadryan ev puchikner",
+      "bridalBouquet": "Harsni tsaghkezri kloraki",
+      "corporateGala": "Korporativ yerkeoyan yndunelutyun",
+      "destinationVows": "Npatvakayin harsaniki khorhrd",
+      "engagementDinner": "Nshanadrutyan aravotan chash",
+      "babyShower": "Shnorhavori toni patarag",
+      "corporateSummit": "Korporativ sammiti dekor"
+    }
   }
 }
