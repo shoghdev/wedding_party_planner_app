@@ -96,7 +96,7 @@
   z-index: 3;
   width: 100%;
   
-  max-width: clamp(18rem, 90vw, 30rem); 
+  max-width: clamp(19rem, 90vw, 31rem); 
   margin-top: clamp(1rem, 3vw, 2rem);
   margin-inline: auto;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08)); 
@@ -141,7 +141,7 @@
   }
 
   .heroImage {
-    max-width: clamp(20rem, 65vw, 26rem);
+    max-width: clamp(21rem, 65vw, 27rem);
   }
 }
 
@@ -151,11 +151,15 @@
   }
 
   .heroImage {
-    max-width: clamp(22rem, 55vw, 28rem);
+    max-width: clamp(23rem, 55vw, 29rem);
   }
 }
 
 @media (min-width: 992px) {
+  .heroRow:global(.ant-row) > :global(.ant-col) {
+    padding-inline: 10px;
+  }
+
   .content {
     text-align: left;
   }
@@ -171,7 +175,7 @@
   .mediaStage {
     max-width: 100%;
     margin-inline: 0;
-    padding-left: clamp(3rem, 6vw, 6rem);
+    padding-left: clamp(2rem, 3.5vw, 3.25rem);
     padding-right: clamp(2rem, 5vw, 5rem);
   }
 
@@ -187,14 +191,15 @@
   }
 
   .heroImage {
-    max-width: clamp(24rem, 35vw, 32rem);
-    margin-inline: auto;
+    max-width: clamp(26rem, 38vw, 34rem);
+    margin-left: 0;
+    margin-right: auto;
   }
 }
 
 @media (min-width: 1200px) {
   .heroImage {
-    max-width: clamp(26rem, 32vw, 35rem);
+    max-width: clamp(29rem, 42vw, 40rem);
     position: relative;
    
     z-index: 3; 
@@ -206,8 +211,8 @@
     
     z-index: 2; 
     
-    left: 2%; 
-    bottom: -1rem;
+    left: -13%; 
+    bottom: 5rem;
     width: clamp(6rem, 15vw, 10rem);
     transform: none;
    
@@ -227,7 +232,7 @@
 
   
   .mediaStage {
-    padding-left: clamp(2rem, 5vw, 4rem);
+    padding-left: clamp(1.75rem, 3.5vw, 3rem);
     padding-right: clamp(2rem, 5vw, 4rem);
   }
 }
