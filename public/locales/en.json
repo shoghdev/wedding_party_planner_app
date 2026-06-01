@@ -118,6 +118,38 @@
       }
     }
   },
+  "portfolioPage": {
+    "hero": {
+      "overline": "PORTFOLIO",
+      "title": "A collection of love, joy and beautiful celebrations."
+    },
+    "filters": {
+      "label": "Filter portfolio",
+      "all": "ALL",
+      "weddings": "WEDDINGS",
+      "parties": "PARTIES",
+      "destinations": "DESTINATIONS",
+      "engagements": "ENGAGEMENTS",
+      "showers": "SHOWERS",
+      "corporate": "CORPORATE"
+    },
+    "loadMore": "LOAD MORE",
+    "empty": "No portfolio items match this category yet.",
+    "items": {
+      "floralArch": "Floral ceremony arch with white blooms",
+      "outdoorCeremony": "Outdoor wedding ceremony setup",
+      "tableSetting": "Elegant candlelit table setting",
+      "candlelitReception": "Reception table with floral centerpiece",
+      "gardenCelebration": "Garden celebration with lush florals",
+      "dessertDisplay": "Pink-themed dessert and balloon display",
+      "bridalBouquet": "Bridal bouquet detail shot",
+      "corporateGala": "Corporate gala evening reception",
+      "destinationVows": "Destination wedding vows by the water",
+      "engagementDinner": "Intimate engagement dinner setting",
+      "babyShower": "Elegant baby shower tablescape",
+      "corporateSummit": "Corporate summit lounge styling"
+    }
+  },
   "footer": {
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",

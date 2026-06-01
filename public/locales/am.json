@@ -98,7 +98,7 @@
     "cards": {
       "fullPlanning": {
         "title": "Ամբողջական հարսանիքի պլանավորում",
-        "description": "Լիարժեք պլանավորում սկզբից մինչև ավարտ։"
+        "description": "Լիarfek panavorum skzbic minchev avart։"
       },
       "partialPlanning": {
         "title": "Մասնակի պլանավորում",
@@ -109,9 +109,41 @@
         "description": "Գեղեցիկ թեմաներ, դեկոր և ոճավորում։"
       },
       "dayCoordination": {
-        "title": "Օրվա կոորդինացիա",
-        "description": "Օրվա կառավարում և կոորդինացիա։"
+        "title": "Օրվա կոordinatsia",
+        "description": "Օրվա կառavarman ev koordinatsia։"
       }
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "ՊՈՐՏՖՈԼԻՈ",
+      "title": "Սեր, ուրախություն և գեղեցիկ տոնակատարությունների հավաքածու։"
+    },
+    "filters": {
+      "label": "Ֆիլտրել պորտֆոլիոն",
+      "all": "ԲՈԼՈՐԸ",
+      "weddings": "ՀԱՐՍԱՆԻՔՆԵՐ",
+      "parties": "ԽՆՋՈՒՅՔՆԵՐ",
+      "destinations": "ՆՊԱՏԱԿԱԿԵՏ",
+      "engagements": "ՆՇԱՆԱԴՐՈՒԹՅՈՒՆ",
+      "showers": "ՏՈՆԱԿԱՏԱՐՈՒԹՅՈՒՆՆԵՐ",
+      "corporate": "ԿՈՐՊՈՐԱՏԻՎ"
+    },
+    "loadMore": "ԲԵՌՆԵԼ ԱՎԵԼԻՆ",
+    "empty": "Այս բաժնում դեռ աշխատանքներ չկան։",
+    "items": {
+      "floralArch": "Ծաղկային արarքi kamar",
+      "outdoorCeremony": "Այgi harsaniki ararq",
+      "tableSetting": "Նrbagegh momerov seghani dekor",
+      "candlelitReception": "Yndunelutyan seghan tsaghiknerov",
+      "gardenCelebration": "Այgi tonakatarutyun tsaghiknerov",
+      "dessertDisplay": "Kaghadogh tsughadryan ev puchikner",
+      "bridalBouquet": "Harsni tsaghkezri kloraki",
+      "corporateGala": "Korporativ yerkeoyan yndunelutyun",
+      "destinationVows": "Npatvakayin harsaniki khorhrd",
+      "engagementDinner": "Nshanadrutyan aravotan chash",
+      "babyShower": "Shnorhavori toni patarag",
+      "corporateSummit": "Korporativ sammiti dekor"
     }
   },
   "footer": {
@@ -134,7 +166,7 @@
     },
     "phone": "+1 (555) 123-4567",
     "email": "hello@dreamandcelebrate.com",
-    "address": "123 Celebration Lane, Նյու Յորք, NY 10001",
-    "copyright": "© 2025 Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։"
+    "address": "123 Celebration Lane, Նյու Յorք, NY 10001",
+    "copyright": "© 2025 Dream & Celebrate. Բոլոր իրavunqnery pahpanvats en։"
   }
 }

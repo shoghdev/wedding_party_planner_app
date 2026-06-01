@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { HomePage } from '@/pages/HomePage';
+import { PortfolioPage } from '@/pages/PortfolioPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { getAntdTheme } from '@/theme/antdTheme';
 
@@ -32,6 +33,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>
