@@ -2,12 +2,13 @@ import { MenuOutlined } from '@ant-design/icons';
 import { Button, Drawer } from 'antd';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
 import { LanguageSelector } from '@/components/common/LanguageSelector';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import type { ThemeMode } from '@/types/theme';
-import { ACTIVE_NAV_KEY, NAV_ITEMS } from './consts';
+import { getActiveNavKey, NAV_ITEMS } from './consts';
 import { styles } from './styles';
 
 type AppHeaderProps = Readonly<{
@@ -15,10 +16,14 @@ type AppHeaderProps = Readonly<{
   onThemeToggle: () => void;
 }>;
 
+const isRoutePath = (href: string) => href.startsWith('/') && !href.includes('#');
+
 export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
   const { t } = useTranslation();
+  const { pathname, hash } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const activeNavKey = getActiveNavKey(pathname, hash);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -30,17 +35,27 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
     .filter(Boolean)
     .join(' ');
 
-  const navLinks = NAV_ITEMS.map((item) => (
-    <a
-      key={item.key}
-      href={item.href}
-      className={[styles.navLink, item.key === ACTIVE_NAV_KEY && styles.navLinkActive]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      {t(`header.nav.${item.key}`)}
-    </a>
-  ));
+  const navLinkClass = (key: string) =>
+    [styles.navLink, key === activeNavKey && styles.navLinkActive].filter(Boolean).join(' ');
+
+  const renderNavLink = (item: (typeof NAV_ITEMS)[number]) => {
+    const label = t(`header.nav.${item.key}`);
+    const className = navLinkClass(item.key);
+
+    if (isRoutePath(item.href)) {
+      return (
+        <Link key={item.key} to={item.href} className={className}>
+          {label}
+        </Link>
+      );
+    }
+
+    return (
+      <a key={item.key} href={item.href} className={className}>
+        {label}
+      </a>
+    );
+  };
 
   return (
     <header className={headerClass}>
@@ -51,7 +66,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
           </div>
 
           <nav className={styles.nav} aria-label="Main navigation">
-            {navLinks}
+            {NAV_ITEMS.map(renderNavLink)}
           </nav>
 
           <div className={styles.actions}>
@@ -87,21 +102,38 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
           <LanguageSelector variant="header" />
         </div>
         <nav className={styles.drawerNav} aria-label="Mobile navigation">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.key}
-              href={item.href}
-              className={[
-                styles.drawerNavLink,
-                item.key === ACTIVE_NAV_KEY && styles.drawerNavLinkActive,
-              ]
-                .filter(Boolean)
-                .join(' ')}
-              onClick={() => setMenuOpen(false)}
-            >
-              {t(`header.nav.${item.key}`)}
-            </a>
-          ))}
+          {NAV_ITEMS.map((item) => {
+            const className = [
+              styles.drawerNavLink,
+              item.key === activeNavKey && styles.drawerNavLinkActive,
+            ]
+              .filter(Boolean)
+              .join(' ');
+
+            if (isRoutePath(item.href)) {
+              return (
+                <Link
+                  key={item.key}
+                  to={item.href}
+                  className={className}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {t(`header.nav.${item.key}`)}
+                </Link>
+              );
+            }
+
+            return (
+              <a
+                key={item.key}
+                href={item.href}
+                className={className}
+                onClick={() => setMenuOpen(false)}
+              >
+                {t(`header.nav.${item.key}`)}
+              </a>
+            );
+          })}
           <Button type="primary" block size="large" className={styles.drawerCta}>
             {t('header.cta')}
           </Button>
