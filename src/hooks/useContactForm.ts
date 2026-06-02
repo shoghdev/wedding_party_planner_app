@@ -16,11 +16,17 @@ export const useContactForm = () => {
       message.success(t('contact.form.success'));
       return true;
     } catch (error) {
-      const isConfigError =
-        error instanceof Error && error.message === 'EMAILJS_NOT_CONFIGURED';
+      const errorMessage = error instanceof Error ? error.message : 'UNKNOWN';
+      const isConfigError = errorMessage === 'EMAILJS_NOT_CONFIGURED';
+
+      if (import.meta.env.DEV && !isConfigError) {
+        console.error('[Contact form]', errorMessage);
+      }
 
       message.error(
-        isConfigError ? t('contact.form.configError') : t('contact.form.error'),
+        isConfigError
+          ? t('contact.form.configError')
+          : t('contact.form.errorWithReason', { reason: errorMessage }),
       );
       return false;
     } finally {

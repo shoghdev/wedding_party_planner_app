@@ -279,7 +279,8 @@
       "submit": "Send",
       "success": "Thank you! Your message has been sent.",
       "error": "Something went wrong. Please try again.",
-      "configError": "Email is not configured yet. Please add your EmailJS keys to .env."
+      "errorWithReason": "Could not send: {{reason}}",
+      "configError": "Email is not configured yet. Please add your EmailJS keys to .env and restart the dev server."
     },
     "follow": {
       "title": "Follow Us"

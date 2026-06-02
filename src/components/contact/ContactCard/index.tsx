@@ -1,12 +1,11 @@
 import { Button, Col, Form, Input, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { ContactDetailIcon } from '@/components/contact/ContactDetailIcon';
 import { CONTACT_DECOR_IMAGE_URL, CONTACT_DETAILS } from '@/api/mocks/contact';
 import { useContactForm } from '@/hooks/useContactForm';
 import type { ContactFormValues } from '@/types/contact';
-import { styles } from './styles';
+import styles from './index.module.css';
 
 const { TextArea } = Input;
 
