@@ -6,16 +6,20 @@ import { styles } from './styles';
 type ThemeToggleProps = Readonly<{
   mode: ThemeMode;
   onToggle: () => void;
+  variant?: 'default' | 'header';
 }>;
 
-export const ThemeToggle = ({ mode, onToggle }: ThemeToggleProps) => {
+export const ThemeToggle = ({ mode, onToggle, variant = 'default' }: ThemeToggleProps) => {
   const { t } = useTranslation();
   const isLight = mode === 'light';
+  const toggleClass = [styles.toggle, variant === 'header' && styles.toggleHeader]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <button
       type="button"
-      className={styles.toggle}
+      className={toggleClass}
       onClick={onToggle}
       aria-label={t('header.themeToggle')}
       aria-pressed={!isLight}

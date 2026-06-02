@@ -1,5 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchHomeContent, fetchServices, fetchStories, fetchValueProps } from '@/api/home';
+import {
+  fetchHomeContent,
+  fetchHomeFeatures,
+  fetchServices,
+  fetchStories,
+  fetchValueProps,
+} from '@/api/home';
 import { QUERY_KEYS } from '@/consts/queryKeys';
 
 export const useHomeContent = () =>
@@ -12,6 +18,12 @@ export const useValueProps = () =>
   useQuery({
     queryKey: [...QUERY_KEYS.home.content, 'values'],
     queryFn: fetchValueProps,
+  });
+
+export const useHomeFeatures = () =>
+  useQuery({
+    queryKey: [...QUERY_KEYS.home.content, 'features'],
+    queryFn: fetchHomeFeatures,
   });
 
 export const useServices = () =>

@@ -1,4 +1,4 @@
-import type { HomeContent, ServiceCard, StorySlide, ValueProp } from '@/types/home';
+import type { HomeContent, HomeFeature, ServiceCard, StorySlide, ValueProp } from '@/types/home';
 
 export const MOCK_HOME_CONTENT: HomeContent = {
   hero: {
@@ -13,9 +13,36 @@ export const MOCK_HOME_CONTENT: HomeContent = {
   },
   about: {
     imageUrl:
-      'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=700&q=80',
+      'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80',
   },
 };
+
+export const MOCK_HOME_FEATURES: readonly HomeFeature[] = [
+  {
+    id: 'planned',
+    iconKey: 'heart',
+    titleKey: 'home.features.planned.title',
+    descriptionKey: 'home.features.planned.description',
+  },
+  {
+    id: 'details',
+    iconKey: 'flower',
+    titleKey: 'home.features.details.title',
+    descriptionKey: 'home.features.details.description',
+  },
+  {
+    id: 'natural',
+    iconKey: 'leaf',
+    titleKey: 'home.features.natural.title',
+    descriptionKey: 'home.features.natural.description',
+  },
+  {
+    id: 'coordination',
+    iconKey: 'ribbon',
+    titleKey: 'home.features.coordination.title',
+    descriptionKey: 'home.features.coordination.description',
+  },
+] as const;
 
 export const MOCK_VALUE_PROPS: readonly ValueProp[] = [
   {
@@ -47,13 +74,15 @@ export const MOCK_VALUE_PROPS: readonly ValueProp[] = [
 export const MOCK_SERVICES: readonly ServiceCard[] = [
   {
     id: 'wedding',
+    iconKey: 'wedding',
     imageUrl:
-      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80',
+      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80',
     titleKey: 'home.services.cards.wedding.title',
     descriptionKey: 'home.services.cards.wedding.description',
   },
   {
     id: 'parties',
+    iconKey: 'parties',
     imageUrl:
       'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80',
     titleKey: 'home.services.cards.parties.title',
@@ -61,6 +90,7 @@ export const MOCK_SERVICES: readonly ServiceCard[] = [
   },
   {
     id: 'destination',
+    iconKey: 'destination',
     imageUrl:
       'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=600&q=80',
     titleKey: 'home.services.cards.destination.title',

@@ -20,20 +20,39 @@
   },
   "home": {
     "hero": {
-      "overline": "PLANNING IS A WORK OF HEART",
+      "overline": "WE PLAN, YOU CELEBRATE.",
       "titlePrefix": "Creating",
       "titleAccent": "unforgettable",
       "titleSuffix": "celebrations",
       "description": "We design and execute stylish, heartfelt weddings and events with care, imagination, and attention to every detail.",
-      "primaryCta": "VIEW PACKAGES",
-      "secondaryCta": "OUR SERVICES",
+      "primaryCta": "OUR SERVICES",
+      "secondaryCta": "VIEW PORTFOLIO",
       "badge": "LET'S PLAN YOUR DREAM DAY"
+    },
+    "features": {
+      "heading": "Why couples choose us",
+      "planned": {
+        "title": "Thoughtfully Planned, Beautifully Executed",
+        "description": "Every timeline, vendor, and detail aligned with your vision."
+      },
+      "details": {
+        "title": "Elegant Details, Lasting Impressions",
+        "description": "Refined styling and décor that feel personal and timeless."
+      },
+      "natural": {
+        "title": "Romantic Florals & Styling",
+        "description": "Soft palettes, lush blooms, and artful tablescapes."
+      },
+      "coordination": {
+        "title": "Seamless Day-Of Coordination",
+        "description": "Relax and celebrate while we manage every moment."
+      }
     },
     "about": {
       "overline": "ABOUT US",
       "titlePrefix": "We don't just plan events, we create",
       "titleAccent": "memories.",
-      "description": "With over a decade of experience in luxury event planning, our team transforms your vision into an extraordinary celebration. Every detail is thoughtfully curated to create moments that last a lifetime.",
+      "description": "Dream & Celebrate is a full-service wedding and event planning company dedicated to turning your vision into beautiful reality. From intimate gatherings to grand celebrations, we take care of every detail so you can enjoy every moment.",
       "values": {
         "expertise": {
           "title": "Event Expertise",
@@ -54,22 +73,23 @@
       }
     },
     "services": {
-      "overline": "THOUGHTFULLY PLANNED.",
+      "overline": "OUR SERVICES",
+      "titleLine1": "Thoughtfully planned.",
       "titlePrefix": "Beautifully",
       "titleAccent": "executed.",
       "learnMore": "LEARN MORE",
       "cards": {
         "wedding": {
           "title": "Wedding Planning",
-          "description": "Full-service wedding design and coordination from engagement to farewell."
+          "description": "Full-service planning designed around your love story."
         },
         "parties": {
           "title": "Parties & Celebrations",
-          "description": "Milestone birthdays, anniversaries, and joyful gatherings crafted with care."
+          "description": "Social events, anniversaries, birthdays, and more."
         },
         "destination": {
           "title": "Destination Events",
-          "description": "Unforgettable celebrations in the world's most breathtaking locations."
+          "description": "Beautiful locations, seamless execution, unforgettable experiences."
         }
       }
     },
@@ -234,9 +254,18 @@
     }
   },
   "footer": {
+    "tagline": "Creating unforgettable celebrations with heart, style, and flawless coordination.",
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",
     "contact": "CONTACT US",
+    "newsletter": {
+      "title": "STAY INSPIRED",
+      "description": "Receive planning tips, inspiration, and exclusive offers.",
+      "placeholder": "Your email address",
+      "submit": "SUBSCRIBE",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address."
+    },
     "links": {
       "home": "Home",
       "about": "About Us",
@@ -251,9 +280,9 @@
       "private": "Private Parties",
       "consultation": "Consultation"
     },
-    "phone": "+1 (555) 123-4567",
+    "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
-    "address": "123 Celebration Lane, New York, NY 10001",
+    "address": "Yerevan, RA",
     "copyright": "© 2025 Dream & Celebrate. All rights reserved."
   }
 }

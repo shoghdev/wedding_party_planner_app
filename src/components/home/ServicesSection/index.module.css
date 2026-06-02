@@ -9,14 +9,39 @@
   margin: 0 auto 52px;
 }
 
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.headingLine {
+  display: block;
+}
+
+.headingAccent {
+  font-family: var(--font-serif);
+  font-size: inherit;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-rose);
+}
+
 .card {
   border-radius: 14px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.cardImageWrap {
+  position: relative;
 }
 
 .cardImage {
@@ -36,19 +61,49 @@
   transform: scale(1.03);
 }
 
+.iconBadge {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-rose);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-rose);
+  z-index: 1;
+}
+
+.iconBadge :global(.service-icon) {
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+
+.iconBadge :global(.service-icon svg) {
+  width: 100%;
+  height: 100%;
+}
+
 .cardBody {
-  padding: 22px 24px 28px;
+  padding: 38px 28px 32px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .cardTitle {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text);
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .cardDescription {
@@ -56,8 +111,9 @@
   font-size: 14px;
   line-height: 1.65;
   color: var(--color-text-muted);
-  margin: 0 0 18px;
+  margin: 0 0 20px;
   flex: 1;
+  max-width: 280px;
 }
 
 .learnMore {
