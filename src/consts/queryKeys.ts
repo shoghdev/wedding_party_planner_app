@@ -9,4 +9,10 @@ export const QUERY_KEYS = {
     stats: ['about', 'stats'] as const,
     differentiators: ['about', 'differentiators'] as const,
   },
+  experience: {
+    content: ['experience', 'content'] as const,
+    processSteps: ['experience', 'processSteps'] as const,
+    whyCouples: ['experience', 'whyCouples'] as const,
+    gallery: ['experience', 'gallery'] as const,
+  },
 } as const;

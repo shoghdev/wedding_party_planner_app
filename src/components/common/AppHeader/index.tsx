@@ -24,6 +24,9 @@ const isNavActive = (pathname: string, item: NavItem) => {
   if (item.key === 'about') {
     return pathname === '/about';
   }
+  if (item.key === 'experience') {
+    return pathname === '/experience';
+  }
   return false;
 };
 

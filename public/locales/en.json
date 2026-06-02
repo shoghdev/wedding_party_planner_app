@@ -148,6 +148,88 @@
       }
     }
   },
+  "experience": {
+    "hero": {
+      "overline": "OUR EXPERIENCE",
+      "titleBefore": "A simple, smooth and stress-free",
+      "titleAccent": "experience",
+      "titleAfter": "."
+    },
+    "process": {
+      "steps": {
+        "discovery": {
+          "title": "Discovery Call",
+          "description": "We get to know you, your story, and your vision."
+        },
+        "concept": {
+          "title": "Concept & Design",
+          "description": "We create a unique concept that reflects your style."
+        },
+        "planning": {
+          "title": "Planning & Coordination",
+          "description": "We handle every detail with precision and care."
+        },
+        "styling": {
+          "title": "Styling & Production",
+          "description": "We bring your vision to life with beautiful design and décor."
+        },
+        "celebrate": {
+          "title": "Celebrate Day",
+          "description": "You relax and enjoy while we take care of everything."
+        }
+      }
+    },
+    "whyCouples": {
+      "overline": "WHY COUPLES CHOOSE US",
+      "titleBefore": "Dedicated to creating",
+      "titleAccent": "unforgettable",
+      "titleAfter": "moments just for you.",
+      "badge": "Crafting memories that last forever.",
+      "imageAlt": "Elegant wedding table setting with pink roses",
+      "features": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every celebration is tailored to your unique story and vision."
+        },
+        "stressFree": {
+          "title": "Stress-Free Process",
+          "description": "We manage timelines, vendors, and details so you can stay present."
+        },
+        "creative": {
+          "title": "Creative & Unique Designs",
+          "description": "Fresh, elegant concepts that make your day feel truly one of a kind."
+        },
+        "trusted": {
+          "title": "Trusted & Experienced",
+          "description": "Seasoned planners with trusted vendor and venue partnerships."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Refined styling, premium details, and seamless execution throughout."
+        },
+        "attention": {
+          "title": "Attention to Every Detail",
+          "description": "From the first call to the final toast, nothing is left unnoticed."
+        }
+      }
+    },
+    "gallery": {
+      "ariaLabel": "Celebration gallery highlights",
+      "images": {
+        "one": "Garden wedding reception",
+        "two": "Floral table centerpiece detail",
+        "three": "Romantic candlelit table setting",
+        "four": "Elegant ceremony décor"
+      }
+    },
+    "cta": {
+      "lineOne": "We handle the details.",
+      "lineTwoBefore": "You",
+      "lineTwoAccent": "enjoy",
+      "lineTwoAfter": "the moments.",
+      "button": "BOOK YOUR CONSULTATION"
+    }
+  },
   "footer": {
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",

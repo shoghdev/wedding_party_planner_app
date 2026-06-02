@@ -16,12 +16,14 @@ import { styles } from './styles';
 export const AppFooter = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
-  const isAboutPage = pathname === '/about';
+  const isCompactFooterPage = pathname === '/about' || pathname === '/experience';
 
   return (
     <footer
       id="contact"
-      className={[styles.footer, isAboutPage && styles.aboutPageFooter].filter(Boolean).join(' ')}
+      className={[styles.footer, isCompactFooterPage && styles.aboutPageFooter]
+        .filter(Boolean)
+        .join(' ')}
     >
       <PageContainer>
         <Row gutter={[32, 40]} className={styles.grid}>

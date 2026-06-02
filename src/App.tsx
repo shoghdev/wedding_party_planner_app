@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { AboutPage } from '@/pages/AboutPage';
+import { ExperiencePage } from '@/pages/ExperiencePage';
 import { HomePage } from '@/pages/HomePage';
 import { getAntdTheme } from '@/theme/antdTheme';
 
@@ -32,6 +33,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/experience" element={<ExperiencePage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>

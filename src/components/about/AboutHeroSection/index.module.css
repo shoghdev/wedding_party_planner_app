@@ -84,11 +84,11 @@
   width: clamp(2.75rem, 11vw, 7rem);
   height: auto;
   max-width: 38%;
+  z-index: 2;
   max-height: clamp(9rem, 42vw, 23rem);
   object-fit: contain;
   object-position: top left;
   pointer-events: none;
-  z-index: 2;
 }
 
 .heroImage {
