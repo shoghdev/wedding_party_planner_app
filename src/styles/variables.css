@@ -1,6 +1,8 @@
 :root,
 [data-theme='light'] {
   --color-bg: #fdfbf8;
+  --color-about-bg: #fcf9f6;
+  --color-blush: #fdf2f0;
   --color-hero-bg: #fdfbf8;
   --color-bg-alt: #f7f3f0;
   --color-features-bg: #f7f3f0;
@@ -36,6 +38,8 @@
 }
 
 [data-theme='dark'] {
+  --color-about-bg: #1a1a1a;
+  --color-blush: #2a2224;
   --color-hero-bg: #1a1a1a;
   --color-features-bg: #222222;
   --color-text-body: #b8b0a8;

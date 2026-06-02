@@ -8,6 +8,7 @@ import {
 import { Col, Collapse, Row } from 'antd';
 import type { CollapseProps } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { FOOTER_QUICK_LINKS, FOOTER_SERVICE_LINKS } from './consts';
@@ -50,6 +51,8 @@ const SocialLinks = () => (
 
 export const AppFooter = () => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const isCompactFooterPage = pathname === '/about' || pathname === '/experience';
 
   const accordionItems: CollapseProps['items'] = [
     {
@@ -106,7 +109,12 @@ export const AppFooter = () => {
   ];
 
   return (
-    <footer id="contact" className={styles.footer}>
+    <footer
+      id="contact"
+      className={[styles.footer, isCompactFooterPage && styles.aboutPageFooter]
+        .filter(Boolean)
+        .join(' ')}
+    >
       <PageContainer>
         <div className={styles.mobileBrandRow}>
           <div className={styles.brandCol}>

@@ -4,6 +4,10 @@
   margin-top: 0;
 }
 
+.aboutPageFooter {
+  margin-top: 0;
+}
+
 .mobileBrandRow {
   display: flex;
   align-items: flex-start;
@@ -38,6 +42,9 @@
 
 .desktopGrid {
   display: none;
+}
+
+.grid {
   margin-bottom: 48px;
 }
 

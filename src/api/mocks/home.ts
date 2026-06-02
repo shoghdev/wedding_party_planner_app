@@ -108,7 +108,7 @@ export const MOCK_STORIES: readonly StorySlide[] = [
   {
     id: 'story-2',
     imageUrl:
-      'https://images.unsplash.com/photo-1522673607200-23d186a7f2e5?w=400&q=80',
+      '/images/experience/gallery-2.jpg',
     altKey: 'home.stories.slides.two',
   },
   {

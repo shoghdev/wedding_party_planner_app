@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { styles } from './styles';
 
 type LogoProps = Readonly<{
@@ -12,11 +13,11 @@ export const Logo = ({ tone = 'default' }: LogoProps) => {
     .join(' ');
 
   return (
-    <a href="#home" className={logoClass} aria-label={t('header.logo.title')}>
+    <Link to="/" className={logoClass} aria-label={t('header.logo.title')}>
       <span className={styles.title}>
         Dream <em className={styles.ampersand}>&</em> Celebrate
       </span>
       <span className={styles.tagline}>{t('header.logo.tagline')}</span>
-    </a>
+    </Link>
   );
 };

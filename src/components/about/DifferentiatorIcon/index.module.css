@@ -1,0 +1,16 @@
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(3rem, 8vw, 3.5rem);
+  height: clamp(3rem, 8vw, 3.5rem);
+  border: 1.5px solid var(--color-rose);
+  border-radius: 50%;
+  color: var(--color-rose);
+  margin-bottom: clamp(0.875rem, 3vw, 1.125rem);
+}
+
+.icon {
+  width: clamp(1.375rem, 4vw, 1.625rem);
+  height: clamp(1.375rem, 4vw, 1.625rem);
+}
