@@ -1,6 +1,6 @@
 .section {
   padding-block: 0;
-  background: var(--color-about-bg);
+   margin-top: 5rem;
   overflow: hidden;
   padding-inline: 20px;
 }

@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -153,7 +153,10 @@
       "overline": "OUR EXPERIENCE",
       "titleBefore": "A simple, smooth and stress-free",
       "titleAccent": "experience",
-      "titleAfter": "."
+      "titleAfter": ".",
+      "description": "From the first call to the final toast, we craft a joyful and beautifully organized celebration.",
+      "badge": "Planning your love story with care.",
+      "imageAlt": "Elegant celebration table with flowers and candles"
     },
     "process": {
       "steps": {

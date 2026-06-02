@@ -6,6 +6,7 @@ import type {
 } from '@/types/experience';
 
 export const MOCK_EXPERIENCE_CONTENT: ExperienceContent = {
+  heroImageUrl: '/images/experience/heroImage.jpg',
   whyCouplesImageUrl: '/images/experience/why-couples.webp',
   ctaImageUrl: '/images/experience/cta-candles.jpg',
 };

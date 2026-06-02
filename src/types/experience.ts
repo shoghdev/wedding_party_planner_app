@@ -1,4 +1,5 @@
 export type ExperienceContent = Readonly<{
+  heroImageUrl: string;
   whyCouplesImageUrl: string;
   ctaImageUrl: string;
 }>;
