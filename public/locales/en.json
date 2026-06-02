@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -89,6 +89,148 @@
         "seven": "Outdoor ceremony aisle",
         "eight": "Cake and dessert display"
       }
+    }
+  },
+  "about": {
+    "hero": {
+      "overline": "ABOUT US",
+      "titleBefore": "We create experiences that stay in your",
+      "titleAccent": "heart",
+      "titleAfter": "forever.",
+      "description": "We turn your vision into meaningful moments, crafted with love, creativity and attention to every detail.",
+      "cta": "OUR STORY",
+      "imageAlt": "Event planners reviewing details on a tablet"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraphOne": "Dream & Celebrate was born from a love for beautiful details and meaningful moments.",
+      "paragraphTwo": "We believe every celebration is unique and deserves to be planned with care, passion and flawless execution.",
+      "signature": "— The Dream & Celebrate Team ♡",
+      "imageAlt": "Elegant wedding table setting with roses and candles"
+    },
+    "stats": {
+      "events": {
+        "value": "150+",
+        "label": "Events Planned"
+      },
+      "years": {
+        "value": "8+",
+        "label": "Years Experience"
+      },
+      "couples": {
+        "value": "50+",
+        "label": "Happy Couples"
+      },
+      "dedication": {
+        "value": "100%",
+        "label": "Dedication"
+      }
+    },
+    "different": {
+      "title": "What Makes Us Different",
+      "items": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every event is tailored to reflect your unique story, style, and vision."
+        },
+        "creative": {
+          "title": "Creative & Stylish Design",
+          "description": "Fresh, elegant concepts that make your celebration feel truly one of a kind."
+        },
+        "stressFree": {
+          "title": "Stress-Free Experience",
+          "description": "We manage every detail so you can stay present and enjoy the moment."
+        },
+        "trusted": {
+          "title": "Trusted Relationships",
+          "description": "Lasting partnerships with couples, vendors, and venues you can rely on."
+        }
+      }
+    }
+  },
+  "experience": {
+    "hero": {
+      "overline": "OUR EXPERIENCE",
+      "titleBefore": "A simple, smooth and stress-free",
+      "titleAccent": "experience",
+      "titleAfter": ".",
+      "description": "From the first call to the final toast, we craft a joyful and beautifully organized celebration.",
+      "badge": "Planning your love story with care.",
+      "imageAlt": "Elegant celebration table with flowers and candles"
+    },
+    "process": {
+      "steps": {
+        "discovery": {
+          "title": "Discovery Call",
+          "description": "We get to know you, your story, and your vision."
+        },
+        "concept": {
+          "title": "Concept & Design",
+          "description": "We create a unique concept that reflects your style."
+        },
+        "planning": {
+          "title": "Planning & Coordination",
+          "description": "We handle every detail with precision and care."
+        },
+        "styling": {
+          "title": "Styling & Production",
+          "description": "We bring your vision to life with beautiful design and décor."
+        },
+        "celebrate": {
+          "title": "Celebrate Day",
+          "description": "You relax and enjoy while we take care of everything."
+        }
+      }
+    },
+    "whyCouples": {
+      "overline": "WHY COUPLES CHOOSE US",
+      "titleBefore": "Dedicated to creating",
+      "titleAccent": "unforgettable",
+      "titleAfter": "moments just for you.",
+      "badge": "Crafting memories that last forever.",
+      "imageAlt": "Elegant wedding table setting with pink roses",
+      "features": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every celebration is tailored to your unique story and vision."
+        },
+        "stressFree": {
+          "title": "Stress-Free Process",
+          "description": "We manage timelines, vendors, and details so you can stay present."
+        },
+        "creative": {
+          "title": "Creative & Unique Designs",
+          "description": "Fresh, elegant concepts that make your day feel truly one of a kind."
+        },
+        "trusted": {
+          "title": "Trusted & Experienced",
+          "description": "Seasoned planners with trusted vendor and venue partnerships."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Refined styling, premium details, and seamless execution throughout."
+        },
+        "attention": {
+          "title": "Attention to Every Detail",
+          "description": "From the first call to the final toast, nothing is left unnoticed."
+        }
+      }
+    },
+    "gallery": {
+      "ariaLabel": "Celebration gallery highlights",
+      "images": {
+        "one": "Garden wedding reception",
+        "two": "Floral table centerpiece detail",
+        "three": "Luxury birthday setup with elegant balloons",
+        "four": "Elegant ceremony décor"
+      }
+    },
+    "cta": {
+      "lineOne": "We handle the details.",
+      "lineTwoBefore": "You",
+      "lineTwoAccent": "enjoy",
+      "lineTwoAfter": "the moments.",
+      "button": "BOOK YOUR CONSULTATION"
     }
   },
   "footer": {

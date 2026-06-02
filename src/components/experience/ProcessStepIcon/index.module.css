@@ -1,0 +1,11 @@
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.875rem;
+}
+
+.icon {
+  font-size: 1.75rem;
+  color: var(--color-rose);
+}
