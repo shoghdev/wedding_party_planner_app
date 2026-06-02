@@ -249,6 +249,38 @@
       "button": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ"
     }
   },
+  "contact": {
+    "title": "Связаться с нами",
+    "intro": "Мы будем рады узнать о вашем празднике. Напишите нам — и мы ответим с заботой и вниманием.",
+    "details": {
+      "phone": "+374 12 345 678",
+      "email": "info@dreamandcelebrate.am",
+      "address": "Ереван, Армения",
+      "hours": "Пн–Сб 10:00 – 19:00"
+    },
+    "form": {
+      "name": "Имя",
+      "namePlaceholder": "Ваше имя",
+      "nameRequired": "Введите имя.",
+      "email": "Эл. почта",
+      "emailPlaceholder": "Ваш email",
+      "emailRequired": "Введите email.",
+      "emailInvalid": "Введите корректный email.",
+      "phone": "Телефон",
+      "phonePlaceholder": "Ваш номер телефона",
+      "phoneRequired": "Введите телефон.",
+      "message": "Сообщение",
+      "messagePlaceholder": "Расскажите о вашем мероприятии...",
+      "messageRequired": "Введите сообщение.",
+      "submit": "Отправить",
+      "success": "Спасибо! Ваше сообщение отправлено.",
+      "error": "Что-то пошло не так. Попробуйте снова.",
+      "configError": "Email не настроен. Добавьте ключи EmailJS в .env."
+    },
+    "follow": {
+      "title": "Следите за нами"
+    }
+  },
   "footer": {
     "tagline": "Создаём незабываемые праздники с душой, стилем и безупречной организацией.",
     "quickLinks": "БЫСТРЫЕ ССЫЛКИ",
