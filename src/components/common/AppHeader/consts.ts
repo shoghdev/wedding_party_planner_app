@@ -7,10 +7,14 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { key: 'portfolio', href: '/#portfolio' },
   { key: 'experience', href: '/experience' },
   { key: 'blog', href: '/#blog' },
-  { key: 'contact', href: '/#contact' },
+  { key: 'contact', href: '/contact' },
 ] as const;
 
 export const getActiveNavKey = (pathname: string, hash: string): string => {
+  if (pathname === '/contact') {
+    return 'contact';
+  }
+
   if (pathname === '/experience') {
     return 'experience';
   }
@@ -27,8 +31,6 @@ export const getActiveNavKey = (pathname: string, hash: string): string => {
         return 'portfolio';
       case '#blog':
         return 'blog';
-      case '#contact':
-        return 'contact';
       default:
         return 'home';
     }

@@ -1,0 +1,46 @@
+.section {
+  padding-block: 24px 64px;
+  background: var(--color-contact-bg);
+  text-align: center;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin: 0 0 24px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  color: var(--color-white);
+  font-size: 20px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.pinterestMark {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+}
