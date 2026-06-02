@@ -66,6 +66,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
           </div>
 
           <nav className={styles.nav} aria-label="Main navigation">
+            {NAV_ITEMS.map(renderNavLink)}
           </nav>
 
           <div className={styles.actions}>
