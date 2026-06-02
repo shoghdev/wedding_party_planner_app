@@ -23,7 +23,7 @@
 }
 
 :global([data-theme='dark']) .heading {
-  color: #1a1a1a;
+  color: var(--color-white);
 }
 
 .scriptAccent {
