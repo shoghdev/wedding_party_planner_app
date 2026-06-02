@@ -102,7 +102,7 @@ export const MOCK_EXPERIENCE_GALLERY: readonly ExperienceGalleryImage[] = [
   {
     id: 'gallery-3',
     imageUrl:
-      'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80',
+      'https://rukminim2.flixcart.com/image/480/640/xif0q/balloon/z/r/0/3-63-unique-trending-happy-birthday-balloon-retro-glitter-original-imagr4fcsh7hhzz2.jpeg?q=20',
     altKey: 'experience.gallery.images.three',
   },
   {
