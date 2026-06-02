@@ -1,14 +1,15 @@
 :root,
 [data-theme='light'] {
-  --color-bg: #f9f7f2;
-  --color-hero-bg: #fffbf8;
-  --color-bg-alt: #faf7f2;
+  --color-bg: #fdfbf8;
+  --color-hero-bg: #fdfbf8;
+  --color-bg-alt: #f7f3f0;
+  --color-features-bg: #f7f3f0;
   --color-surface: #ffffff;
-  --color-text: #1a1a1a;
+  --color-text: #333333;
   --color-text-body: #4a4a4a;
   --color-text-muted: #5a5a5a;
-  --color-rose: #d67070;
-  --color-rose-dark: #c47a7a;
+  --color-rose: #c97373;
+  --color-rose-dark: #b56565;
   --color-gold: #c9a962;
   --color-white: #ffffff;
   --color-border: rgba(44, 44, 44, 0.1);
@@ -17,10 +18,26 @@
   --font-sans: 'Montserrat', system-ui, sans-serif;
   --shadow-soft: 0 12px 40px rgba(44, 44, 44, 0.08);
   --shadow-card: 0 8px 24px rgba(44, 44, 44, 0.06);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-theme: 0.45s;
+  --duration-interaction: 0.3s;
+  --header-bg: #ffffff;
+  --header-text: #333333;
+  --header-text-muted: #5a5a5a;
+  --header-border: rgba(44, 44, 44, 0.12);
+  --header-nav-active: #c0706d;
+  --header-toggle-track: #f3f0ec;
+  --header-icon-accent: #c0706d;
+  --header-icon-muted: rgba(51, 51, 51, 0.38);
+  --header-hover-bg: rgba(192, 112, 109, 0.08);
+  --header-hover-border: rgba(192, 112, 109, 0.35);
+  --header-shadow: 0 4px 20px rgba(44, 44, 44, 0.08);
+  --header-cta-hover: #b56565;
 }
 
 [data-theme='dark'] {
   --color-hero-bg: #1a1a1a;
+  --color-features-bg: #222222;
   --color-text-body: #b8b0a8;
   --color-bg: #1a1a1a;
   --color-bg-alt: #222222;
@@ -34,4 +51,16 @@
   --color-border: rgba(245, 240, 235, 0.12);
   --shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.35);
   --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --header-bg: #141414;
+  --header-text: #ffffff;
+  --header-text-muted: rgba(255, 255, 255, 0.72);
+  --header-border: rgba(255, 255, 255, 0.14);
+  --header-nav-active: #c0706d;
+  --header-toggle-track: #1f1f1f;
+  --header-icon-accent: rgba(255, 255, 255, 0.5);
+  --header-icon-muted: rgba(255, 255, 255, 0.32);
+  --header-hover-bg: rgba(255, 255, 255, 0.06);
+  --header-hover-border: rgba(255, 255, 255, 0.28);
+  --header-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --header-cta-hover: #d48c8c;
 }

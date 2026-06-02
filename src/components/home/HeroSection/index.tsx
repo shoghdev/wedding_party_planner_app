@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AccentHeading } from '@/components/common/AccentHeading';
 import { PageContainer } from '@/components/common/PageContainer';
 import { SectionLabel } from '@/components/common/SectionLabel';
+import { HeroFloralArt } from '@/components/home/HeroFloralArt';
 import { useHomeContent } from '@/hooks/useHomeContent';
 import { styles } from './styles';
 
@@ -27,10 +28,10 @@ export const HeroSection = () => {
               />
               <p className={styles.description}>{t('home.hero.description')}</p>
               <div className={styles.actions}>
-                <Button type="primary" size="large">
+                <Button type="primary" size="large" href="#services">
                   {t('home.hero.primaryCta')}
                 </Button>
-                <Button size="large" className={styles.outlineBtn}>
+                <Button size="large" className={styles.outlineBtn} href="#portfolio">
                   {t('home.hero.secondaryCta')}
                 </Button>
               </div>
@@ -44,6 +45,7 @@ export const HeroSection = () => {
               ) : (
                 <>
                   <div className={styles.pinkOrb} />
+                  <HeroFloralArt />
                   <div className={styles.archImage}>
                     <img
                       src={data?.hero.mainImageUrl}

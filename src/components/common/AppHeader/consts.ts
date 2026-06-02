@@ -10,4 +10,4 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { key: 'contact', href: '#contact' },
 ] as const;
 
-export const ACTIVE_NAV_KEY = 'home';
+export const ACTIVE_NAV_KEY = 'experience';

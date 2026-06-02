@@ -30,80 +30,81 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
     .filter(Boolean)
     .join(' ');
 
-  const ctaButton = (
-    <Button type="primary" size="middle">
-      {t('header.cta')}
-    </Button>
-  );
+  const navLinks = NAV_ITEMS.map((item) => (
+    <a
+      key={item.key}
+      href={item.href}
+      className={[styles.navLink, item.key === ACTIVE_NAV_KEY && styles.navLinkActive]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {t(`header.nav.${item.key}`)}
+    </a>
+  ));
 
   return (
     <header className={headerClass}>
       <PageContainer>
         <div className={styles.mainBar}>
-          <button
-            type="button"
-            className={styles.mobileMenuBtn}
-            onClick={() => setMenuOpen(true)}
-            aria-label={t('header.menuToggle')}
-          >
-            <MenuOutlined />
-          </button>
-
           <div className={styles.logoSlot}>
-            <Logo />
+            <Logo tone="header" />
           </div>
 
           <nav className={styles.nav} aria-label="Main navigation">
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.key}
-                href={item.href}
-                className={[
-                  styles.navLink,
-                  item.key === ACTIVE_NAV_KEY && styles.navLinkActive,
-                ]
-                  .filter(Boolean)
-                  .join(' ')}
-              >
-                {t(`header.nav.${item.key}`)}
-              </a>
-            ))}
+            {navLinks}
           </nav>
 
           <div className={styles.actions}>
-            <div className={styles.desktopUtilities}>
-              <ThemeToggle mode={themeMode} onToggle={onThemeToggle} />
-              <LanguageSelector />
+            <div className={styles.utilities}>
+              <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
+              <LanguageSelector variant="header" />
             </div>
-            <span className={styles.mobileCta}>{ctaButton}</span>
-            <span className={styles.desktopCta}>{ctaButton}</span>
+            <Button type="primary" size="middle" className={styles.ctaBtn}>
+              {t('header.cta')}
+            </Button>
+            <button
+              type="button"
+              className={styles.mobileMenuBtn}
+              onClick={() => setMenuOpen(true)}
+              aria-label={t('header.menuToggle')}
+            >
+              <MenuOutlined />
+            </button>
           </div>
-        </div>
-
-        <div className={styles.utilityBar}>
-          <ThemeToggle mode={themeMode} onToggle={onThemeToggle} />
-          <LanguageSelector />
         </div>
       </PageContainer>
 
       <Drawer
         title={t('header.logo.title')}
-        placement="left"
+        placement="right"
         onClose={() => setMenuOpen(false)}
         open={menuOpen}
-        width={280}
+        width={300}
+        className={styles.drawer}
       >
+        <div className={styles.drawerUtilities}>
+          <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
+          <LanguageSelector variant="header" />
+        </div>
         <nav className={styles.drawerNav} aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.key}
               href={item.href}
-              className={styles.drawerNavLink}
+              className={[
+                styles.drawerNavLink,
+                item.key === ACTIVE_NAV_KEY && styles.drawerNavLinkActive,
+              ]
+                .filter(Boolean)
+                .join(' ')}
               onClick={() => setMenuOpen(false)}
             >
               {t(`header.nav.${item.key}`)}
             </a>
           ))}
+          <Button type="primary" block size="large" className={styles.drawerCta}>
+            {t('header.cta')}
+          </Button>
         </nav>
       </Drawer>
     </header>

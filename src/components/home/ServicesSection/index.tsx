@@ -1,9 +1,9 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel, Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { AccentHeading } from '@/components/common/AccentHeading';
 import { PageContainer } from '@/components/common/PageContainer';
 import { SectionLabel } from '@/components/common/SectionLabel';
+import { ServiceIcon } from '@/components/home/ServiceIcon';
 import { useServices } from '@/hooks/useHomeContent';
 import type { ServiceCard } from '@/types/home';
 import { styles } from './styles';
@@ -13,8 +13,13 @@ const ServiceCardItem = ({ service }: { service: ServiceCard }) => {
 
   return (
     <article className={styles.card}>
-      <div className={styles.cardImage}>
-        <img src={service.imageUrl} alt={t(service.titleKey)} loading="lazy" />
+      <div className={styles.cardImageWrap}>
+        <div className={styles.cardImage}>
+          <img src={service.imageUrl} alt={t(service.titleKey)} loading="lazy" />
+        </div>
+        <div className={styles.iconBadge}>
+          <ServiceIcon iconKey={service.iconKey} />
+        </div>
       </div>
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>{t(service.titleKey)}</h3>
@@ -37,10 +42,13 @@ export const ServicesSection = () => {
       <PageContainer>
         <div className={styles.header}>
           <SectionLabel text={t('home.services.overline')} />
-          <AccentHeading
-            prefix={t('home.services.titlePrefix')}
-            accent={t('home.services.titleAccent')}
-          />
+          <h2 className={styles.heading}>
+            <span className={styles.headingLine}>{t('home.services.titleLine1')}</span>
+            <span className={styles.headingLine}>
+              {t('home.services.titlePrefix')}{' '}
+              <em className={styles.headingAccent}>{t('home.services.titleAccent')}</em>
+            </span>
+          </h2>
         </div>
 
         {isLoading ? (
@@ -54,7 +62,7 @@ export const ServicesSection = () => {
         ) : (
           <>
             <div className={styles.desktopGrid}>
-              <Row gutter={[24, 24]}>
+              <Row gutter={[28, 28]}>
                 {services?.map((service) => (
                   <Col key={service.id} xs={24} md={8}>
                     <ServiceCardItem service={service} />
