@@ -1,6 +1,7 @@
-import type { HomeContent, ServiceCard, StorySlide, ValueProp } from '@/types/home';
+import type { HomeContent, HomeFeature, ServiceCard, StorySlide, ValueProp } from '@/types/home';
 import {
   MOCK_HOME_CONTENT,
+  MOCK_HOME_FEATURES,
   MOCK_SERVICES,
   MOCK_STORIES,
   MOCK_VALUE_PROPS,
@@ -16,6 +17,11 @@ export const fetchHomeContent = async (): Promise<HomeContent> => {
 export const fetchValueProps = async (): Promise<readonly ValueProp[]> => {
   await delay(100);
   return MOCK_VALUE_PROPS;
+};
+
+export const fetchHomeFeatures = async (): Promise<readonly HomeFeature[]> => {
+  await delay(100);
+  return MOCK_HOME_FEATURES;
 };
 
 export const fetchServices = async (): Promise<readonly ServiceCard[]> => {

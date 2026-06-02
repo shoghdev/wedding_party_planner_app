@@ -65,6 +65,11 @@
   min-height: 440px;
   max-width: 560px;
   margin-inline: auto;
+  transition: transform 0.3s ease;
+}
+
+.visual:hover {
+  transform: scale(1.01);
 }
 
 .pinkOrb {
@@ -143,7 +148,8 @@
 }
 
 .polaroidTwo {
-  top: 22%;
+  bottom: 6%;
+  top: auto;
   right: -2%;
   width: 32%;
   transform: rotate(7deg);
@@ -286,6 +292,8 @@
   .polaroidTwo {
     width: 28%;
     right: 4%;
+    bottom: 8%;
+    top: auto;
   }
 
   .bottomAccent {

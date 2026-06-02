@@ -6,9 +6,16 @@ import type { SupportedLanguage } from '@/types/i18n';
 import { LANGUAGE_FLAGS, LANGUAGE_LABELS, LANGUAGE_OPTIONS } from './consts';
 import { styles } from './styles';
 
-export const LanguageSelector = () => {
+type LanguageSelectorProps = Readonly<{
+  variant?: 'default' | 'header';
+}>;
+
+export const LanguageSelector = ({ variant = 'default' }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
   const current = (i18n.language?.slice(0, 2) ?? 'en') as SupportedLanguage;
+  const selectorClass = [styles.selector, variant === 'header' && styles.selectorHeader]
+    .filter(Boolean)
+    .join(' ');
 
   const items: MenuProps['items'] = LANGUAGE_OPTIONS.map((lang) => ({
     key: lang,
@@ -29,7 +36,7 @@ export const LanguageSelector = () => {
       trigger={['click']}
       placement="bottomRight"
     >
-      <button type="button" className={styles.selector} aria-haspopup="listbox">
+      <button type="button" className={selectorClass} aria-haspopup="listbox">
         <span className={styles.flag} aria-hidden>
           {LANGUAGE_FLAGS[current] ?? LANGUAGE_FLAGS.en}
         </span>

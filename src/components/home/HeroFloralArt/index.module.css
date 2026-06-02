@@ -1,0 +1,19 @@
+.floral {
+  position: absolute;
+  top: 6%;
+  left: 2%;
+  width: 88px;
+  height: 88px;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .floral {
+    width: 100px;
+    height: 100px;
+    top: 4%;
+    left: 4%;
+  }
+}

@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -20,20 +20,39 @@
   },
   "home": {
     "hero": {
-      "overline": "PLANNING IS A WORK OF HEART",
+      "overline": "WE PLAN, YOU CELEBRATE.",
       "titlePrefix": "Creating",
       "titleAccent": "unforgettable",
       "titleSuffix": "celebrations",
       "description": "We design and execute stylish, heartfelt weddings and events with care, imagination, and attention to every detail.",
-      "primaryCta": "VIEW PACKAGES",
-      "secondaryCta": "OUR SERVICES",
+      "primaryCta": "OUR SERVICES",
+      "secondaryCta": "VIEW PORTFOLIO",
       "badge": "LET'S PLAN YOUR DREAM DAY"
+    },
+    "features": {
+      "heading": "Why couples choose us",
+      "planned": {
+        "title": "Thoughtfully Planned, Beautifully Executed",
+        "description": "Every timeline, vendor, and detail aligned with your vision."
+      },
+      "details": {
+        "title": "Elegant Details, Lasting Impressions",
+        "description": "Refined styling and décor that feel personal and timeless."
+      },
+      "natural": {
+        "title": "Romantic Florals & Styling",
+        "description": "Soft palettes, lush blooms, and artful tablescapes."
+      },
+      "coordination": {
+        "title": "Seamless Day-Of Coordination",
+        "description": "Relax and celebrate while we manage every moment."
+      }
     },
     "about": {
       "overline": "ABOUT US",
       "titlePrefix": "We don't just plan events, we create",
       "titleAccent": "memories.",
-      "description": "With over a decade of experience in luxury event planning, our team transforms your vision into an extraordinary celebration. Every detail is thoughtfully curated to create moments that last a lifetime.",
+      "description": "Dream & Celebrate is a full-service wedding and event planning company dedicated to turning your vision into beautiful reality. From intimate gatherings to grand celebrations, we take care of every detail so you can enjoy every moment.",
       "values": {
         "expertise": {
           "title": "Event Expertise",
@@ -54,22 +73,23 @@
       }
     },
     "services": {
-      "overline": "THOUGHTFULLY PLANNED.",
+      "overline": "OUR SERVICES",
+      "titleLine1": "Thoughtfully planned.",
       "titlePrefix": "Beautifully",
       "titleAccent": "executed.",
       "learnMore": "LEARN MORE",
       "cards": {
         "wedding": {
           "title": "Wedding Planning",
-          "description": "Full-service wedding design and coordination from engagement to farewell."
+          "description": "Full-service planning designed around your love story."
         },
         "parties": {
           "title": "Parties & Celebrations",
-          "description": "Milestone birthdays, anniversaries, and joyful gatherings crafted with care."
+          "description": "Social events, anniversaries, birthdays, and more."
         },
         "destination": {
           "title": "Destination Events",
-          "description": "Unforgettable celebrations in the world's most breathtaking locations."
+          "description": "Beautiful locations, seamless execution, unforgettable experiences."
         }
       }
     },
@@ -116,12 +136,193 @@
         "title": "Micro / Day Coordination",
         "description": "On-the-day management and coordination."
       }
+  "about": {
+    "hero": {
+      "overline": "ABOUT US",
+      "titleBefore": "We create experiences that stay in your",
+      "titleAccent": "heart",
+      "titleAfter": "forever.",
+      "description": "We turn your vision into meaningful moments, crafted with love, creativity and attention to every detail.",
+      "cta": "OUR STORY",
+      "imageAlt": "Event planners reviewing details on a tablet"
+    },
+    "story": {
+      "title": "Our Story",
+      "paragraphOne": "Dream & Celebrate was born from a love for beautiful details and meaningful moments.",
+      "paragraphTwo": "We believe every celebration is unique and deserves to be planned with care, passion and flawless execution.",
+      "signature": "— The Dream & Celebrate Team ♡",
+      "imageAlt": "Elegant wedding table setting with roses and candles"
+    },
+    "stats": {
+      "events": {
+        "value": "150+",
+        "label": "Events Planned"
+      },
+      "years": {
+        "value": "8+",
+        "label": "Years Experience"
+      },
+      "couples": {
+        "value": "50+",
+        "label": "Happy Couples"
+      },
+      "dedication": {
+        "value": "100%",
+        "label": "Dedication"
+      }
+    },
+    "different": {
+      "title": "What Makes Us Different",
+      "items": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every event is tailored to reflect your unique story, style, and vision."
+        },
+        "creative": {
+          "title": "Creative & Stylish Design",
+          "description": "Fresh, elegant concepts that make your celebration feel truly one of a kind."
+        },
+        "stressFree": {
+          "title": "Stress-Free Experience",
+          "description": "We manage every detail so you can stay present and enjoy the moment."
+        },
+        "trusted": {
+          "title": "Trusted Relationships",
+          "description": "Lasting partnerships with couples, vendors, and venues you can rely on."
+        }
+      }
+    }
+  },
+  "experience": {
+    "hero": {
+      "overline": "OUR EXPERIENCE",
+      "titleBefore": "A simple, smooth and stress-free",
+      "titleAccent": "experience",
+      "titleAfter": ".",
+      "description": "From the first call to the final toast, we craft a joyful and beautifully organized celebration.",
+      "badge": "Planning your love story with care.",
+      "imageAlt": "Elegant celebration table with flowers and candles"
+    },
+    "process": {
+      "steps": {
+        "discovery": {
+          "title": "Discovery Call",
+          "description": "We get to know you, your story, and your vision."
+        },
+        "concept": {
+          "title": "Concept & Design",
+          "description": "We create a unique concept that reflects your style."
+        },
+        "planning": {
+          "title": "Planning & Coordination",
+          "description": "We handle every detail with precision and care."
+        },
+        "styling": {
+          "title": "Styling & Production",
+          "description": "We bring your vision to life with beautiful design and décor."
+        },
+        "celebrate": {
+          "title": "Celebrate Day",
+          "description": "You relax and enjoy while we take care of everything."
+        }
+      }
+    },
+    "whyCouples": {
+      "overline": "WHY COUPLES CHOOSE US",
+      "titleBefore": "Dedicated to creating",
+      "titleAccent": "unforgettable",
+      "titleAfter": "moments just for you.",
+      "badge": "Crafting memories that last forever.",
+      "imageAlt": "Elegant wedding table setting with pink roses",
+      "features": {
+        "personalized": {
+          "title": "Personalized Approach",
+          "description": "Every celebration is tailored to your unique story and vision."
+        },
+        "stressFree": {
+          "title": "Stress-Free Process",
+          "description": "We manage timelines, vendors, and details so you can stay present."
+        },
+        "creative": {
+          "title": "Creative & Unique Designs",
+          "description": "Fresh, elegant concepts that make your day feel truly one of a kind."
+        },
+        "trusted": {
+          "title": "Trusted & Experienced",
+          "description": "Seasoned planners with trusted vendor and venue partnerships."
+        },
+        "luxury": {
+          "title": "Luxury Experience",
+          "description": "Refined styling, premium details, and seamless execution throughout."
+        },
+        "attention": {
+          "title": "Attention to Every Detail",
+          "description": "From the first call to the final toast, nothing is left unnoticed."
+        }
+      }
+    },
+    "gallery": {
+      "ariaLabel": "Celebration gallery highlights",
+      "images": {
+        "one": "Garden wedding reception",
+        "two": "Floral table centerpiece detail",
+        "three": "Luxury birthday setup with elegant balloons",
+        "four": "Elegant ceremony décor"
+      }
+    },
+    "cta": {
+      "lineOne": "We handle the details.",
+      "lineTwoBefore": "You",
+      "lineTwoAccent": "enjoy",
+      "lineTwoAfter": "the moments.",
+      "button": "BOOK YOUR CONSULTATION"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "intro": "We would love to hear about your celebration. Reach out and our team will respond with care and attention.",
+    "details": {
+      "phone": "+374 12 345 678",
+      "email": "info@dreamandcelebrate.am",
+      "address": "Yerevan, Armenia",
+      "hours": "Mon–Sat 10:00 – 19:00"
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "nameRequired": "Please enter your name.",
+      "email": "Email",
+      "emailPlaceholder": "Your email address",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phone": "Phone",
+      "phonePlaceholder": "Your phone number",
+      "phoneRequired": "Please enter your phone number.",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your event...",
+      "messageRequired": "Please enter your message.",
+      "submit": "Send",
+      "success": "Thank you! Your message has been sent.",
+      "error": "Something went wrong. Please try again.",
+      "configError": "Email is not configured yet. Please add your EmailJS keys to .env."
+    },
+    "follow": {
+      "title": "Follow Us"
     }
   },
   "footer": {
+    "tagline": "Creating unforgettable celebrations with heart, style, and flawless coordination.",
     "quickLinks": "QUICK LINKS",
     "services": "SERVICES",
     "contact": "CONTACT US",
+    "newsletter": {
+      "title": "STAY INSPIRED",
+      "description": "Receive planning tips, inspiration, and exclusive offers.",
+      "placeholder": "Your email address",
+      "submit": "SUBSCRIBE",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address."
+    },
     "links": {
       "home": "Home",
       "about": "About Us",
@@ -136,9 +337,9 @@
       "private": "Private Parties",
       "consultation": "Consultation"
     },
-    "phone": "+1 (555) 123-4567",
+    "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
-    "address": "123 Celebration Lane, New York, NY 10001",
+    "address": "Yerevan, RA",
     "copyright": "© 2025 Dream & Celebrate. All rights reserved."
   }
 }

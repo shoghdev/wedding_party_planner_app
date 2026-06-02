@@ -1,0 +1,146 @@
+.section {
+  padding-block: 40px 32px;
+  background: var(--color-contact-bg);
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  padding: 40px 28px;
+  overflow: hidden;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.intro {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 320px;
+}
+
+.detailList {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detailItem {
+  margin: 0;
+}
+
+.detailLink {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--color-text);
+  transition: opacity 0.3s ease;
+}
+
+a.detailLink:hover {
+  opacity: 0.85;
+}
+
+.detailText {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-body);
+}
+
+.form :global(.ant-form-item-label > label) {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form :global(.ant-input),
+.form :global(.ant-input-affix-wrapper) {
+  border-radius: 8px;
+  border-color: var(--color-border);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.form :global(.ant-input:hover),
+.form :global(.ant-input:focus),
+.form :global(.ant-input-affix-wrapper:hover),
+.form :global(.ant-input-affix-wrapper-focused) {
+  border-color: var(--color-rose);
+}
+
+.submitBtn:global(.ant-btn-primary) {
+  height: 52px;
+  margin-top: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  background: var(--color-rose) !important;
+  border-color: var(--color-rose) !important;
+  transition: all 0.3s ease;
+}
+
+.submitBtn:global(.ant-btn-primary:hover) {
+  background: var(--color-rose-dark) !important;
+  border-color: var(--color-rose-dark) !important;
+  transform: translateY(-1px);
+}
+
+.imageCol {
+  display: flex;
+}
+
+.imageWrap {
+  flex: 1;
+  min-height: 100%;
+  border-radius: 120px 0 0 0;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.decorImage {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (min-width: 992px) {
+  .section {
+    padding-block: 56px 40px;
+  }
+
+  .card {
+    padding: 48px 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .imageCol {
+    display: none;
+  }
+}
