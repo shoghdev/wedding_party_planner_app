@@ -35,14 +35,11 @@ const App = () => {
           <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
             <Routes>
               <Route path="/" element={<HomePage />} />
-<<<<<<< HEAD
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
-=======
               <Route path="/about" element={<AboutPage />} />
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/contact" element={<ContactPage />} />
->>>>>>> origin/main
             </Routes>
           </SiteLayout>
         </BrowserRouter>
