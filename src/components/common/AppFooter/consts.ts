@@ -1,15 +1,22 @@
 export const FOOTER_QUICK_LINKS = [
+<<<<<<< HEAD
   { key: 'home', href: '/' },
   { key: 'about', href: '/#about' },
   { key: 'services', href: '/services' },
   { key: 'portfolio', href: '/portfolio' },
+=======
+  { key: 'home', href: '#home' },
+  { key: 'about', href: '/about' },
+  { key: 'services', href: '#services' },
+  { key: 'portfolio', href: '#portfolio' },
+>>>>>>> origin/main
   { key: 'blog', href: '#blog' },
-  { key: 'contact', href: '#contact' },
+  { key: 'contact', href: '/contact' },
 ] as const;
 
 export const FOOTER_SERVICE_LINKS = [
   { key: 'weddings', href: '#services' },
   { key: 'corporate', href: '#services' },
   { key: 'private', href: '#services' },
-  { key: 'consultation', href: '#contact' },
+  { key: 'consultation', href: '/contact' },
 ] as const;

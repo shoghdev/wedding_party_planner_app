@@ -15,28 +15,102 @@ export const AboutSection = () => {
   return (
     <section id="about" className={styles.section}>
       <PageContainer>
-        <Row gutter={[48, 48]} align="middle">
+        <Row gutter={[56, 48]} align="middle">
           <Col xs={24} lg={10}>
-            <div className={styles.imageWrap}>
-              {homeLoading ? (
-                <Skeleton.Image active style={{ width: '100%', height: '100%' }} />
-              ) : (
-                <>
-                  <svg
-                    className={styles.goldAccent}
-                    viewBox="0 0 80 80"
-                    fill="none"
-                    aria-hidden
-                  >
-                    <path
-                      d="M40 4C28 20 12 28 8 44c8-4 18-6 28-4 4-12 2-24-4-36 8 8 14 18 16 28 10-6 18-2 24 8-8-2-16-2-24 0 6 10 4 22-4 32 12-8 20-4 28 8-10-14-24-22-40-24z"
-                      stroke="var(--color-gold)"
-                      strokeWidth="1.2"
-                    />
-                  </svg>
+            <div className={styles.visual}>
+              <div className={styles.pinkShape} aria-hidden />
+              <svg
+                className={styles.leafBranch}
+                viewBox="0 0 100 140"
+                fill="none"
+                aria-hidden
+              >
+                <path
+                  d="M52 130 C52 100 40 72 28 48 C18 28 32 12 48 6"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M28 48 C18 44 8 48 4 56 M28 48 C34 38 44 34 54 36"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M40 72 C30 68 20 72 14 80 M40 72 C48 62 60 58 70 62"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M48 96 C40 92 32 96 26 102 M48 96 C56 88 66 86 74 90"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                />
+                <ellipse
+                  cx="18"
+                  cy="56"
+                  rx="5"
+                  ry="9"
+                  transform="rotate(-30 18 56)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="50"
+                  cy="36"
+                  rx="5"
+                  ry="9"
+                  transform="rotate(25 50 36)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="16"
+                  cy="80"
+                  rx="5"
+                  ry="9"
+                  transform="rotate(-20 16 80)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="68"
+                  cy="62"
+                  rx="5"
+                  ry="9"
+                  transform="rotate(30 68 62)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="28"
+                  cy="102"
+                  rx="4"
+                  ry="8"
+                  transform="rotate(-15 28 102)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+                <ellipse
+                  cx="72"
+                  cy="90"
+                  rx="4"
+                  ry="8"
+                  transform="rotate(20 72 90)"
+                  stroke="var(--color-gold)"
+                  strokeWidth="1.2"
+                />
+              </svg>
+              <div className={styles.imageWrap}>
+                {homeLoading ? (
+                  <Skeleton.Image active style={{ width: '100%', height: '100%' }} />
+                ) : (
                   <img src={homeData?.about.imageUrl} alt="" loading="lazy" />
-                </>
-              )}
+                )}
+              </div>
             </div>
           </Col>
 
@@ -48,15 +122,15 @@ export const AboutSection = () => {
             />
             <p className={styles.body}>{t('home.about.description')}</p>
 
-            <Row gutter={[20, 28]} className={styles.valuesGrid}>
+            <Row gutter={[16, 28]} className={styles.valuesGrid}>
               {valuesLoading
                 ? Array.from({ length: 4 }).map((_, index) => (
-                    <Col key={index} xs={12}>
+                    <Col key={index} xs={12} sm={6}>
                       <Skeleton active paragraph={{ rows: 1 }} />
                     </Col>
                   ))
                 : values?.map((value) => (
-                    <Col key={value.id} xs={12}>
+                    <Col key={value.id} xs={12} sm={6}>
                       <article className={styles.valueCard}>
                         <ValuePropIcon iconKey={value.iconKey} />
                         <h3 className={styles.valueTitle}>{t(value.titleKey)}</h3>

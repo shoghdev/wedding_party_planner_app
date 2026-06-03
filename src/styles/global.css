@@ -8,6 +8,19 @@ html {
   scroll-behavior: smooth;
 }
 
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color var(--duration-theme) var(--ease-smooth),
+    color var(--duration-theme) var(--ease-smooth),
+    border-color var(--duration-theme) var(--ease-smooth),
+    box-shadow var(--duration-theme) var(--ease-smooth),
+    fill var(--duration-theme) var(--ease-smooth),
+    stroke var(--duration-theme) var(--ease-smooth) !important;
+}
+
 body {
   margin: 0;
   min-width: 320px;
@@ -27,4 +40,14 @@ a {
 
 #root {
   min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  transition:
+    background-color var(--duration-theme) var(--ease-smooth),
+    color var(--duration-theme) var(--ease-smooth);
+}
+
+main {
+  overflow-x: hidden;
 }

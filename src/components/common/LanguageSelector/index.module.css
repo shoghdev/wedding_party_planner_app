@@ -13,19 +13,65 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   cursor: pointer;
+  transition:
+    border-color var(--duration-interaction) var(--ease-smooth),
+    color var(--duration-interaction) var(--ease-smooth),
+    background-color var(--duration-interaction) var(--ease-smooth),
+    transform var(--duration-interaction) var(--ease-smooth);
 }
 
 .selector:hover {
   border-color: var(--color-rose);
   color: var(--color-rose);
+  transform: translateY(-1px);
+}
+
+.selector:active {
+  transform: translateY(0);
 }
 
 .flag {
   font-size: 16px;
   line-height: 1;
+  transition: transform var(--duration-interaction) var(--ease-smooth);
+}
+
+.selector:hover .flag {
+  transform: scale(1.08);
 }
 
 .chevron {
   font-size: 10px;
   color: var(--color-text-muted);
+  transition:
+    color var(--duration-theme) var(--ease-smooth),
+    transform var(--duration-interaction) var(--ease-smooth);
+}
+
+.selector:hover .chevron {
+  transform: translateY(1px);
+}
+
+.selectorHeader {
+  min-height: 40px;
+  padding: 8px 12px;
+  border-color: var(--header-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--header-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  gap: 6px;
+}
+
+.selectorHeader:hover {
+  border-color: var(--header-hover-border);
+  color: var(--header-text);
+  background: var(--header-hover-bg);
+}
+
+.selectorHeader .chevron {
+  color: var(--header-text-muted);
+  font-size: 9px;
 }

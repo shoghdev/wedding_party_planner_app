@@ -3,6 +3,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
+import { AboutPage } from '@/pages/AboutPage';
+import { ContactPage } from '@/pages/ContactPage';
+import { ExperiencePage } from '@/pages/ExperiencePage';
 import { HomePage } from '@/pages/HomePage';
 import { PortfolioPage } from '@/pages/PortfolioPage';
 import { ServicesPage } from '@/pages/ServicesPage';
@@ -32,8 +35,14 @@ const App = () => {
           <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+<<<<<<< HEAD
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/portfolio" element={<PortfolioPage />} />
+=======
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/experience" element={<ExperiencePage />} />
+              <Route path="/contact" element={<ContactPage />} />
+>>>>>>> origin/main
             </Routes>
           </SiteLayout>
         </BrowserRouter>

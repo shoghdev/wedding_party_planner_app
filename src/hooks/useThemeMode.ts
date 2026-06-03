@@ -2,6 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import type { ThemeMode } from '@/types/theme';
 
 const STORAGE_KEY = 'dream-celebrate-theme';
+const THEME_TRANSITION_MS = 450;
+
+const enableThemeTransition = () => {
+  document.documentElement.classList.add('theme-transitioning');
+  window.setTimeout(() => {
+    document.documentElement.classList.remove('theme-transitioning');
+  }, THEME_TRANSITION_MS);
+};
 
 const getInitialMode = (): ThemeMode => {
   const stored = localStorage.getItem(STORAGE_KEY);
@@ -20,6 +28,7 @@ export const useThemeMode = () => {
   }, [mode]);
 
   const toggleMode = useCallback(() => {
+    enableThemeTransition();
     setMode((current) => (current === 'light' ? 'dark' : 'light'));
   }, []);
 

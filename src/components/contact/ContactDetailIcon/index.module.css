@@ -1,0 +1,12 @@
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-rose);
+  color: var(--color-white);
+  font-size: 18px;
+  flex-shrink: 0;
+}

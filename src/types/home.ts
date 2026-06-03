@@ -10,8 +10,16 @@ export type ValueProp = Readonly<{
   descriptionKey: string;
 }>;
 
+export type HomeFeature = Readonly<{
+  id: string;
+  iconKey: string;
+  titleKey: string;
+  descriptionKey: string;
+}>;
+
 export type ServiceCard = Readonly<{
   id: string;
+  iconKey: string;
   imageUrl: string;
   titleKey: string;
   descriptionKey: string;
