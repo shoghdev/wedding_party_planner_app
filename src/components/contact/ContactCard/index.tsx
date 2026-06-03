@@ -5,17 +5,17 @@ import { ContactDetailIcon } from '@/components/contact/ContactDetailIcon';
 import { CONTACT_DECOR_IMAGE_URL, CONTACT_DETAILS } from '@/api/mocks/contact';
 import { useContactForm } from '@/hooks/useContactForm';
 import type { ContactFormValues } from '@/types/contact';
-import styles from './index.module.css';
+import { styles } from './styles';
 
 const { TextArea } = Input;
 
 export const ContactCard = () => {
   const { t } = useTranslation();
   const [form] = Form.useForm<ContactFormValues>();
-  const { submitting, onFinish } = useContactForm();
+  const { submitting, submitForm } = useContactForm();
 
   const handleFinish = async (values: ContactFormValues) => {
-    const sent = await onFinish(values);
+    const sent = await submitForm(values);
     if (sent) {
       form.resetFields();
     }
@@ -66,6 +66,7 @@ export const ContactCard = () => {
                 className={styles.form}
                 onFinish={handleFinish}
                 requiredMark={false}
+                autoComplete="on"
               >
                 <Form.Item
                   name="name"
@@ -82,14 +83,18 @@ export const ContactCard = () => {
                     { type: 'email', message: t('contact.form.emailInvalid') },
                   ]}
                 >
-                  <Input size="large" placeholder={t('contact.form.emailPlaceholder')} />
+                  <Input
+                    type="email"
+                    size="large"
+                    placeholder={t('contact.form.emailPlaceholder')}
+                  />
                 </Form.Item>
                 <Form.Item
                   name="phone"
                   label={t('contact.form.phone')}
                   rules={[{ required: true, message: t('contact.form.phoneRequired') }]}
                 >
-                  <Input size="large" placeholder={t('contact.form.phonePlaceholder')} />
+                  <Input type="tel" size="large" placeholder={t('contact.form.phonePlaceholder')} />
                 </Form.Item>
                 <Form.Item
                   name="message"

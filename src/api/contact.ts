@@ -1,40 +1,44 @@
 import emailjs from '@emailjs/browser';
-import type { ContactFormValues } from '@/types/contact';
 import {
   ensureEmailJsInitialized,
   getEmailJsConfig,
   getEmailJsErrorMessage,
 } from '@/api/emailjsClient';
+import type { ContactFormValues, EmailJsContactParams } from '@/types/contact';
 
-/** Maps form values to common EmailJS template variable names. */
-const toTemplateParams = (values: ContactFormValues) => ({
-  from_name: values.name,
-  from_email: values.email,
-  user_name: values.name,
-  user_email: values.email,
+/** Maps form values to EmailJS template variables used in the dashboard template. */
+export const buildContactEmailParams = (
+  values: ContactFormValues,
+  subject: string,
+): EmailJsContactParams => ({
   name: values.name,
+  from_name: values.name,
   email: values.email,
   phone: values.phone,
-  user_phone: values.phone,
   message: values.message,
+  subject,
+  time: new Date().toLocaleString(),
   reply_to: values.email,
 });
 
-export const sendContactMessage = async (values: ContactFormValues): Promise<void> => {
+export const sendContactMessage = async (
+  values: ContactFormValues,
+  subject: string,
+): Promise<void> => {
   const { serviceId, templateId, publicKey } = getEmailJsConfig();
+  const templateParams = buildContactEmailParams(values, subject);
 
   ensureEmailJsInitialized(publicKey);
 
   try {
-    const response = await emailjs.send(serviceId, templateId, toTemplateParams(values), {
+    const response = await emailjs.send(serviceId, templateId, templateParams, {
       publicKey,
     });
 
-    if (response.status !== 200) {
+    if (response.status !== 200 || response.text !== 'OK') {
       throw response;
     }
   } catch (error) {
-    const message = getEmailJsErrorMessage(error);
-    throw new Error(message);
+    throw new Error(getEmailJsErrorMessage(error));
   }
 };

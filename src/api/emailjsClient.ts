@@ -18,6 +18,14 @@ export const getEmailJsConfig = (): EmailJsConfig => {
     throw new Error('EMAILJS_NOT_CONFIGURED');
   }
 
+  if (
+    serviceId === 'your_service_id' ||
+    templateId === 'your_template_id' ||
+    publicKey === 'your_public_key'
+  ) {
+    throw new Error('EMAILJS_NOT_CONFIGURED');
+  }
+
   return { serviceId, templateId, publicKey };
 };
 

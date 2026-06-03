@@ -277,6 +277,7 @@
       "messagePlaceholder": "Tell us about your event...",
       "messageRequired": "Please enter your message.",
       "submit": "Send",
+      "emailSubject": "Contact from {{name}} · {{phone}}",
       "success": "Thank you! Your message has been sent.",
       "error": "Something went wrong. Please try again.",
       "errorWithReason": "Could not send: {{reason}}",
