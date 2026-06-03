@@ -6,6 +6,7 @@ export const QUERY_KEYS = {
   },
   services: {
     page: ['services', 'page'] as const,
+  },
   about: {
     content: ['about', 'content'] as const,
     stats: ['about', 'stats'] as const,
