@@ -1,15 +1,9 @@
 export const FOOTER_QUICK_LINKS = [
-<<<<<<< HEAD
   { key: 'home', href: '/' },
-  { key: 'about', href: '/#about' },
+  { key: 'about', href: '/about' },
   { key: 'services', href: '/services' },
   { key: 'portfolio', href: '/portfolio' },
-=======
-  { key: 'home', href: '#home' },
-  { key: 'about', href: '/about' },
-  { key: 'services', href: '#services' },
-  { key: 'portfolio', href: '#portfolio' },
->>>>>>> origin/main
+
   { key: 'blog', href: '#blog' },
   { key: 'contact', href: '/contact' },
 ] as const;

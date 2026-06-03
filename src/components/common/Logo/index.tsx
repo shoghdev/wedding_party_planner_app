@@ -13,11 +13,9 @@ export const Logo = ({ tone = 'default' }: LogoProps) => {
     .join(' ');
 
   return (
-<<<<<<< HEAD
-    <a href="/" className={styles.logo} aria-label={t('header.logo.title')}>
-=======
+
     <Link to="/" className={logoClass} aria-label={t('header.logo.title')}>
->>>>>>> origin/main
+ origin/main
       <span className={styles.title}>
         Dream <em className={styles.ampersand}>&</em> Celebrate
       </span>
