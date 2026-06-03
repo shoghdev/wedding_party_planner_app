@@ -4,7 +4,7 @@ import {
 } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
-import { styles } from './styles';
+import styles from './index.module.css';
 
 export const ContactFollowSection = () => {
   const { t } = useTranslation();

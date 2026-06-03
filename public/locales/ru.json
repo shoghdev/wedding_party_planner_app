@@ -273,9 +273,11 @@
       "messagePlaceholder": "Расскажите о вашем мероприятии...",
       "messageRequired": "Введите сообщение.",
       "submit": "Отправить",
+      "emailSubject": "Сообщение от {{name}} · {{phone}}",
       "success": "Спасибо! Ваше сообщение отправлено.",
       "error": "Что-то пошло не так. Попробуйте снова.",
-      "configError": "Email не настроен. Добавьте ключи EmailJS в .env."
+      "errorWithReason": "Не удалось отправить: {{reason}}",
+      "configError": "Email не настроен. Добавьте ключи EmailJS в .env и перезапустите dev-сервер."
     },
     "follow": {
       "title": "Следите за нами"
