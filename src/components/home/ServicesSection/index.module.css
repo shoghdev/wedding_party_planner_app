@@ -9,8 +9,6 @@
   margin: 0 auto 52px;
 }
 
-<<<<<<< HEAD
-=======
 .heading {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
@@ -135,7 +133,6 @@
   gap: 10px;
 }
 
->>>>>>> origin/main
 .carouselWrap {
   display: block;
 }

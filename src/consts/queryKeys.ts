@@ -7,9 +7,11 @@ export const QUERY_KEYS = {
   services: {
     page: ['services', 'page'] as const,
   },
+
   portfolio: {
     page: ['portfolio', 'page'] as const,
   },
+
   about: {
     content: ['about', 'content'] as const,
     stats: ['about', 'stats'] as const,
@@ -21,4 +23,5 @@ export const QUERY_KEYS = {
     whyCouples: ['experience', 'whyCouples'] as const,
     gallery: ['experience', 'gallery'] as const,
   },
+
 } as const;
