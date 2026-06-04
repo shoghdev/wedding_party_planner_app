@@ -1,11 +1,10 @@
-import { ArrowRightOutlined } from '@ant-design/icons';
 import { Carousel, Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
 import { SectionLabel } from '@/components/common/SectionLabel';
+import { ServiceCard } from '@/components/common/ServiceCard';
 import { ServiceIcon } from '@/components/home/ServiceIcon';
 import { useServices } from '@/hooks/useHomeContent';
-import type { ServiceCard } from '@/types/home';
 import { styles } from './styles';
 
 const ServiceCardItem = ({ service }: { service: ServiceCard }) => {
@@ -65,7 +64,7 @@ export const ServicesSection = () => {
               <Row gutter={[28, 28]}>
                 {services?.map((service) => (
                   <Col key={service.id} xs={24} md={8}>
-                    <ServiceCardItem service={service} />
+                    <ServiceCard service={service} learnMoreHref="/services" />
                   </Col>
                 ))}
               </Row>
@@ -75,7 +74,7 @@ export const ServicesSection = () => {
               <Carousel dots draggable>
                 {services?.map((service) => (
                   <div key={service.id}>
-                    <ServiceCardItem service={service} />
+                    <ServiceCard service={service} learnMoreHref="/services" />
                   </div>
                 ))}
               </Carousel>

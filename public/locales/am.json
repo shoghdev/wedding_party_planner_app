@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -104,6 +104,33 @@
         "two": "Սեղանի դեկոր",
         "three": "Ծաղկային կամար",
         "four": "Երեկոյան լուսավորություն"
+      }
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "overline": "ՄԵՐ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԸ",
+      "title": "Նեղ ընկերություններից մինչև մեծ տոնակատարություններ՝ մենք ամեն ինչ ենք կազմակերպում։",
+      "subtitle": "Լիարժեք պլանավորում, գեղեցիկ դիզայն և անխափան իրականացում։",
+      "badge": "ՏՈՆԵՔ ՁԵՐ ՈՃՈՎ"
+    },
+    "learnMore": "ԱՎԵԼԻՆ",
+    "cards": {
+      "fullPlanning": {
+        "title": "Ամբողջական հարսանիքի պլանավորում",
+        "description": "Լիարժեք պլանավորում սկզբից մինչև ավարտ։"
+      },
+      "partialPlanning": {
+        "title": "Մասնակի պլանավորում",
+        "description": "Ուղղորդում և պլանավորում հիմնական փուլերի համար։"
+      },
+      "designStyling": {
+        "title": "Միջոցառման դիզայն և ոճավորում",
+        "description": "Գեղեցիկ թեմաներ, դեկոր և ոճավորում։"
+      },
+      "dayCoordination": {
+        "title": "Օրվա կոորդինացիա",
+        "description": "Օրվա կառավարում և կոորդինացիա։"
       }
     }
   },
@@ -314,5 +341,37 @@
     "email": "hello@dreamandcelebrate.com",
     "address": "Երևան, ՀՀ",
     "copyright": "© 2025 Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։"
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "ՊՈՐՏՖՈԼԻՈ",
+      "title": "Սեր, ուրախություն և գեղեցիկ տոնակատարությունների հավաքածու։"
+    },
+    "filters": {
+      "label": "Ֆիլտրել պորտֆոլիոն",
+      "all": "ԲՈԼՈՐԸ",
+      "weddings": "ՀԱՐՍԱՆԻՔՆԵՐ",
+      "parties": "ԽՆՋՈՒՅՔՆԵՐ",
+      "destinations": "ՆՊԱՏԱԿԱԿԵՏ",
+      "engagements": "ՆՇԱՆԱԴՐՈՒԹՅՈՒՆ",
+      "showers": "ՏՈՆԱԿԱՏԱՐՈՒԹՅՈՒՆՆԵՐ",
+      "corporate": "ԿՈՐՊՈՐԱՏԻՎ"
+    },
+    "loadMore": "ԲԵՌՆԵԼ ԱՎԵԼԻՆ",
+    "empty": "Այս բաժնում դեռ աշխատանքներ չկան։",
+    "items": {
+      "floralArch": "Ծաղկային արarքi kamar",
+      "outdoorCeremony": "Այgi harsaniki ararq",
+      "tableSetting": "Նrbagegh momerov seghani dekor",
+      "candlelitReception": "Yndunelutyan seghan tsaghiknerov",
+      "gardenCelebration": "Այgi tonakatarutyun tsaghiknerov",
+      "dessertDisplay": "Kaghadogh tsughadryan ev puchikner",
+      "bridalBouquet": "Harsni tsaghkezri kloraki",
+      "corporateGala": "Korporativ yerkeoyan yndunelutyun",
+      "destinationVows": "Npatvakayin harsaniki khorhrd",
+      "engagementDinner": "Nshanadrutyan aravotan chash",
+      "babyShower": "Shnorhavori toni patarag",
+      "corporateSummit": "Korporativ sammiti dekor"
+    }
   }
 }

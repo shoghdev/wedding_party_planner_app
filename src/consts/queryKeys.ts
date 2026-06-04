@@ -4,6 +4,9 @@ export const QUERY_KEYS = {
     services: ['home', 'services'] as const,
     stories: ['home', 'stories'] as const,
   },
+  services: {
+    page: ['services', 'page'] as const,
+  },
   about: {
     content: ['about', 'content'] as const,
     stats: ['about', 'stats'] as const,
@@ -14,5 +17,8 @@ export const QUERY_KEYS = {
     processSteps: ['experience', 'processSteps'] as const,
     whyCouples: ['experience', 'whyCouples'] as const,
     gallery: ['experience', 'gallery'] as const,
+  },
+  portfolio: {
+    page: ['portfolio', 'page'] as const,
   },
 } as const;
