@@ -36,10 +36,10 @@ const App = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
+              <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/experience" element={<ExperiencePage />} />
               <Route path="/contact" element={<ContactPage />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
             </Routes>
           </SiteLayout>
         </BrowserRouter>

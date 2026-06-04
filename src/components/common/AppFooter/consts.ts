@@ -3,7 +3,9 @@ export const FOOTER_QUICK_LINKS = [
   { key: 'about', href: '/about' },
   { key: 'services', href: '/services' },
   { key: 'portfolio', href: '/portfolio' },
+
   { key: 'blog', href: '/blog' },
+
   { key: 'contact', href: '/contact' },
 ] as const;
 

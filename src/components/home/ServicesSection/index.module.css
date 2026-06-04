@@ -8,6 +8,7 @@
   max-width: 720px;
   margin: 0 auto 52px;
 }
+
 .heading {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
