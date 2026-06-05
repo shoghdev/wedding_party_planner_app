@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -52,7 +52,7 @@
       "overline": "О НАС",
       "titlePrefix": "Мы не просто планируем события — мы создаём",
       "titleAccent": "воспоминания.",
-      "description": "Dream & Celebrate — компания полного цикла по организации свадеб и мероприятий, которая превращает ваше видение в прекрасную реальность. От камерных встреч до масштабных торжеств мы заботимся о каждой детали, чтобы вы могли наслаждаться каждым моментом.",
+      "description": "Dream & Celebrate — компания полного цикла по организации свадеб и мероприятий, которая превращает ваше видение в прекрасную реальность.",
       "values": {
         "expertise": {
           "title": "Экспертиза",
@@ -81,15 +81,15 @@
       "cards": {
         "wedding": {
           "title": "Свадебное планирование",
-          "description": "Полный цикл организации свадьбы от помолвки до прощания."
+          "description": "Полный цикл организации свадьбы."
         },
         "parties": {
           "title": "Вечеринки и праздники",
-          "description": "Юбилеи, годовщины и радостные торжества."
+          "description": "Юбилеи, дни рождения и события."
         },
         "destination": {
           "title": "События в путешествии",
-          "description": "Незабываемые праздники в самых живописных местах мира."
+          "description": "Праздники в уникальных местах мира."
         }
       }
     },
@@ -107,151 +107,78 @@
       }
     }
   },
-  "about": {
+  "servicesPage": {
     "hero": {
-      "overline": "О НАС",
-      "titleBefore": "Мы создаём впечатления, которые остаются в вашем",
-      "titleAccent": "сердце",
-      "titleAfter": "навсегда.",
-      "description": "Мы воплощаем ваше видение в значимые моменты — с любовью, креативностью и вниманием к каждой детали.",
-      "cta": "НАША ИСТОРИЯ",
-      "imageAlt": "Организаторы мероприятий обсуждают детали за планшетом"
+      "overline": "НАШИ УСЛУГИ",
+      "title": "От камерных встреч до грандиозных торжеств — мы организуем всё.",
+      "subtitle": "Полный цикл планирования и безупречная реализация.",
+      "badge": "ПРАЗДНУЙТЕ ПО-СВОЕМУ"
     },
-    "story": {
-      "title": "Наша история",
-      "paragraphOne": "Dream & Celebrate родился из любви к красивым деталям и значимым моментам.",
-      "paragraphTwo": "Мы верим, что каждое торжество уникально и заслуживает планирования с заботой, страстью и безупречным исполнением.",
-      "signature": "— Команда Dream & Celebrate ♡",
-      "imageAlt": "Элегантная сервировка свадебного стола с розами и свечами"
-    },
-    "stats": {
-      "events": {
-        "value": "150+",
-        "label": "Мероприятий"
+    "learnMore": "ПОДРОБНЕЕ",
+    "cards": {
+      "fullPlanning": {
+        "title": "Полное свадебное планирование",
+        "description": "Организация свадьбы от начала до конца."
       },
-      "years": {
-        "value": "8+",
-        "label": "Лет опыта"
+      "partialPlanning": {
+        "title": "Частичное планирование",
+        "description": "Поддержка на ключевых этапах."
       },
-      "couples": {
-        "value": "50+",
-        "label": "Счастливых пар"
+      "designStyling": {
+        "title": "Дизайн и стилизация",
+        "description": "Темы, декор и оформление."
       },
-      "dedication": {
-        "value": "100%",
-        "label": "Преданность делу"
-      }
-    },
-    "different": {
-      "title": "Чем мы отличаемся",
-      "items": {
-        "personalized": {
-          "title": "Персональный подход",
-          "description": "Каждое мероприятие создаётся под вашу уникальную историю, стиль и видение."
-        },
-        "creative": {
-          "title": "Креативный стильный дизайн",
-          "description": "Свежие, элегантные идеи, которые делают праздник по-настоящему особенным."
-        },
-        "stressFree": {
-          "title": "Без стресса",
-          "description": "Мы берём на себя все детали, чтобы вы могли наслаждаться моментом."
-        },
-        "trusted": {
-          "title": "Надёжные отношения",
-          "description": "Долгосрочные партнёрства с парами, подрядчиками и площадками."
-        }
+      "dayCoordination": {
+        "title": "Координация в день события",
+        "description": "Полное управление мероприятием."
       }
     }
   },
-  "experience": {
+  "about": {
     "hero": {
-      "overline": "НАШ ОПЫТ",
-      "titleBefore": "Простой, плавный и без стресса",
-      "titleAccent": "опыт",
-      "titleAfter": ".",
-      "description": "От первого звонка до последнего тоста мы создаём радостное и безупречно организованное торжество.",
-      "badge": "Планируем вашу историю любви с заботой.",
-      "imageAlt": "Элегантный праздничный стол с цветами и свечами"
+      "overline": "О НАС",
+      "titleBefore": "Мы создаем воспоминания, которые останутся в вашем",
+      "titleAccent": "сердце",
+      "titleAfter": "навсегда.",
+      "description": "Мы превращаем ваши мечты в значимые моменты.",
+      "cta": "НАША ИСТОРИЯ",
+      "imageAlt": "Организаторы мероприятий обсуждают детали"
     },
-    "process": {
-      "steps": {
-        "discovery": {
-          "title": "Знакомство",
-          "description": "Узнаём вас, вашу историю и ваше видение."
-        },
-        "concept": {
-          "title": "Концепция и дизайн",
-          "description": "Создаём уникальную концепцию, отражающую ваш стиль."
-        },
-        "planning": {
-          "title": "Планирование и координация",
-          "description": "Берём на себя каждую деталь с точностью и заботой."
-        },
-        "styling": {
-          "title": "Стиль и продакшн",
-          "description": "Воплощаем видение в жизнь с красивым декором и оформлением."
-        },
-        "celebrate": {
-          "title": "День праздника",
-          "description": "Вы отдыхаете и наслаждаетесь — мы обо всём позаботимся."
-        }
-      }
+    "story": {
+      "title": "Наша история",
+      "paragraphOne": "Dream & Celebrate создан из любви к деталям.",
+      "paragraphTwo": "Каждое событие для нас уникально.",
+      "signature": "— Команда Dream & Celebrate ♡",
+      "imageAlt": "Свадебный стол с цветами"
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "ПОРТФОЛИО",
+      "title": "Коллекция любви и торжеств."
     },
-    "whyCouples": {
-      "overline": "ПОЧЕМУ НАС ВЫБИРАЮТ",
-      "titleBefore": "Создаём",
-      "titleAccent": "незабываемые",
-      "titleAfter": "моменты специально для вас.",
-      "badge": "Воспоминания, которые остаются навсегда.",
-      "imageAlt": "Элегантная сервировка свадебного стола с розовыми розами",
-      "features": {
-        "personalized": {
-          "title": "Персональный подход",
-          "description": "Каждое торжество создаётся под вашу уникальную историю и видение."
-        },
-        "stressFree": {
-          "title": "Без стресса",
-          "description": "Мы ведём сроки, подрядчиков и детали — вы остаётесь в моменте."
-        },
-        "creative": {
-          "title": "Креативный уникальный дизайн",
-          "description": "Свежие, элегантные идеи, которые делают день по-настоящему особенным."
-        },
-        "trusted": {
-          "title": "Надёжность и опыт",
-          "description": "Опытные организаторы с проверенными партнёрами и площадками."
-        },
-        "luxury": {
-          "title": "Роскошный опыт",
-          "description": "Изысканный стиль, премиальные детали и безупречное исполнение."
-        },
-        "attention": {
-          "title": "Внимание к каждой детали",
-          "description": "От первого звонка до последнего тоста — ничего не упускаем."
-        }
-      }
+    "filters": {
+      "label": "Фильтр",
+      "all": "ВСЕ",
+      "weddings": "СВАДЬБЫ",
+      "parties": "ВЕЧЕРИНКИ",
+      "destinations": "ПУТЕШЕСТВИЯ",
+      "engagements": "ПОМОЛВКИ",
+      "showers": "ПРАЗДНИКИ",
+      "corporate": "КОРПОРАТИВЫ"
     },
-    "gallery": {
-      "ariaLabel": "Галерея торжеств",
-      "images": {
-        "one": "Свадебный приём в саду",
-        "two": "Деталь цветочной композиции на столе",
-        "three": "Праздник с тортом и воздушными шарами",
-        "four": "Элегантный декор церемонии"
-      }
-    },
-    "cta": {
-      "lineOne": "Мы берём детали на себя.",
-      "lineTwoBefore": "Вы",
-      "lineTwoAccent": "наслаждаетесь",
-      "lineTwoAfter": "моментами.",
-      "button": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ"
+    "loadMore": "ЗАГРУЗИТЬ ЕЩЁ",
+    "empty": "Нет работ в этой категории.",
+    "items": {
+      "floralArch": "Цветочная арка",
+      "outdoorCeremony": "Выездная церемония",
+      "tableSetting": "Сервировка стола",
+      "candlelitReception": "Приём со свечами"
     }
   },
   "contact": {
     "title": "Связаться с нами",
-    "intro": "Мы будем рады узнать о вашем празднике. Напишите нам — и мы ответим с заботой и вниманием.",
+    "intro": "Мы будем рады вашему сообщению.",
     "details": {
       "phone": "+374 12 345 678",
       "email": "info@dreamandcelebrate.am",
@@ -260,42 +187,17 @@
     },
     "form": {
       "name": "Имя",
-      "namePlaceholder": "Ваше имя",
-      "nameRequired": "Введите имя.",
-      "email": "Эл. почта",
-      "emailPlaceholder": "Ваш email",
-      "emailRequired": "Введите email.",
-      "emailInvalid": "Введите корректный email.",
+      "email": "Email",
       "phone": "Телефон",
-      "phonePlaceholder": "Ваш номер телефона",
-      "phoneRequired": "Введите телефон.",
       "message": "Сообщение",
-      "messagePlaceholder": "Расскажите о вашем мероприятии...",
-      "messageRequired": "Введите сообщение.",
-      "submit": "Отправить",
-      "emailSubject": "Сообщение от {{name}} · {{phone}}",
-      "success": "Спасибо! Ваше сообщение отправлено.",
-      "error": "Что-то пошло не так. Попробуйте снова.",
-      "errorWithReason": "Не удалось отправить: {{reason}}",
-      "configError": "Email не настроен. Добавьте ключи EmailJS в .env и перезапустите dev-сервер."
-    },
-    "follow": {
-      "title": "Следите за нами"
+      "submit": "Отправить"
     }
   },
   "footer": {
-    "tagline": "Создаём незабываемые праздники с душой, стилем и безупречной организацией.",
-    "quickLinks": "БЫСТРЫЕ ССЫЛКИ",
+    "tagline": "Создаём незабываемые праздники.",
+    "quickLinks": "ССЫЛКИ",
     "services": "УСЛУГИ",
     "contact": "КОНТАКТЫ",
-    "newsletter": {
-      "title": "ВДОХНОВЕНИЕ",
-      "description": "Советы по планированию, идеи и эксклюзивные предложения.",
-      "placeholder": "Ваш email",
-      "submit": "ПОДПИСАТЬСЯ",
-      "emailRequired": "Введите email.",
-      "emailInvalid": "Введите корректный email."
-    },
     "links": {
       "home": "Главная",
       "about": "О нас",
@@ -314,5 +216,259 @@
     "email": "hello@dreamandcelebrate.com",
     "address": "Ереван, РА",
     "copyright": "© 2025 Dream & Celebrate. Все права защищены."
+  },
+  "admin": {
+    "brand": {
+      "title": "Dream & Celebrate",
+      "subtitle": "Агентство"
+    },
+    "nav": {
+      "dashboard": "Панель",
+      "home": "Главная",
+      "about": "О нас",
+      "services": "Услуги",
+      "experience": "Опыт",
+      "gallery": "Галерея",
+      "testimonials": "Отзывы",
+      "contact": "Контакты",
+      "bookings": "Бронирования",
+      "events": "События",
+      "statistics": "Статистика",
+      "codeTable": "Таблица кодов",
+      "settings": "Настройки"
+    },
+    "sidebar": {
+      "newEvent": "Новое событие",
+      "addContent": "Добавить контент",
+      "support": "Поддержка",
+      "logout": "Выйти"
+    },
+    "header": {
+      "systemHealth": "Состояние системы",
+      "analytics": "Аналитика",
+      "logs": "Журналы",
+      "uptime": "Доступность",
+      "searchPlaceholder": "Поиск контента...",
+      "notifications": "Уведомления",
+      "profile": "Профиль",
+      "accountSettings": "Настройки аккаунта",
+      "viewWebsite": "Открыть сайт"
+    },
+    "dashboard": {
+      "breadcrumbs": "Панель / Обзор",
+      "title": "Панель управления",
+      "welcomeTitle": "С возвращением, админ! 👋",
+      "welcomeDescription": "Управляйте контентом сайта свадебного агентства отсюда.",
+      "exportData": "Экспорт данных",
+      "addNewItem": "Добавить элемент",
+      "description": "Отслеживайте активность контента, бронирования и ключевые показатели студии.",
+      "stats": {
+        "services": "Всего услуг",
+        "servicesTrend": "Опубликованные пакеты",
+        "servicesTrendPercent": "12% к прошлому месяцу",
+        "testimonials": "Отзывы",
+        "testimonialsTrend": "Истории клиентов",
+        "testimonialsTrendPercent": "8% к прошлому месяцу",
+        "gallery": "Изображения галереи",
+        "galleryTrend": "Портфолио",
+        "galleryTrendPercent": "15% к прошлому месяцу",
+        "bookings": "Консультации",
+        "bookingsTrend": "Активные заявки",
+        "bookingsTrendPercent": "5% к прошлому месяцу"
+      },
+      "filters": {
+        "search": "Поиск",
+        "contentType": "Тип контента",
+        "allContent": "Весь контент",
+        "dateRange": "Диапазон дат",
+        "selectRange": "Выберите диапазон",
+        "filters": "Фильтры"
+      },
+      "table": {
+        "content": "Контент",
+        "type": "Тип",
+        "date": "Дата"
+      },
+      "contentTypes": {
+        "service": "Услуга",
+        "experience": "Опыт",
+        "testimonial": "Отзыв",
+        "gallery": "Галерея"
+      },
+      "recentEvents": "Недавние события",
+      "recentBookings": "Недавние бронирования"
+    },
+    "footer": {
+      "copyright": "© {{year}} Dream & Celebrate. Все права защищены."
+    },
+    "login": {
+      "title": "Вход в админ-панель",
+      "description": "Войдите, чтобы управлять контентом сайта.",
+      "email": "Email",
+      "emailPlaceholder": "admin@example.com",
+      "emailInvalid": "Введите корректный email.",
+      "password": "Пароль",
+      "passwordPlaceholder": "Ваш пароль",
+      "submit": "Войти",
+      "invalidCredentials": "Неверный email или пароль."
+    },
+    "home": {
+      "breadcrumbs": "Панель / Контент главной",
+      "title": "Контент главной",
+      "description": "Управляйте hero-изображениями и медиа главной страницы."
+    },
+    "about": {
+      "breadcrumbs": "Панель / Контент «О нас»",
+      "title": "Контент «О нас»",
+      "description": "Обновляйте hero и изображение истории."
+    },
+    "experience": {
+      "breadcrumbs": "Панель / Контент «Опыт»",
+      "title": "Контент «Опыт»",
+      "description": "Управляйте hero-медиа, видео и изображениями секций."
+    },
+    "contact": {
+      "breadcrumbs": "Панель / Контактный контент",
+      "title": "Контактный контент",
+      "description": "Поддерживайте контактные данные и декоративные изображения."
+    },
+    "services": {
+      "breadcrumbs": "Панель / Услуги",
+      "title": "Менеджер услуг",
+      "description": "Добавляйте, редактируйте и публикуйте услуги на сайте."
+    },
+    "gallery": {
+      "breadcrumbs": "Панель / Галерея",
+      "title": "Менеджер галереи",
+      "description": "Организуйте изображения портфолио по категориям и статусу."
+    },
+    "testimonials": {
+      "breadcrumbs": "Панель / Отзывы",
+      "title": "Менеджер отзывов",
+      "description": "Публикуйте истории клиентов с рейтингами."
+    },
+    "bookings": {
+      "breadcrumbs": "Панель / Бронирования",
+      "title": "Менеджер бронирований",
+      "description": "Отслеживайте заявки на консультации и их статусы."
+    },
+    "events": {
+      "breadcrumbs": "Панель / Контент событий",
+      "title": "Менеджер ресурсов",
+      "description": "Курируйте и управляйте экосистемой luxury-событий."
+    },
+    "statistics": {
+      "breadcrumbs": "Панель / Статистика",
+      "title": "Менеджер статистики",
+      "description": "Управляйте ключевыми метриками на обзорной панели."
+    },
+    "codeTable": {
+      "breadcrumbs": "Панель / Таблица кодов",
+      "title": "Таблица кодов",
+      "description": "Поддерживайте внутренние коды услуг и справочные метки."
+    },
+    "settings": {
+      "breadcrumbs": "Панель / Настройки",
+      "title": "Настройки",
+      "description": "Настройте параметры студии и режим обслуживания.",
+      "resetData": "Сбросить демо-данные",
+      "resetConfirmTitle": "Сбросить все данные админки?",
+      "resetConfirmDescription": "Это восстановит демо-контент в localStorage.",
+      "resetSuccess": "Данные админки сброшены."
+    },
+    "actions": {
+      "createEvent": "Создать событие",
+      "createItem": "Создать элемент",
+      "createBooking": "Создать бронирование",
+      "exportCsv": "Экспорт CSV",
+      "exportSuccess": "Экспорт запущен.",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "more": "Ещё",
+      "bulkDelete": "Массовое удаление",
+      "save": "Сохранить",
+      "saveChanges": "Сохранить изменения",
+      "cancel": "Отмена",
+      "confirm": "Подтвердить",
+      "editItem": "Редактировать элемент",
+      "createSuccess": "Элемент успешно создан.",
+      "updateSuccess": "Изменения сохранены."
+    },
+    "filters": {
+      "searchEvent": "Название или ID...",
+      "searchTitle": "Поиск по названию...",
+      "searchClient": "Поиск клиента...",
+      "searchCode": "Поиск кода...",
+      "allStatuses": "Все статусы",
+      "reset": "Сбросить фильтры"
+    },
+    "table": {
+      "eventDetail": "Детали события",
+      "dateTime": "Дата и время",
+      "location": "Локация",
+      "category": "Категория",
+      "code": "Код",
+      "email": "Email",
+      "rating": "Рейтинг",
+      "status": "Статус",
+      "actions": "Действия",
+      "selectedCount": "Выбрано: {{count}}",
+      "showingCount": "Показано {{visible}} из {{total}}"
+    },
+    "fields": {
+      "title": "Название",
+      "date": "Дата",
+      "location": "Локация",
+      "status": "Статус",
+      "imageUrl": "URL изображения",
+      "description": "Описание",
+      "iconKey": "Ключ иконки",
+      "category": "Категория",
+      "clientName": "Имя клиента",
+      "eventType": "Тип события",
+      "quote": "Цитата",
+      "rating": "Рейтинг",
+      "avatarUrl": "URL аватара",
+      "email": "Email",
+      "eventDate": "Дата события",
+      "serviceType": "Тип услуги",
+      "label": "Метка",
+      "value": "Значение",
+      "trend": "Тренд",
+      "code": "Код",
+      "heroMainImageUrl": "URL главного hero-изображения",
+      "heroPolaroidOneUrl": "URL polaroid 1",
+      "heroPolaroidTwoUrl": "URL polaroid 2",
+      "heroAccentImageUrl": "URL акцентного изображения",
+      "aboutImageUrl": "URL изображения «О нас»",
+      "heroImageUrl": "URL hero-изображения",
+      "heroVideoUrl": "URL hero-видео",
+      "whyCouplesImageUrl": "URL изображения «Почему пары»",
+      "ctaImageUrl": "URL CTA-изображения",
+      "phone": "Телефон",
+      "address": "Адрес",
+      "hours": "Часы работы",
+      "decorImageUrl": "URL декора",
+      "siteName": "Название сайта",
+      "supportEmail": "Email поддержки",
+      "defaultLocale": "Язык по умолчанию",
+      "maintenanceMode": "Режим обслуживания"
+    },
+    "locales": {
+      "en": "Английский",
+      "ru": "Русский",
+      "am": "Армянский"
+    },
+    "status": {
+      "published": "Опубликовано",
+      "draft": "Черновик",
+      "archived": "Архив",
+      "pending": "Ожидает",
+      "confirmed": "Подтверждено",
+      "cancelled": "Отменено"
+    },
+    "validation": {
+      "required": "Это поле обязательно."
+    }
   }
 }

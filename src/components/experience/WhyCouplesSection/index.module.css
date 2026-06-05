@@ -9,11 +9,20 @@
   order: 2;
 }
 
+.imageReveal {
+  height: 100%;
+}
+
 .imageWrap {
   position: relative;
   width: 100%;
   max-width: 28rem;
   margin-inline: auto;
+  transition: transform 0.55s var(--ease-smooth);
+}
+
+.imageWrap:hover {
+  transform: translateY(-6px);
 }
 
 .image {
@@ -23,6 +32,11 @@
   border-radius: 12px;
   object-fit: cover;
   aspect-ratio: 4 / 5;
+  transition: box-shadow 0.55s var(--ease-smooth);
+}
+
+.imageWrap:hover .image {
+  box-shadow: var(--shadow-soft);
 }
 
 .skeleton:global(.ant-skeleton-image) {
@@ -48,12 +62,32 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  animation: whyCouplesBadgeIn 0.85s cubic-bezier(0.34, 1.4, 0.64, 1) 0.35s both;
+}
+
+@keyframes whyCouplesBadgeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.75) rotate(-8deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .badgeIcon {
   display: inline-flex;
-  font-size: 1.25rem;
+  font-size: 1.85rem;
   color: var(--color-rose);
+}
+
+.badgeIcon :global(.anticon svg) {
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 55;
+  paint-order: stroke fill;
 }
 
 .badgeText {
@@ -90,6 +124,16 @@
   display: flex;
   align-items: flex-start;
   gap: 0.875rem;
+  padding: 0.35rem 0.25rem;
+  border-radius: 0.5rem;
+  transition:
+    transform 0.35s var(--ease-smooth),
+    background-color 0.35s var(--ease-smooth);
+}
+
+.featureCard:hover {
+  transform: translateX(6px);
+  background-color: rgba(201, 115, 115, 0.06);
 }
 
 .featureBody {
@@ -127,5 +171,26 @@
 @media (max-width: 991px) {
   .imageCol {
     margin-top: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageWrap:hover {
+    transform: none;
+  }
+
+  .imageWrap:hover .image {
+    box-shadow: none;
+  }
+
+  .badge {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .featureCard:hover {
+    transform: none;
+    background-color: transparent;
   }
 }

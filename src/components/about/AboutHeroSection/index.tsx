@@ -1,6 +1,7 @@
 import { Button, Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { SectionLabel } from '@/components/common/SectionLabel';
 import { useAboutContent } from '@/hooks/useAboutContent';
 import { styles } from './styles';
@@ -36,32 +37,34 @@ export const AboutHeroSection = () => {
           </Col>
 
           <Col xs={24} lg={14} xl={14} className={styles.visualCol}>
-            <div className={styles.mediaStage} aria-hidden={isLoading}>
-              <img
-                src="/images/about/center-floral-background.webp"
-                alt=""
-                aria-hidden
-                className={styles.floralLeft}
-              />
-              <img
-                src="/images/about/right-floral-background.webp"
-                alt=""
-                aria-hidden
-                className={styles.floralRight}
-              />
-              <div className={styles.heroImage}>
-                {isLoading ? (
-                  <Skeleton.Image active className={styles.skeleton} />
-                ) : (
-                  <img
-                    src={data?.heroImageUrl}
-                    alt={t('about.hero.imageAlt')}
-                    loading="eager"
-                    fetchPriority="high"
-                  />
-                )}
+            <RevealOnScroll className={styles.mediaReveal} variant="fadeLeft">
+              <div className={styles.mediaStage} aria-hidden={isLoading}>
+                <img
+                  src="/images/about/center-floral-background.webp"
+                  alt=""
+                  aria-hidden
+                  className={styles.floralLeft}
+                />
+                <img
+                  src="/images/about/right-floral-background.webp"
+                  alt=""
+                  aria-hidden
+                  className={styles.floralRight}
+                />
+                <div className={styles.heroImage}>
+                  {isLoading ? (
+                    <Skeleton.Image active className={styles.skeleton} />
+                  ) : (
+                    <img
+                      src={data?.heroImageUrl}
+                      alt={t('about.hero.imageAlt')}
+                      loading="eager"
+                      fetchPriority="high"
+                    />
+                  )}
+                </div>
               </div>
-            </div>
+            </RevealOnScroll>
           </Col>
         </Row>
       </PageContainer>

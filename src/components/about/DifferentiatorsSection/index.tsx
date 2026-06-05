@@ -1,8 +1,8 @@
 import { Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { DifferentiatorIcon } from '@/components/about/DifferentiatorIcon';
-
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { useAboutDifferentiators } from '@/hooks/useAboutContent';
 import { styles } from './styles';
 
@@ -12,9 +12,10 @@ export const DifferentiatorsSection = () => {
 
   return (
     <section className={styles.section}>
-      
       <PageContainer>
-        <h2 className={styles.title}>{t('about.different.title')}</h2>
+        <RevealOnScroll variant="fadeUp">
+          <h2 className={styles.title}>{t('about.different.title')}</h2>
+        </RevealOnScroll>
 
         <Row
           gutter={[
@@ -29,13 +30,15 @@ export const DifferentiatorsSection = () => {
                   <Skeleton active paragraph={{ rows: 2 }} />
                 </Col>
               ))
-            : items?.map((item) => (
+            : items?.map((item, index) => (
                 <Col key={item.id} xs={24} sm={12} lg={6}>
-                  <article className={styles.card}>
-                    <DifferentiatorIcon iconKey={item.iconKey} />
-                    <h3 className={styles.cardTitle}>{t(item.titleKey)}</h3>
-                    <p className={styles.cardDescription}>{t(item.descriptionKey)}</p>
-                  </article>
+                  <RevealOnScroll variant="scaleIn" delay={index * 100}>
+                    <article className={styles.card}>
+                      <DifferentiatorIcon iconKey={item.iconKey} />
+                      <h3 className={styles.cardTitle}>{t(item.titleKey)}</h3>
+                      <p className={styles.cardDescription}>{t(item.descriptionKey)}</p>
+                    </article>
+                  </RevealOnScroll>
                 </Col>
               ))}
         </Row>
