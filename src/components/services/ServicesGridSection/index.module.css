@@ -1,0 +1,22 @@
+.section {
+  padding-block: 64px 88px;
+  background: var(--color-bg);
+}
+
+.carouselWrap {
+  display: block;
+}
+
+.desktopGrid {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .carouselWrap {
+    display: none;
+  }
+
+  .desktopGrid {
+    display: block;
+  }
+}

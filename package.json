@@ -13,7 +13,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cache-bust": "echo 1"
   },
   "dependencies": {
     "@ant-design/icons": "^6.0.0",

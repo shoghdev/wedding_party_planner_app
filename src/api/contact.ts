@@ -1,39 +1,44 @@
 import emailjs from '@emailjs/browser';
-import type { ContactFormValues } from '@/types/contact';
+import {
+  ensureEmailJsInitialized,
+  getEmailJsConfig,
+  getEmailJsErrorMessage,
+} from '@/api/emailjsClient';
+import type { ContactFormValues, EmailJsContactParams } from '@/types/contact';
 
-const getEmailJsConfig = () => {
-  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+/** Maps form values to EmailJS template variables used in the dashboard template. */
+export const buildContactEmailParams = (
+  values: ContactFormValues,
+  subject: string,
+): EmailJsContactParams => ({
+  name: values.name,
+  from_name: values.name,
+  email: values.email,
+  phone: values.phone,
+  message: values.message,
+  subject,
+  time: new Date().toLocaleString(),
+  reply_to: values.email,
+});
 
-  if (!serviceId || !templateId || !publicKey) {
-    throw new Error('EMAILJS_NOT_CONFIGURED');
-  }
-
-  if (
-    serviceId === 'your_service_id' ||
-    templateId === 'your_template_id' ||
-    publicKey === 'your_public_key'
-  ) {
-    throw new Error('EMAILJS_NOT_CONFIGURED');
-  }
-
-  return { serviceId, templateId, publicKey };
-};
-
-export const sendContactMessage = async (values: ContactFormValues): Promise<void> => {
+export const sendContactMessage = async (
+  values: ContactFormValues,
+  subject: string,
+): Promise<void> => {
   const { serviceId, templateId, publicKey } = getEmailJsConfig();
+  const templateParams = buildContactEmailParams(values, subject);
 
-  await emailjs.send(
-    serviceId,
-    templateId,
-    {
-      from_name: values.name,
-      from_email: values.email,
-      phone: values.phone,
-      message: values.message,
-      reply_to: values.email,
-    },
-    { publicKey },
-  );
+  ensureEmailJsInitialized(publicKey);
+
+  try {
+    const response = await emailjs.send(serviceId, templateId, templateParams, {
+      publicKey,
+    });
+
+    if (response.status !== 200 || response.text !== 'OK') {
+      throw response;
+    }
+  } catch (error) {
+    throw new Error(getEmailJsErrorMessage(error));
+  }
 };
