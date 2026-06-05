@@ -1,6 +1,7 @@
 import { Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { FeatureIcon } from '@/components/home/FeatureIcon';
 import { useHomeFeatures } from '@/hooks/useHomeContent';
 import { styles } from './styles';
@@ -23,17 +24,19 @@ export const FeaturesSection = () => {
                     <Skeleton active paragraph={{ rows: 2 }} />
                   </Col>
                 ))
-              : features?.map((feature) => (
+              : features?.map((feature, index) => (
                   <Col key={feature.id} xs={24} md={12} lg={6}>
-                    <article className={styles.card}>
-                      <FeatureIcon iconKey={feature.iconKey} />
-                      <div className={styles.cardBody}>
-                        <h3 className={styles.cardTitle}>{t(feature.titleKey)}</h3>
-                        <p className={styles.cardDescription}>
-                          {t(feature.descriptionKey)}
-                        </p>
-                      </div>
-                    </article>
+                    <RevealOnScroll variant="fadeUp" delay={index * 100}>
+                      <article className={styles.card}>
+                        <FeatureIcon iconKey={feature.iconKey} />
+                        <div className={styles.cardBody}>
+                          <h3 className={styles.cardTitle}>{t(feature.titleKey)}</h3>
+                          <p className={styles.cardDescription}>
+                            {t(feature.descriptionKey)}
+                          </p>
+                        </div>
+                      </article>
+                    </RevealOnScroll>
                   </Col>
                 ))}
           </Row>
