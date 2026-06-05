@@ -15,4 +15,7 @@ export const QUERY_KEYS = {
     whyCouples: ['experience', 'whyCouples'] as const,
     gallery: ['experience', 'gallery'] as const,
   },
+  admin: {
+    state: ['admin', 'state'] as const,
+  },
 } as const;

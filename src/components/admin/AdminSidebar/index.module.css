@@ -1,0 +1,193 @@
+.sidebarInner {
+
+  display: flex;
+
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 0.75rem 0.65rem 1rem;
+
+}
+
+
+
+.menu:global(.ant-menu) {
+
+  flex: 1;
+
+  border-inline-end: 0 !important;
+
+  background: transparent;
+
+  padding-inline: 0.25rem;
+
+}
+
+
+
+.menu :global(.ant-menu-item) {
+
+  margin-inline: 0 !important;
+
+  width: 100% !important;
+
+  border-radius: 0.65rem !important;
+
+  color: var(--color-text-muted) !important;
+
+  font-size: 0.875rem !important;
+
+  padding-inline: 0.85rem !important;
+
+}
+
+
+
+.menu :global(.ant-menu-item .ant-menu-item-icon) {
+
+  color: var(--color-rose-dark) !important;
+
+  font-size: 1rem !important;
+
+}
+
+
+
+.menu :global(.ant-menu-item-selected) {
+
+  position: relative;
+
+  background: var(--admin-nav-active-bg) !important;
+
+  color: var(--color-rose-dark) !important;
+
+  font-weight: 600;
+
+}
+
+
+
+.menu :global(.ant-menu-item-selected .ant-menu-item-icon) {
+
+  color: var(--color-rose-dark) !important;
+
+}
+
+
+
+.menu :global(.ant-menu-item-selected::before) {
+
+  content: '';
+
+  position: absolute;
+
+  inset-block: 0.45rem;
+
+  inset-inline-start: 0;
+
+  width: 3px;
+
+  border-radius: 999px;
+
+  background: var(--color-rose-dark);
+
+}
+
+
+
+.footer {
+
+  padding: 0.85rem 0.35rem 0;
+
+  border-top: 1px solid var(--color-border);
+
+  margin-top: auto;
+
+}
+
+
+
+.addContentBtn:global(.ant-btn-primary) {
+
+  width: 100%;
+
+  margin-bottom: 0.85rem;
+
+  min-height: 2.75rem;
+
+  border: 0;
+
+  border-radius: 0.65rem;
+
+  background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%) !important;
+
+  box-shadow: 0 10px 24px rgba(201, 115, 115, 0.24) !important;
+
+  font-weight: 600;
+
+  letter-spacing: 0.02em;
+
+}
+
+
+
+.addContentBtn:global(.ant-btn-primary:hover) {
+
+  background: linear-gradient(135deg, #d48484 0%, var(--color-rose) 100%) !important;
+
+}
+
+
+
+.footerLinks {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+}
+
+
+
+.footerLink {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  padding: 0.45rem 0.55rem;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-sans);
+
+  font-size: 0.8125rem;
+
+  cursor: pointer;
+
+  border-radius: 0.5rem;
+
+  transition: background-color 0.25s var(--ease-smooth);
+
+}
+
+
+
+.footerLink:hover {
+
+  background: var(--admin-gold-soft);
+
+  color: var(--color-text);
+
+}
+
+

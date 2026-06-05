@@ -1,0 +1,38 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.statsRow {
+  margin-top: 0.25rem;
+}
+
+.outlineBtn:global(.ant-btn) {
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border-color: var(--color-rose);
+  color: var(--color-rose);
+  font-weight: 600;
+  padding-inline: 1.25rem;
+}
+
+.outlineBtn:global(.ant-btn:hover) {
+  border-color: var(--color-rose-dark) !important;
+  color: var(--color-rose-dark) !important;
+  background: var(--admin-gold-soft) !important;
+}
+
+.primaryBtn:global(.ant-btn-primary) {
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border: 0;
+  background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-rose-dark) 100%) !important;
+  box-shadow: 0 10px 24px rgba(201, 115, 115, 0.24) !important;
+  font-weight: 600;
+  padding-inline: 1.25rem;
+}
+
+.primaryBtn:global(.ant-btn-primary:hover) {
+  background: linear-gradient(135deg, #d48484 0%, var(--color-rose) 100%) !important;
+}

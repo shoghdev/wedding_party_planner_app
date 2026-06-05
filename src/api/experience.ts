@@ -4,18 +4,21 @@ import type {
   ProcessStep,
   WhyCouplesFeature,
 } from '@/types/experience';
+import { fetchAdminState } from '@/api/adminState';
 import {
   MOCK_EXPERIENCE_CONTENT,
   MOCK_EXPERIENCE_GALLERY,
   MOCK_PROCESS_STEPS,
   MOCK_WHY_COUPLES_FEATURES,
 } from '@/api/mocks/experience';
+import { mergeExperienceContent } from '@/utils/adminContentBridge';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchExperienceContent = async (): Promise<ExperienceContent> => {
   await delay(100);
-  return MOCK_EXPERIENCE_CONTENT;
+  const adminState = await fetchAdminState();
+  return mergeExperienceContent(MOCK_EXPERIENCE_CONTENT, adminState);
 };
 
 export const fetchProcessSteps = async (): Promise<readonly ProcessStep[]> => {
