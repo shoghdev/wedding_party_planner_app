@@ -1,4 +1,4 @@
-import { ConfigProvider, theme as antdTheme } from 'antd';
+import { App as AntApp, ConfigProvider, theme as antdTheme } from 'antd';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
@@ -32,29 +32,31 @@ const App = () => {
           algorithm: mode === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
         }}
       >
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/admin/*"
-              element={<AdminApp themeMode={mode} onThemeToggle={toggleMode} />}
-            />
-            <Route
-              path="/*"
-              element={
-                <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
-                  <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/services" element={<ServicesPage />} />
-                    <Route path="/portfolio" element={<PortfolioPage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="/experience" element={<ExperiencePage />} />
-                    <Route path="/contact" element={<ContactPage />} />
-                  </Routes>
-                </SiteLayout>
-              }
-            />
-          </Routes>
-        </BrowserRouter>
+        <AntApp>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                path="/admin/*"
+                element={<AdminApp themeMode={mode} onThemeToggle={toggleMode} />}
+              />
+              <Route
+                path="/*"
+                element={
+                  <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
+                    <Routes>
+                      <Route path="/" element={<HomePage />} />
+                      <Route path="/services" element={<ServicesPage />} />
+                      <Route path="/portfolio" element={<PortfolioPage />} />
+                      <Route path="/about" element={<AboutPage />} />
+                      <Route path="/experience" element={<ExperiencePage />} />
+                      <Route path="/contact" element={<ContactPage />} />
+                    </Routes>
+                  </SiteLayout>
+                }
+              />
+            </Routes>
+          </BrowserRouter>
+        </AntApp>
       </ConfigProvider>
     </QueryClientProvider>
   );

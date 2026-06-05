@@ -1,4 +1,4 @@
-import { message } from 'antd';
+import { App } from 'antd';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { sendContactMessage } from '@/api/contact';
@@ -6,6 +6,7 @@ import type { ContactFormValues } from '@/types/contact';
 
 export const useContactForm = () => {
   const { t } = useTranslation();
+  const { message } = App.useApp();
   const [submitting, setSubmitting] = useState(false);
 
   const submitForm = async (values: ContactFormValues) => {
@@ -22,7 +23,9 @@ export const useContactForm = () => {
       return true;
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'UNKNOWN';
-      const isConfigError = errorMessage === 'EMAILJS_NOT_CONFIGURED';
+      const isConfigError =
+        errorMessage === 'EMAILJS_NOT_CONFIGURED' ||
+        errorMessage === 'EMAILJS_INVALID_TO_EMAIL';
 
       if (import.meta.env.DEV) {
         console.error('[Contact form → EmailJS]', error);
