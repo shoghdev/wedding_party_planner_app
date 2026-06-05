@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -206,6 +206,269 @@
       "blog": "Блог",
       "contact": "Контакты"
     },
-    "copyright": "© 2025 Dream & Celebrate"
+    "serviceLinks": {
+      "weddings": "Свадьбы",
+      "corporate": "Корпоративы",
+      "private": "Частные праздники",
+      "consultation": "Консультация"
+    },
+    "phone": "+374 10 123 456",
+    "email": "hello@dreamandcelebrate.com",
+    "address": "Ереван, РА",
+    "copyright": "© 2025 Dream & Celebrate. Все права защищены."
+  },
+  "admin": {
+    "brand": {
+      "title": "Dream & Celebrate",
+      "subtitle": "Агентство"
+    },
+    "nav": {
+      "dashboard": "Панель",
+      "home": "Главная",
+      "about": "О нас",
+      "services": "Услуги",
+      "experience": "Опыт",
+      "gallery": "Галерея",
+      "testimonials": "Отзывы",
+      "contact": "Контакты",
+      "bookings": "Бронирования",
+      "events": "События",
+      "statistics": "Статистика",
+      "codeTable": "Таблица кодов",
+      "settings": "Настройки"
+    },
+    "sidebar": {
+      "newEvent": "Новое событие",
+      "addContent": "Добавить контент",
+      "support": "Поддержка",
+      "logout": "Выйти"
+    },
+    "header": {
+      "systemHealth": "Состояние системы",
+      "analytics": "Аналитика",
+      "logs": "Журналы",
+      "uptime": "Доступность",
+      "searchPlaceholder": "Поиск контента...",
+      "notifications": "Уведомления",
+      "profile": "Профиль",
+      "accountSettings": "Настройки аккаунта",
+      "viewWebsite": "Открыть сайт"
+    },
+    "dashboard": {
+      "breadcrumbs": "Панель / Обзор",
+      "title": "Панель управления",
+      "welcomeTitle": "С возвращением, админ! 👋",
+      "welcomeDescription": "Управляйте контентом сайта свадебного агентства отсюда.",
+      "exportData": "Экспорт данных",
+      "addNewItem": "Добавить элемент",
+      "description": "Отслеживайте активность контента, бронирования и ключевые показатели студии.",
+      "stats": {
+        "services": "Всего услуг",
+        "servicesTrend": "Опубликованные пакеты",
+        "servicesTrendPercent": "12% к прошлому месяцу",
+        "testimonials": "Отзывы",
+        "testimonialsTrend": "Истории клиентов",
+        "testimonialsTrendPercent": "8% к прошлому месяцу",
+        "gallery": "Изображения галереи",
+        "galleryTrend": "Портфолио",
+        "galleryTrendPercent": "15% к прошлому месяцу",
+        "bookings": "Консультации",
+        "bookingsTrend": "Активные заявки",
+        "bookingsTrendPercent": "5% к прошлому месяцу"
+      },
+      "filters": {
+        "search": "Поиск",
+        "contentType": "Тип контента",
+        "allContent": "Весь контент",
+        "dateRange": "Диапазон дат",
+        "selectRange": "Выберите диапазон",
+        "filters": "Фильтры"
+      },
+      "table": {
+        "content": "Контент",
+        "type": "Тип",
+        "date": "Дата"
+      },
+      "contentTypes": {
+        "service": "Услуга",
+        "experience": "Опыт",
+        "testimonial": "Отзыв",
+        "gallery": "Галерея"
+      },
+      "recentEvents": "Недавние события",
+      "recentBookings": "Недавние бронирования"
+    },
+    "footer": {
+      "copyright": "© {{year}} Dream & Celebrate. Все права защищены."
+    },
+    "login": {
+      "title": "Вход в админ-панель",
+      "description": "Войдите, чтобы управлять контентом сайта.",
+      "email": "Email",
+      "emailPlaceholder": "admin@example.com",
+      "emailInvalid": "Введите корректный email.",
+      "password": "Пароль",
+      "passwordPlaceholder": "Ваш пароль",
+      "submit": "Войти",
+      "invalidCredentials": "Неверный email или пароль."
+    },
+    "home": {
+      "breadcrumbs": "Панель / Контент главной",
+      "title": "Контент главной",
+      "description": "Управляйте hero-изображениями и медиа главной страницы."
+    },
+    "about": {
+      "breadcrumbs": "Панель / Контент «О нас»",
+      "title": "Контент «О нас»",
+      "description": "Обновляйте hero и изображение истории."
+    },
+    "experience": {
+      "breadcrumbs": "Панель / Контент «Опыт»",
+      "title": "Контент «Опыт»",
+      "description": "Управляйте hero-медиа, видео и изображениями секций."
+    },
+    "contact": {
+      "breadcrumbs": "Панель / Контактный контент",
+      "title": "Контактный контент",
+      "description": "Поддерживайте контактные данные и декоративные изображения."
+    },
+    "services": {
+      "breadcrumbs": "Панель / Услуги",
+      "title": "Менеджер услуг",
+      "description": "Добавляйте, редактируйте и публикуйте услуги на сайте."
+    },
+    "gallery": {
+      "breadcrumbs": "Панель / Галерея",
+      "title": "Менеджер галереи",
+      "description": "Организуйте изображения портфолио по категориям и статусу."
+    },
+    "testimonials": {
+      "breadcrumbs": "Панель / Отзывы",
+      "title": "Менеджер отзывов",
+      "description": "Публикуйте истории клиентов с рейтингами."
+    },
+    "bookings": {
+      "breadcrumbs": "Панель / Бронирования",
+      "title": "Менеджер бронирований",
+      "description": "Отслеживайте заявки на консультации и их статусы."
+    },
+    "events": {
+      "breadcrumbs": "Панель / Контент событий",
+      "title": "Менеджер ресурсов",
+      "description": "Курируйте и управляйте экосистемой luxury-событий."
+    },
+    "statistics": {
+      "breadcrumbs": "Панель / Статистика",
+      "title": "Менеджер статистики",
+      "description": "Управляйте ключевыми метриками на обзорной панели."
+    },
+    "codeTable": {
+      "breadcrumbs": "Панель / Таблица кодов",
+      "title": "Таблица кодов",
+      "description": "Поддерживайте внутренние коды услуг и справочные метки."
+    },
+    "settings": {
+      "breadcrumbs": "Панель / Настройки",
+      "title": "Настройки",
+      "description": "Настройте параметры студии и режим обслуживания.",
+      "resetData": "Сбросить демо-данные",
+      "resetConfirmTitle": "Сбросить все данные админки?",
+      "resetConfirmDescription": "Это восстановит демо-контент в localStorage.",
+      "resetSuccess": "Данные админки сброшены."
+    },
+    "actions": {
+      "createEvent": "Создать событие",
+      "createItem": "Создать элемент",
+      "createBooking": "Создать бронирование",
+      "exportCsv": "Экспорт CSV",
+      "exportSuccess": "Экспорт запущен.",
+      "edit": "Редактировать",
+      "delete": "Удалить",
+      "more": "Ещё",
+      "bulkDelete": "Массовое удаление",
+      "save": "Сохранить",
+      "saveChanges": "Сохранить изменения",
+      "cancel": "Отмена",
+      "confirm": "Подтвердить",
+      "editItem": "Редактировать элемент",
+      "createSuccess": "Элемент успешно создан.",
+      "updateSuccess": "Изменения сохранены."
+    },
+    "filters": {
+      "searchEvent": "Название или ID...",
+      "searchTitle": "Поиск по названию...",
+      "searchClient": "Поиск клиента...",
+      "searchCode": "Поиск кода...",
+      "allStatuses": "Все статусы",
+      "reset": "Сбросить фильтры"
+    },
+    "table": {
+      "eventDetail": "Детали события",
+      "dateTime": "Дата и время",
+      "location": "Локация",
+      "category": "Категория",
+      "code": "Код",
+      "email": "Email",
+      "rating": "Рейтинг",
+      "status": "Статус",
+      "actions": "Действия",
+      "selectedCount": "Выбрано: {{count}}",
+      "showingCount": "Показано {{visible}} из {{total}}"
+    },
+    "fields": {
+      "title": "Название",
+      "date": "Дата",
+      "location": "Локация",
+      "status": "Статус",
+      "imageUrl": "URL изображения",
+      "description": "Описание",
+      "iconKey": "Ключ иконки",
+      "category": "Категория",
+      "clientName": "Имя клиента",
+      "eventType": "Тип события",
+      "quote": "Цитата",
+      "rating": "Рейтинг",
+      "avatarUrl": "URL аватара",
+      "email": "Email",
+      "eventDate": "Дата события",
+      "serviceType": "Тип услуги",
+      "label": "Метка",
+      "value": "Значение",
+      "trend": "Тренд",
+      "code": "Код",
+      "heroMainImageUrl": "URL главного hero-изображения",
+      "heroPolaroidOneUrl": "URL polaroid 1",
+      "heroPolaroidTwoUrl": "URL polaroid 2",
+      "heroAccentImageUrl": "URL акцентного изображения",
+      "aboutImageUrl": "URL изображения «О нас»",
+      "heroImageUrl": "URL hero-изображения",
+      "heroVideoUrl": "URL hero-видео",
+      "whyCouplesImageUrl": "URL изображения «Почему пары»",
+      "ctaImageUrl": "URL CTA-изображения",
+      "phone": "Телефон",
+      "address": "Адрес",
+      "hours": "Часы работы",
+      "decorImageUrl": "URL декора",
+      "siteName": "Название сайта",
+      "supportEmail": "Email поддержки",
+      "defaultLocale": "Язык по умолчанию",
+      "maintenanceMode": "Режим обслуживания"
+    },
+    "locales": {
+      "en": "Английский",
+      "ru": "Русский",
+      "am": "Армянский"
+    },
+    "status": {
+      "published": "Опубликовано",
+      "draft": "Черновик",
+      "archived": "Архив",
+      "pending": "Ожидает",
+      "confirmed": "Подтверждено",
+      "cancelled": "Отменено"
+    },
+    "validation": {
+      "required": "Это поле обязательно."
+    }
   }
 }

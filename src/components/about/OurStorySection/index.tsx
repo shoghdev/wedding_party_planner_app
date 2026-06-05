@@ -1,6 +1,7 @@
 import { Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { useAboutContent } from '@/hooks/useAboutContent';
 import { styles } from './styles';
 
@@ -14,24 +15,28 @@ export const OurStorySection = () => {
         <Row gutter={0} align="stretch" className={styles.splitRow}>
           <Col xs={24} lg={12} className={styles.splitCol}>
             <div className={styles.imageCol}>
-              {isLoading ? (
-                <Skeleton.Image active className={styles.skeleton} />
-              ) : (
-                <img
-                  src={data?.storyImageUrl}
-                  alt={t('about.story.imageAlt')}
-                  loading="lazy"
-                />
-              )}
+              <RevealOnScroll className={styles.imageReveal} variant="fadeLeft">
+                {isLoading ? (
+                  <Skeleton.Image active className={styles.skeleton} />
+                ) : (
+                  <img
+                    src={data?.storyImageUrl}
+                    alt={t('about.story.imageAlt')}
+                    loading="lazy"
+                  />
+                )}
+              </RevealOnScroll>
             </div>
           </Col>
 
           <Col xs={24} lg={12} className={styles.splitCol}>
             <div className={styles.textCol}>
-              <h2 className={styles.title}>{t('about.story.title')}</h2>
-              <p className={styles.paragraph}>{t('about.story.paragraphOne')}</p>
-              <p className={styles.paragraph}>{t('about.story.paragraphTwo')}</p>
-              <p className={styles.signature}>{t('about.story.signature')}</p>
+              <RevealOnScroll className={styles.textReveal} variant="fadeUp" delay={120}>
+                <h2 className={styles.title}>{t('about.story.title')}</h2>
+                <p className={styles.paragraph}>{t('about.story.paragraphOne')}</p>
+                <p className={styles.paragraph}>{t('about.story.paragraphTwo')}</p>
+                <p className={styles.signature}>{t('about.story.signature')}</p>
+              </RevealOnScroll>
             </div>
           </Col>
         </Row>

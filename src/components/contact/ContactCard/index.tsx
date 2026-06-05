@@ -2,7 +2,7 @@ import { Button, Col, Form, Input, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
 import { ContactDetailIcon } from '@/components/contact/ContactDetailIcon';
-import { CONTACT_DECOR_IMAGE_URL, CONTACT_DETAILS } from '@/api/mocks/contact';
+import { useContactContent } from '@/hooks/useContactContent';
 import { useContactForm } from '@/hooks/useContactForm';
 import type { ContactFormValues } from '@/types/contact';
 import { styles } from './styles';
@@ -11,6 +11,7 @@ const { TextArea } = Input;
 
 export const ContactCard = () => {
   const { t } = useTranslation();
+  const { decorImageUrl, details } = useContactContent();
   const [form] = Form.useForm<ContactFormValues>();
   const { submitting, submitForm } = useContactForm();
 
@@ -33,13 +34,11 @@ export const ContactCard = () => {
                 </h1>
                 <p className={styles.intro}>{t('contact.intro')}</p>
                 <ul className={styles.detailList}>
-                  {CONTACT_DETAILS.map((detail) => {
+                  {details.map((detail) => {
                     const content = (
                       <>
                         <ContactDetailIcon detailKey={detail.key} />
-                        <span className={styles.detailText}>
-                          {t(`contact.details.${detail.key}`)}
-                        </span>
+                        <span className={styles.detailText}>{detail.label}</span>
                       </>
                     );
 
@@ -123,7 +122,7 @@ export const ContactCard = () => {
             <Col xs={0} lg={7} xl={7} className={styles.imageCol}>
               <div className={styles.imageWrap}>
                 <img
-                  src={CONTACT_DECOR_IMAGE_URL}
+                  src={decorImageUrl}
                   alt=""
                   className={styles.decorImage}
                   loading="lazy"

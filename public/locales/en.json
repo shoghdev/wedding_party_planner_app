@@ -204,7 +204,12 @@
       "titleAfter": ".",
       "description": "From the first call to the final toast, we craft a joyful and beautifully organized celebration.",
       "badge": "Planning your love story with care.",
-      "imageAlt": "Elegant celebration table with flowers and candles"
+      "imageAlt": "Elegant celebration table with flowers and candles",
+      "playVideo": "Play video",
+      "pauseVideo": "Pause video",
+      "muteVideo": "Mute video",
+      "unmuteVideo": "Unmute video",
+      "openHeyGenVideo": "Open HeyGen video"
     },
     "process": {
       "steps": {
@@ -378,5 +383,259 @@
     "email": "hello@dreamandcelebrate.com",
     "address": "Yerevan, RA",
     "copyright": "© 2025 Dream & Celebrate. All rights reserved."
+  },
+  "admin": {
+    "brand": {
+      "title": "Dream & Celebrate",
+      "subtitle": "Agency"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "experience": "Experience",
+      "gallery": "Gallery",
+      "testimonials": "Testimonials",
+      "contact": "Contact",
+      "bookings": "Bookings",
+      "events": "Events",
+      "statistics": "Statistics",
+      "codeTable": "Code Table",
+      "settings": "Settings"
+    },
+    "sidebar": {
+      "newEvent": "New Event",
+      "addContent": "Add New Content",
+      "support": "Support",
+      "logout": "Log Out"
+    },
+    "header": {
+      "systemHealth": "System Health",
+      "analytics": "Analytics",
+      "logs": "Logs",
+      "uptime": "Uptime",
+      "searchPlaceholder": "Search content...",
+      "notifications": "Notifications",
+      "profile": "Profile",
+      "accountSettings": "Account Settings",
+      "viewWebsite": "View Website"
+    },
+    "dashboard": {
+      "breadcrumbs": "Dashboard / Overview",
+      "title": "Dashboard",
+      "welcomeTitle": "Welcome back, Admin! 👋",
+      "welcomeDescription": "Manage your wedding planning website content from here.",
+      "exportData": "Export Data",
+      "addNewItem": "Add New Item",
+      "description": "Monitor content activity, bookings, and key performance across your wedding planning studio.",
+      "stats": {
+        "services": "Total Services",
+        "servicesTrend": "Published packages",
+        "servicesTrendPercent": "12% vs last month",
+        "testimonials": "Testimonials",
+        "testimonialsTrend": "Client stories live",
+        "testimonialsTrendPercent": "8% vs last month",
+        "gallery": "Gallery Images",
+        "galleryTrend": "Portfolio assets",
+        "galleryTrendPercent": "15% vs last month",
+        "bookings": "Consultations",
+        "bookingsTrend": "Active requests",
+        "bookingsTrendPercent": "5% vs last month"
+      },
+      "filters": {
+        "search": "Search",
+        "contentType": "Content Type",
+        "allContent": "All Content",
+        "dateRange": "Date Range",
+        "selectRange": "Select Range",
+        "filters": "Filters"
+      },
+      "table": {
+        "content": "Content",
+        "type": "Type",
+        "date": "Date"
+      },
+      "contentTypes": {
+        "service": "Service",
+        "experience": "Experience",
+        "testimonial": "Testimonial",
+        "gallery": "Gallery"
+      },
+      "recentEvents": "Recent Events",
+      "recentBookings": "Recent Bookings"
+    },
+    "footer": {
+      "copyright": "© {{year}} Dream & Celebrate. All rights reserved."
+    },
+    "login": {
+      "title": "Admin Sign In",
+      "description": "Sign in to manage website content.",
+      "email": "Email",
+      "emailPlaceholder": "admin@example.com",
+      "emailInvalid": "Enter a valid email address.",
+      "password": "Password",
+      "passwordPlaceholder": "Your password",
+      "submit": "Sign In",
+      "invalidCredentials": "Invalid email or password."
+    },
+    "home": {
+      "breadcrumbs": "Dashboard / Home Content",
+      "title": "Home Content",
+      "description": "Manage hero imagery and homepage media assets."
+    },
+    "about": {
+      "breadcrumbs": "Dashboard / About Content",
+      "title": "About Content",
+      "description": "Update hero and story imagery for the About page."
+    },
+    "experience": {
+      "breadcrumbs": "Dashboard / Experience Content",
+      "title": "Experience Content",
+      "description": "Curate hero media, video links, and section imagery."
+    },
+    "contact": {
+      "breadcrumbs": "Dashboard / Contact Content",
+      "title": "Contact Content",
+      "description": "Maintain contact details and decorative imagery."
+    },
+    "services": {
+      "breadcrumbs": "Dashboard / Services",
+      "title": "Services Manager",
+      "description": "Add, edit, and publish service offerings for the website."
+    },
+    "gallery": {
+      "breadcrumbs": "Dashboard / Gallery",
+      "title": "Gallery Manager",
+      "description": "Organize portfolio images by category and publication status."
+    },
+    "testimonials": {
+      "breadcrumbs": "Dashboard / Testimonials",
+      "title": "Testimonials Manager",
+      "description": "Showcase client stories with ratings and publication control."
+    },
+    "bookings": {
+      "breadcrumbs": "Dashboard / Bookings",
+      "title": "Booking Manager",
+      "description": "Track consultation requests and booking statuses."
+    },
+    "events": {
+      "breadcrumbs": "Dashboard / Event Content",
+      "title": "Resource Manager",
+      "description": "Curate and oversee the entire ecosystem of luxury experiences across your event network."
+    },
+    "statistics": {
+      "breadcrumbs": "Dashboard / Statistics",
+      "title": "Statistics Manager",
+      "description": "Manage headline metrics displayed on the admin overview."
+    },
+    "codeTable": {
+      "breadcrumbs": "Dashboard / Code Table",
+      "title": "Code Table",
+      "description": "Maintain internal service codes and reference labels."
+    },
+    "settings": {
+      "breadcrumbs": "Dashboard / Settings",
+      "title": "Settings",
+      "description": "Configure studio preferences and maintenance options.",
+      "resetData": "Reset Demo Data",
+      "resetConfirmTitle": "Reset all admin data?",
+      "resetConfirmDescription": "This restores the default demo content in local storage.",
+      "resetSuccess": "Admin data has been reset."
+    },
+    "actions": {
+      "createEvent": "Create New Event",
+      "createItem": "Create Item",
+      "createBooking": "Create Booking",
+      "exportCsv": "Export CSV",
+      "exportSuccess": "Export started.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "more": "More options",
+      "bulkDelete": "Bulk Delete",
+      "save": "Save",
+      "saveChanges": "Save Changes",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "editItem": "Edit Item",
+      "createSuccess": "Item created successfully.",
+      "updateSuccess": "Changes saved successfully."
+    },
+    "filters": {
+      "searchEvent": "Title or ID...",
+      "searchTitle": "Search title...",
+      "searchClient": "Search client...",
+      "searchCode": "Search code...",
+      "allStatuses": "All Statuses",
+      "reset": "Reset Filters"
+    },
+    "table": {
+      "eventDetail": "Event Detail",
+      "dateTime": "Date & Time",
+      "location": "Location",
+      "category": "Category",
+      "code": "Code",
+      "email": "Email",
+      "rating": "Rating",
+      "status": "Status",
+      "actions": "Actions",
+      "selectedCount": "{{count}} items selected",
+      "showingCount": "Showing {{visible}} of {{total}} items"
+    },
+    "fields": {
+      "title": "Title",
+      "date": "Date",
+      "location": "Location",
+      "status": "Status",
+      "imageUrl": "Image URL",
+      "description": "Description",
+      "iconKey": "Icon Key",
+      "category": "Category",
+      "clientName": "Client Name",
+      "eventType": "Event Type",
+      "quote": "Quote",
+      "rating": "Rating",
+      "avatarUrl": "Avatar URL",
+      "email": "Email",
+      "eventDate": "Event Date",
+      "serviceType": "Service Type",
+      "label": "Label",
+      "value": "Value",
+      "trend": "Trend",
+      "code": "Code",
+      "heroMainImageUrl": "Hero Main Image URL",
+      "heroPolaroidOneUrl": "Hero Polaroid One URL",
+      "heroPolaroidTwoUrl": "Hero Polaroid Two URL",
+      "heroAccentImageUrl": "Hero Accent Image URL",
+      "aboutImageUrl": "About Image URL",
+      "heroImageUrl": "Hero Image URL",
+      "heroVideoUrl": "Hero Video URL",
+      "whyCouplesImageUrl": "Why Couples Image URL",
+      "ctaImageUrl": "CTA Image URL",
+      "phone": "Phone",
+      "address": "Address",
+      "hours": "Hours",
+      "decorImageUrl": "Decor Image URL",
+      "siteName": "Site Name",
+      "supportEmail": "Support Email",
+      "defaultLocale": "Default Locale",
+      "maintenanceMode": "Maintenance Mode"
+    },
+    "locales": {
+      "en": "English",
+      "ru": "Russian",
+      "am": "Armenian"
+    },
+    "status": {
+      "published": "Published",
+      "draft": "Draft",
+      "archived": "Archived",
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled"
+    },
+    "validation": {
+      "required": "This field is required."
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Col, Row, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/common/PageContainer';
 import { SectionLabel } from '@/components/common/SectionLabel';
+import { ExperienceHeroMedia } from '@/components/experience/ExperienceHeroMedia';
 import { useExperienceContent } from '@/hooks/useExperienceContent';
 import { styles } from './styles';
 
@@ -38,12 +39,12 @@ export const ExperienceHeroSection = () => {
               {isLoading ? (
                 <Skeleton.Image active className={styles.skeleton} />
               ) : (
-                <div className={styles.heroImage}>
-                  <img
-                    src={data?.heroImageUrl}
-                    alt={t('experience.hero.imageAlt')}
-                    loading="eager"
-                    fetchPriority="high"
+                <div className={styles.heroVisual}>
+                  <ExperienceHeroMedia
+                    heroImageUrl={data?.heroImageUrl ?? ''}
+                    heroVideoUrl={data?.heroVideoUrl}
+                    posterUrl={data?.heroImageUrl}
+                    imageAlt={t('experience.hero.imageAlt')}
                   />
                   <div className={styles.badge}>
                     <span className={styles.badgeIcon} aria-hidden>

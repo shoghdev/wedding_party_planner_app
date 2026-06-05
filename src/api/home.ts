@@ -1,4 +1,5 @@
 import type { HomeContent, HomeFeature, ServiceCard, StorySlide, ValueProp } from '@/types/home';
+import { fetchAdminState } from '@/api/adminState';
 import {
   MOCK_HOME_CONTENT,
   MOCK_HOME_FEATURES,
@@ -6,12 +7,14 @@ import {
   MOCK_STORIES,
   MOCK_VALUE_PROPS,
 } from '@/api/mocks/home';
+import { mergeHomeContent } from '@/utils/adminContentBridge';
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchHomeContent = async (): Promise<HomeContent> => {
   await delay(100);
-  return MOCK_HOME_CONTENT;
+  const adminState = await fetchAdminState();
+  return mergeHomeContent(MOCK_HOME_CONTENT, adminState);
 };
 
 export const fetchValueProps = async (): Promise<readonly ValueProp[]> => {
