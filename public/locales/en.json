@@ -176,7 +176,12 @@
       "titleAfter": ".",
       "description": "From the first call to the final toast, we craft a joyful and beautifully organized celebration.",
       "badge": "Planning your love story with care.",
-      "imageAlt": "Elegant celebration table with flowers and candles"
+      "imageAlt": "Elegant celebration table with flowers and candles",
+      "playVideo": "Play video",
+      "pauseVideo": "Pause video",
+      "muteVideo": "Mute video",
+      "unmuteVideo": "Unmute video",
+      "openHeyGenVideo": "Open HeyGen video"
     },
     "process": {
       "steps": {

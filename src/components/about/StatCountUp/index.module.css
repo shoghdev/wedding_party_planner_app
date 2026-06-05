@@ -1,0 +1,40 @@
+.value {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 6.5vw, 3.75rem);
+  font-weight: 600;
+  color: var(--color-rose);
+  margin: 0 0 0.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  transform-origin: center bottom;
+  transition: transform 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.value[data-active='true'] {
+  animation: statValuePop 0.9s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+}
+
+@keyframes statValuePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  70% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .value[data-active='true'] {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

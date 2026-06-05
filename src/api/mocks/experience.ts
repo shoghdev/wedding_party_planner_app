@@ -7,6 +7,8 @@ import type {
 
 export const MOCK_EXPERIENCE_CONTENT: ExperienceContent = {
   heroImageUrl: '/images/experience/heroImage.jpg',
+  heroVideoUrl:
+    'https://app.heygen.com/videos/a-beautiful-moment-fb54d0dd4b9647b78c9cecc7d0e23cae',
   whyCouplesImageUrl: '/images/experience/why-couples.webp',
   ctaImageUrl: '/images/experience/cta-candles.jpg',
 };
