@@ -13,7 +13,9 @@ export const Logo = ({ tone = 'default' }: LogoProps) => {
     .join(' ');
 
   return (
+
     <Link to="/" className={logoClass} aria-label={t('header.logo.title')}>
+ origin/main
       <span className={styles.title}>
         Dream <em className={styles.ampersand}>&</em> Celebrate
       </span>

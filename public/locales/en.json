@@ -111,6 +111,34 @@
       }
     }
   },
+  "servicesPage": {
+    "hero": {
+      "overline": "OUR SERVICES",
+      "title": "From intimate gatherings to grand celebrations, we do it all.",
+      "subtitle": "Full-service planning, breathtaking design, and seamless execution.",
+      "badge": "CELEBRATE YOUR WAY"
+    },
+    "learnMore": "LEARN MORE",
+    "cards": {
+      "fullPlanning": {
+        "title": "Full Wedding Planning",
+        "description": "Complete planning from start to finish."
+      },
+      "partialPlanning": {
+        "title": "Partial Planning",
+        "description": "Guidance and planning for key parts."
+      },
+      "designStyling": {
+        "title": "Event Design & Styling",
+        "description": "Beautiful themes, decor & styling."
+      },
+      "dayCoordination": {
+        "title": "Micro / Day Coordination",
+        "description": "On-the-day management and coordination."
+      }
+    }
+  },
+
   "about": {
     "hero": {
       "overline": "ABOUT US",
@@ -282,12 +310,46 @@
       "messagePlaceholder": "Tell us about your event...",
       "messageRequired": "Please enter your message.",
       "submit": "Send",
+      "emailSubject": "Contact from {{name}} · {{phone}}",
       "success": "Thank you! Your message has been sent.",
       "error": "Something went wrong. Please try again.",
-      "configError": "Email is not configured yet. Please add your EmailJS keys to .env."
+      "errorWithReason": "Could not send: {{reason}}",
+      "configError": "Email is not configured yet. Please add your EmailJS keys to .env and restart the dev server."
     },
     "follow": {
       "title": "Follow Us"
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "PORTFOLIO",
+      "title": "A collection of love, joy and beautiful celebrations."
+    },
+    "filters": {
+      "label": "Filter portfolio",
+      "all": "ALL",
+      "weddings": "WEDDINGS",
+      "parties": "PARTIES",
+      "destinations": "DESTINATIONS",
+      "engagements": "ENGAGEMENTS",
+      "showers": "SHOWERS",
+      "corporate": "CORPORATE"
+    },
+    "loadMore": "LOAD MORE",
+    "empty": "No portfolio items match this category yet.",
+    "items": {
+      "floralArch": "Floral ceremony arch with white blooms",
+      "outdoorCeremony": "Outdoor wedding ceremony setup",
+      "tableSetting": "Elegant candlelit table setting",
+      "candlelitReception": "Reception table with floral centerpiece",
+      "gardenCelebration": "Garden celebration with lush florals",
+      "dessertDisplay": "Pink-themed dessert and balloon display",
+      "bridalBouquet": "Bridal bouquet detail shot",
+      "corporateGala": "Corporate gala evening reception",
+      "destinationVows": "Destination wedding vows by the water",
+      "engagementDinner": "Intimate engagement dinner setting",
+      "babyShower": "Elegant baby shower tablescape",
+      "corporateSummit": "Corporate summit lounge styling"
     }
   },
   "footer": {

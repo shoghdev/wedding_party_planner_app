@@ -8,19 +8,30 @@ export const useContactForm = () => {
   const { t } = useTranslation();
   const [submitting, setSubmitting] = useState(false);
 
-  const onFinish = async (values: ContactFormValues) => {
+  const submitForm = async (values: ContactFormValues) => {
     setSubmitting(true);
 
+    const subject = t('contact.form.emailSubject', {
+      name: values.name,
+      phone: values.phone,
+    });
+
     try {
-      await sendContactMessage(values);
+      await sendContactMessage(values, subject);
       message.success(t('contact.form.success'));
       return true;
     } catch (error) {
-      const isConfigError =
-        error instanceof Error && error.message === 'EMAILJS_NOT_CONFIGURED';
+      const errorMessage = error instanceof Error ? error.message : 'UNKNOWN';
+      const isConfigError = errorMessage === 'EMAILJS_NOT_CONFIGURED';
+
+      if (import.meta.env.DEV) {
+        console.error('[Contact form → EmailJS]', error);
+      }
 
       message.error(
-        isConfigError ? t('contact.form.configError') : t('contact.form.error'),
+        isConfigError
+          ? t('contact.form.configError')
+          : t('contact.form.errorWithReason', { reason: errorMessage }),
       );
       return false;
     } finally {
@@ -28,5 +39,5 @@ export const useContactForm = () => {
     }
   };
 
-  return { submitting, onFinish };
+  return { submitting, submitForm };
 };
