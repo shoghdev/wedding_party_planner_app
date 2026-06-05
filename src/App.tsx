@@ -1,4 +1,4 @@
-import { ConfigProvider, theme as antdTheme } from 'antd';
+import { App as AntApp, ConfigProvider, theme as antdTheme } from 'antd';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SiteLayout } from '@/components/common/SiteLayout';
@@ -29,16 +29,18 @@ const App = () => {
           algorithm: mode === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
         }}
       >
-        <BrowserRouter>
-          <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/experience" element={<ExperiencePage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Routes>
-          </SiteLayout>
-        </BrowserRouter>
+        <AntApp>
+          <BrowserRouter>
+            <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/experience" element={<ExperiencePage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Routes>
+            </SiteLayout>
+          </BrowserRouter>
+        </AntApp>
       </ConfigProvider>
     </QueryClientProvider>
   );
