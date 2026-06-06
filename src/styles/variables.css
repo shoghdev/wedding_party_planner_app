@@ -22,8 +22,11 @@
   --shadow-soft: 0 12px 40px rgba(44, 44, 44, 0.08);
   --shadow-card: 0 8px 24px rgba(44, 44, 44, 0.06);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
   --duration-theme: 0.45s;
   --duration-interaction: 0.3s;
+  --duration-reveal: 0.85s;
   --header-bg: #ffffff;
   --header-text: #333333;
   --header-text-muted: #5a5a5a;

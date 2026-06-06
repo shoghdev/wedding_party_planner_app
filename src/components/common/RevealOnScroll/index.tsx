@@ -9,6 +9,13 @@ type RevealOnScrollProps = Readonly<{
   delay?: number;
 }>;
 
+const isInViewport = (element: HTMLElement): boolean => {
+  const rect = element.getBoundingClientRect();
+  const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+
+  return rect.top < viewHeight && rect.bottom > 0;
+};
+
 export const RevealOnScroll = ({
   children,
   className,
@@ -22,14 +29,21 @@ export const RevealOnScroll = ({
     const element = ref.current;
     if (!element) return;
 
+    const reveal = () => setIsVisible(true);
+
+    if (isInViewport(element)) {
+      reveal();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry?.isIntersecting) {
-          setIsVisible(true);
+          reveal();
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+      { threshold: 0, rootMargin: '0px 0px 40px 0px' },
     );
 
     observer.observe(element);

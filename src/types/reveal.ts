@@ -1,1 +1,9 @@
-export type RevealVariant = 'fadeUp' | 'fadeLeft' | 'fadeRight' | 'scaleIn' | 'fade';
+export type RevealVariant =
+  | 'fadeUp'
+  | 'fadeDown'
+  | 'fadeLeft'
+  | 'fadeRight'
+  | 'scaleIn'
+  | 'fade'
+  | 'slideInBottom'
+  | 'puffIn';
