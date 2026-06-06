@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -380,7 +380,8 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Yerevan, RA",
-    "copyright": "© {{year}} Dream & Celebrate. All rights reserved."
+    "copyright": "© {{year}} Dream & Celebrate. All rights reserved.",
+    "admin": "Admin"
   },
   "admin": {
     "brand": {

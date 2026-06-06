@@ -8,7 +8,7 @@ import {
 import { Col, Collapse, Row } from 'antd';
 import type { CollapseProps } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Logo } from '@/components/common/Logo';
 import { PageContainer } from '@/components/common/PageContainer';
 import { FOOTER_QUICK_LINKS, FOOTER_SERVICE_LINKS } from './consts';
@@ -187,7 +187,13 @@ export const AppFooter = () => {
         </Row>
 
         <hr className={styles.divider} />
-        <p className={styles.copyright}>{t('footer.copyright', { year })}</p>
+        <hr className={styles.divider} />
+        <div className={styles.copyrightRow}>
+          <p className={styles.copyright}>{t('footer.copyright', { year })}</p>
+          <Link to="/admin" className={styles.adminLink}>
+            {t('footer.admin')}
+          </Link>
+        </div>
       </PageContainer>
     </footer>
   );

@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -184,7 +184,8 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Երևան, ՀՀ",
-    "copyright": "© {{year}} Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։"
+    "copyright": "© {{year}} Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։",
+    "admin": "Ադմին"
   },
   "admin": {
     "brand": {

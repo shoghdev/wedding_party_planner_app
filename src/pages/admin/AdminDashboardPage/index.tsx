@@ -24,8 +24,8 @@ export const AdminDashboardPage = () => {
     <div className={styles.dashboard}>
       <AdminPageHeader
         breadcrumbs={t('admin.dashboard.breadcrumbs')}
-        title={t('admin.dashboard.welcomeTitle')}
-        description={t('admin.dashboard.welcomeDescription')}
+        title={t('admin.dashboard.title')}
+        description={t('admin.dashboard.description')}
         actions={
           <>
             <Button icon={<DownloadOutlined />} className={styles.outlineBtn}>
