@@ -15,7 +15,14 @@
     "cta": "BOOK A CONSULTATION",
     "language": "EN",
     "menuToggle": "Open navigation menu",
-    "themeToggle": "Toggle color theme"
+    "themeToggle": "Toggle color theme",
+    "login": {
+      "button": "Login",
+      "title": "Admin Login",
+      "description": "Sign in to access the admin panel.",
+      "submit": "Sign In",
+      "success": "Welcome back! Redirecting to admin panel..."
+    }
   },
   "home": {
     "hero": {
@@ -380,8 +387,7 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Yerevan, RA",
-    "copyright": "© {{year}} Dream & Celebrate. All rights reserved.",
-    "admin": "Admin"
+    "copyright": "© {{year}} Dream & Celebrate. All rights reserved."
   },
   "admin": {
     "brand": {

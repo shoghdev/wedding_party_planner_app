@@ -15,7 +15,14 @@
     "cta": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ",
     "language": "RU",
     "menuToggle": "Открыть меню навигации",
-    "themeToggle": "Переключить тему"
+    "themeToggle": "Переключить тему",
+    "login": {
+      "button": "Вход",
+      "title": "Вход в админ-панель",
+      "description": "Войдите, чтобы открыть панель администратора.",
+      "submit": "Войти",
+      "success": "С возвращением! Перенаправление в админ-панель..."
+    }
   },
   "home": {
     "hero": {
@@ -261,8 +268,7 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Ереван, РА",
-    "copyright": "© {{year}} Dream & Celebrate. Все права защищены.",
-    "admin": "Админ"
+    "copyright": "© {{year}} Dream & Celebrate. Все права защищены."
   },
   "admin": {
     "brand": {

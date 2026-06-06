@@ -7,12 +7,19 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import type { Session } from '@supabase/supabase-js';
+import {
+  clearAdminSession,
+  isLocalAdminAuthConfigured,
+  readAdminSession,
+  validateAdminCredentials,
+  writeAdminSession,
+} from '@/config/adminAuth';
 import { getSupabaseClient } from '@/lib/supabase';
 import { isSupabaseConfigured } from '@/utils/isSupabaseConfigured';
 
 type AdminAuthContextValue = Readonly<{
-  session: Session | null;
+  isAuthenticated: boolean;
+  userEmail: string | null;
   isLoading: boolean;
   isAuthRequired: boolean;
   signIn: (email: string, password: string) => Promise<void>;
@@ -26,83 +33,112 @@ type AdminAuthProviderProps = Readonly<{
 }>;
 
 export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
-  const [session, setSession] = useState<Session | null>(null);
-  const [isLoading, setIsLoading] = useState(isSupabaseConfigured());
-  const isAuthRequired = isSupabaseConfigured();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(
+    isSupabaseConfigured() || isLocalAdminAuthConfigured(),
+  );
+  const isAuthRequired = isSupabaseConfigured() || isLocalAdminAuthConfigured();
 
   useEffect(() => {
-    if (!isSupabaseConfigured()) {
-      setIsLoading(false);
-      return;
-    }
+    if (isSupabaseConfigured()) {
+      const supabase = getSupabaseClient();
 
-    const supabase = getSupabaseClient();
-
-    if (!supabase) {
-      setIsLoading(false);
-      return;
-    }
-
-    let isMounted = true;
-
-    void supabase.auth.getSession().then(({ data }) => {
-      if (isMounted) {
-        setSession(data.session);
+      if (!supabase) {
         setIsLoading(false);
+        return;
       }
-    });
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-      setSession(nextSession);
-      setIsLoading(false);
-    });
+      let isMounted = true;
 
-    return () => {
-      isMounted = false;
-      subscription.unsubscribe();
-    };
+      void supabase.auth.getSession().then(({ data }) => {
+        if (!isMounted) {
+          return;
+        }
+
+        const email = data.session?.user.email ?? null;
+        setIsAuthenticated(Boolean(data.session));
+        setUserEmail(email);
+        setIsLoading(false);
+      });
+
+      const {
+        data: { subscription },
+      } = supabase.auth.onAuthStateChange((_event, session) => {
+        setIsAuthenticated(Boolean(session));
+        setUserEmail(session?.user.email ?? null);
+        setIsLoading(false);
+      });
+
+      return () => {
+        isMounted = false;
+        subscription.unsubscribe();
+      };
+    }
+
+    const storedSession = readAdminSession();
+    setIsAuthenticated(Boolean(storedSession));
+    setUserEmail(storedSession?.email ?? null);
+    setIsLoading(false);
+
+    return undefined;
   }, []);
 
   const signIn = useCallback(async (email: string, password: string) => {
-    const supabase = getSupabaseClient();
+    if (isSupabaseConfigured()) {
+      const supabase = getSupabaseClient();
 
-    if (!supabase) {
-      throw new Error('Supabase is not configured');
-    }
+      if (!supabase) {
+        throw new Error('Supabase is not configured');
+      }
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
 
-    if (error) {
-      throw error;
-    }
-  }, []);
+      if (error) {
+        throw error;
+      }
 
-  const signOut = useCallback(async () => {
-    const supabase = getSupabaseClient();
-
-    if (!supabase) {
-      setSession(null);
       return;
     }
 
-    const { error } = await supabase.auth.signOut();
-
-    if (error) {
-      throw error;
+    if (!validateAdminCredentials(email, password)) {
+      throw new Error('Invalid credentials');
     }
+
+    const normalizedEmail = email.trim();
+    writeAdminSession({ email: normalizedEmail });
+    setIsAuthenticated(true);
+    setUserEmail(normalizedEmail);
+  }, []);
+
+  const signOut = useCallback(async () => {
+    if (isSupabaseConfigured()) {
+      const supabase = getSupabaseClient();
+
+      if (supabase) {
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+          throw error;
+        }
+      }
+    }
+
+    clearAdminSession();
+    setIsAuthenticated(false);
+    setUserEmail(null);
   }, []);
 
   const value = useMemo<AdminAuthContextValue>(
     () => ({
-      session,
+      isAuthenticated,
+      userEmail,
       isLoading,
       isAuthRequired,
       signIn,
       signOut,
     }),
-    [isAuthRequired, isLoading, session, signIn, signOut],
+    [isAuthRequired, isAuthenticated, isLoading, signIn, signOut, userEmail],
   );
 
   return <AdminAuthContext.Provider value={value}>{children}</AdminAuthContext.Provider>;

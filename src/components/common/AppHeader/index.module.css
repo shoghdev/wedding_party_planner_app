@@ -91,6 +91,52 @@
   gap: 12px;
 }
 
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--header-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--header-text);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color var(--duration-interaction) var(--ease-smooth),
+    border-color var(--duration-interaction) var(--ease-smooth),
+    background-color var(--duration-interaction) var(--ease-smooth);
+}
+
+.loginBtn:hover {
+  color: var(--header-nav-active);
+  border-color: var(--header-hover-border);
+  background: var(--header-hover-bg);
+}
+
+.drawerLoginBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .ctaBtn:global(.ant-btn-primary) {
   display: none;
   height: 44px;
