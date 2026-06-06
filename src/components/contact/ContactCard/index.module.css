@@ -100,13 +100,16 @@ a.detailLink:hover {
   border-radius: 8px;
   background: var(--color-rose) !important;
   border-color: var(--color-rose) !important;
-  transition: all 0.3s ease;
+  transition:
+    background-color var(--duration-interaction) var(--ease-out-cubic),
+    border-color var(--duration-interaction) var(--ease-out-cubic),
+    transform var(--duration-interaction) var(--ease-out-cubic);
 }
 
 .submitBtn:global(.ant-btn-primary:hover) {
   background: var(--color-rose-dark) !important;
   border-color: var(--color-rose-dark) !important;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .imageCol {
