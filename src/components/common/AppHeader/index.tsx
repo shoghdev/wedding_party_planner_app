@@ -82,23 +82,22 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
 
           <div className={styles.actions}>
             <div className={styles.utilities}>
-              {isLoginAvailable ? (
-                <button
-                  type="button"
-                  className={styles.loginBtn}
-                  onClick={openLogin}
-                  aria-label={t('header.login.button')}
-                >
-                  <LoginOutlined />
-                  <span>{t('header.login.button')}</span>
-                </button>
-              ) : null}
               <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
               <LanguageSelector variant="header" />
             </div>
             <Button type="primary" size="middle" className={styles.ctaBtn}>
               {t('header.cta')}
             </Button>
+            {isLoginAvailable ? (
+              <button
+                type="button"
+                className={styles.loginBtn}
+                onClick={openLogin}
+                aria-label={t('header.login.button')}
+              >
+                <LoginOutlined />
+              </button>
+            ) : null}
             <button
               type="button"
               className={styles.mobileMenuBtn}
@@ -120,12 +119,6 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
         className={styles.drawer}
       >
         <div className={styles.drawerUtilities}>
-          {isLoginAvailable ? (
-            <button type="button" className={styles.drawerLoginBtn} onClick={openLogin}>
-              <LoginOutlined />
-              <span>{t('header.login.button')}</span>
-            </button>
-          ) : null}
           <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
           <LanguageSelector variant="header" />
         </div>
@@ -162,9 +155,21 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
               </a>
             );
           })}
-          <Button type="primary" block size="large" className={styles.drawerCta}>
-            {t('header.cta')}
-          </Button>
+          <div className={styles.drawerCtaGroup}>
+            <Button type="primary" block size="large" className={styles.drawerCta}>
+              {t('header.cta')}
+            </Button>
+            {isLoginAvailable ? (
+              <button
+                type="button"
+                className={styles.drawerLoginBtn}
+                onClick={openLogin}
+                aria-label={t('header.login.button')}
+              >
+                <LoginOutlined />
+              </button>
+            ) : null}
+          </div>
         </nav>
       </Drawer>
 
