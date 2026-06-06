@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -15,7 +15,14 @@
     "cta": "ԳՐԱՆՑՎԵԼ ԽՈՐՀՐԴԱՏՈՒԹՅԱՆ",
     "language": "AM",
     "menuToggle": "Բացել նավիգացիոն մենյուն",
-    "themeToggle": "Փոխել թեման"
+    "themeToggle": "Փոխել թեման",
+    "login": {
+      "button": "Մուտք",
+      "title": "Ադմին մուտք",
+      "description": "Մուտք գործեք ադմին վահանակ մուտք գործելու համար։",
+      "submit": "Մուտք",
+      "success": "Բարի վերադարձ։ Վերահղում դեպի ադմին վահանակ..."
+    }
   },
 
   "home": {
@@ -184,8 +191,7 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Երևան, ՀՀ",
-    "copyright": "© {{year}} Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։",
-    "admin": "Ադմին"
+    "copyright": "© {{year}} Dream & Celebrate. Բոլոր իրավունքները պաշտպանված են։"
   },
   "admin": {
     "brand": {

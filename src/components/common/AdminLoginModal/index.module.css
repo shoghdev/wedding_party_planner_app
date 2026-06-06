@@ -1,0 +1,16 @@
+.modal :global(.ant-modal-title) {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}
+
+.description {
+  margin: 0 0 20px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.alert {
+  margin-bottom: 16px;
+}
