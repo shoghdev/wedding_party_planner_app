@@ -30,13 +30,13 @@
   color: var(--color-white);
   font-size: 20px;
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    transform var(--duration-interaction) var(--ease-out-cubic),
+    opacity var(--duration-interaction) var(--ease-out-cubic);
 }
 
 .socialLink:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
+  transform: translateY(-4px) scale(1.06);
+  opacity: 0.92;
 }
 
 .pinterestMark {

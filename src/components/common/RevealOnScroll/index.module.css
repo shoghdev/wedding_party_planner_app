@@ -54,7 +54,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  .reveal,
+  .reveal.fadeUp,
+  .reveal.fadeDown,
+  .reveal.fadeLeft,
+  .reveal.fadeRight,
+  .reveal.scaleIn,
+  .reveal.fade,
+  .reveal.slideInBottom,
+  .reveal.puffIn {
     opacity: 1;
     transform: none;
     filter: none;
