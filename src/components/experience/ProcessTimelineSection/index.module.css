@@ -7,6 +7,39 @@
   position: relative;
 }
 
+.timeline[data-revealed='true'] .track::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+.timeline[data-revealed='true'] .stepsGrid::before {
+  transform: scaleY(1);
+}
+
+.timeline[data-revealed='true'] .stepBadge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.timeline[data-revealed='true'] .trackNode:nth-child(1) .stepBadge {
+  transition-delay: 0.15s;
+}
+
+.timeline[data-revealed='true'] .trackNode:nth-child(2) .stepBadge {
+  transition-delay: 0.27s;
+}
+
+.timeline[data-revealed='true'] .trackNode:nth-child(3) .stepBadge {
+  transition-delay: 0.39s;
+}
+
+.timeline[data-revealed='true'] .trackNode:nth-child(4) .stepBadge {
+  transition-delay: 0.51s;
+}
+
+.timeline[data-revealed='true'] .trackNode:nth-child(5) .stepBadge {
+  transition-delay: 0.63s;
+}
+
 .track {
   display: none;
 }
@@ -26,10 +59,12 @@
     top: 50%;
     left: 10%;
     right: 10%;
-    height: 1px;
+    height: 2px;
     background: var(--color-rose);
-    opacity: 0.35;
-    transform: translateY(-50%);
+    opacity: 0.55;
+    transform: translateY(-50%) scaleX(0);
+    transform-origin: left center;
+    transition: transform 1.1s var(--ease-smooth);
     z-index: 0;
   }
 
@@ -44,17 +79,31 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3.25rem;
+    height: 3.25rem;
     border-radius: 50%;
-    border: 1.5px solid var(--color-rose);
+    border: 2.5px solid var(--color-rose);
     background: var(--color-about-bg);
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     letter-spacing: 0.04em;
     color: var(--color-rose);
+    opacity: 0;
+    transform: scale(0.65);
+    transition:
+      opacity 0.55s var(--ease-smooth),
+      transform 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
   }
+}
+
+.stepCardWrap {
+  height: 100%;
+}
+
+.stepCardWrap[data-revealed='true'] .mobileBadge {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .stepsGrid {
@@ -70,6 +119,11 @@
   align-items: center;
   text-align: center;
   padding-block: 0;
+  transition: transform 0.4s var(--ease-smooth);
+}
+
+.stepCard:hover {
+  transform: translateY(-4px);
 }
 
 .mobileBadge {
@@ -98,12 +152,15 @@
   .stepsGrid::before {
     content: '';
     position: absolute;
-    left: 1.375rem;
-    top: 1.375rem;
-    bottom: 1.375rem;
-    width: 1px;
+    left: 1.625rem;
+    top: 1.625rem;
+    bottom: 1.625rem;
+    width: 2px;
     background: var(--color-rose);
-    opacity: 0.35;
+    opacity: 0.55;
+    transform: scaleY(0);
+    transform-origin: top center;
+    transition: transform 1.1s var(--ease-smooth);
     z-index: 0;
   }
 
@@ -111,7 +168,7 @@
     align-items: flex-start;
     text-align: left;
     position: relative;
-    padding-left: 3.75rem;
+    padding-left: 4.25rem;
     padding-bottom: 2rem;
   }
 
@@ -124,18 +181,23 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: -3.75rem;
+    left: -4.25rem;
     top: 0;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 3.25rem;
+    height: 3.25rem;
     border-radius: 50%;
-    border: 1.5px solid var(--color-rose);
+    border: 2.5px solid var(--color-rose);
     background: var(--color-about-bg);
     font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     color: var(--color-rose);
     z-index: 1;
+    opacity: 0;
+    transform: scale(0.65);
+    transition:
+      opacity 0.55s var(--ease-smooth),
+      transform 0.55s cubic-bezier(0.34, 1.4, 0.64, 1);
   }
 
   .stepDescription {
@@ -152,5 +214,25 @@
 
   .stepCard {
     padding-inline: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline[data-revealed='true'] .track::before,
+  .timeline[data-revealed='true'] .stepsGrid::before {
+    transform: none;
+  }
+
+  .timeline[data-revealed='true'] .stepBadge,
+  .stepCardWrap[data-revealed='true'] .mobileBadge,
+  .stepBadge,
+  .mobileBadge {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .stepCard:hover {
+    transform: none;
   }
 }

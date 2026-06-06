@@ -2,15 +2,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: clamp(3rem, 8vw, 3.5rem);
-  height: clamp(3rem, 8vw, 3.5rem);
-  border: 1.5px solid var(--color-rose);
+  width: clamp(3.75rem, 10vw, 4.75rem);
+  height: clamp(3.75rem, 10vw, 4.75rem);
+  border: 2.5px solid var(--color-rose);
   border-radius: 50%;
   color: var(--color-rose);
-  margin-bottom: clamp(0.875rem, 3vw, 1.125rem);
+  margin-bottom: clamp(1rem, 3vw, 1.375rem);
+  background: rgba(201, 115, 115, 0.05);
+  box-shadow: 0 8px 28px rgba(201, 115, 115, 0.1);
+  transition:
+    transform 0.4s var(--ease-smooth),
+    box-shadow 0.4s var(--ease-smooth),
+    background-color 0.4s var(--ease-smooth);
 }
 
 .icon {
-  width: clamp(1.375rem, 4vw, 1.625rem);
-  height: clamp(1.375rem, 4vw, 1.625rem);
+  width: clamp(2rem, 5.5vw, 2.625rem);
+  height: clamp(2rem, 5.5vw, 2.625rem);
+}
+
+.icon path,
+.icon circle {
+  paint-order: stroke fill;
 }

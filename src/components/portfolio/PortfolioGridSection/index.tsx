@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { PORTFOLIO_PAGE_SIZE } from '@/components/portfolio/consts';
 import { PortfolioFilterBar } from '@/components/portfolio/PortfolioFilterBar';
 import { usePortfolioPage } from '@/hooks/usePortfolioPage';
@@ -58,10 +59,12 @@ export const PortfolioGridSection = () => {
   return (
     <section id="portfolio" className={styles.section}>
       <PageContainer>
-        <PortfolioFilterBar
-          activeCategory={activeCategory}
-          onCategoryChange={handleCategoryChange}
-        />
+        <RevealOnScroll variant="fadeUp">
+          <PortfolioFilterBar
+            activeCategory={activeCategory}
+            onCategoryChange={handleCategoryChange}
+          />
+        </RevealOnScroll>
 
         {isLoading ? (
           <div className={styles.grid}>
@@ -73,22 +76,28 @@ export const PortfolioGridSection = () => {
             ))}
           </div>
         ) : visibleItems.length === 0 ? (
-          <p className={styles.emptyState}>{t('portfolioPage.empty')}</p>
+          <RevealOnScroll variant="fadeUp">
+            <p className={styles.emptyState}>{t('portfolioPage.empty')}</p>
+          </RevealOnScroll>
         ) : (
           <>
             <div className={styles.desktopGrid}>
               <div className={styles.grid}>
-                {visibleItems.map((item) => (
-                  <PortfolioGridItem key={item.id} item={item} />
+                {visibleItems.map((item, index) => (
+                  <RevealOnScroll key={item.id} variant="fadeUp" delay={index * 80}>
+                    <PortfolioGridItem item={item} />
+                  </RevealOnScroll>
                 ))}
               </div>
             </div>
 
             <div className={styles.carouselWrap}>
               <Carousel dots draggable>
-                {visibleItems.map((item) => (
+                {visibleItems.map((item, index) => (
                   <div key={item.id} className={styles.carouselSlide}>
-                    <PortfolioGridItem item={item} />
+                    <RevealOnScroll variant="fadeUp" delay={index * 80}>
+                      <PortfolioGridItem item={item} />
+                    </RevealOnScroll>
                   </div>
                 ))}
               </Carousel>
@@ -98,9 +107,11 @@ export const PortfolioGridSection = () => {
 
         {!isLoading && hasMore ? (
           <div className={styles.loadMoreWrap}>
-            <Button type="primary" size="large" className={styles.loadMoreBtn} onClick={handleLoadMore}>
-              {t('portfolioPage.loadMore')}
-            </Button>
+            <RevealOnScroll variant="fadeUp">
+              <Button type="primary" size="large" className={styles.loadMoreBtn} onClick={handleLoadMore}>
+                {t('portfolioPage.loadMore')}
+              </Button>
+            </RevealOnScroll>
           </div>
         ) : null}
       </PageContainer>

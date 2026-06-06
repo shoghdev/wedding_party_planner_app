@@ -1,6 +1,7 @@
 import { Carousel, Col, Row, Skeleton } from 'antd';
 import { ServiceCard } from '@/components/common/ServiceCard';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { useServicesPage } from '@/hooks/useServicesPage';
 import { styles } from './styles';
 
@@ -22,13 +23,15 @@ export const ServicesGridSection = () => {
           <>
             <div className={styles.desktopGrid}>
               <Row gutter={[24, 24]}>
-                {data?.cards.map((service) => (
+                {data?.cards.map((service, index) => (
                   <Col key={service.id} xs={24} sm={12} lg={6}>
-                    <ServiceCard
-                      service={service}
-                      learnMoreKey="servicesPage.learnMore"
-                      learnMoreHref="#contact"
-                    />
+                    <RevealOnScroll variant="fadeUp" delay={index * 100}>
+                      <ServiceCard
+                        service={service}
+                        learnMoreKey="servicesPage.learnMore"
+                        learnMoreHref="#contact"
+                      />
+                    </RevealOnScroll>
                   </Col>
                 ))}
               </Row>
@@ -36,13 +39,15 @@ export const ServicesGridSection = () => {
 
             <div className={styles.carouselWrap}>
               <Carousel dots draggable>
-                {data?.cards.map((service) => (
+                {data?.cards.map((service, index) => (
                   <div key={service.id}>
-                    <ServiceCard
-                      service={service}
-                      learnMoreKey="servicesPage.learnMore"
-                      learnMoreHref="#contact"
-                    />
+                    <RevealOnScroll variant="fadeUp" delay={index * 100}>
+                      <ServiceCard
+                        service={service}
+                        learnMoreKey="servicesPage.learnMore"
+                        learnMoreHref="#contact"
+                      />
+                    </RevealOnScroll>
                   </div>
                 ))}
               </Carousel>

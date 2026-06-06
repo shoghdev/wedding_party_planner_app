@@ -3,30 +3,41 @@ import {
   ensureEmailJsInitialized,
   getEmailJsConfig,
   getEmailJsErrorMessage,
+  sanitizeTemplateParams,
 } from '@/api/emailjsClient';
-import type { ContactFormValues, EmailJsContactParams } from '@/types/contact';
+import type { ContactFormValues } from '@/types/contact';
 
-/** Maps form values to EmailJS template variables used in the dashboard template. */
+/**
+ * Maps form values to EmailJS template variables.
+ *
+ * Dashboard template Settings tab:
+ *   To Email:  {{to_email}}
+ *   Reply To:  {{reply_to}}
+ */
 export const buildContactEmailParams = (
   values: ContactFormValues,
+  toEmail: string,
   subject: string,
-): EmailJsContactParams => ({
-  name: values.name,
-  from_name: values.name,
-  email: values.email,
-  phone: values.phone,
-  message: values.message,
-  subject,
-  time: new Date().toLocaleString(),
-  reply_to: values.email,
-});
+): Record<string, string> =>
+  sanitizeTemplateParams({
+    to_email: toEmail,
+    name: values.name,
+    from_name: values.name,
+    email: values.email,
+    from_email: values.email,
+    phone: values.phone,
+    message: values.message,
+    subject,
+    time: new Date().toLocaleString(),
+    reply_to: values.email,
+  });
 
 export const sendContactMessage = async (
   values: ContactFormValues,
   subject: string,
 ): Promise<void> => {
-  const { serviceId, templateId, publicKey } = getEmailJsConfig();
-  const templateParams = buildContactEmailParams(values, subject);
+  const { serviceId, templateId, publicKey, toEmail } = getEmailJsConfig();
+  const templateParams = buildContactEmailParams(values, toEmail, subject);
 
   ensureEmailJsInitialized(publicKey);
 

@@ -3,9 +3,23 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0.875rem;
+  transition: transform 0.35s var(--ease-smooth);
+}
+
+@media (hover: hover) {
+  .iconWrap:hover {
+    transform: scale(1.08);
+  }
 }
 
 .icon {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   color: var(--color-rose);
+}
+
+.icon :global(.anticon svg) {
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 55;
+  paint-order: stroke fill;
 }

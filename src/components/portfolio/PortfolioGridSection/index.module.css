@@ -1,6 +1,7 @@
 .section {
   padding-block: 0 88px;
   background: var(--color-bg);
+  overflow: hidden;
 }
 
 .grid {

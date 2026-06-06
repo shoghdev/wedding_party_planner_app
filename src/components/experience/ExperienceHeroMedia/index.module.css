@@ -1,0 +1,163 @@
+.media {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: clamp(18rem, 88vw, 28rem);
+  margin-top: clamp(0.5rem, 2vw, 1.5rem);
+  margin-inline: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+  transition:
+    transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+    filter 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  animation: heroImageIn 1s var(--ease-smooth) 0.15s both;
+}
+
+@keyframes heroImageIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.photo,
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 0;
+  background: var(--color-surface);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.videoShell,
+.embedWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 16 / 10;
+  background: var(--color-surface);
+}
+
+.embed {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embedControlsMask {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 46%;
+  height: 3.5rem;
+  background: linear-gradient(
+    to left,
+    rgba(16, 16, 16, 0.98) 72%,
+    rgba(16, 16, 16, 0) 100%
+  );
+  pointer-events: auto;
+}
+
+.controls {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(16, 16, 16, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.controlBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 0.25s var(--ease-smooth);
+}
+
+.controlBtn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.controlBtn:focus-visible {
+  outline: 2px solid var(--color-rose);
+  outline-offset: 2px;
+}
+
+.controlIcon {
+  display: inline-flex;
+  font-size: 1.35rem;
+}
+
+.controlIcon :global(.anticon svg) {
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 55;
+  paint-order: stroke fill;
+}
+
+@media (hover: hover) {
+  .media:hover {
+    transform: scale(1.025) translateY(-8px);
+    filter: drop-shadow(0 30px 56px rgba(186, 142, 146, 0.22));
+  }
+}
+
+@media (min-width: 576px) {
+  .media {
+    max-width: clamp(20rem, 62vw, 26rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .media {
+    max-width: clamp(22rem, 52vw, 28rem);
+  }
+}
+
+@media (min-width: 992px) {
+  .media {
+    max-width: clamp(24rem, 36vw, 32rem);
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .media {
+    max-width: clamp(27rem, 40vw, 36rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .media:hover {
+    transform: none;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+  }
+}

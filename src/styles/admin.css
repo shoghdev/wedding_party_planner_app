@@ -1,0 +1,189 @@
+.admin-shell {
+
+  --admin-bg: #faf8f5;
+
+  --admin-sidebar-bg: #f3ede6;
+
+  --admin-gold: var(--color-rose);
+
+  --admin-gold-soft: rgba(201, 115, 115, 0.12);
+
+  --admin-nav-active-bg: rgba(201, 115, 115, 0.14);
+
+  min-height: 100vh;
+
+}
+
+
+
+[data-theme='dark'] .admin-shell {
+
+  --admin-bg: #1a1917;
+
+  --admin-sidebar-bg: #201f1d;
+
+  --admin-gold-soft: rgba(212, 140, 140, 0.14);
+
+  --admin-nav-active-bg: rgba(212, 140, 140, 0.16);
+
+}
+
+
+
+.admin-shell :global(.ant-layout-sider-trigger) {
+
+  background: var(--admin-sidebar-bg);
+
+  color: var(--admin-gold);
+
+  border-top: 1px solid var(--color-border);
+
+}
+
+
+
+.admin-shell :global(.ant-menu-item) {
+
+  font-family: var(--font-sans);
+
+  font-size: 0.875rem;
+
+  border-radius: 0.65rem;
+
+  margin-inline: 0.35rem;
+
+  width: calc(100% - 0.7rem);
+
+}
+
+
+
+.admin-shell :global(.ant-menu-item-selected) {
+
+  font-weight: 600;
+
+}
+
+
+
+.admin-shell :global(.ant-table-thead > tr > th) {
+
+  font-family: var(--font-sans);
+
+  font-size: 0.6875rem;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  color: var(--color-text-muted);
+
+  background: transparent !important;
+
+}
+
+
+
+.admin-shell :global(.ant-table-tbody > tr > td) {
+
+  vertical-align: middle;
+
+}
+
+
+
+.admin-shell :global(.ant-table-wrapper .ant-table) {
+
+  background: transparent;
+
+}
+
+
+
+.admin-shell :global(.ant-pagination-item-active) {
+
+  border-color: var(--admin-gold);
+
+}
+
+
+
+.admin-shell :global(.ant-pagination-item-active a) {
+
+  color: var(--admin-gold);
+
+}
+
+
+
+.admin-shell :global(.ant-modal-content) {
+
+  border-radius: 0.75rem;
+
+}
+
+
+
+.admin-shell :global(.ant-modal-header) {
+
+  font-family: var(--font-serif);
+
+}
+
+
+
+.admin-shell :global(.ant-btn-primary) {
+
+  background: var(--color-rose) !important;
+
+  border-color: var(--color-rose) !important;
+
+  box-shadow: 0 8px 24px rgba(201, 115, 115, 0.18);
+
+}
+
+
+
+.admin-shell :global(.ant-btn-primary:hover) {
+
+  background: var(--color-rose-dark) !important;
+
+  border-color: var(--color-rose-dark) !important;
+
+}
+
+
+
+.admin-shell :global(.ant-input),
+
+.admin-shell :global(.ant-select-selector),
+
+.admin-shell :global(.ant-picker) {
+
+  border-radius: 0.65rem !important;
+
+}
+
+
+
+.admin-shell :global(.ant-tag) {
+
+  border-radius: 999px;
+
+  padding-inline: 0.65rem;
+
+  font-weight: 600;
+
+}
+
+
+
+.admin-shell :global(.ant-badge-count) {
+
+  background: #c97373;
+
+  box-shadow: none;
+
+}
+
+

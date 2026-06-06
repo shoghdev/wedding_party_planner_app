@@ -7,13 +7,17 @@ import { LANGUAGE_FLAGS, LANGUAGE_LABELS, LANGUAGE_OPTIONS } from './consts';
 import { styles } from './styles';
 
 type LanguageSelectorProps = Readonly<{
-  variant?: 'default' | 'header';
+  variant?: 'default' | 'header' | 'admin';
 }>;
 
 export const LanguageSelector = ({ variant = 'default' }: LanguageSelectorProps) => {
   const { i18n } = useTranslation();
   const current = (i18n.language?.slice(0, 2) ?? 'en') as SupportedLanguage;
-  const selectorClass = [styles.selector, variant === 'header' && styles.selectorHeader]
+  const selectorClass = [
+    styles.selector,
+    variant === 'header' && styles.selectorHeader,
+    variant === 'admin' && styles.selectorAdmin,
+  ]
     .filter(Boolean)
     .join(' ');
 

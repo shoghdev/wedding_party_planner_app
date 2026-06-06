@@ -11,6 +11,11 @@
   min-height: clamp(18rem, 52vw, 22rem);
   background: var(--color-rose);
   overflow: hidden;
+  transition: box-shadow 0.45s var(--ease-smooth);
+}
+
+.banner:hover {
+  box-shadow: var(--shadow-soft);
 }
 
 .panel {
@@ -72,12 +77,16 @@
   border-radius: 999px !important;
   box-shadow: 0 6px 24px rgba(80, 40, 40, 0.12);
   line-height: 1.2;
+  transition:
+    transform 0.35s var(--ease-smooth),
+    box-shadow 0.35s var(--ease-smooth);
 }
 
 .ctaBtn:global(.ant-btn):hover {
   background: var(--color-white) !important;
   border-color: #c99898 !important;
   box-shadow: 0 8px 28px rgba(80, 40, 40, 0.16);
+  transform: translateY(-2px);
 }
 
 .btnLabel {
@@ -95,12 +104,24 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2.125rem;
-  height: 2.125rem;
+  width: 2.875rem;
+  height: 2.875rem;
   border-radius: 50%;
   background: #c99898;
   color: var(--color-white);
-  font-size: 0.6875rem;
+  font-size: 1.0625rem;
+  transition: transform 0.35s var(--ease-smooth);
+}
+
+.ctaBtn:global(.ant-btn):hover .arrowCircle {
+  transform: translateX(4px);
+}
+
+.arrowCircle :global(.anticon svg) {
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 55;
+  paint-order: stroke fill;
 }
 
 .visual {
@@ -117,6 +138,11 @@
   min-height: inherit;
   object-fit: cover;
   object-position: 55% center;
+  transition: transform 0.7s var(--ease-smooth);
+}
+
+.banner:hover .ctaImage {
+  transform: scale(1.04);
 }
 
 .imageBlend {
@@ -248,4 +274,22 @@
 
 [data-theme='dark'] .ctaBtn:global(.ant-btn) {
   border-color: rgba(168, 120, 120, 0.55) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner:hover {
+    box-shadow: none;
+  }
+
+  .banner:hover .ctaImage {
+    transform: none;
+  }
+
+  .ctaBtn:global(.ant-btn):hover {
+    transform: none;
+  }
+
+  .ctaBtn:global(.ant-btn):hover .arrowCircle {
+    transform: none;
+  }
 }

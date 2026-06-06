@@ -6,7 +6,6 @@ export const NAV_ITEMS: readonly NavItem[] = [
   { key: 'services', href: '/services' },
   { key: 'portfolio', href: '/portfolio' },
   { key: 'experience', href: '/experience' },
-  { key: 'blog', href: '/blog' },
   { key: 'contact', href: '/contact' },
 ] as const;
 
@@ -37,8 +36,6 @@ export const getActiveNavKey = (pathname: string, hash: string): string => {
         return 'services';
       case '#portfolio':
         return 'portfolio';
-      case '#blog':
-        return 'blog';
       default:
         return 'home';
     }

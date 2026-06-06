@@ -12,6 +12,7 @@ export const MOCK_SERVICES_PAGE: ServicesPageData = {
   cards: [
     {
       id: 'fullPlanning',
+      iconKey: 'wedding',
       imageUrl:
         'https://top15moscow.ru/storage/photos/February2020/thumbnails/1x/AkXUZOyvomPFT1zkGJ7F.jpg?1609188740',
       titleKey: 'servicesPage.cards.fullPlanning.title',
@@ -19,6 +20,7 @@ export const MOCK_SERVICES_PAGE: ServicesPageData = {
     },
     {
       id: 'partialPlanning',
+      iconKey: 'parties',
       imageUrl:
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJr9JDIO5KPquohLNotyyOh5kknNTltinFQ&s',
       titleKey: 'servicesPage.cards.partialPlanning.title',
@@ -26,6 +28,7 @@ export const MOCK_SERVICES_PAGE: ServicesPageData = {
     },
     {
       id: 'designStyling',
+      iconKey: 'decorations',
       imageUrl:
         'https://i.pinimg.com/236x/25/08/ca/2508cae9efa5d5146347a3177ae1b169.jpg',
       titleKey: 'servicesPage.cards.designStyling.title',
@@ -33,6 +36,7 @@ export const MOCK_SERVICES_PAGE: ServicesPageData = {
     },
     {
       id: 'dayCoordination',
+      iconKey: 'stressFree',
       imageUrl:
         'https://www.norali.nl/wp-content/uploads/2021/08/Bohemian_sweet_table_norali_styling.jpg',
       titleKey: 'servicesPage.cards.dayCoordination.title',

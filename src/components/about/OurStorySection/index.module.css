@@ -1,5 +1,3 @@
-/* Our Story — equal 50/50 split, fluid on all screens */
-
 .section {
   padding-block: 0 clamp(2.5rem, 6vw, 4rem);
   background: var(--color-about-bg);
@@ -22,12 +20,22 @@
   background: var(--color-surface);
 }
 
+.imageReveal {
+  width: 100%;
+  height: 100%;
+}
+
 .imageCol img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transition: transform 0.75s var(--ease-smooth);
+}
+
+.imageCol:hover img {
+  transform: scale(1.05);
 }
 
 .skeleton {
@@ -45,6 +53,10 @@
   min-height: clamp(14rem, 40vw, 28rem);
   padding: clamp(2rem, 5vw, 4.5rem) clamp(1.25rem, 4vw, 4rem);
   background: var(--color-blush);
+}
+
+.textReveal {
+  width: 100%;
 }
 
 .title {
@@ -75,6 +87,19 @@
   line-height: 1.3;
   color: var(--color-rose);
   margin: clamp(0.875rem, 3vw, 1.5rem) 0 0;
+  animation: signatureIn 0.9s var(--ease-smooth) 0.45s both;
+}
+
+@keyframes signatureIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 576px) {
@@ -91,5 +116,17 @@
 
   .textCol {
     min-height: clamp(22rem, 32vw, 28rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageCol:hover img {
+    transform: none;
+  }
+
+  .signature {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

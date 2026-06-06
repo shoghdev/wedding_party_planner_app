@@ -91,6 +91,65 @@
   gap: 12px;
 }
 
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--header-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--header-text);
+  font-size: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    color var(--duration-interaction) var(--ease-smooth),
+    border-color var(--duration-interaction) var(--ease-smooth),
+    background-color var(--duration-interaction) var(--ease-smooth);
+}
+
+.loginBtn:hover {
+  color: var(--header-nav-active);
+  border-color: var(--header-hover-border);
+  background: var(--header-hover-bg);
+}
+
+.drawerLoginBtn:hover {
+  color: var(--header-nav-active);
+  border-color: var(--header-hover-border);
+  background: var(--header-hover-bg);
+}
+
+.drawerCtaGroup {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.drawerCtaGroup .drawerCta:global(.ant-btn-primary) {
+  margin-top: 0;
+  flex: 1;
+}
+
+.drawerLoginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 18px;
+  cursor: pointer;
+}
+
 .ctaBtn:global(.ant-btn-primary) {
   display: none;
   height: 44px;

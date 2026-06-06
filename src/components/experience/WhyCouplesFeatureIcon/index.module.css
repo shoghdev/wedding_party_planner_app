@@ -3,11 +3,18 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .icon {
-  font-size: 1.375rem;
+  font-size: 2.125rem;
   color: var(--color-rose);
+}
+
+.icon :global(.anticon svg) {
+  overflow: visible;
+  stroke: currentColor;
+  stroke-width: 55;
+  paint-order: stroke fill;
 }

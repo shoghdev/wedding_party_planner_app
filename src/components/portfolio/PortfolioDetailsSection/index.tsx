@@ -3,6 +3,7 @@ import { Button, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { PageContainer } from '@/components/common/PageContainer';
+import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { usePortfolioDetails } from '@/hooks/usePortfolioDetails';
 import { styles } from './styles';
 
@@ -39,12 +40,14 @@ export const PortfolioDetailsSection = ({ portfolioId }: PortfolioDetailsSection
     return (
       <section className={styles.section} data-page="portfolio-details">
         <PageContainer>
-          <p className={styles.notFound}>{t('portfolioDetails.notFound')}</p>
-          <Link to="/portfolio">
-            <Button type="primary" className={styles.ctaBtn}>
-              {t('portfolioDetails.viewMoreProjects')}
-            </Button>
-          </Link>
+          <RevealOnScroll variant="fadeUp">
+            <p className={styles.notFound}>{t('portfolioDetails.notFound')}</p>
+            <Link to="/portfolio">
+              <Button type="primary" className={styles.ctaBtn}>
+                {t('portfolioDetails.viewMoreProjects')}
+              </Button>
+            </Link>
+          </RevealOnScroll>
         </PageContainer>
       </section>
     );
@@ -61,62 +64,81 @@ export const PortfolioDetailsSection = ({ portfolioId }: PortfolioDetailsSection
     <section className={styles.section} data-page="portfolio-details">
       <PageContainer>
         <div className={styles.layout}>
-          <div className={styles.heroImage}>
-            <img src={data.heroImageUrl} alt={t(data.titleKey)} />
-          </div>
+          <RevealOnScroll className={styles.heroReveal} variant="fadeUp">
+            <div className={styles.heroImage}>
+              <img src={data.heroImageUrl} alt={t(data.titleKey)} />
+            </div>
+          </RevealOnScroll>
 
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{t(data.titleKey)}</h1>
-            <p className={styles.description}>{t(data.descriptionKey)}</p>
+            <RevealOnScroll variant="fadeUp" delay={80}>
+              <h1 className={styles.title}>{t(data.titleKey)}</h1>
+            </RevealOnScroll>
+            <RevealOnScroll variant="fadeUp" delay={140}>
+              <p className={styles.description}>{t(data.descriptionKey)}</p>
+            </RevealOnScroll>
 
             <div className={styles.infoGrid}>
-              {INFO_FIELDS.map((field) => (
-                <div key={field.key} className={styles.infoItem}>
-                  <span className={styles.infoLabel}>
-                    {field.hasIcon ? <EnvironmentOutlined className={styles.infoLabelIcon} /> : null}
-                    {t(field.labelKey)}
-                  </span>
-                  <span className={styles.infoValue}>{infoValues[field.key]}</span>
-                </div>
+              {INFO_FIELDS.map((field, index) => (
+                <RevealOnScroll key={field.key} variant="fadeUp" delay={200 + index * 70}>
+                  <div className={styles.infoItem}>
+                    <span className={styles.infoLabel}>
+                      {field.hasIcon ? <EnvironmentOutlined className={styles.infoLabelIcon} /> : null}
+                      {t(field.labelKey)}
+                    </span>
+                    <span className={styles.infoValue}>{infoValues[field.key]}</span>
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
 
-            <Link to="/portfolio">
-              <Button type="primary" className={styles.ctaBtn}>
-                {t('portfolioDetails.viewMoreProjects')}
-              </Button>
-            </Link>
+            <RevealOnScroll variant="fadeUp" delay={480}>
+              <Link to="/portfolio">
+                <Button type="primary" className={styles.ctaBtn}>
+                  {t('portfolioDetails.viewMoreProjects')}
+                </Button>
+              </Link>
+            </RevealOnScroll>
           </div>
 
           <div className={styles.gallery} aria-label={t('portfolioDetails.galleryLabel')}>
             {data.galleryImageUrls.map((url, index) => (
-              <figure key={url} className={styles.galleryItem}>
-                <img
-                  src={url}
-                  alt={t('portfolioDetails.galleryImageAlt', { index: index + 1 })}
-                  loading="lazy"
-                />
-              </figure>
+              <RevealOnScroll
+                key={url}
+                className={styles.galleryReveal}
+                variant="scaleIn"
+                delay={index * 90}
+              >
+                <figure className={styles.galleryItem}>
+                  <img
+                    src={url}
+                    alt={t('portfolioDetails.galleryImageAlt', { index: index + 1 })}
+                    loading="lazy"
+                  />
+                </figure>
+              </RevealOnScroll>
             ))}
           </div>
 
-          <aside className={styles.sidebar}>
-            <h2 className={styles.sidebarTitle}>{t('portfolioDetails.detailsTitle')}</h2>
-            <ul className={styles.vendorList}>
-              {data.vendors.map((vendor) => (
-                <li key={vendor.categoryKey} className={styles.vendorItem}>
-                  <span className={styles.vendorCategory}>{t(vendor.categoryKey)}</span>
-                  <span className={styles.vendorName}>{t(vendor.nameKey)}</span>
-                </li>
-              ))}
-            </ul>
-            <img
-              src="/images/about/right-floral-background.webp"
-              alt=""
-              aria-hidden
-              className={styles.floralDecor}
-            />
-          </aside>
+          <RevealOnScroll className={styles.sidebarReveal} variant="fadeLeft" delay={160}>
+            <aside className={styles.sidebar}>
+              <h2 className={styles.sidebarTitle}>{t('portfolioDetails.detailsTitle')}</h2>
+              <ul className={styles.vendorList}>
+                {data.vendors.map((vendor) => (
+                  <li key={vendor.categoryKey} className={styles.vendorItem}>
+                    <span className={styles.vendorCategory}>{t(vendor.categoryKey)}</span>
+                    <span className={styles.vendorName}>{t(vendor.nameKey)}</span>
+                  </li>
+                ))}
+              </ul>
+              <img
+                src="/images/about/right-floral-background.webp"
+                alt=""
+                aria-hidden
+                className={styles.floralDecor}
+              />
+            </aside>
+          </RevealOnScroll>
         </div>
       </PageContainer>
     </section>

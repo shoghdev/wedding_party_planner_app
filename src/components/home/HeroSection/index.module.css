@@ -72,6 +72,74 @@
   transform: scale(1.01);
 }
 
+.visualReady .pinkOrb,
+.visualReady .archImage,
+.visualReady .polaroidOne,
+.visualReady .polaroidTwo,
+.visualReady .badge,
+.visualReady .sparkleOne,
+.visualReady .sparkleTwo,
+.visualReady .sparkleThree,
+.visualReady .sparkleFour {
+  opacity: 1;
+}
+
+.visualReady .pinkOrb {
+  animation: animFadeIn var(--duration-reveal) var(--ease-out-cubic) 0.2s both;
+}
+
+.visualReady :global(svg) {
+  animation: animFadeInLeft var(--duration-reveal) var(--ease-out-cubic) 0.28s both;
+}
+
+.visualReady .archImage {
+  animation: animScaleIn var(--duration-reveal) var(--ease-out-quart) 0.32s both;
+}
+
+.visualReady .polaroidOne {
+  animation: animScaleIn var(--duration-reveal) var(--ease-out-quart) 0.42s both;
+}
+
+.visualReady .polaroidTwo {
+  animation: animScaleIn var(--duration-reveal) var(--ease-out-quart) 0.5s both;
+}
+
+.visualReady .badge {
+  animation: animPuffIn calc(var(--duration-reveal) + 0.1s) var(--ease-out-cubic) 0.38s both;
+}
+
+.visualReady .sparkleOne {
+  animation: animFadeIn 0.6s var(--ease-out-cubic) 0.44s both;
+}
+
+.visualReady .sparkleTwo {
+  animation: animFadeIn 0.6s var(--ease-out-cubic) 0.48s both;
+}
+
+.visualReady .sparkleThree {
+  animation: animFadeIn 0.6s var(--ease-out-cubic) 0.52s both;
+}
+
+.visualReady .sparkleFour {
+  animation: animFadeIn 0.6s var(--ease-out-cubic) 0.56s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visualReady .pinkOrb,
+  .visualReady :global(svg),
+  .visualReady .archImage,
+  .visualReady .polaroidOne,
+  .visualReady .polaroidTwo,
+  .visualReady .badge,
+  .visualReady .sparkleOne,
+  .visualReady .sparkleTwo,
+  .visualReady .sparkleThree,
+  .visualReady .sparkleFour {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 .pinkOrb {
   position: absolute;
   top: 12%;
