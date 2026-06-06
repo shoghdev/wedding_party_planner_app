@@ -10,7 +10,6 @@
       "services": "SERVICES",
       "portfolio": "PORTFOLIO",
       "experience": "EXPERIENCE",
-      "blog": "BLOG",
       "contact": "CONTACT"
     },
     "cta": "BOOK A CONSULTATION",
@@ -370,7 +369,6 @@
       "about": "About Us",
       "services": "Services",
       "portfolio": "Portfolio",
-      "blog": "Blog",
       "contact": "Contact"
     },
     "serviceLinks": {

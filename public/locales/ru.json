@@ -10,7 +10,6 @@
       "services": "УСЛУГИ",
       "portfolio": "ПОРТФОЛИО",
       "experience": "ОПЫТ",
-      "blog": "БЛОГ",
       "contact": "КОНТАКТЫ"
     },
     "cta": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ",
@@ -251,7 +250,6 @@
       "about": "О нас",
       "services": "Услуги",
       "portfolio": "Портфолио",
-      "blog": "Блог",
       "contact": "Контакты"
     },
     "serviceLinks": {
