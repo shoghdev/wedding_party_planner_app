@@ -263,7 +263,7 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Ереван, РА",
-    "copyright": "© 2025 Dream & Celebrate. Все права защищены."
+    "copyright": "© {{year}} Dream & Celebrate. Все права защищены."
   },
   "admin": {
     "brand": {

@@ -51,6 +51,7 @@ const SocialLinks = () => (
 
 export const AppFooter = () => {
   const { t } = useTranslation();
+  const year = new Date().getFullYear();
   const { pathname } = useLocation();
   const isCompactFooterPage = pathname === '/about' || pathname === '/experience';
 
@@ -186,7 +187,7 @@ export const AppFooter = () => {
         </Row>
 
         <hr className={styles.divider} />
-        <p className={styles.copyright}>{t('footer.copyright')}</p>
+        <p className={styles.copyright}>{t('footer.copyright', { year })}</p>
       </PageContainer>
     </footer>
   );

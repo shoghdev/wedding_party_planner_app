@@ -382,7 +382,7 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Yerevan, RA",
-    "copyright": "© 2025 Dream & Celebrate. All rights reserved."
+    "copyright": "© {{year}} Dream & Celebrate. All rights reserved."
   },
   "admin": {
     "brand": {
