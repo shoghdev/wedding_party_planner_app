@@ -1,5 +1,5 @@
 .section {
-  padding-block: 48px 64px;
+  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem);
   overflow: hidden;
   background: var(--color-hero-bg);
 }
@@ -14,52 +14,60 @@
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text);
-  margin: 0 0 20px;
+  margin: 0 0 clamp(1rem, 2.5vw, 1.25rem);
 }
 
 .subheading {
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
   line-height: 1.65;
   color: var(--color-text-body);
-  max-width: 480px;
+  max-width: 30rem;
   margin: 0 auto;
+}
+
+.visualCol {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .visual {
   position: relative;
   width: 100%;
-  min-height: 380px;
-  max-width: 520px;
+  max-width: min(32rem, 100%);
   margin-inline: auto;
+  aspect-ratio: 10 / 11;
 }
 
 .pinkOrb {
   position: absolute;
-  top: 8%;
-  right: -6%;
-  width: 58%;
+  top: -5%;
+  left: -3%;
+  width: 56%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: rgba(214, 112, 112, 0.12);
   z-index: 0;
+  pointer-events: none;
 }
 
 .imagePrimary {
-  position: relative;
-  width: 62%;
-  margin-left: 8%;
-  margin-top: 6%;
-  border-radius: 14px;
-  border: 12px solid #ffff;
+  position: absolute;
+  top: 7%;
+  left: 9%;
+  width: 46%;
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(0.625rem, 1.5vw, 0.875rem);
+  border: clamp(6px, 1.4vw, 12px) solid var(--color-white);
   border-top: 0;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  aspect-ratio: 4 / 5;
   z-index: 2;
 }
 
 .imagePrimary img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -67,56 +75,60 @@
 
 .imageSecondary {
   position: absolute;
-  bottom: 4%;
-  right: 0;
-  width: 48%;
-  border-radius: 14px;
+  right: 15%;
+  bottom: 16%;
+  width: 38%;
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(0.625rem, 1.5vw, 0.875rem);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  aspect-ratio: 4 / 5;
   z-index: 1;
-  transform: rotate(25deg);
+  transform: rotate(22deg);
+  transform-origin: center center;
 }
 
 .imageSecondary img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 12px solid #ffff;
+  border: clamp(6px, 1.4vw, 12px) solid var(--color-white);
   border-top: 0;
+  box-sizing: border-box;
 }
 
 .badge {
   position: absolute;
   top: 2%;
-  right: 18%;
-  width: 112px;
-  height: 112px;
+  right: 14%;
+  width: clamp(4.5rem, 21%, 7rem);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: rgb(209, 178, 178);
+  background: rgba(214, 112, 112, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 16px 12px;
+  padding: clamp(0.625rem, 2vw, 1rem) clamp(0.5rem, 1.5vw, 0.75rem);
   z-index: 4;
+  pointer-events: none;
 }
 
 .badgeText {
   font-family: var(--font-sans);
-  font-size: 9px;
+  font-size: clamp(0.5rem, 1.6vw, 0.625rem);
   font-weight: 700;
   letter-spacing: 0.1em;
   line-height: 1.45;
   text-transform: uppercase;
   color: var(--color-rose);
-  margin-bottom: 8px;
+  margin-bottom: clamp(0.375rem, 1vw, 0.5rem);
 }
 
 .diamond {
-  width: 8px;
-  height: 8px;
+  width: clamp(6px, 1vw, 8px);
+  height: clamp(6px, 1vw, 8px);
   background: var(--color-rose);
   transform: rotate(45deg);
   opacity: 0.9;
@@ -128,74 +140,93 @@
   border-radius: 50%;
   z-index: 4;
   opacity: 0.9;
+  pointer-events: none;
 }
 
 .sparkleOne {
-  top: 2%;
-  right: 8%;
-  width: 6px;
-  height: 6px;
+  top: 1%;
+  right: 9%;
+  width: clamp(4px, 0.75vw, 6px);
+  height: clamp(4px, 0.75vw, 6px);
 }
 
 .sparkleTwo {
-  top: 8%;
-  right: 2%;
-  width: 4px;
-  height: 4px;
+  top: 7%;
+  right: 3%;
+  width: clamp(3px, 0.55vw, 4px);
+  height: clamp(3px, 0.55vw, 4px);
 }
 
 .sparkleThree {
-  top: 14%;
-  right: 12%;
-  width: 5px;
-  height: 5px;
+  top: 13%;
+  right: 11%;
+  width: clamp(3px, 0.65vw, 5px);
+  height: clamp(3px, 0.65vw, 5px);
+}
+
+.skeletonVisual:global(.ant-skeleton-image) {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: clamp(0.625rem, 1.5vw, 0.875rem) !important;
 }
 
 @media (min-width: 992px) {
-  .section {
-    padding-block: 64px 80px;
-  }
-
   .content {
     text-align: left;
-    padding-right: 16px;
+    padding-right: clamp(0.75rem, 2vw, 1rem);
   }
 
   .subheading {
     margin: 0;
-    font-size: 18px;
   }
 
   .visual {
-    min-height: 520px;
-    max-width: none;
-  }
-
-  .pinkOrb {
-    right: -2%;
-    top: 6%;
-    width: 52%;
+    max-width: min(34rem, 100%);
+    margin-inline: 0 auto 0;
   }
 
   .imagePrimary {
-    width: 56%;
-    margin-left: 12%;
+    top: 6%;
+    left: 11%;
+    width: 52%;
   }
 
   .imageSecondary {
-    width: 44%;
-    bottom: 6%;
-    right: 4%;
+    right: 10%;
+    bottom: 18%;
+    width: 40%;
+    transform: rotate(25deg);
   }
 
   .badge {
-    width: 120px;
-    height: 120px;
-    right: 22%;
-    top: 0;
+    top: 3%;
+    right: 10%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .visual {
+    max-width: 50rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .imageSecondary {
+    right: 14%;
+    bottom: 10%;
+    width: 40%;
+    transform: rotate(18deg);
   }
 
-  .badgeText {
-    font-size: 10px;
+  .badge {
+    right: 10%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageSecondary {
+    transform: none;
   }
 }

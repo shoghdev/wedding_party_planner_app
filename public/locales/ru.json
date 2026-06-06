@@ -169,11 +169,62 @@
     },
     "loadMore": "ЗАГРУЗИТЬ ЕЩЁ",
     "empty": "Нет работ в этой категории.",
+    "titles": {
+      "floralArch": "Изысканная садовая свадьба",
+      "outdoorCeremony": "Церемония в саду",
+      "tableSetting": "Сервировка при свечах",
+      "candlelitReception": "Флористический приём",
+      "gardenCelebration": "Праздник в саду",
+      "dessertDisplay": "Blush-десертный вечер",
+      "bridalBouquet": "Романтичные детали невесты",
+      "corporateGala": "Вечерний корпоратив",
+      "destinationVows": "Клятвы у моря",
+      "engagementDinner": "Камерный ужин помолвки",
+      "babyShower": "Изысканный baby shower",
+      "corporateSummit": "Корпоративный саммит"
+    },
     "items": {
       "floralArch": "Цветочная арка",
       "outdoorCeremony": "Выездная церемония",
       "tableSetting": "Сервировка стола",
       "candlelitReception": "Приём со свечами"
+    }
+  },
+  "portfolioDetails": {
+    "detailsTitle": "Детали",
+    "viewMoreProjects": "Больше проектов",
+    "notFound": "Проект не найден.",
+    "galleryLabel": "Галерея проекта",
+    "galleryImageAlt": "Фото проекта {{index}}",
+    "meta": {
+      "location": "Место",
+      "guests": "Гости",
+      "planning": "Планирование",
+      "style": "Стиль"
+    },
+    "vendors": {
+      "planningDesign": "Планирование и дизайн",
+      "photography": "Фотография",
+      "floralDecor": "Цветы и декор",
+      "catering": "Кейтеринг",
+      "dreamCelebrateTeam": "Команда Dream & Celebrate",
+      "capturedMoments": "Captured Moments",
+      "blushAndBloom": "Blush & Bloom",
+      "gourmetDelights": "Gourmet Delights"
+    },
+    "elegantGardenWedding": {
+      "title": "Изысканная садовая свадьба",
+      "description": "Нежное романтичное торжество с blush-флористикой, элегантными деталями и timeless моментами.",
+      "location": "Сад на открытом воздухе",
+      "planning": "Полное планирование",
+      "style": "Романтичный, элегантный"
+    },
+    "outdoorCeremony": {
+      "title": "Выездная церемония",
+      "description": "Камерная церемония на природе в окружении красоты, мягкого света и изысканного стиля.",
+      "location": "Садовая площадка",
+      "planning": "Частичное планирование",
+      "style": "Натуральный, утончённый"
     }
   },
   "contact": {

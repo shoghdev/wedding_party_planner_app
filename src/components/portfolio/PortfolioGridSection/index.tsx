@@ -1,6 +1,7 @@
-import { Button, Carousel, Col, Row, Skeleton } from 'antd';
+import { Button, Carousel, Skeleton } from 'antd';
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { PageContainer } from '@/components/common/PageContainer';
 import { PORTFOLIO_PAGE_SIZE } from '@/components/portfolio/consts';
 import { PortfolioFilterBar } from '@/components/portfolio/PortfolioFilterBar';
@@ -10,13 +11,21 @@ import { styles } from './styles';
 
 const PortfolioGridItem = ({ item }: { item: PortfolioItem }) => {
   const { t } = useTranslation();
+  const title = t(item.titleKey);
 
   return (
-    <figure className={styles.gridItem}>
-      <div className={styles.imageWrap}>
-        <img src={item.imageUrl} alt={t(item.altKey)} loading="lazy" />
-      </div>
-    </figure>
+    <Link to={`/portfolio/${item.id}`} className={styles.gridItemLink}>
+      <article className={styles.gridItem}>
+        <div className={styles.imageWrap}>
+          <img src={item.imageUrl} alt={t(item.altKey)} loading="lazy" />
+          <div className={styles.titleOverlay} aria-hidden="true">
+            <span className={styles.titleOverlayBackdrop} />
+            <span className={styles.titleOverlayText}>{title}</span>
+          </div>
+        </div>
+        <h3 className={styles.titleCaption}>{title}</h3>
+      </article>
+    </Link>
   );
 };
 
@@ -55,31 +64,30 @@ export const PortfolioGridSection = () => {
         />
 
         {isLoading ? (
-          <Row gutter={[24, 24]}>
+          <div className={styles.grid}>
             {Array.from({ length: 6 }).map((_, index) => (
-              <Col key={index} xs={24} sm={12} lg={8}>
-                <Skeleton.Image active style={{ width: '100%', height: 280 }} />
-              </Col>
+              <div key={index} className={styles.skeletonCard}>
+                <Skeleton.Image active className={styles.skeletonImage} />
+                <Skeleton.Input active size="small" block />
+              </div>
             ))}
-          </Row>
+          </div>
         ) : visibleItems.length === 0 ? (
           <p className={styles.emptyState}>{t('portfolioPage.empty')}</p>
         ) : (
           <>
             <div className={styles.desktopGrid}>
-              <Row gutter={[24, 24]}>
+              <div className={styles.grid}>
                 {visibleItems.map((item) => (
-                  <Col key={item.id} xs={24} sm={12} lg={8}>
-                    <PortfolioGridItem item={item} />
-                  </Col>
+                  <PortfolioGridItem key={item.id} item={item} />
                 ))}
-              </Row>
+              </div>
             </div>
 
             <div className={styles.carouselWrap}>
               <Carousel dots draggable>
                 {visibleItems.map((item) => (
-                  <div key={item.id}>
+                  <div key={item.id} className={styles.carouselSlide}>
                     <PortfolioGridItem item={item} />
                   </div>
                 ))}

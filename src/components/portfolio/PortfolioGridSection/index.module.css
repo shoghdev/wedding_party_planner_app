@@ -3,16 +3,40 @@
   background: var(--color-bg);
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.gridItemLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .gridItem {
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
   margin: 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition:
+    box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gridItemLink:hover .gridItem,
+.gridItemLink:focus-visible .gridItem {
+  box-shadow: var(--shadow-soft);
 }
 
 .imageWrap {
+  position: relative;
   aspect-ratio: 1;
   overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-about-bg);
 }
 
 .imageWrap img {
@@ -20,25 +44,110 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transform: scale(1);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
 }
 
-.gridItem:hover .imageWrap img {
-  transform: scale(1.03);
+.gridItemLink:hover .imageWrap img,
+.gridItemLink:focus-visible .imageWrap img {
+  transform: scale(1.05);
+}
+
+.titleCaption {
+  margin: 16px 0 0;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  transition:
+    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gridItemLink:hover .titleCaption,
+.gridItemLink:focus-visible .titleCaption {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.titleOverlay {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  min-height: 42%;
+  padding: 1.25rem 1rem 1rem;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.titleOverlayBackdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.38) 55%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  pointer-events: none;
+}
+
+.titleOverlayText {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+}
+
+.gridItemLink:hover .titleOverlay,
+.gridItemLink:focus-visible .titleOverlay {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .carouselWrap {
   display: block;
 }
 
+.carouselSlide {
+  padding-inline: 4px;
+}
+
 .desktopGrid {
   display: none;
+}
+
+.skeletonCard {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.skeletonImage:global(.ant-skeleton-image) {
+  width: 100% !important;
+  aspect-ratio: 1;
+  height: auto !important;
+  border-radius: 8px;
 }
 
 .loadMoreWrap {
   display: flex;
   justify-content: center;
-  margin-top: 36px;
+  margin-top: 48px;
 }
 
 .loadMoreBtn:global(.ant-btn-primary) {
@@ -58,6 +167,12 @@
   padding-block: 48px;
 }
 
+@media (min-width: 576px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 768px) {
   .carouselWrap {
     display: none;
@@ -65,5 +180,37 @@
 
   .desktopGrid {
     display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gridItem,
+  .imageWrap img,
+  .titleCaption,
+  .titleOverlay {
+    transition: none;
+  }
+
+  .gridItemLink:hover .imageWrap img,
+  .gridItemLink:focus-visible .imageWrap img {
+    transform: none;
+  }
+
+  .gridItemLink:hover .titleCaption,
+  .gridItemLink:focus-visible .titleCaption {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gridItemLink:hover .titleOverlay,
+  .gridItemLink:focus-visible .titleOverlay {
+    transform: translateY(100%);
+    opacity: 0;
   }
 }

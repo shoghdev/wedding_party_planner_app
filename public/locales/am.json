@@ -88,6 +88,20 @@
       "engagements": "ՆՇԱՆԱԴՐՈՒԹՅՈՒՆ",
       "corporate": "ԿՈՐՊՈՐԱՏԻՎ"
     },
+    "titles": {
+      "floralArch": "Նրբագեղ այգու հարսանիք",
+      "outdoorCeremony": "Բացօթյա այգու արarողություն",
+      "tableSetting": "Մոմ լույսերով սեղանի ձևավորում",
+      "candlelitReception": "Ծաղկային ընդունելություն",
+      "gardenCelebration": "Բնապատկերով այգու տոն",
+      "dessertDisplay": "Վարդագույն դեսերտների երեկո",
+      "bridalBouquet": "Ռոմանտիկ հարսի մանրամասներ",
+      "corporateGala": "Երեկոյան կորպորատիվ գала",
+      "destinationVows": "Ծովի ափին տեղադրություն",
+      "engagementDinner": "Մտերմ նշanadruтyan ընթրիք",
+      "babyShower": "Նրբագեղ baby shower",
+      "corporateSummit": "Կորպորատիվ գագաթնաժողով"
+    },
     "items": {
       "floralArch": "Ծաղկային կամար",
       "outdoorCeremony": "Բացօթյա հարսանիք",
@@ -97,6 +111,44 @@
       "dessertDisplay": "Դեսերտների սեղան",
       "bridalBouquet": "Հարսի ծաղկեփունջ",
       "corporateGala": "Կորպորատիվ միջոցառում"
+    }
+  },
+
+  "portfolioDetails": {
+    "detailsTitle": "Մանրամասները",
+    "viewMoreProjects": "Տեսնել ավելի շատ նախագծեր",
+    "notFound": "Այս նախագիծը չի գտնվել։",
+    "galleryLabel": "Նախագծի պատկերասրահ",
+    "galleryImageAlt": "Նախագծի լուսանկար {{index}}",
+    "meta": {
+      "location": "Վայր",
+      "guests": "Հյուրեր",
+      "planning": "Պլանավորում",
+      "style": "Ոճ"
+    },
+    "vendors": {
+      "planningDesign": "Պլանավորում և դիզայն",
+      "photography": "Լուսանկարահանում",
+      "floralDecor": "Ծաղիկներ և դեկոր",
+      "catering": "Кейтеринг",
+      "dreamCelebrateTeam": "Dream & Celebrate թիմ",
+      "capturedMoments": "Captured Moments",
+      "blushAndBloom": "Blush & Bloom",
+      "gourmetDelights": "Gourmet Delights"
+    },
+    "elegantGardenWedding": {
+      "title": "Նրբագեղ այգու հարսանիք",
+      "description": "Նուրբ և ռոմանտիկ տոնակատարություն՝ վարդագույն ծաղիկներով, նրբագեղ մանրամասներով և ժամանակից դուրս պահերով։",
+      "location": "Բացօթյա այգի",
+      "planning": "Ամբողջական պլանավորում",
+      "style": "Ռոմանտիկ, նրբագեղ"
+    },
+    "outdoorCeremony": {
+      "title": "Բացօթյա արարողություն",
+      "description": "Մտերմ ու ռոմանտիկ բացօթյա արարողություն՝ բնության գեղեցկությամբ, мягк լույսով և նրբագեղ ոճով։",
+      "location": "Այգու վայր",
+      "planning": "Մասնակի պլանավորում",
+      "style": "Բնական, նրբագեղ"
     }
   },
 

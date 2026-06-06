@@ -21,10 +21,10 @@ export const ServicesHeroSection = () => {
             </div>
           </Col>
 
-          <Col xs={24} lg={13} xl={14}>
+          <Col xs={24} lg={13} xl={14} className={styles.visualCol}>
             <div className={styles.visual} aria-hidden={isLoading}>
               {isLoading ? (
-                <Skeleton.Image active style={{ width: '100%', height: 420 }} />
+                <Skeleton.Image active className={styles.skeletonVisual} />
               ) : (
                 <>
                   <div className={styles.pinkOrb} />
