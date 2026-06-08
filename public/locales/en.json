@@ -343,6 +343,20 @@
     },
     "loadMore": "LOAD MORE",
     "empty": "No portfolio items match this category yet.",
+    "titles": {
+      "floralArch": "Elegant Garden Wedding",
+      "outdoorCeremony": "Outdoor Garden Ceremony",
+      "tableSetting": "Candlelit Tablescape",
+      "candlelitReception": "Floral Reception Dinner",
+      "gardenCelebration": "Lush Garden Celebration",
+      "dessertDisplay": "Blush Dessert Soirée",
+      "bridalBouquet": "Romantic Bridal Details",
+      "corporateGala": "Evening Corporate Gala",
+      "destinationVows": "Destination Vows by the Sea",
+      "engagementDinner": "Intimate Engagement Dinner",
+      "babyShower": "Elegant Baby Shower",
+      "corporateSummit": "Refined Corporate Summit"
+    },
     "items": {
       "floralArch": "Floral ceremony arch with white blooms",
       "outdoorCeremony": "Outdoor wedding ceremony setup",
@@ -356,6 +370,43 @@
       "engagementDinner": "Intimate engagement dinner setting",
       "babyShower": "Elegant baby shower tablescape",
       "corporateSummit": "Corporate summit lounge styling"
+    }
+  },
+  "portfolioDetails": {
+    "detailsTitle": "The Details",
+    "viewMoreProjects": "View More Projects",
+    "notFound": "This project could not be found.",
+    "galleryLabel": "Project gallery",
+    "galleryImageAlt": "Project detail photo {{index}}",
+    "meta": {
+      "location": "Location",
+      "guests": "Guests",
+      "planning": "Planning",
+      "style": "Style"
+    },
+    "vendors": {
+      "planningDesign": "Planning & Design",
+      "photography": "Photography",
+      "floralDecor": "Floral & Decor",
+      "catering": "Catering",
+      "dreamCelebrateTeam": "Dream & Celebrate Team",
+      "capturedMoments": "Captured Moments",
+      "blushAndBloom": "Blush & Bloom",
+      "gourmetDelights": "Gourmet Delights"
+    },
+    "elegantGardenWedding": {
+      "title": "Elegant Garden Wedding",
+      "description": "A soft and romantic celebration filled with blush florals, elegant details, and timeless moments.",
+      "location": "Outdoor Garden",
+      "planning": "Full Planning",
+      "style": "Romantic, Elegant"
+    },
+    "outdoorCeremony": {
+      "title": "Outdoor Ceremony",
+      "description": "An intimate open-air ceremony surrounded by natural beauty, soft light, and refined styling.",
+      "location": "Garden Venue",
+      "planning": "Partial Planning",
+      "style": "Natural, Refined"
     }
   },
   "footer": {

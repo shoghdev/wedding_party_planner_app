@@ -8,6 +8,7 @@ import { ContactPage } from '@/pages/ContactPage';
 import { ExperiencePage } from '@/pages/ExperiencePage';
 import { HomePage } from '@/pages/HomePage';
 import { PortfolioPage } from '@/pages/PortfolioPage';
+import { PortfolioDetailsPage } from '@/pages/PortfolioDetailsPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { AdminApp } from '@/routes/AdminApp';
 import { AdminAuthProvider } from '@/store/AdminAuthProvider';
@@ -49,6 +50,7 @@ const App = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/services" element={<ServicesPage />} />
                         <Route path="/portfolio" element={<PortfolioPage />} />
+                        <Route path="/portfolio/:portfolioId" element={<PortfolioDetailsPage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/experience" element={<ExperiencePage />} />
                         <Route path="/contact" element={<ContactPage />} />

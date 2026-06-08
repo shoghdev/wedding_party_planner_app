@@ -7,6 +7,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80',
       altKey: 'portfolioPage.items.floralArch',
+      titleKey: 'portfolioPage.titles.floralArch',
       category: 'weddings',
     },
     {
@@ -14,6 +15,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=700&q=80',
       altKey: 'portfolioPage.items.outdoorCeremony',
+      titleKey: 'portfolioPage.titles.outdoorCeremony',
       category: 'weddings',
     },
     {
@@ -21,6 +23,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://top15moscow.ru/storage/photos/February2020/thumbnails/1x/AkXUZOyvomPFT1zkGJ7F.jpg?1609188740',
       altKey: 'portfolioPage.items.tableSetting',
+      titleKey: 'portfolioPage.titles.tableSetting',
       category: 'parties',
     },
     {
@@ -28,6 +31,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700&q=80',
       altKey: 'portfolioPage.items.candlelitReception',
+      titleKey: 'portfolioPage.titles.candlelitReception',
       category: 'parties',
     },
     {
@@ -35,6 +39,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=700&q=80',
       altKey: 'portfolioPage.items.gardenCelebration',
+      titleKey: 'portfolioPage.titles.gardenCelebration',
       category: 'destinations',
     },
     {
@@ -42,6 +47,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&q=80',
       altKey: 'portfolioPage.items.dessertDisplay',
+      titleKey: 'portfolioPage.titles.dessertDisplay',
       category: 'showers',
     },
     {
@@ -49,6 +55,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=700&q=80',
       altKey: 'portfolioPage.items.bridalBouquet',
+      titleKey: 'portfolioPage.titles.bridalBouquet',
       category: 'engagements',
     },
     {
@@ -56,6 +63,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&q=80',
       altKey: 'portfolioPage.items.corporateGala',
+      titleKey: 'portfolioPage.titles.corporateGala',
       category: 'corporate',
     },
     {
@@ -63,6 +71,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=700&q=80',
       altKey: 'portfolioPage.items.destinationVows',
+      titleKey: 'portfolioPage.titles.destinationVows',
       category: 'destinations',
     },
     {
@@ -70,6 +79,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://www.norali.nl/wp-content/uploads/2021/08/Bohemian_sweet_table_norali_styling.jpg',
       altKey: 'portfolioPage.items.engagementDinner',
+      titleKey: 'portfolioPage.titles.engagementDinner',
       category: 'engagements',
     },
     {
@@ -77,6 +87,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=80',
       altKey: 'portfolioPage.items.babyShower',
+      titleKey: 'portfolioPage.titles.babyShower',
       category: 'showers',
     },
     {
@@ -84,6 +95,7 @@ export const MOCK_PORTFOLIO_PAGE: PortfolioPageData = {
       imageUrl:
         'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=700&q=80',
       altKey: 'portfolioPage.items.corporateSummit',
+      titleKey: 'portfolioPage.titles.corporateSummit',
       category: 'corporate',
     },
   ],

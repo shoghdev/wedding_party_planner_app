@@ -142,6 +142,24 @@
   },
   "about": {
     "hero": {
+      "overline": "О НАС",
+      "titleBefore": "Мы создаем воспоминания, которые останутся в вашем",
+      "titleAccent": "сердце",
+      "titleAfter": "навсегда.",
+      "description": "Мы превращаем ваши мечты в значимые моменты.",
+      "cta": "НАША ИСТОРИЯ",
+      "imageAlt": "Организаторы мероприятий обсуждают детали"
+    },
+    "story": {
+      "title": "Наша история",
+      "paragraphOne": "Dream & Celebrate создан из любви к деталям.",
+      "paragraphTwo": "Каждое событие для нас уникально.",
+      "signature": "— Команда Dream & Celebrate ♡",
+      "imageAlt": "Свадебный стол с цветами"
+    }
+  },
+  "experience": {
+    "hero": {
       "overline": "НАШ ОПЫТ",
       "titleBefore": "Простой, плавный и без стресса",
       "titleAccent": "опыт",
@@ -228,6 +246,89 @@
       "lineTwoAccent": "наслаждаетесь",
       "lineTwoAfter": "моментами.",
       "button": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ"
+    }
+  },
+  "portfolioPage": {
+    "hero": {
+      "overline": "ПОРТФОЛИО",
+      "title": "Коллекция любви и торжеств."
+    },
+    "filters": {
+      "label": "Фильтр",
+      "all": "ВСЕ",
+      "weddings": "СВАДЬБЫ",
+      "parties": "ВЕЧЕРИНКИ",
+      "destinations": "ПУТЕШЕСТВИЯ",
+      "engagements": "ПОМОЛВКИ",
+      "showers": "ПРАЗДНИКИ",
+      "corporate": "КОРПОРАТИВЫ"
+    },
+    "loadMore": "ЗАГРУЗИТЬ ЕЩЁ",
+    "empty": "Нет работ в этой категории.",
+    "titles": {
+      "floralArch": "Изысканная садовая свадьба",
+      "outdoorCeremony": "Церемония в саду",
+      "tableSetting": "Сервировка при свечах",
+      "candlelitReception": "Флористический приём",
+      "gardenCelebration": "Праздник в саду",
+      "dessertDisplay": "Blush-десертный вечер",
+      "bridalBouquet": "Романтичные детали невесты",
+      "corporateGala": "Вечерний корпоратив",
+      "destinationVows": "Клятвы у моря",
+      "engagementDinner": "Камерный ужин помолвки",
+      "babyShower": "Изысканный baby shower",
+      "corporateSummit": "Корпоративный саммит"
+    },
+    "items": {
+      "floralArch": "Цветочная арка",
+      "outdoorCeremony": "Выездная церемония",
+      "tableSetting": "Сервировка стола",
+      "candlelitReception": "Приём со свечами",
+      "gardenCelebration": "Праздник в саду с цветами",
+      "dessertDisplay": "Розовая витрина десертов и шаров",
+      "bridalBouquet": "Детали букета невесты",
+      "corporateGala": "Вечерний корпоративный приём",
+      "destinationVows": "Свадебные клятвы у воды",
+      "engagementDinner": "Камерный ужин помолвки",
+      "babyShower": "Изысканная сервировка baby shower",
+      "corporateSummit": "Оформление лаунджа корпоративного саммита"
+    }
+  },
+  "portfolioDetails": {
+    "detailsTitle": "Детали",
+    "viewMoreProjects": "Больше проектов",
+    "notFound": "Проект не найден.",
+    "galleryLabel": "Галерея проекта",
+    "galleryImageAlt": "Фото проекта {{index}}",
+    "meta": {
+      "location": "Место",
+      "guests": "Гости",
+      "planning": "Планирование",
+      "style": "Стиль"
+    },
+    "vendors": {
+      "planningDesign": "Планирование и дизайн",
+      "photography": "Фотография",
+      "floralDecor": "Цветы и декор",
+      "catering": "Кейтеринг",
+      "dreamCelebrateTeam": "Команда Dream & Celebrate",
+      "capturedMoments": "Captured Moments",
+      "blushAndBloom": "Blush & Bloom",
+      "gourmetDelights": "Gourmet Delights"
+    },
+    "elegantGardenWedding": {
+      "title": "Изысканная садовая свадьба",
+      "description": "Нежное романтичное торжество с blush-флористикой, элегантными деталями и timeless моментами.",
+      "location": "Сад на открытом воздухе",
+      "planning": "Полное планирование",
+      "style": "Романтичный, элегантный"
+    },
+    "outdoorCeremony": {
+      "title": "Выездная церемония",
+      "description": "Камерная церемония на природе в окружении красоты, мягкого света и изысканного стиля.",
+      "location": "Садовая площадка",
+      "planning": "Частичное планирование",
+      "style": "Натуральный, утончённый"
     }
   },
   "contact": {
