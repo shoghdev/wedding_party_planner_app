@@ -7,14 +7,23 @@ type ServiceCardProps = Readonly<{
   service: ServiceCardData;
   learnMoreKey?: string;
   learnMoreHref?: string;
+  onLearnMore?: () => void;
 }>;
 
 export const ServiceCard = ({
   service,
   learnMoreKey = 'home.services.learnMore',
   learnMoreHref = '#services',
+  onLearnMore,
 }: ServiceCardProps) => {
   const { t } = useTranslation();
+
+  const learnMoreContent = (
+    <>
+      {t(learnMoreKey)}
+      <ArrowRightOutlined aria-hidden />
+    </>
+  );
 
   return (
     <article className={styles.card}>
@@ -24,10 +33,15 @@ export const ServiceCard = ({
       <div className={styles.cardBody}>
         <h3 className={styles.cardTitle}>{t(service.titleKey)}</h3>
         <p className={styles.cardDescription}>{t(service.descriptionKey)}</p>
-        <a href={learnMoreHref} className={styles.learnMore}>
-          {t(learnMoreKey)}
-          <ArrowRightOutlined aria-hidden />
-        </a>
+        {onLearnMore ? (
+          <button type="button" className={styles.learnMore} onClick={onLearnMore}>
+            {learnMoreContent}
+          </button>
+        ) : (
+          <a href={learnMoreHref} className={styles.learnMore}>
+            {learnMoreContent}
+          </a>
+        )}
       </div>
     </article>
   );

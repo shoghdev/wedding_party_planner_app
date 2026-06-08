@@ -1,12 +1,18 @@
 import { Carousel, Col, Row, Skeleton } from 'antd';
+import { useState } from 'react';
 import { ServiceCard } from '@/components/common/ServiceCard';
 import { PageContainer } from '@/components/common/PageContainer';
 import { RevealOnScroll } from '@/components/common/RevealOnScroll';
+import { ServiceDetailModal } from '@/components/services/ServiceDetailModal';
 import { useServicesPage } from '@/hooks/useServicesPage';
+import type { ServiceCard as ServiceCardData } from '@/types/home';
 import { styles } from './styles';
 
 export const ServicesGridSection = () => {
   const { data, isLoading } = useServicesPage();
+  const [selectedService, setSelectedService] = useState<ServiceCardData | null>(null);
+
+  const handleCloseModal = () => setSelectedService(null);
 
   return (
     <section id="services" className={styles.section}>
@@ -29,7 +35,7 @@ export const ServicesGridSection = () => {
                       <ServiceCard
                         service={service}
                         learnMoreKey="servicesPage.learnMore"
-                        learnMoreHref="#contact"
+                        onLearnMore={() => setSelectedService(service)}
                       />
                     </RevealOnScroll>
                   </Col>
@@ -45,7 +51,7 @@ export const ServicesGridSection = () => {
                       <ServiceCard
                         service={service}
                         learnMoreKey="servicesPage.learnMore"
-                        learnMoreHref="#contact"
+                        onLearnMore={() => setSelectedService(service)}
                       />
                     </RevealOnScroll>
                   </div>
@@ -55,6 +61,12 @@ export const ServicesGridSection = () => {
           </>
         )}
       </PageContainer>
+
+      <ServiceDetailModal
+        service={selectedService}
+        open={selectedService !== null}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };
