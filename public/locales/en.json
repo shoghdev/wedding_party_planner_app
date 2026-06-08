@@ -125,26 +125,100 @@
       "badge": "CELEBRATE YOUR WAY"
     },
     "learnMore": "LEARN MORE",
+    "modal": {
+      "overline": "SERVICE DETAILS",
+      "benefitsTitle": "Key Benefits",
+      "includesTitle": "What's Included",
+      "idealForTitle": "Ideal For",
+      "cta": "Book a Consultation"
+    },
     "cards": {
       "fullPlanning": {
         "title": "Full Wedding Planning",
-        "description": "Complete planning from start to finish."
+        "description": "Complete planning from start to finish.",
+        "detail": {
+          "overview": "From your first vision board to the final farewell, we manage every detail of your celebration with care, creativity, and precision — so you can stay present for every meaningful moment.",
+          "idealFor": "Couples who want a dedicated planning partner from start to finish and prefer a fully guided, stress-free experience.",
+          "benefits": {
+            "one": "Dedicated lead planner with personalized guidance throughout",
+            "two": "Curated vendor recommendations aligned with your style and budget",
+            "three": "Detailed timelines, budgets, and design direction in one place",
+            "four": "Flawless day-of coordination so you can enjoy your celebration"
+          },
+          "includes": {
+            "one": "Discovery sessions and creative concept development",
+            "two": "Vendor sourcing, vetting, and contract support",
+            "three": "Design boards, floor plans, and styling direction",
+            "four": "Guest management support and rehearsal coordination",
+            "five": "Full on-site team for setup through event close"
+          }
+        }
       },
       "partialPlanning": {
         "title": "Partial Planning",
-        "description": "Guidance and planning for key parts."
+        "description": "Guidance and planning for key parts.",
+        "detail": {
+          "overview": "Already started planning but need expert support on the most important milestones? We step in where you need us most — refining your vision, organizing vendors, and keeping everything on track.",
+          "idealFor": "Organized couples who have begun planning independently but want professional support for critical phases.",
+          "benefits": {
+            "one": "Flexible support tailored to the stages you need most",
+            "two": "Expert review of contracts, timelines, and vendor selections",
+            "three": "Design refinement to elevate your existing vision",
+            "four": "Confidence that no important detail is overlooked"
+          },
+          "includes": {
+            "one": "Planning audit and priority roadmap",
+            "two": "Vendor recommendations and selection guidance",
+            "three": "Design and styling consultations",
+            "four": "Timeline and logistics planning",
+            "five": "Optional add-on day-of coordination"
+          }
+        }
       },
       "designStyling": {
         "title": "Event Design & Styling",
-        "description": "Beautiful themes, decor & styling."
+        "description": "Beautiful themes, decor & styling.",
+        "detail": {
+          "overview": "We translate your story into a cohesive visual experience — from color palettes and florals to tablescapes, signage, and every decorative detail that makes your event feel unmistakably yours.",
+          "idealFor": "Clients who have logistics covered but want a refined, editorial-level design vision brought to life.",
+          "benefits": {
+            "one": "Custom mood boards and design concepts unique to your event",
+            "two": "Cohesive styling across ceremony, reception, and guest touchpoints",
+            "three": "Premium decor sourcing and installation oversight",
+            "four": "A polished aesthetic that photographs beautifully"
+          },
+          "includes": {
+            "one": "Creative direction and concept presentations",
+            "two": "Floral, decor, and rental recommendations",
+            "three": "Tablescape, lounge, and ceremony styling plans",
+            "four": "On-site styling supervision and placement",
+            "five": "Post-event decor breakdown coordination"
+          }
+        }
       },
       "dayCoordination": {
         "title": "Micro / Day Coordination",
-        "description": "On-the-day management and coordination."
+        "description": "On-the-day management and coordination.",
+        "detail": {
+          "overview": "Your planning is done — now leave the execution to us. Our day-of team manages vendors, timelines, and unexpected moments so your celebration runs seamlessly from first guest arrival to final toast.",
+          "idealFor": "Couples who have completed most planning themselves and need a professional team to manage the event day.",
+          "benefits": {
+            "one": "A calm, experienced team leading every moment behind the scenes",
+            "two": "Real-time problem solving without disrupting your experience",
+            "three": "Vendor cueing, timeline management, and setup oversight",
+            "four": "Peace of mind to be fully present with your guests"
+          },
+          "includes": {
+            "one": "Pre-event walkthrough and detailed run-of-show",
+            "two": "Vendor contact sheet and timeline distribution",
+            "three": "Ceremony and reception flow management",
+            "four": "Setup and breakdown supervision",
+            "five": "Emergency kit and on-site lead coordinator"
+          }
+        }
       }
     }
   },
-
   "about": {
     "hero": {
       "overline": "ABOUT US",
