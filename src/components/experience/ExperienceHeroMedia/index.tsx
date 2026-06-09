@@ -73,7 +73,7 @@ export const ExperienceHeroMedia = ({
 }: ExperienceHeroMediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const mediaUrl = resolveHeroMediaUrl(heroImageUrl, heroVideoUrl);
   const mediaKind = getHeroMediaKind(mediaUrl);
@@ -85,25 +85,14 @@ export const ExperienceHeroMedia = ({
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = false;
-    setIsMuted(false);
+    video.muted = true;
+    setIsMuted(true);
 
-    video.play()
-      .then(() => {
-        setIsPlaying(true);
-      })
-      .catch(() => {
-        video.muted = true;
-        setIsMuted(true);
-
-        video.play()
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            setIsPlaying(false);
-          });
-      });
+    void video.play().then(() => {
+      setIsPlaying(true);
+    }).catch(() => {
+      setIsPlaying(false);
+    });
   }, [mediaKind, mediaUrl]);
 
   const togglePlay = () => {
@@ -158,6 +147,7 @@ export const ExperienceHeroMedia = ({
             src={mediaUrl}
             poster={fallbackPoster}
             autoPlay
+            muted
             playsInline
             controls={false}
             disablePictureInPicture

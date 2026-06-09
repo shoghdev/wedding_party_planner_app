@@ -25,24 +25,32 @@ export const getHeroMediaKind = (url: string): HeroMediaKind => {
   return 'image';
 };
 
-/** Pass through HeyGen URLs unchanged, except standard page → embed mapping for share/videos links. */
+const withHeyGenMutedAutoplay = (url: string): string => {
+  const parsed = new URL(url);
+  parsed.searchParams.set('autoplay', '1');
+  parsed.searchParams.set('muted', '1');
+
+  return parsed.toString();
+};
+
+/** Pass through HeyGen URLs, map share/videos to embeds, start muted on page load. */
 export const resolveHeyGenEmbedUrl = (url: string): string => {
   if (
     HEYGEN_EMBED_PATTERN.test(url) ||
     /app\.heygen\.com\/video-agent\//i.test(url)
   ) {
-    return url;
+    return withHeyGenMutedAutoplay(url);
   }
 
   const videosMatch = url.match(/app\.heygen\.com\/videos\/([^/?#]+)/i);
   if (videosMatch?.[1]) {
-    return `https://app.heygen.com/embeds/${videosMatch[1]}`;
+    return withHeyGenMutedAutoplay(`https://app.heygen.com/embeds/${videosMatch[1]}`);
   }
 
   const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
   if (shareMatch?.[1]) {
-    return `https://app.heygen.com/embeds/${shareMatch[1]}`;
+    return withHeyGenMutedAutoplay(`https://app.heygen.com/embeds/${shareMatch[1]}`);
   }
 
-  return url;
+  return withHeyGenMutedAutoplay(url);
 };
