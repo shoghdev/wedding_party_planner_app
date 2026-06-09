@@ -30,7 +30,7 @@ const AdminAppContent = ({ themeMode, onThemeToggle }: AdminAppProps) => {
   }
 
   if (isLoginRoute) {
-    if (session) {
+    if (!isAuthRequired || session) {
       return <Navigate to="/admin" replace />;
     }
 

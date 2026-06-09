@@ -21,7 +21,7 @@ import { ADMIN_NAV_ITEMS } from '@/consts/adminNav';
 import { getAdminNavIcon } from '@/utils/adminNavIcons';
 
 import { useAdminAuth } from '@/store/AdminAuthProvider';
-import { isSupabaseConfigured } from '@/utils/isSupabaseConfigured';
+import { isAdminAuthRequired } from '@/utils/adminAuth';
 
 import { styles } from './styles';
 
@@ -58,7 +58,7 @@ export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
 
 
   const handleLogout = async () => {
-    if (isSupabaseConfigured()) {
+    if (isAdminAuthRequired()) {
       await signOut();
       navigate('/admin/login');
       return;
