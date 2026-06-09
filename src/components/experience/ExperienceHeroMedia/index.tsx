@@ -25,6 +25,7 @@ type MinimalVideoControlsProps = Readonly<{
   isMuted: boolean;
   onTogglePlay: () => void;
   onToggleMute: () => void;
+  showMute?: boolean;
 }>;
 
 const MinimalVideoControls = ({
@@ -32,6 +33,7 @@ const MinimalVideoControls = ({
   isMuted,
   onTogglePlay,
   onToggleMute,
+  showMute = true,
 }: MinimalVideoControlsProps) => {
   const { t } = useTranslation();
 
@@ -49,18 +51,20 @@ const MinimalVideoControls = ({
           <PlayCircleOutlined className={styles.controlIcon} aria-hidden />
         )}
       </button>
-      <button
-        type="button"
-        className={styles.controlBtn}
-        onClick={onToggleMute}
-        aria-label={isMuted ? t('experience.hero.unmuteVideo') : t('experience.hero.muteVideo')}
-      >
-        {isMuted ? (
-          <AudioMutedOutlined className={styles.controlIcon} aria-hidden />
-        ) : (
-          <SoundOutlined className={styles.controlIcon} aria-hidden />
-        )}
-      </button>
+      {showMute ? (
+        <button
+          type="button"
+          className={styles.controlBtn}
+          onClick={onToggleMute}
+          aria-label={isMuted ? t('experience.hero.unmuteVideo') : t('experience.hero.muteVideo')}
+        >
+          {isMuted ? (
+            <AudioMutedOutlined className={styles.controlIcon} aria-hidden />
+          ) : (
+            <SoundOutlined className={styles.controlIcon} aria-hidden />
+          )}
+        </button>
+      ) : null}
     </div>
   );
 };
@@ -72,12 +76,19 @@ export const ExperienceHeroMedia = ({
   imageAlt,
 }: ExperienceHeroMediaProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
   const mediaUrl = resolveHeroMediaUrl(heroImageUrl, heroVideoUrl);
   const mediaKind = getHeroMediaKind(mediaUrl);
   const fallbackPoster = posterUrl ?? heroImageUrl;
+  const embedUrl = mediaKind === 'heygenEmbed' ? resolveHeyGenEmbedUrl(mediaUrl) : '';
+
+  useEffect(() => {
+    setIsPlaying(false);
+    setIsMuted(false);
+  }, [mediaUrl, mediaKind]);
 
   useEffect(() => {
     if (mediaKind !== 'video') return;
@@ -129,21 +140,43 @@ export const ExperienceHeroMedia = ({
     setIsMuted(video.muted);
   };
 
-  if (mediaKind === 'heygenEmbed') {
-    const embedUrl = resolveHeyGenEmbedUrl(mediaUrl);
+  const toggleEmbedPlay = () => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
 
+    if (isPlaying) {
+      iframe.src = 'about:blank';
+      setIsPlaying(false);
+      return;
+    }
+
+    iframe.src = embedUrl;
+    setIsPlaying(true);
+  };
+
+  if (mediaKind === 'heygenEmbed') {
     return (
       <div className={styles.media}>
         <div className={styles.embedWrap}>
           <iframe
+            ref={iframeRef}
             src={embedUrl}
             title={imageAlt}
             className={styles.embed}
             allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
             allowFullScreen
             loading="eager"
+            onLoad={() => {
+              setIsPlaying(true);
+            }}
           />
-          <div className={styles.embedControlsMask} aria-hidden />
+          <MinimalVideoControls
+            isPlaying={isPlaying}
+            isMuted={false}
+            onTogglePlay={toggleEmbedPlay}
+            onToggleMute={() => undefined}
+            showMute={false}
+          />
         </div>
       </div>
     );
