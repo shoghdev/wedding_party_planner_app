@@ -2,7 +2,7 @@ export type HeroMediaKind = 'image' | 'video' | 'heygenEmbed';
 
 const VIDEO_FILE_PATTERN = /\.(mp4|webm|ogg)(\?|$)/i;
 const HEYGEN_HOST_PATTERN = /heygen\.com/i;
-const HEYGEN_PAGE_PATTERN = /app\.heygen\.com\/(videos|share|video-agent)\//i;
+const HEYGEN_EMBED_PAGE_PATTERN = /app\.heygen\.com\/(videos|share)\//i;
 const HEYGEN_EMBED_PATTERN = /app\.heygen\.com\/embeds\//i;
 
 export const resolveHeroMediaUrl = (
@@ -17,7 +17,7 @@ export const getHeroMediaKind = (url: string): HeroMediaKind => {
 
   if (
     HEYGEN_HOST_PATTERN.test(url) &&
-    (HEYGEN_PAGE_PATTERN.test(url) || HEYGEN_EMBED_PATTERN.test(url))
+    (HEYGEN_EMBED_PAGE_PATTERN.test(url) || HEYGEN_EMBED_PATTERN.test(url))
   ) {
     return 'heygenEmbed';
   }
@@ -33,12 +33,9 @@ const withHeyGenMutedAutoplay = (url: string): string => {
   return parsed.toString();
 };
 
-/** Pass through HeyGen URLs, map share/videos to embeds, start muted on page load. */
+/** Map HeyGen page links to the /embeds/ player URL (muted autoplay on load). */
 export const resolveHeyGenEmbedUrl = (url: string): string => {
-  if (
-    HEYGEN_EMBED_PATTERN.test(url) ||
-    /app\.heygen\.com\/video-agent\//i.test(url)
-  ) {
+  if (HEYGEN_EMBED_PATTERN.test(url)) {
     return withHeyGenMutedAutoplay(url);
   }
 
