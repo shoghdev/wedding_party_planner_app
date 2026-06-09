@@ -139,7 +139,8 @@ export const ExperienceHeroMedia = ({
             src={embedUrl}
             title={imageAlt}
             className={styles.embed}
-            allow="autoplay"
+            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+            allowFullScreen
             loading="eager"
           />
           <div className={styles.embedControlsMask} aria-hidden />

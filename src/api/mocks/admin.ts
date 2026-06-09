@@ -1,3 +1,4 @@
+import { EXPERIENCE_HERO_HEYGEN_VIDEO_URL } from '@/consts/experienceHeroMedia';
 import type { AdminState } from '@/types/admin';
 
 export const ADMIN_SEED_DATA: AdminState = {
@@ -19,8 +20,7 @@ export const ADMIN_SEED_DATA: AdminState = {
   },
   experience: {
     heroImageUrl: '/images/experience/heroImage.jpg',
-    heroVideoUrl:
-      'https://app.heygen.com/videos/a-beautiful-moment-fb54d0dd4b9647b78c9cecc7d0e23cae',
+    heroVideoUrl: EXPERIENCE_HERO_HEYGEN_VIDEO_URL,
     whyCouplesImageUrl: '/images/experience/why-couples.webp',
     ctaImageUrl: '/images/experience/cta-candles.jpg',
   },

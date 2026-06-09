@@ -1,3 +1,4 @@
+import { resolveExperienceHeroVideoUrl } from '@/consts/experienceHeroMedia';
 import type { AboutContent } from '@/types/about';
 import type { AdminContactContent, AdminState } from '@/types/admin';
 import type { ExperienceContent } from '@/types/experience';
@@ -35,16 +36,19 @@ export const mergeAboutContent = (
 };
 
 export const mergeExperienceContent = (
-  _fallback: ExperienceContent,
+  fallback: ExperienceContent,
   adminState: AdminState,
 ): ExperienceContent => {
   const { experience } = adminState;
+  const heroVideoUrl = resolveExperienceHeroVideoUrl(
+    experience.heroVideoUrl || fallback.heroVideoUrl,
+  );
 
   return {
-    heroImageUrl: experience.heroImageUrl,
-    heroVideoUrl: experience.heroVideoUrl || undefined,
-    whyCouplesImageUrl: experience.whyCouplesImageUrl,
-    ctaImageUrl: experience.ctaImageUrl,
+    heroImageUrl: experience.heroImageUrl || fallback.heroImageUrl,
+    heroVideoUrl,
+    whyCouplesImageUrl: experience.whyCouplesImageUrl || fallback.whyCouplesImageUrl,
+    ctaImageUrl: experience.ctaImageUrl || fallback.ctaImageUrl,
   };
 };
 

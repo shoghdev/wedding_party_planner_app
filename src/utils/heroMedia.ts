@@ -2,7 +2,7 @@ export type HeroMediaKind = 'image' | 'video' | 'heygenEmbed';
 
 const VIDEO_FILE_PATTERN = /\.(mp4|webm|ogg)(\?|$)/i;
 const HEYGEN_HOST_PATTERN = /heygen\.com/i;
-const HEYGEN_PAGE_PATTERN = /app\.heygen\.com\/(videos|share)\//i;
+const HEYGEN_PAGE_PATTERN = /app\.heygen\.com\/(videos|share|video-agent)\//i;
 const HEYGEN_EMBED_PATTERN = /app\.heygen\.com\/embeds\//i;
 
 export const resolveHeroMediaUrl = (
@@ -26,19 +26,27 @@ export const getHeroMediaKind = (url: string): HeroMediaKind => {
 };
 
 export const resolveHeyGenEmbedUrl = (url: string): string => {
-  if (HEYGEN_EMBED_PATTERN.test(url)) {
-    return url;
+  let embedUrl = url;
+
+  if (!HEYGEN_EMBED_PATTERN.test(url)) {
+    const videosMatch = url.match(/app\.heygen\.com\/videos\/([^/?#]+)/i);
+    if (videosMatch?.[1]) {
+      embedUrl = `https://app.heygen.com/embeds/${videosMatch[1]}`;
+    } else {
+      const videoAgentMatch = url.match(/app\.heygen\.com\/video-agent\/([^/?#]+)/i);
+      if (videoAgentMatch?.[1]) {
+        embedUrl = `https://app.heygen.com/embeds/${videoAgentMatch[1]}`;
+      } else {
+        const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
+        if (shareMatch?.[1]) {
+          embedUrl = `https://app.heygen.com/embeds/${shareMatch[1]}`;
+        }
+      }
+    }
   }
 
-  const videosMatch = url.match(/app\.heygen\.com\/videos\/([^/?#]+)/i);
-  if (videosMatch?.[1]) {
-    return `https://app.heygen.com/embeds/${videosMatch[1]}`;
-  }
+  const parsed = new URL(embedUrl);
+  parsed.searchParams.set('autoplay', '1');
 
-  const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
-  if (shareMatch?.[1]) {
-    return `https://app.heygen.com/embeds/${shareMatch[1]}`;
-  }
-
-  return url;
+  return parsed.toString();
 };
