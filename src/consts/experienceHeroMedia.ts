@@ -19,5 +19,12 @@ export const isExperienceHeroVideoUrl = (url?: string): boolean => {
   );
 };
 
-export const resolveExperienceHeroVideoUrl = (_stored?: string): string =>
-  EXPERIENCE_HERO_HEYGEN_VIDEO_URL;
+export const resolveExperienceHeroVideoUrl = (stored?: string): string => {
+  const trimmed = stored?.trim();
+
+  if (trimmed && isExperienceHeroVideoUrl(trimmed)) {
+    return trimmed;
+  }
+
+  return EXPERIENCE_HERO_HEYGEN_VIDEO_URL;
+};
