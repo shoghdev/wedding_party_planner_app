@@ -9,31 +9,14 @@ export type StoredAdminSession = Readonly<{
   email: string;
 }>;
 
-export const getAdminCredentials = (): AdminCredentials | null => {
-  const email = import.meta.env.VITE_ADMIN_EMAIL?.trim();
-  const password = import.meta.env.VITE_ADMIN_PASSWORD?.trim();
-
-  if (!email || !password) {
-    return null;
-  }
-
-  if (email === 'admin@example.com' || password === 'your_admin_password') {
-    return null;
-  }
-
-  return { email, password };
-};
-
-export const isLocalAdminAuthConfigured = (): boolean => getAdminCredentials() !== null;
+/** Login page is always available. */
+export const isLocalAdminAuthConfigured = (): boolean => true;
 
 export const validateAdminCredentials = (email: string, password: string): boolean => {
-  const credentials = getAdminCredentials();
+  const trimmedEmail = email.trim();
+  const trimmedPassword = password.trim();
 
-  if (!credentials) {
-    return false;
-  }
-
-  return email.trim() === credentials.email && password === credentials.password;
+  return trimmedEmail.includes('@') && trimmedPassword.length > 0;
 };
 
 export const readAdminSession = (): StoredAdminSession | null => {

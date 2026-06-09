@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -600,14 +600,15 @@
     },
     "login": {
       "title": "Admin Sign In",
-      "description": "Sign in to manage website content.",
+      "description": "Enter your email and password to access the admin panel.",
       "email": "Email",
       "emailPlaceholder": "admin@example.com",
       "emailInvalid": "Enter a valid email address.",
       "password": "Password",
       "passwordPlaceholder": "Your password",
       "submit": "Sign In",
-      "invalidCredentials": "Invalid email or password."
+      "invalidCredentials": "Invalid email or password.",
+      "devHint": "Local dev login: {{credentials}}"
     },
     "home": {
       "breadcrumbs": "Dashboard / Home Content",

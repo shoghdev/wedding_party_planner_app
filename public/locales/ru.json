@@ -1,4 +1,4 @@
-{
+﻿{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -539,7 +539,8 @@
       "password": "Пароль",
       "passwordPlaceholder": "Ваш пароль",
       "submit": "Войти",
-      "invalidCredentials": "Неверный email или пароль."
+      "invalidCredentials": "Неверный email или пароль.",
+      "devHint": "Локальный вход: {{credentials}}"
     },
     "home": {
       "breadcrumbs": "Панель / Контент главной",

@@ -33,7 +33,7 @@ type AdminAuthProviderProps = Readonly<{
 export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(isLocalAdminAuthConfigured());
+  const [isLoading, setIsLoading] = useState(true);
   const isAuthRequired = isLocalAdminAuthConfigured();
 
   useEffect(() => {

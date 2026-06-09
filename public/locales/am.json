@@ -571,7 +571,8 @@
       "password": "Գաղտնաբառ",
       "passwordPlaceholder": "Ձեր գաղտնաբառը",
       "submit": "Մուտք",
-      "invalidCredentials": "Email-ը կամ գաղտնաբառը սխալ է։"
+      "invalidCredentials": "Email-ը կամ գաղտնաբառը սխալ է։",
+      "devHint": "Տեղական մուտք՝ {{credentials}}"
     }
   },
   "about": {
