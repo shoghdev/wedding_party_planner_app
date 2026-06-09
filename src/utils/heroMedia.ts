@@ -26,6 +26,12 @@ export const getHeroMediaKind = (url: string): HeroMediaKind => {
 };
 
 export const resolveHeyGenEmbedUrl = (url: string): string => {
+  if (/app\.heygen\.com\/video-agent\//i.test(url)) {
+    const parsed = new URL(url);
+    parsed.searchParams.set('autoplay', '1');
+    return parsed.toString();
+  }
+
   let embedUrl = url;
 
   if (!HEYGEN_EMBED_PATTERN.test(url)) {
@@ -33,14 +39,9 @@ export const resolveHeyGenEmbedUrl = (url: string): string => {
     if (videosMatch?.[1]) {
       embedUrl = `https://app.heygen.com/embeds/${videosMatch[1]}`;
     } else {
-      const videoAgentMatch = url.match(/app\.heygen\.com\/video-agent\/([^/?#]+)/i);
-      if (videoAgentMatch?.[1]) {
-        embedUrl = `https://app.heygen.com/embeds/${videoAgentMatch[1]}`;
-      } else {
-        const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
-        if (shareMatch?.[1]) {
-          embedUrl = `https://app.heygen.com/embeds/${shareMatch[1]}`;
-        }
+      const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
+      if (shareMatch?.[1]) {
+        embedUrl = `https://app.heygen.com/embeds/${shareMatch[1]}`;
       }
     }
   }
