@@ -6,11 +6,7 @@ import {
 } from '@ant-design/icons';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  getHeroMediaKind,
-  resolveHeroMediaUrl,
-  resolveHeyGenEmbedUrl,
-} from '@/utils/heroMedia';
+import { resolveHeroMedia, resolveHeyGenEmbedUrl } from '@/utils/heroMedia';
 import { styles } from './styles';
 
 type ExperienceHeroMediaProps = Readonly<{
@@ -71,16 +67,24 @@ export const ExperienceHeroMedia = ({
   posterUrl,
   imageAlt,
 }: ExperienceHeroMediaProps) => {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
 
-  const mediaUrl = resolveHeroMediaUrl(heroImageUrl, heroVideoUrl);
-  const mediaKind = getHeroMediaKind(mediaUrl);
+  const { playbackUrl, kind: mediaKind, heyGenPageUrl } = resolveHeroMedia(
+    heroImageUrl,
+    heroVideoUrl,
+  );
   const fallbackPoster = posterUrl ?? heroImageUrl;
 
   useEffect(() => {
-    if (mediaKind !== 'video') return;
+    setVideoFailed(false);
+  }, [playbackUrl, mediaKind]);
+
+  useEffect(() => {
+    if (mediaKind !== 'video' || videoFailed) return;
 
     const video = videoRef.current;
     if (!video) return;
@@ -104,7 +108,7 @@ export const ExperienceHeroMedia = ({
             setIsPlaying(false);
           });
       });
-  }, [mediaKind, mediaUrl]);
+  }, [mediaKind, playbackUrl, videoFailed]);
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -130,7 +134,7 @@ export const ExperienceHeroMedia = ({
   };
 
   if (mediaKind === 'heygenEmbed') {
-    const embedUrl = resolveHeyGenEmbedUrl(mediaUrl);
+    const embedUrl = resolveHeyGenEmbedUrl(playbackUrl);
 
     return (
       <div className={styles.media}>
@@ -149,6 +153,25 @@ export const ExperienceHeroMedia = ({
     );
   }
 
+  if (mediaKind === 'video' && videoFailed && heyGenPageUrl) {
+    return (
+      <div className={styles.media}>
+        <div className={styles.videoShell}>
+          <img src={fallbackPoster} alt={imageAlt} className={styles.photo} />
+          <a
+            href={heyGenPageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.heyGenLink}
+          >
+            <PlayCircleOutlined className={styles.heyGenLinkIcon} aria-hidden />
+            {t('experience.hero.openHeyGenVideo')}
+          </a>
+        </div>
+      </div>
+    );
+  }
+
   if (mediaKind === 'video') {
     return (
       <div className={styles.media}>
@@ -156,7 +179,7 @@ export const ExperienceHeroMedia = ({
           <video
             ref={videoRef}
             className={styles.video}
-            src={mediaUrl}
+            src={playbackUrl}
             poster={fallbackPoster}
             autoPlay
             playsInline
@@ -174,6 +197,10 @@ export const ExperienceHeroMedia = ({
             onVolumeChange={() => {
               setIsMuted(videoRef.current?.muted ?? false);
             }}
+            onError={() => {
+              setVideoFailed(true);
+              setIsPlaying(false);
+            }}
           />
           <MinimalVideoControls
             isPlaying={isPlaying}
@@ -189,7 +216,7 @@ export const ExperienceHeroMedia = ({
   return (
     <div className={styles.media}>
       <img
-        src={mediaUrl}
+        src={playbackUrl}
         alt={imageAlt}
         loading="eager"
         fetchPriority="high"
