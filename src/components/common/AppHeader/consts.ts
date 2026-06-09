@@ -26,7 +26,7 @@ export const getActiveNavKey = (pathname: string, hash: string): string => {
     return 'services';
   }
 
-  if (pathname === '/portfolio') {
+  if (/^\/portfolio(-details)?(\/|$)/.test(pathname)) {
     return 'portfolio';
   }
 

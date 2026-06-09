@@ -1,9 +1,9 @@
 import { Spin } from 'antd';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { AdminLoginPage } from '@/pages/admin/AdminLoginPage';
 import { AdminRoutes } from '@/routes/AdminRoutes';
-import { AdminAuthProvider, useAdminAuth } from '@/store/AdminAuthProvider';
+import { useAdminAuth } from '@/store/AdminAuthProvider';
 import { AdminProvider } from '@/store/AdminProvider';
 import type { ThemeMode } from '@/types/theme';
 
@@ -12,8 +12,8 @@ type AdminAppProps = Readonly<{
   onThemeToggle: () => void;
 }>;
 
-const AdminAppContent = ({ themeMode, onThemeToggle }: AdminAppProps) => {
-  const { session, isLoading, isAuthRequired } = useAdminAuth();
+export const AdminApp = ({ themeMode, onThemeToggle }: AdminAppProps) => {
+  const { isAuthenticated, isLoading, isAuthRequired } = useAdminAuth();
   const location = useLocation();
   const isLoginRoute = location.pathname === '/admin/login';
 
@@ -25,12 +25,12 @@ const AdminAppContent = ({ themeMode, onThemeToggle }: AdminAppProps) => {
     );
   }
 
-  if (isAuthRequired && !session && !isLoginRoute) {
+  if (isAuthRequired && !isAuthenticated && !isLoginRoute) {
     return <Navigate to="/admin/login" replace state={{ from: location.pathname }} />;
   }
 
   if (isLoginRoute) {
-    if (!isAuthRequired || session) {
+    if (!isAuthRequired || isAuthenticated) {
       return <Navigate to="/admin" replace />;
     }
 
@@ -45,14 +45,3 @@ const AdminAppContent = ({ themeMode, onThemeToggle }: AdminAppProps) => {
     </AdminProvider>
   );
 };
-
-export const AdminApp = ({ themeMode, onThemeToggle }: AdminAppProps) => (
-  <AdminAuthProvider>
-    <Routes>
-      <Route
-        path="*"
-        element={<AdminAppContent themeMode={themeMode} onThemeToggle={onThemeToggle} />}
-      />
-    </Routes>
-  </AdminAuthProvider>
-);

@@ -8,8 +8,10 @@ import { ContactPage } from '@/pages/ContactPage';
 import { ExperiencePage } from '@/pages/ExperiencePage';
 import { HomePage } from '@/pages/HomePage';
 import { PortfolioPage } from '@/pages/PortfolioPage';
+import { PortfolioDetailsPage } from '@/pages/PortfolioDetailsPage';
 import { ServicesPage } from '@/pages/ServicesPage';
 import { AdminApp } from '@/routes/AdminApp';
+import { AdminAuthProvider } from '@/store/AdminAuthProvider';
 import { getAntdTheme } from '@/theme/antdTheme';
 
 const queryClient = new QueryClient({
@@ -33,29 +35,32 @@ const App = () => {
         }}
       >
         <AntApp>
-          <BrowserRouter>
-            <Routes>
-              <Route
-                path="/admin/*"
-                element={<AdminApp themeMode={mode} onThemeToggle={toggleMode} />}
-              />
-              <Route
-                path="/*"
-                element={
-                  <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
-                    <Routes>
-                      <Route path="/" element={<HomePage />} />
-                      <Route path="/services" element={<ServicesPage />} />
-                      <Route path="/portfolio" element={<PortfolioPage />} />
-                      <Route path="/about" element={<AboutPage />} />
-                      <Route path="/experience" element={<ExperiencePage />} />
-                      <Route path="/contact" element={<ContactPage />} />
-                    </Routes>
-                  </SiteLayout>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
+          <AdminAuthProvider>
+            <BrowserRouter>
+              <Routes>
+                <Route
+                  path="/admin/*"
+                  element={<AdminApp themeMode={mode} onThemeToggle={toggleMode} />}
+                />
+                <Route
+                  path="/*"
+                  element={
+                    <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
+                      <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/services" element={<ServicesPage />} />
+                        <Route path="/portfolio" element={<PortfolioPage />} />
+                        <Route path="/portfolio/:portfolioId" element={<PortfolioDetailsPage />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/experience" element={<ExperiencePage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                      </Routes>
+                    </SiteLayout>
+                  }
+                />
+              </Routes>
+            </BrowserRouter>
+          </AdminAuthProvider>
         </AntApp>
       </ConfigProvider>
     </QueryClientProvider>

@@ -9,6 +9,7 @@ export const QUERY_KEYS = {
   },
   portfolio: {
     page: ['portfolio', 'page'] as const,
+    detail: (id: string) => ['portfolio', 'detail', id] as const,
   },
   about: {
     content: ['about', 'content'] as const,

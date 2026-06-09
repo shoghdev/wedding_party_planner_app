@@ -21,7 +21,7 @@ import { ADMIN_NAV_ITEMS } from '@/consts/adminNav';
 import { getAdminNavIcon } from '@/utils/adminNavIcons';
 
 import { useAdminAuth } from '@/store/AdminAuthProvider';
-import { isAdminAuthRequired } from '@/utils/adminAuth';
+import { isLocalAdminAuthConfigured } from '@/config/adminAuth';
 
 import { styles } from './styles';
 
@@ -58,7 +58,7 @@ export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
 
 
   const handleLogout = async () => {
-    if (isAdminAuthRequired()) {
+    if (isLocalAdminAuthConfigured()) {
       await signOut();
       navigate('/admin/login');
       return;

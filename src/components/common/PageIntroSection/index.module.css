@@ -1,6 +1,7 @@
 .section {
-  padding-block: 48px 40px;
+  padding-block: clamp(48px, 6vw, 64px) clamp(48px, 6vw, 64px);
   background: var(--color-hero-bg);
+  overflow: hidden;
 }
 
 .content {

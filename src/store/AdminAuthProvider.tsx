@@ -9,15 +9,15 @@ import {
 } from 'react';
 import {
   clearAdminSession,
-  isAdminAuthRequired,
-  loadAdminSession,
-  saveAdminSession,
+  isLocalAdminAuthConfigured,
+  readAdminSession,
   validateAdminCredentials,
-  type AdminSession,
-} from '@/utils/adminAuth';
+  writeAdminSession,
+} from '@/config/adminAuth';
 
 type AdminAuthContextValue = Readonly<{
-  session: AdminSession | null;
+  isAuthenticated: boolean;
+  userEmail: string | null;
   isLoading: boolean;
   isAuthRequired: boolean;
   signIn: (email: string, password: string) => Promise<void>;
@@ -31,12 +31,15 @@ type AdminAuthProviderProps = Readonly<{
 }>;
 
 export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
-  const [session, setSession] = useState<AdminSession | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const isAuthRequired = isAdminAuthRequired();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(isLocalAdminAuthConfigured());
+  const isAuthRequired = isLocalAdminAuthConfigured();
 
   useEffect(() => {
-    setSession(loadAdminSession());
+    const storedSession = readAdminSession();
+    setIsAuthenticated(Boolean(storedSession));
+    setUserEmail(storedSession?.email ?? null);
     setIsLoading(false);
   }, []);
 
@@ -45,25 +48,28 @@ export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
       throw new Error('Invalid credentials');
     }
 
-    const nextSession = { email: email.trim() };
-    saveAdminSession(nextSession.email);
-    setSession(nextSession);
+    const normalizedEmail = email.trim();
+    writeAdminSession({ email: normalizedEmail });
+    setIsAuthenticated(true);
+    setUserEmail(normalizedEmail);
   }, []);
 
   const signOut = useCallback(async () => {
     clearAdminSession();
-    setSession(null);
+    setIsAuthenticated(false);
+    setUserEmail(null);
   }, []);
 
   const value = useMemo<AdminAuthContextValue>(
     () => ({
-      session,
+      isAuthenticated,
+      userEmail,
       isLoading,
       isAuthRequired,
       signIn,
       signOut,
     }),
-    [isAuthRequired, isLoading, session, signIn, signOut],
+    [isAuthRequired, isAuthenticated, isLoading, signIn, signOut, userEmail],
   );
 
   return <AdminAuthContext.Provider value={value}>{children}</AdminAuthContext.Provider>;
