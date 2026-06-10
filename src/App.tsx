@@ -10,6 +10,7 @@ import { HomePage } from '@/pages/HomePage';
 import { PortfolioPage } from '@/pages/PortfolioPage';
 import { PortfolioDetailsPage } from '@/pages/PortfolioDetailsPage';
 import { ServicesPage } from '@/pages/ServicesPage';
+import BookingPage from '@/pages/Booking';
 import { AdminApp } from '@/routes/AdminApp';
 import { AdminAuthProvider } from '@/store/AdminAuthProvider';
 import { getAntdTheme } from '@/theme/antdTheme';
@@ -53,6 +54,7 @@ const App = () => {
                         <Route path="/portfolio/:portfolioId" element={<PortfolioDetailsPage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/experience" element={<ExperiencePage />} />
+                        <Route path="/booking" element={<BookingPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                       </Routes>
                     </SiteLayout>

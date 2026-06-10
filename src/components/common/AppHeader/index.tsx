@@ -85,9 +85,11 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
               <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
               <LanguageSelector variant="header" />
             </div>
-            <Button type="primary" size="middle" className={styles.ctaBtn}>
-              {t('header.cta')}
-            </Button>
+            <Link to="/booking">
+              <Button type="primary" size="middle" className={styles.ctaBtn}>
+                {t('header.cta')}
+              </Button>
+            </Link>
             {isLoginAvailable ? (
               <button
                 type="button"
@@ -156,9 +158,11 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
             );
           })}
           <div className={styles.drawerCtaGroup}>
-            <Button type="primary" block size="large" className={styles.drawerCta}>
-              {t('header.cta')}
-            </Button>
+            <Link to="/booking" onClick={() => setMenuOpen(false)}>
+              <Button type="primary" block size="large" className={styles.drawerCta}>
+                {t('header.cta')}
+              </Button>
+            </Link>
             {isLoginAvailable ? (
               <button
                 type="button"

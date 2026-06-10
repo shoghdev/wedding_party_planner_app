@@ -33,7 +33,7 @@ export const AdminLoginModal = ({
       open={open}
       onCancel={handleClose}
       footer={null}
-      destroyOnClose
+      destroyOnHidden
       className={styles.modal}
     >
       <p className={styles.description}>{t('header.login.description')}</p>

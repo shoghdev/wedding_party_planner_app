@@ -313,7 +313,7 @@ export const AdminListSection = ({ config }: AdminListSectionProps) => {
         onOk={() => form.submit()}
         okText={t('admin.actions.save')}
         cancelText={t('admin.actions.cancel')}
-        destroyOnClose
+        destroyOnHidden
       >
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {config.fields.map((field) => (

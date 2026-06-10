@@ -6,12 +6,14 @@ import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { SectionLabel } from '@/components/common/SectionLabel';
 import { WhyCouplesFeatureIcon } from '@/components/experience/WhyCouplesFeatureIcon';
 import { useExperienceContent, useWhyCouplesFeatures } from '@/hooks/useExperienceContent';
+import { getSafeMediaSrc } from '@/utils/safeMediaSrc';
 import { styles } from './styles';
 
 export const WhyCouplesSection = () => {
   const { t } = useTranslation();
   const { data: content, isLoading: contentLoading } = useExperienceContent();
   const { data: features, isLoading: featuresLoading } = useWhyCouplesFeatures();
+  const whyCouplesImageUrl = getSafeMediaSrc(content?.whyCouplesImageUrl);
 
   return (
     <section className={styles.section}>
@@ -28,10 +30,10 @@ export const WhyCouplesSection = () => {
               <div className={styles.imageWrap}>
                 {contentLoading ? (
                   <Skeleton.Image active className={styles.skeleton} />
-                ) : (
+                ) : whyCouplesImageUrl ? (
                   <>
                     <img
-                      src={content?.whyCouplesImageUrl}
+                      src={whyCouplesImageUrl}
                       alt={t('experience.whyCouples.imageAlt')}
                       loading="lazy"
                       className={styles.image}
@@ -43,12 +45,12 @@ export const WhyCouplesSection = () => {
                       <p className={styles.badgeText}>{t('experience.whyCouples.badge')}</p>
                     </div>
                   </>
-                )}
+                ) : null}
               </div>
             </RevealOnScroll>
           </Col>
 
-          <Col xs={24} lg={13} xl={14}>
+          <Col xs={24} lg={13} xl={14} className={styles.contentCol}>
             <RevealOnScroll variant="fadeUp">
               <SectionLabel text={t('experience.whyCouples.overline')} />
               <h2 className={styles.title}>

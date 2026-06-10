@@ -29,7 +29,7 @@ const BookingPage: React.FC = () => {
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', padding: '0 16px' }}>
-      <Card title={t('booking.title', 'Book Your Event Planner')} bordered={false}>
+      <Card title={t('booking.title', 'Book Your Event Planner')} variant="borderless">
         <Form form={form} layout="vertical" onFinish={onFinish} requiredMark="optional">
           <Form.Item
             name="fullName"

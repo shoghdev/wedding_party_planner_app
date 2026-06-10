@@ -29,7 +29,7 @@ export const ServiceDetailModal = ({ service, open, onClose }: ServiceDetailModa
       open={open}
       onCancel={onClose}
       footer={null}
-      destroyOnClose
+      destroyOnHidden
       centered
       className={styles.modal}
       aria-labelledby="service-detail-title"
