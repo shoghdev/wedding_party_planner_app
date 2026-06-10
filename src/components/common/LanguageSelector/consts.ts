@@ -7,9 +7,3 @@ export const LANGUAGE_LABELS: Record<SupportedLanguage, string> = {
   ru: 'RU',
   am: 'AM',
 };
-
-export const LANGUAGE_FLAGS: Record<SupportedLanguage, string> = {
-  en: '🇬🇧',
-  ru: '🇷🇺',
-  am: '🇦🇲',
-};

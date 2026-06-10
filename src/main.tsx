@@ -10,8 +10,10 @@ import '@/styles/global.css';
 import '@/styles/variables.css';
 
 const emailJsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
+const isAdminRoute =
+  typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
 
-if (emailJsPublicKey && emailJsPublicKey !== 'your_public_key') {
+if (emailJsPublicKey && emailJsPublicKey !== 'your_public_key' && !isAdminRoute) {
   emailjs.init({ publicKey: emailJsPublicKey });
 }
 

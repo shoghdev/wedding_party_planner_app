@@ -17,12 +17,12 @@ export const mergeAdminState = (partial: Partial<AdminState> | null | undefined)
     },
     contact: { ...ADMIN_SEED_DATA.contact, ...(source.contact ?? {}) },
     settings: { ...ADMIN_SEED_DATA.settings, ...(source.settings ?? {}) },
+    profile: { ...ADMIN_SEED_DATA.profile, ...(source.profile ?? {}) },
     services: source.services ?? ADMIN_SEED_DATA.services,
     gallery: source.gallery ?? ADMIN_SEED_DATA.gallery,
     testimonials: source.testimonials ?? ADMIN_SEED_DATA.testimonials,
     events: source.events ?? ADMIN_SEED_DATA.events,
     bookings: source.bookings ?? ADMIN_SEED_DATA.bookings,
-    statistics: source.statistics ?? ADMIN_SEED_DATA.statistics,
     codeTable: source.codeTable ?? ADMIN_SEED_DATA.codeTable,
   };
 };

@@ -69,6 +69,30 @@
   margin: 0;
 }
 
+@media (max-width: 575px) {
+  .section {
+    padding-block: clamp(2.5rem, 8vw, 3.5rem) clamp(3rem, 8vw, 4.5rem);
+  }
+
+  .title {
+    margin-bottom: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .card {
+    max-width: 100%;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1rem;
+  }
+
+  .cardDescription {
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
 @media (min-width: 576px) {
   .card {
     max-width: 20rem;

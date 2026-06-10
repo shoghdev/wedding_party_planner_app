@@ -66,7 +66,7 @@ export const AdminContentForm = <T extends AdminFormValues>({
           ))}
 
           <div className={styles.actions}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" className="admin-save-btn">
               {t('admin.actions.saveChanges')}
             </Button>
           </div>

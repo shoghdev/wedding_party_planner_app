@@ -10,11 +10,14 @@ import {
 
 import { Button, Menu } from 'antd';
 
+import { useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { AdminBrandLogo } from '@/components/admin/AdminBrandLogo';
+import { AdminSupportModal } from '@/components/admin/AdminSupportModal';
 
 import { ADMIN_NAV_ITEMS } from '@/consts/adminNav';
 
@@ -28,32 +31,27 @@ import { styles } from './styles';
 
 
 type AdminSidebarProps = Readonly<{
-
   collapsed: boolean;
-
+  onNavigate?: () => void;
 }>;
 
-
-
-export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
+export const AdminSidebar = ({ collapsed, onNavigate }: AdminSidebarProps) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const { signOut } = useAdminAuth();
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
 
 
 
   const selectedKey =
-
-    ADMIN_NAV_ITEMS.find(
-
-      (item) =>
-
-        item.path === location.pathname ||
-
-        (item.path !== '/admin' && location.pathname.startsWith(item.path)),
-
-    )?.key ?? 'dashboard';
+    location.pathname === '/admin/profile'
+      ? ''
+      : (ADMIN_NAV_ITEMS.find(
+          (item) =>
+            item.path === location.pathname ||
+            (item.path !== '/admin' && location.pathname.startsWith(item.path)),
+        )?.key ?? 'dashboard');
 
 
 
@@ -69,13 +67,12 @@ export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
 
   const menuItems = ADMIN_NAV_ITEMS.map((item) => ({
     key: item.key,
-
     icon: getAdminNavIcon(item.icon),
-
     label: t(item.labelKey),
-
-    onClick: () => navigate(item.path),
-
+    onClick: () => {
+      navigate(item.path);
+      onNavigate?.();
+    },
   }));
 
 
@@ -112,7 +109,10 @@ export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
 
           className={styles.addContentBtn}
 
-          onClick={() => navigate('/admin/services')}
+          onClick={() => {
+            navigate('/admin?create=1');
+            onNavigate?.();
+          }}
 
         >
 
@@ -123,34 +123,44 @@ export const AdminSidebar = ({ collapsed }: AdminSidebarProps) => {
 
 
         {!collapsed ? (
-
           <div className={styles.footerLinks}>
-
-            <button type="button" className={styles.footerLink}>
-
+            <button type="button" className={styles.footerLink} onClick={() => setIsSupportOpen(true)}>
               <CustomerServiceOutlined />
-
               {t('admin.sidebar.support')}
-
             </button>
-
             <button
               type="button"
               className={styles.footerLink}
               onClick={() => void handleLogout()}
             >
-
               <LogoutOutlined />
-
               {t('admin.sidebar.logout')}
-
             </button>
-
           </div>
-
-        ) : null}
+        ) : (
+          <div className={styles.footerLinksCollapsed}>
+            <button
+              type="button"
+              className={styles.footerIconBtn}
+              aria-label={t('admin.sidebar.support')}
+              onClick={() => setIsSupportOpen(true)}
+            >
+              <CustomerServiceOutlined />
+            </button>
+            <button
+              type="button"
+              className={styles.footerIconBtn}
+              aria-label={t('admin.sidebar.logout')}
+              onClick={() => void handleLogout()}
+            >
+              <LogoutOutlined />
+            </button>
+          </div>
+        )}
 
       </div>
+
+      <AdminSupportModal open={isSupportOpen} onClose={() => setIsSupportOpen(false)} />
 
     </div>
 

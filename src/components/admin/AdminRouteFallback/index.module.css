@@ -1,0 +1,13 @@
+.fullScreen {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: var(--admin-bg, #faf8f5);
+}
+
+.inline {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  padding: 2rem;
+}

@@ -42,12 +42,6 @@ export const ADMIN_NAV_ITEMS: readonly AdminNavItem[] = [
   },
   { key: 'events', path: '/admin/events', labelKey: 'admin.nav.events', icon: 'GiftOutlined' },
   {
-    key: 'statistics',
-    path: '/admin/statistics',
-    labelKey: 'admin.nav.statistics',
-    icon: 'BarChartOutlined',
-  },
-  {
     key: 'codeTable',
     path: '/admin/code-table',
     labelKey: 'admin.nav.codeTable',

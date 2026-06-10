@@ -8,6 +8,17 @@
   margin-top: 0.25rem;
 }
 
+@media (max-width: 767px) {
+  .statsRow {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .dashboardTableSection {
+    order: 2;
+  }
+}
+
 .outlineBtn:global(.ant-btn) {
   min-height: 2.75rem;
   border-radius: 999px;
@@ -35,4 +46,16 @@
 
 .primaryBtn:global(.ant-btn-primary:hover) {
   background: linear-gradient(135deg, #d48484 0%, var(--color-rose) 100%) !important;
+}
+
+@media (max-width: 575px) {
+  .outlineBtn:global(.ant-btn),
+  .primaryBtn:global(.ant-btn-primary) {
+    min-height: 1.75rem;
+    width: auto !important;
+    max-width: 11.5rem;
+    padding-inline: 0.75rem;
+    font-size: 0.75rem;
+    box-shadow: 0 6px 16px rgba(201, 115, 115, 0.18) !important;
+  }
 }

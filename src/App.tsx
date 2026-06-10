@@ -1,19 +1,29 @@
 import { App as AntApp, ConfigProvider, theme as antdTheme } from 'antd';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Suspense, lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AdminRouteFallback } from '@/components/admin/AdminRouteFallback';
 import { SiteLayout } from '@/components/common/SiteLayout';
 import { useThemeMode } from '@/hooks/useThemeMode';
-import { AboutPage } from '@/pages/AboutPage';
-import { ContactPage } from '@/pages/ContactPage';
-import { ExperiencePage } from '@/pages/ExperiencePage';
-import { HomePage } from '@/pages/HomePage';
-import { PortfolioPage } from '@/pages/PortfolioPage';
-import { PortfolioDetailsPage } from '@/pages/PortfolioDetailsPage';
-import { ServicesPage } from '@/pages/ServicesPage';
-import BookingPage from '@/pages/Booking';
-import { AdminApp } from '@/routes/AdminApp';
+import { lazyNamed } from '@/utils/lazyNamed';
 import { AdminAuthProvider } from '@/store/AdminAuthProvider';
 import { getAntdTheme } from '@/theme/antdTheme';
+
+const AdminApp = lazy(() =>
+  import('@/routes/AdminApp').then((module) => ({ default: module.AdminApp })),
+);
+
+const HomePage = lazyNamed(() => import('@/pages/HomePage'), 'HomePage');
+const ServicesPage = lazyNamed(() => import('@/pages/ServicesPage'), 'ServicesPage');
+const PortfolioPage = lazyNamed(() => import('@/pages/PortfolioPage'), 'PortfolioPage');
+const PortfolioDetailsPage = lazyNamed(
+  () => import('@/pages/PortfolioDetailsPage'),
+  'PortfolioDetailsPage',
+);
+const AboutPage = lazyNamed(() => import('@/pages/AboutPage'), 'AboutPage');
+const ExperiencePage = lazyNamed(() => import('@/pages/ExperiencePage'), 'ExperiencePage');
+const ContactPage = lazyNamed(() => import('@/pages/ContactPage'), 'ContactPage');
+const BookingPage = lazy(() => import('@/pages/Booking'));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,6 +33,12 @@ const queryClient = new QueryClient({
     },
   },
 });
+
+const PublicRouteFallback = () => (
+  <div style={{ display: 'grid', placeItems: 'center', minHeight: '40vh' }}>
+    <AdminRouteFallback />
+  </div>
+);
 
 const App = () => {
   const { mode, toggleMode } = useThemeMode();
@@ -41,22 +57,31 @@ const App = () => {
               <Routes>
                 <Route
                   path="/admin/*"
-                  element={<AdminApp themeMode={mode} onThemeToggle={toggleMode} />}
+                  element={
+                    <Suspense fallback={<AdminRouteFallback fullScreen />}>
+                      <AdminApp themeMode={mode} onThemeToggle={toggleMode} />
+                    </Suspense>
+                  }
                 />
                 <Route
                   path="/*"
                   element={
                     <SiteLayout themeMode={mode} onThemeToggle={toggleMode}>
-                      <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/services" element={<ServicesPage />} />
-                        <Route path="/portfolio" element={<PortfolioPage />} />
-                        <Route path="/portfolio/:portfolioId" element={<PortfolioDetailsPage />} />
-                        <Route path="/about" element={<AboutPage />} />
-                        <Route path="/experience" element={<ExperiencePage />} />
-                        <Route path="/booking" element={<BookingPage />} />
-                        <Route path="/contact" element={<ContactPage />} />
-                      </Routes>
+                      <Suspense fallback={<PublicRouteFallback />}>
+                        <Routes>
+                          <Route path="/" element={<HomePage />} />
+                          <Route path="/services" element={<ServicesPage />} />
+                          <Route path="/portfolio" element={<PortfolioPage />} />
+                          <Route
+                            path="/portfolio/:portfolioId"
+                            element={<PortfolioDetailsPage />}
+                          />
+                          <Route path="/about" element={<AboutPage />} />
+                          <Route path="/experience" element={<ExperiencePage />} />
+                          <Route path="/booking" element={<BookingPage />} />
+                          <Route path="/contact" element={<ContactPage />} />
+                        </Routes>
+                      </Suspense>
                     </SiteLayout>
                   }
                 />

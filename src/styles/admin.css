@@ -187,3 +187,138 @@
 }
 
 
+
+.admin-shell :global(.admin-save-btn.ant-btn) {
+  white-space: pre-line;
+  text-align: center;
+  height: auto;
+  min-height: 2.25rem;
+  padding-block: 0.4rem;
+  line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html:lang(hy) .admin-shell :global(.admin-save-btn.ant-btn),
+html:lang(ru) .admin-shell :global(.admin-save-btn.ant-btn) {
+  font-size: 0.75rem;
+}
+
+
+
+@media (max-width: 767px) {
+
+  .admin-shell :global(.ant-modal) {
+
+    max-width: calc(100vw - 1.5rem) !important;
+
+    margin: 0.75rem auto !important;
+
+    padding-bottom: 0;
+
+  }
+
+  .admin-shell :global(.ant-modal-body) {
+
+    max-height: calc(100vh - 12rem);
+
+    overflow-y: auto;
+
+  }
+
+  .admin-shell :global(.ant-table-wrapper) {
+
+    overflow-x: auto;
+
+  }
+
+  .admin-shell :global(.ant-pagination) {
+
+    flex-wrap: wrap;
+
+    row-gap: 0.5rem;
+
+  }
+
+  .admin-shell :global(.ant-pagination-options) {
+
+    display: none;
+
+  }
+
+}
+
+
+
+@media (max-width: 575px) {
+
+  .admin-shell {
+    --admin-mobile-control-max-width: 11.5rem;
+  }
+
+  body:has(.admin-shell) {
+    --admin-mobile-control-max-width: 11.5rem;
+  }
+
+  .admin-shell :global(.ant-drawer-content-wrapper) {
+
+    width: min(18.75rem, 88vw) !important;
+
+  }
+
+  .admin-shell :global(.ant-layout-content) :global(.ant-input),
+  .admin-shell :global(.ant-layout-content) :global(.ant-input-affix-wrapper),
+  .admin-shell :global(.ant-layout-content) :global(.ant-input-group-wrapper),
+  .admin-shell :global(.ant-layout-content) :global(.ant-select),
+  .admin-shell :global(.ant-layout-content) :global(.ant-picker) {
+    max-width: var(--admin-mobile-control-max-width) !important;
+  }
+
+  .admin-shell :global(.ant-layout-content) :global(.ant-input-affix-wrapper) {
+    padding-inline: 0.5rem !important;
+    font-size: 0.75rem;
+  }
+
+  .admin-shell :global(.ant-layout-content) :global(.ant-btn:not(.ant-btn-icon-only):not(.ant-btn-link):not(.ant-input-search-button):not(.admin-save-btn)) {
+    width: auto !important;
+    max-width: var(--admin-mobile-control-max-width);
+    padding-inline: 0.65rem !important;
+    font-size: 0.75rem;
+  }
+
+  .admin-shell :global(.ant-modal) :global(.ant-input),
+  .admin-shell :global(.ant-modal) :global(.ant-input-affix-wrapper),
+  .admin-shell :global(.ant-modal) :global(.ant-input-number),
+  .admin-shell :global(.ant-modal) :global(.ant-select),
+  .admin-shell :global(.ant-modal) :global(.ant-picker) {
+    max-width: var(--admin-mobile-control-max-width) !important;
+  }
+
+  .admin-shell :global(.ant-modal) :global(.ant-btn:not(.ant-btn-icon-only):not(.ant-btn-link)) {
+    width: auto !important;
+    max-width: var(--admin-mobile-control-max-width);
+  }
+
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-input),
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-input-affix-wrapper),
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-input-number),
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-select),
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-picker) {
+    max-width: var(--admin-mobile-control-max-width) !important;
+  }
+
+  body:has(.admin-shell) :global(.ant-modal) :global(.ant-btn:not(.ant-btn-icon-only):not(.ant-btn-link)) {
+    width: auto !important;
+    max-width: var(--admin-mobile-control-max-width);
+  }
+
+  html:lang(hy) .admin-shell :global(.admin-save-btn.ant-btn),
+  html:lang(ru) .admin-shell :global(.admin-save-btn.ant-btn) {
+    font-size: 0.6875rem;
+    padding-inline: 0.55rem !important;
+  }
+
+}
+
+
