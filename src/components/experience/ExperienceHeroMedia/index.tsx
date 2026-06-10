@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
+import { getSafeMediaSrc } from '@/utils/safeMediaSrc';
 import {
   getHeroMediaKind,
   resolveHeroMediaUrl,
   resolveHeyGenEmbedUrl,
 } from '@/utils/heroMedia';
 import { styles } from './styles';
-
 type ExperienceHeroMediaProps = Readonly<{
   heroImageUrl: string;
   heroVideoUrl?: string;
@@ -22,8 +22,9 @@ export const ExperienceHeroMedia = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const mediaUrl = resolveHeroMediaUrl(heroImageUrl, heroVideoUrl);
-  const mediaKind = getHeroMediaKind(mediaUrl);
-  const fallbackPoster = posterUrl ?? heroImageUrl;
+  const safeMediaUrl = getSafeMediaSrc(mediaUrl);
+  const mediaKind = safeMediaUrl ? getHeroMediaKind(safeMediaUrl) : 'image';
+  const safePosterUrl = getSafeMediaSrc(posterUrl ?? heroImageUrl);
 
   useEffect(() => {
     if (mediaKind !== 'video') return;
@@ -31,12 +32,16 @@ export const ExperienceHeroMedia = ({
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = true;
+    video.muted = false;
     void video.play().catch(() => undefined);
-  }, [mediaKind, mediaUrl]);
+  }, [mediaKind, safeMediaUrl]);
+
+  if (!safeMediaUrl) {
+    return <div className={styles.media} aria-hidden />;
+  }
 
   if (mediaKind === 'heygenEmbed') {
-    const embedUrl = resolveHeyGenEmbedUrl(mediaUrl);
+    const embedUrl = resolveHeyGenEmbedUrl(safeMediaUrl);
 
     return (
       <div className={styles.media}>
@@ -46,7 +51,6 @@ export const ExperienceHeroMedia = ({
             title={imageAlt}
             className={styles.embed}
             allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-            allowFullScreen
             loading="eager"
           />
         </div>
@@ -61,10 +65,9 @@ export const ExperienceHeroMedia = ({
           <video
             ref={videoRef}
             className={styles.video}
-            src={mediaUrl}
-            poster={fallbackPoster}
+            src={safeMediaUrl}
+            {...(safePosterUrl ? { poster: safePosterUrl } : {})}
             autoPlay
-            muted
             playsInline
             controls={false}
             disablePictureInPicture
@@ -80,7 +83,7 @@ export const ExperienceHeroMedia = ({
   return (
     <div className={styles.media}>
       <img
-        src={mediaUrl}
+        src={safeMediaUrl}
         alt={imageAlt}
         loading="eager"
         fetchPriority="high"

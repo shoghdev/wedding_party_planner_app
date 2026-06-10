@@ -1,14 +1,17 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import { Button, Skeleton } from 'antd';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { PageContainer } from '@/components/common/PageContainer';
 import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import { useExperienceContent } from '@/hooks/useExperienceContent';
+import { getSafeMediaSrc } from '@/utils/safeMediaSrc';
 import { styles } from './styles';
 
 export const ExperienceCtaSection = () => {
   const { t } = useTranslation();
   const { data, isLoading } = useExperienceContent();
+  const ctaImageUrl = getSafeMediaSrc(data?.ctaImageUrl);
 
   return (
     <section className={styles.section}>
@@ -26,29 +29,31 @@ export const ExperienceCtaSection = () => {
                   </p>
                 </div>
 
-                <Button type="default" size="large" className={styles.ctaBtn}>
-                  <span className={styles.btnLabel}>{t('experience.cta.button')}</span>
-                  <span className={styles.arrowCircle} aria-hidden>
-                    <ArrowRightOutlined />
-                  </span>
-                </Button>
+                <Link to="/booking" className={styles.ctaLink}>
+                  <Button type="default" size="large" className={styles.ctaBtn}>
+                    <span className={styles.btnLabel}>{t('experience.cta.button')}</span>
+                    <span className={styles.arrowCircle} aria-hidden>
+                      <ArrowRightOutlined />
+                    </span>
+                  </Button>
+                </Link>
               </div>
             </div>
 
             <div className={styles.visual} aria-hidden={isLoading}>
               {isLoading ? (
                 <Skeleton.Image active className={styles.skeleton} />
-              ) : (
+              ) : ctaImageUrl ? (
                 <>
                   <img
-                    src={data?.ctaImageUrl}
+                    src={ctaImageUrl}
                     alt=""
                     loading="lazy"
                     className={styles.ctaImage}
                   />
                   <div className={styles.imageBlend} aria-hidden />
                 </>
-              )}
+              ) : null}
             </div>
           </div>
         </RevealOnScroll>

@@ -10,5 +10,5 @@ export const FOOTER_SERVICE_LINKS = [
   { key: 'weddings', href: '#services' },
   { key: 'corporate', href: '#services' },
   { key: 'private', href: '#services' },
-  { key: 'consultation', href: '/contact' },
+  { key: 'consultation', href: '/booking' },
 ] as const;

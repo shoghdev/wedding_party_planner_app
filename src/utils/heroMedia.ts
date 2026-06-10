@@ -25,29 +25,30 @@ export const getHeroMediaKind = (url: string): HeroMediaKind => {
   return 'image';
 };
 
-const withHeyGenMutedAutoplay = (url: string): string => {
+const withHeyGenAutoplay = (url: string): string => {
   const parsed = new URL(url);
-  parsed.searchParams.set('autoplay', '1');
-  parsed.searchParams.set('muted', '1');
+  parsed.searchParams.set('autoplay', '0');
+  parsed.searchParams.delete('muted');
+  parsed.searchParams.delete('mute');
 
   return parsed.toString();
 };
 
-/** Map HeyGen page links to the /embeds/ player URL (muted autoplay on load). */
+/** Map HeyGen page links to the /embeds/ player URL (autoplay with sound on load). */
 export const resolveHeyGenEmbedUrl = (url: string): string => {
   if (HEYGEN_EMBED_PATTERN.test(url)) {
-    return withHeyGenMutedAutoplay(url);
+    return withHeyGenAutoplay(url);
   }
 
   const videosMatch = url.match(/app\.heygen\.com\/videos\/([^/?#]+)/i);
   if (videosMatch?.[1]) {
-    return withHeyGenMutedAutoplay(`https://app.heygen.com/embeds/${videosMatch[1]}`);
+    return withHeyGenAutoplay(`https://app.heygen.com/embeds/${videosMatch[1]}`);
   }
 
   const shareMatch = url.match(/app\.heygen\.com\/share\/([^/?#]+)/i);
   if (shareMatch?.[1]) {
-    return withHeyGenMutedAutoplay(`https://app.heygen.com/embeds/${shareMatch[1]}`);
+    return withHeyGenAutoplay(`https://app.heygen.com/embeds/${shareMatch[1]}`);
   }
 
-  return withHeyGenMutedAutoplay(url);
+  return withHeyGenAutoplay(url);
 };

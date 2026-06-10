@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: clamp(18rem, 88vw, 28rem);
+  max-width: min(100%, clamp(18rem, 88vw, 36rem));
   margin-top: clamp(0.5rem, 2vw, 1.5rem);
   margin-inline: auto;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));

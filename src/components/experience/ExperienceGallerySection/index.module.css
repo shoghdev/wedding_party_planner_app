@@ -1,19 +1,22 @@
 .section {
-  padding-block: 0;
-   margin-top: 5rem;
-  overflow: hidden;
+  padding-block: clamp(2rem, 5vw, 3rem) 0;
+  margin-top: clamp(2.5rem, 8vw, 5rem);
+  overflow-x: clip;
   padding-inline: 20px;
 }
 
 .strip {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.125rem;
   width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .frameReveal {
   height: 100%;
+  min-width: 0;
 }
 
 .frame {
@@ -21,6 +24,7 @@
   overflow: hidden;
   aspect-ratio: 4 / 3;
   height: 100%;
+  min-width: 0;
 }
 
 .frame img {
@@ -40,14 +44,30 @@
   height: clamp(10rem, 30vw, 16rem) !important;
 }
 
+@media (min-width: 480px) {
+  .strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .frame {
+    aspect-ratio: 5 / 4;
+  }
+}
+
 @media (min-width: 576px) {
   .section {
     padding-inline: 32px;
   }
 
   .strip {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .frame {
+    aspect-ratio: 4 / 3;
   }
 }
 

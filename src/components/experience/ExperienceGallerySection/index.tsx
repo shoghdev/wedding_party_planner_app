@@ -10,8 +10,12 @@ export const ExperienceGallerySection = () => {
 
   if (isLoading) {
     return (
-      <section className={styles.section}>
-        <Skeleton.Image active className={styles.skeleton} />
+      <section className={styles.section} aria-hidden>
+        <div className={styles.strip}>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Skeleton.Image key={index} active className={styles.skeleton} />
+          ))}
+        </div>
       </section>
     );
   }
