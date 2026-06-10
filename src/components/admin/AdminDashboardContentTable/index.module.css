@@ -2,7 +2,7 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 1rem;
-  padding: 1.25rem 1.35rem;
+  padding: clamp(0.85rem, 2.5vw, 1.35rem);
   margin-bottom: 1rem;
   box-shadow: var(--shadow-card);
 }
@@ -18,16 +18,19 @@
   color: var(--color-text-muted);
 }
 
-.filterActions {
+.resetFiltersBtn {
   margin-top: 0.85rem;
+  padding-inline: 0 !important;
+  height: auto !important;
 }
 
 .tableCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 1rem;
-  padding: 0.75rem 1rem 1rem;
+  padding: clamp(0.65rem, 2vw, 1rem);
   box-shadow: var(--shadow-card);
+  overflow-x: auto;
 }
 
 .footerText {
@@ -41,6 +44,7 @@
   display: flex;
   align-items: center;
   gap: 0.85rem;
+  min-width: 12rem;
 }
 
 .thumbnail {
@@ -52,11 +56,21 @@
   box-shadow: 0 4px 12px rgba(44, 44, 44, 0.08);
 }
 
+.thumbnailPlaceholder {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--color-border);
+  background: var(--admin-gold-soft);
+  flex-shrink: 0;
+}
+
 .contentTitle {
   margin: 0 0 0.15rem;
   font-family: var(--font-sans);
   font-weight: 600;
   color: var(--color-text);
+  word-break: break-word;
 }
 
 .contentMeta {
@@ -89,4 +103,43 @@
 
 .type_gallery {
   color: #6f8fb8;
+}
+
+.filterSearch:global(.ant-input-search-button.ant-btn) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-inline: 0 !important;
+}
+
+.filterSearch:global(.ant-input-search-small .ant-input-search-button.ant-btn) {
+  width: 2rem !important;
+  min-width: 2rem !important;
+  max-width: 2rem !important;
+}
+
+.filterSearch:global(.ant-input-search:not(.ant-input-search-small) .ant-input-search-button.ant-btn) {
+  width: 2.75rem !important;
+  min-width: 2.75rem !important;
+  max-width: 2.75rem !important;
+}
+
+@media (max-width: 575px) {
+  .contentCell {
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .thumbnail,
+  .thumbnailPlaceholder {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .filterSearch:global(.ant-input-search-button.ant-btn) {
+    width: 1.25rem !important;
+    min-width: 1.25rem !important;
+    max-width: 1.25rem !important;
+  }
 }

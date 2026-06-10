@@ -1,7 +1,7 @@
 .section {
   padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 6rem);
   background: var(--color-about-bg);
-  overflow: hidden;
+  overflow-x: clip;
 }
 
 .heroRow:global(.ant-row) {
@@ -191,6 +191,39 @@
     transform: scale(1.03) translateY(-8px);
 
     filter: drop-shadow(0 30px 50px rgba(186, 142, 146, 0.15)); 
+  }
+}
+
+@media (max-width: 575px) {
+  .mediaStage {
+    padding-left: clamp(2rem, 10vw, 3rem);
+    padding-right: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  .floralLeft {
+    width: clamp(2.5rem, 12vw, 3.5rem);
+    opacity: 0.85;
+  }
+
+  .floralRight {
+    width: clamp(2rem, 10vw, 3rem);
+    max-height: clamp(7rem, 35vw, 12rem);
+  }
+
+  .heroImage {
+    max-width: min(100%, 20rem);
+    margin-top: 1rem;
+  }
+
+  .cta:global(.ant-btn-primary) {
+    display: inline-flex;
+    width: auto;
+    max-width: none;
+    margin-inline: auto;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    height: 2.75rem;
+    padding-inline: 1.25rem;
   }
 }
 

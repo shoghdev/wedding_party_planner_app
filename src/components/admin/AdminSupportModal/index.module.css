@@ -1,0 +1,102 @@
+.modal :global(.ant-modal-content) {
+  overflow: hidden;
+}
+
+.modal :global(.ant-modal-footer) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.description {
+  margin: 0 0 1.25rem;
+  color: var(--color-text-muted, #6b6b6b);
+  line-height: 1.5;
+}
+
+.details {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.detailRow {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.detailRow dt {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #6b6b6b);
+}
+
+.detailRow dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+}
+
+.link {
+  color: var(--color-rose-dark);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.link:hover {
+  color: var(--color-rose);
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .modal :global(.ant-modal-body) {
+    padding-block: 0.85rem;
+  }
+
+  .description {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .details {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .modal :global(.ant-modal-header) {
+    padding: 0.85rem 1rem;
+  }
+
+  .modal :global(.ant-modal-body) {
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .modal :global(.ant-modal-footer) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    padding: 0.75rem 1rem 1rem;
+  }
+
+  .modal :global(.ant-modal-footer .ant-btn) {
+    width: auto !important;
+    max-width: 11.5rem;
+    margin: 0 !important;
+  }
+
+  .detailRow {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .detailRow dd {
+    font-size: 0.875rem;
+  }
+}

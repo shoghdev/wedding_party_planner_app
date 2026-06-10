@@ -1,0 +1,70 @@
+.profileCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.avatar:global(.ant-avatar) {
+  border: 3px solid var(--color-rose);
+  box-shadow: 0 8px 20px rgba(201, 115, 115, 0.18);
+}
+
+.displayName {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.jobTitle {
+  margin: 0 0 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-rose-dark);
+}
+
+.email {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted, #6b6b6b);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 575px) {
+  .summary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .saveBtn {
+    align-self: center;
+  }
+
+  .actions :global(.ant-btn) {
+    width: auto !important;
+    max-width: 11.5rem;
+  }
+}

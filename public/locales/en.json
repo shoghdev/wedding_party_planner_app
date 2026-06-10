@@ -14,6 +14,7 @@
     },
     "cta": "BOOK A CONSULTATION",
     "language": "EN",
+    "languageSelector": "Select language, current: {{language}}",
     "menuToggle": "Open navigation menu",
     "themeToggle": "Toggle color theme",
     "login": {
@@ -532,7 +533,6 @@
       "contact": "Contact",
       "bookings": "Bookings",
       "events": "Events",
-      "statistics": "Statistics",
       "codeTable": "Code Table",
       "settings": "Settings"
     },
@@ -541,6 +541,20 @@
       "addContent": "Add New Content",
       "support": "Support",
       "logout": "Log Out"
+    },
+    "support": {
+      "title": "Support",
+      "description": "Need help with the admin panel? Contact our team using the details below.",
+      "emailSubject": "Dream & Celebrate Admin Support",
+      "emailSupport": "Email Support",
+      "email": "Email",
+      "phone": "Phone",
+      "hours": "Hours"
+    },
+    "seo": {
+      "siteName": "Dream & Celebrate Admin",
+      "defaultDescription": "Manage website content, bookings, services, and events for Dream & Celebrate.",
+      "pageTitle": "{{page}} | {{siteName}}"
     },
     "header": {
       "systemHealth": "System Health",
@@ -552,6 +566,23 @@
       "profile": "Profile",
       "accountSettings": "Account Settings",
       "viewWebsite": "View Website"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "markAllRead": "Mark all as read",
+      "empty": "You're all caught up.",
+      "pendingBookingTitle": "New booking request",
+      "pendingBookingMessage": "{{name}} requested {{service}}",
+      "draftContentTitle": "Draft content",
+      "draftContentMessage": "\"{{title}}\" is waiting to be published ({{type}})",
+      "upcomingEventTitle": "Upcoming event",
+      "upcomingEventMessage": "{{title}} is scheduled for {{date}}",
+      "types": {
+        "service": "Service",
+        "event": "Event",
+        "galleryItem": "Gallery item",
+        "testimonial": "Testimonial"
+      }
     },
     "dashboard": {
       "breadcrumbs": "Dashboard / Overview",
@@ -580,6 +611,12 @@
         "contentType": "Content Type",
         "allContent": "All Content",
         "dateRange": "Date Range",
+        "allTime": "All time",
+        "last30Days": "Last 30 days",
+        "last90Days": "Last 90 days",
+        "thisYear": "This year",
+        "lastYear": "Last year",
+        "year2024": "2024",
         "selectRange": "Select Range",
         "filters": "Filters"
       },
@@ -590,7 +627,7 @@
       },
       "contentTypes": {
         "service": "Service",
-        "experience": "Experience",
+        "experience": "Event",
         "testimonial": "Testimonial",
         "gallery": "Gallery"
       },
@@ -657,11 +694,6 @@
       "title": "Resource Manager",
       "description": "Curate and oversee the entire ecosystem of luxury experiences across your event network."
     },
-    "statistics": {
-      "breadcrumbs": "Dashboard / Statistics",
-      "title": "Statistics Manager",
-      "description": "Manage headline metrics displayed on the admin overview."
-    },
     "codeTable": {
       "breadcrumbs": "Dashboard / Code Table",
       "title": "Code Table",
@@ -676,6 +708,12 @@
       "resetConfirmDescription": "This restores the default demo content in local storage.",
       "resetSuccess": "Admin data has been reset."
     },
+    "profile": {
+      "breadcrumbs": "Dashboard / Profile",
+      "title": "Profile",
+      "description": "Manage your admin account details and public profile information.",
+      "signOut": "Sign Out"
+    },
     "actions": {
       "createEvent": "Create New Event",
       "createItem": "Create Item",
@@ -683,9 +721,16 @@
       "exportCsv": "Export CSV",
       "exportSuccess": "Export started.",
       "edit": "Edit",
+      "search": "Search",
       "delete": "Delete",
       "more": "More options",
       "bulkDelete": "Bulk Delete",
+      "deleteConfirmTitle": "Delete this item?",
+      "deleteConfirmMessage": "This action cannot be undone.",
+      "bulkDeleteConfirmTitle": "Delete selected items?",
+      "bulkDeleteConfirmMessage": "{{count}} items will be permanently removed.",
+      "deleteSuccess": "Item deleted successfully.",
+      "bulkDeleteSuccess": "Selected items deleted successfully.",
       "save": "Save",
       "saveChanges": "Save Changes",
       "cancel": "Cancel",
@@ -693,6 +738,12 @@
       "editItem": "Edit Item",
       "createSuccess": "Item created successfully.",
       "updateSuccess": "Changes saved successfully."
+    },
+    "createContent": {
+      "title": "Add New Content",
+      "description": "Choose the type of content you want to create.",
+      "typePlaceholder": "Select content type",
+      "continue": "Continue"
     },
     "filters": {
       "searchEvent": "Title or ID...",
@@ -729,6 +780,9 @@
       "quote": "Quote",
       "rating": "Rating",
       "avatarUrl": "Avatar URL",
+      "displayName": "Display Name",
+      "jobTitle": "Job Title",
+      "bio": "Bio",
       "email": "Email",
       "eventDate": "Event Date",
       "serviceType": "Service Type",

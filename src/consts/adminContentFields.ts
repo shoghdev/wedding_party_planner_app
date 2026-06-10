@@ -28,6 +28,13 @@ export const ADMIN_CONTACT_FIELDS: readonly AdminFieldConfig[] = [
   { name: 'decorImageUrl', labelKey: 'admin.fields.decorImageUrl', type: 'url', required: true },
 ];
 
+export const ADMIN_PROFILE_FIELDS: readonly AdminFieldConfig[] = [
+  { name: 'displayName', labelKey: 'admin.fields.displayName', type: 'text', required: true },
+  { name: 'jobTitle', labelKey: 'admin.fields.jobTitle', type: 'text', required: true },
+  { name: 'avatarUrl', labelKey: 'admin.fields.avatarUrl', type: 'url', required: true },
+  { name: 'bio', labelKey: 'admin.fields.bio', type: 'textarea' },
+];
+
 export const ADMIN_SETTINGS_FIELDS: readonly AdminFieldConfig[] = [
   { name: 'siteName', labelKey: 'admin.fields.siteName', type: 'text', required: true },
   { name: 'supportEmail', labelKey: 'admin.fields.supportEmail', type: 'text', required: true },

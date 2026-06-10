@@ -8,7 +8,6 @@ export type AdminListSectionKey =
   | 'testimonials'
   | 'events'
   | 'bookings'
-  | 'statistics'
   | 'codeTable';
 
 export type AdminContentSectionKey = 'home' | 'about' | 'experience' | 'contact';
@@ -60,14 +59,6 @@ export type AdminBookingItem = Readonly<{
   createdAt: string;
 }>;
 
-export type AdminStatistic = Readonly<{
-  id: string;
-  label: string;
-  value: string;
-  trend: string;
-  iconKey: string;
-}>;
-
 export type AdminCodeEntry = Readonly<{
   id: string;
   code: string;
@@ -111,17 +102,24 @@ export type AdminSettings = Readonly<{
   maintenanceMode: boolean;
 }>;
 
+export type AdminProfile = Readonly<{
+  displayName: string;
+  jobTitle: string;
+  avatarUrl: string;
+  bio: string;
+}>;
+
 export type AdminState = Readonly<{
   home: AdminHomeContent;
   about: AdminAboutContent;
   experience: AdminExperienceContent;
   contact: AdminContactContent;
+  profile: AdminProfile;
   services: AdminServiceItem[];
   gallery: AdminGalleryItem[];
   testimonials: AdminTestimonial[];
   events: AdminEvent[];
   bookings: AdminBookingItem[];
-  statistics: AdminStatistic[];
   codeTable: AdminCodeEntry[];
   settings: AdminSettings;
 }>;
@@ -132,7 +130,6 @@ export type AdminListRecord =
   | AdminTestimonial
   | AdminEvent
   | AdminBookingItem
-  | AdminStatistic
   | AdminCodeEntry;
 
 export type AdminNavItem = Readonly<{

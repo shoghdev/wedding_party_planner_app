@@ -28,6 +28,7 @@ type AdminContextValue = Readonly<{
     value: AdminState[K],
   ) => void;
   updateSettings: (value: AdminState['settings']) => void;
+  updateProfile: (value: AdminState['profile']) => void;
   addItem: (section: AdminListSectionKey, item: AdminListRecord) => void;
   updateItem: (section: AdminListSectionKey, item: AdminListRecord) => void;
   removeItem: (section: AdminListSectionKey, id: string) => void;
@@ -96,6 +97,10 @@ export const AdminProvider = ({ children }: AdminProviderProps) => {
     persist((current) => ({ ...current, settings: value }));
   }, [persist]);
 
+  const updateProfile = useCallback<AdminContextValue['updateProfile']>((value) => {
+    persist((current) => ({ ...current, profile: value }));
+  }, [persist]);
+
   const addItem = useCallback<AdminContextValue['addItem']>((section, item) => {
     persist((current) => {
       const list = current[section] as AdminListRecord[];
@@ -146,6 +151,7 @@ export const AdminProvider = ({ children }: AdminProviderProps) => {
       isSaving,
       updateContent,
       updateSettings,
+      updateProfile,
       addItem,
       updateItem,
       removeItem,
@@ -163,6 +169,7 @@ export const AdminProvider = ({ children }: AdminProviderProps) => {
       state,
       updateContent,
       updateItem,
+      updateProfile,
       updateSettings,
     ],
   );

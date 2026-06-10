@@ -2,32 +2,36 @@ import {
   AppstoreOutlined,
   MessageOutlined,
   PictureOutlined,
+  SearchOutlined,
   StarOutlined,
 } from '@ant-design/icons';
-import { Button, Col, Input, Row, Select, Space, Table } from 'antd';
+import { Button, Col, Grid, Input, Row, Select, Table, message } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import { AdminItemEditModal } from '@/components/admin/AdminItemEditModal';
 import { AdminStatusTag } from '@/components/admin/AdminStatusTag';
-import type { AdminState, AdminStatus } from '@/types/admin';
+import { DASHBOARD_CONTENT_CONFIG } from '@/consts/adminDashboardContent';
+import type { DashboardContentType } from '@/consts/adminDashboardContent';
+import { useAdmin } from '@/hooks/useAdmin';
+import type { AdminListRecord, AdminState } from '@/types/admin';
+import { buildDashboardContentRows, type DashboardContentRow } from '@/utils/buildDashboardContentRows';
+import {
+  getDashboardYearFilters,
+  matchesDashboardDateRange,
+  type DateRangeFilter,
+} from '@/utils/dashboardDateRange';
 import { styles } from './styles';
 
-type ContentType = 'all' | 'service' | 'experience' | 'testimonial' | 'gallery';
+const { useBreakpoint } = Grid;
 
-type DashboardContentRow = Readonly<{
-  id: string;
-  title: string;
-  imageUrl: string;
-  type: Exclude<ContentType, 'all'>;
-  date: string;
-  status: AdminStatus;
-  path: string;
-}>;
+type ContentType = 'all' | DashboardContentType;
 
 type AdminDashboardContentTableProps = Readonly<{
   state: AdminState;
+  initialSearch?: string;
 }>;
 
 const TYPE_ICONS = {
@@ -37,60 +41,54 @@ const TYPE_ICONS = {
   gallery: PictureOutlined,
 } as const;
 
-const buildRows = (state: AdminState): DashboardContentRow[] => {
-  const serviceRows = state.services.map((item) => ({
-    id: item.id,
-    title: item.title,
-    imageUrl: item.imageUrl,
-    type: 'service' as const,
-    date: '2024-01-15',
-    status: item.status,
-    path: '/admin/services',
-  }));
+const findRecord = (state: AdminState, row: DashboardContentRow): AdminListRecord | null => {
+  const { sectionKey } = DASHBOARD_CONTENT_CONFIG[row.type];
+  const items = state[sectionKey] as AdminListRecord[];
 
-  const experienceRows = state.events.map((item) => ({
-    id: item.id,
-    title: item.title,
-    imageUrl: item.imageUrl,
-    type: 'experience' as const,
-    date: item.date,
-    status: item.status,
-    path: '/admin/events',
-  }));
-
-  const testimonialRows = state.testimonials.map((item) => ({
-    id: item.id,
-    title: item.clientName,
-    imageUrl: item.avatarUrl,
-    type: 'testimonial' as const,
-    date: '2024-02-10',
-    status: item.status,
-    path: '/admin/testimonials',
-  }));
-
-  const galleryRows = state.gallery.map((item) => ({
-    id: item.id,
-    title: item.title,
-    imageUrl: item.imageUrl,
-    type: 'gallery' as const,
-    date: '2024-03-01',
-    status: item.status,
-    path: '/admin/gallery',
-  }));
-
-  return [...serviceRows, ...experienceRows, ...testimonialRows, ...galleryRows].sort(
-    (left, right) => dayjs(right.date).valueOf() - dayjs(left.date).valueOf(),
-  );
+  return items.find((item) => item.id === row.id) ?? null;
 };
 
-export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTableProps) => {
+export const AdminDashboardContentTable = ({
+  state,
+  initialSearch = '',
+}: AdminDashboardContentTableProps) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const [search, setSearch] = useState('');
+  const screens = useBreakpoint();
+  const isCompact = screens.sm === false;
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { updateItem } = useAdmin();
+  const [messageApi, contextHolder] = message.useMessage();
+  const [search, setSearch] = useState(initialSearch);
   const [contentType, setContentType] = useState<ContentType>('all');
-  const [statusFilter, setStatusFilter] = useState<'all' | AdminStatus>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | DashboardContentRow['status']>('all');
+  const [dateRange, setDateRange] = useState<DateRangeFilter>('all');
+  const [editingRow, setEditingRow] = useState<DashboardContentRow | null>(null);
 
-  const rows = useMemo(() => buildRows(state), [state]);
+  useEffect(() => {
+    setSearch(initialSearch);
+  }, [initialSearch]);
+
+  const rows = useMemo(() => buildDashboardContentRows(state), [state]);
+  const editingRecord = useMemo(
+    () => (editingRow ? findRecord(state, editingRow) : null),
+    [editingRow, state],
+  );
+  const editingConfig = editingRow ? DASHBOARD_CONTENT_CONFIG[editingRow.type] : null;
+
+  const dateRangeOptions = useMemo(
+    () => [
+      { value: 'all' as const, label: t('admin.dashboard.filters.allTime') },
+      { value: 'last30' as const, label: t('admin.dashboard.filters.last30Days') },
+      { value: 'last90' as const, label: t('admin.dashboard.filters.last90Days') },
+      { value: 'thisYear' as const, label: t('admin.dashboard.filters.thisYear') },
+      { value: 'lastYear' as const, label: t('admin.dashboard.filters.lastYear') },
+      ...getDashboardYearFilters(rows).map((value) => ({
+        value,
+        label: value.slice(5),
+      })),
+    ],
+    [rows, t],
+  );
 
   const filteredRows = useMemo(
     () =>
@@ -101,11 +99,38 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
           row.id.toLowerCase().includes(search.trim().toLowerCase());
         const matchesType = contentType === 'all' || row.type === contentType;
         const matchesStatus = statusFilter === 'all' || row.status === statusFilter;
+        const matchesDate = matchesDashboardDateRange(row.date, dateRange);
 
-        return matchesSearch && matchesType && matchesStatus;
+        return matchesSearch && matchesType && matchesStatus && matchesDate;
       }),
-    [contentType, rows, search, statusFilter],
+    [contentType, dateRange, rows, search, statusFilter],
   );
+
+  const handleSave = (payload: Record<string, string | number>) => {
+    if (!editingRow || !editingRecord || !editingConfig) {
+      return;
+    }
+
+    updateItem(editingConfig.sectionKey, {
+      ...editingRecord,
+      ...payload,
+    } as AdminListRecord);
+    setEditingRow(null);
+    messageApi.success(t('admin.actions.updateSuccess'));
+  };
+
+  const handleResetFilters = () => {
+    setSearch('');
+    setContentType('all');
+    setStatusFilter('all');
+    setDateRange('all');
+
+    if (searchParams.has('search')) {
+      const nextParams = new URLSearchParams(searchParams);
+      nextParams.delete('search');
+      setSearchParams(nextParams, { replace: true });
+    }
+  };
 
   const columns = useMemo<ColumnsType<DashboardContentRow>>(
     () => [
@@ -114,7 +139,11 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
         key: 'content',
         render: (_, record) => (
           <div className={styles.contentCell}>
-            <img src={record.imageUrl} alt="" className={styles.thumbnail} loading="lazy" />
+            {record.imageUrl ? (
+              <img src={record.imageUrl} alt="" className={styles.thumbnail} loading="lazy" />
+            ) : (
+              <div className={styles.thumbnailPlaceholder} aria-hidden />
+            )}
             <div>
               <p className={styles.contentTitle}>{record.title}</p>
               <p className={styles.contentMeta}>{record.id.toUpperCase()}</p>
@@ -125,6 +154,7 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
       {
         title: t('admin.dashboard.table.type'),
         key: 'type',
+        responsive: ['md'],
         render: (_, record) => {
           const Icon = TYPE_ICONS[record.type];
 
@@ -140,6 +170,7 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
         title: t('admin.dashboard.table.date'),
         dataIndex: 'date',
         key: 'date',
+        responsive: ['sm'],
         render: (value: string) => dayjs(value).format('MMM D, YYYY'),
       },
       {
@@ -152,26 +183,32 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
         key: 'actions',
         width: 88,
         render: (_, record) => (
-          <Button type="link" onClick={() => navigate(record.path)}>
+          <Button type="link" onClick={() => setEditingRow(record)}>
             {t('admin.actions.edit')}
           </Button>
         ),
       },
     ],
-    [navigate, t],
+    [t],
   );
 
   return (
     <>
+      {contextHolder}
+
       <div className={styles.filtersCard}>
         <Row gutter={[16, 16]}>
           <Col xs={24} lg={8}>
             <label className={styles.filterLabel}>{t('admin.dashboard.filters.search')}</label>
-            <Input
+            <Input.Search
               allowClear
               value={search}
               onChange={(event) => setSearch(event.target.value)}
+              onSearch={setSearch}
               placeholder={t('admin.header.searchPlaceholder')}
+              enterButton={<SearchOutlined />}
+              size={isCompact ? 'small' : 'middle'}
+              className={styles.filterSearch}
             />
           </Col>
           <Col xs={24} md={12} lg={5}>
@@ -206,16 +243,17 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
           <Col xs={24} lg={6}>
             <label className={styles.filterLabel}>{t('admin.dashboard.filters.dateRange')}</label>
             <Select
-              defaultValue="all"
+              value={dateRange}
+              onChange={setDateRange}
               style={{ width: '100%' }}
-              options={[{ value: 'all', label: t('admin.dashboard.filters.selectRange') }]}
+              options={dateRangeOptions}
             />
           </Col>
         </Row>
 
-        <Space className={styles.filterActions}>
-          <Button type="default">{t('admin.dashboard.filters.filters')}</Button>
-        </Space>
+        <Button type="link" onClick={handleResetFilters} className={styles.resetFiltersBtn}>
+          {t('admin.filters.reset')}
+        </Button>
       </div>
 
       <div className={styles.tableCard}>
@@ -223,15 +261,28 @@ export const AdminDashboardContentTable = ({ state }: AdminDashboardContentTable
           rowKey="id"
           columns={columns}
           dataSource={filteredRows}
-          pagination={{ pageSize: 4, showSizeChanger: false }}
+          scroll={{ x: isCompact ? 480 : 720 }}
+          pagination={{
+            pageSize: 4,
+            showSizeChanger: false,
+            showTotal: (total, range) =>
+              t('admin.table.showingCount', {
+                visible: range[1] - range[0] + 1,
+                total,
+              }),
+          }}
         />
-        <p className={styles.footerText}>
-          {t('admin.table.showingCount', {
-            visible: Math.min(4, filteredRows.length),
-            total: filteredRows.length,
-          })}
-        </p>
       </div>
+
+      {editingConfig ? (
+        <AdminItemEditModal
+          open={Boolean(editingRow && editingRecord)}
+          config={editingConfig.config}
+          item={editingRecord}
+          onClose={() => setEditingRow(null)}
+          onSave={handleSave}
+        />
+      ) : null}
     </>
   );
 };

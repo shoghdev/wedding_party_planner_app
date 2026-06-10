@@ -14,6 +14,7 @@
     },
     "cta": "ԳՐԱՆՑՎԵԼ ԽՈՐՀՐԴԱՏՈՒԹՅԱՆ",
     "language": "AM",
+    "languageSelector": "Ընտրել լեզուն, ընթացիկ՝ {{language}}",
     "menuToggle": "Բացել նավիգացիոն մենյուն",
     "themeToggle": "Փոխել թեման",
     "login": {
@@ -338,15 +339,28 @@
       "contact": "Կապ",
       "bookings": "Ամրագրումներ",
       "events": "Միջոցառումներ",
-      "statistics": "Վիճակագրություն",
       "codeTable": "Կոդերի աղյուսակ",
       "settings": "Կարգավորումներ"
     },
     "sidebar": {
       "newEvent": "Նոր միջոցառում",
-      "addContent": "Ավելացնել բովանդակություն",
+      "addContent": "Նոր բովանդակություն",
       "support": "Աջակցություն",
       "logout": "Դուրս գալ"
+    },
+    "support": {
+      "title": "Աջակցություն",
+      "description": "Օգնության կարիք ունե՞ք admin վահանակի հետ։ Կապվեք մեր թիմի հետ ստորև նշված տվյալներով։",
+      "emailSubject": "Dream & Celebrate Admin աջակցություն",
+      "emailSupport": "Email աջակցություն",
+      "email": "Email",
+      "phone": "Հեռախոս",
+      "hours": "Աշխատանքային ժամեր"
+    },
+    "seo": {
+      "siteName": "Dream & Celebrate Admin",
+      "defaultDescription": "Կայքի բովանդակության, ամրագրումների, ծառայությունների և միջոցառումների կառավարում Dream & Celebrate-ի համար։",
+      "pageTitle": "{{page}} | {{siteName}}"
     },
     "header": {
       "systemHealth": "Համակարգի վիճակ",
@@ -359,16 +373,33 @@
       "accountSettings": "Հաշվի կարգավորումներ",
       "viewWebsite": "Դիտել կայքը"
     },
+    "notifications": {
+      "title": "Ծանուցումներ",
+      "markAllRead": "Նշել բոլորը որպես կարդացված",
+      "empty": "Բոլոր ծանուցումներն արդեն դիտված են։",
+      "pendingBookingTitle": "Նոր ամրագրում",
+      "pendingBookingMessage": "{{name}}-ը հայցել է {{service}}",
+      "draftContentTitle": "Սկեչ բովանդակություն",
+      "draftContentMessage": "«{{title}}»-ը սպասում է հրապարակման ({{type}})",
+      "upcomingEventTitle": "Առաջիկա միջոցառում",
+      "upcomingEventMessage": "{{title}}-ը նշանակված է {{date}}",
+      "types": {
+        "service": "Ծառայություն",
+        "event": "Միջոցառում",
+        "galleryItem": "Պատկերասրահ",
+        "testimonial": "Կարծիք"
+      }
+    },
     "dashboard": {
       "breadcrumbs": "Վահանակ / Ամփոփում",
       "title": "Վահանակ",
-      "description": "Հետևեք բովանդակությունի ակտիվություն, ամրագրումները և վահանակի հիմնական ցուցանիշերը։",
+      "description": "Վերահսկե՛ք բովանդակության ակտիվությունը, ամրագրումները և հիմնական արդյունավետությունը Ձեր հարսանյաց ստուդիայում։",
       "stats": {
         "services": "Ծառայություններ",
         "servicesTrend": "Հրապարակված փաթեթներ",
         "testimonials": "Կարծիքներ",
         "testimonialsTrend": "Հաճախորդների պատմություններ",
-        "gallery": "Ժորտֆոլիո պատկերներ",
+        "gallery": "Պորտֆոլիո պատկերներ",
         "galleryTrend": "Պորտֆոլիո նյութեր",
         "bookings": "Խորհրդատվություններ",
         "bookingsTrend": "Ակտիվ հայտեր",
@@ -381,26 +412,32 @@
       "recentBookings": "Վերջին ամրագրումները",
       "welcomeTitle": "Բարի վերադարծ, ադմին! 👋",
       "welcomeDescription": "Կարգավարեք հարսանիքների պլանավորման կայքի բովանդակություներե այստեղից։",
-      "exportData": "Արտահանել տվյալներե",
-      "addNewItem": "Ավելացնել տարր",
+      "exportData": "Արտահանել տվյալներ",
+      "addNewItem": "Նոր տարր",
       "filters": {
-        "search": "Օնտրել",
+        "search": "Փնտրել",
         "contentType": "Բովանդակության տիպ",
-        "allContent": "Բոլոր բովանդակություն",
-        "dateRange": "Ամսաթիվների միջակ",
-        "selectRange": "Ընտրեք միջակ",
+        "allContent": "Համակարգի բովանդակությունը",
+        "dateRange": "Ամսաթվերի միջակայք",
+        "allTime": "Ամբողջական ժամանակահատվածը",
+        "last30Days": "Վերջին 30 օրը",
+        "last90Days": "Վերջին 90 օրը",
+        "thisYear": "Այս տարի",
+        "lastYear": "Անցած տարի",
+        "year2024": "2024",
+        "selectRange": "Ընտրեք միջակայքը",
         "filters": "Ֆիլտրեր"
       },
       "table": {
         "content": "Բովանդակություն",
-        "type": "Սիպ",
+        "type": "Տեսակ",
         "date": "Ամսաթիվ"
       },
       "contentTypes": {
-        "service": "Ծարայություն",
-        "experience": "Փորձ",
-        "testimonial": "Կարզիք",
-        "gallery": "Ժորտֆոլիո"
+        "service": "Ծառայություն",
+        "experience": "Միջոցառում",
+        "testimonial": "Կարծիք",
+        "gallery": "Պորտֆոլիո"
       }
     },
     "home": {
@@ -431,7 +468,7 @@
     "gallery": {
       "breadcrumbs": "Վահանակ / Պորտֆոլիո",
       "title": "Պորտֆոլիոյի կառավարիչ",
-      "description": "Կազմակերպեք Պորտֆոլիո պատկերները իստ կատեգորիաի և Կարգավիճակի։"
+      "description": "Կազմակերպեք Պորտֆոլիո պատկերները ըստ կատեգորիայի և կարգավիճակի։"
     },
     "testimonials": {
       "breadcrumbs": "Վահանակ / Կարծիքներ",
@@ -441,17 +478,12 @@
     "bookings": {
       "breadcrumbs": "Վահանակ / Ամրագրումներ",
       "title": "Ամրագրումների կառավարիչ",
-      "description": "Հետևեք խորհրդատվության հայտերին և դրանց կարգավիչակի։"
+      "description": "Հետևեք խորհրդատվության հայտերին և դրանց կարգավիճակին։"
     },
     "events": {
       "breadcrumbs": "Վահանակ / Միջոցառումների բովանդակություն",
       "title": "Ռեսուրսների կառավարիչ",
-      "description": "Կառավարեք շկող միջոցառումներների ամբողջական եկոսիստեմայ։"
-    },
-    "statistics": {
-      "breadcrumbs": "Վահանակ / Վիճակագրություն",
-      "title": "Վիճակագրության կառավարիչ",
-      "description": "Կառավարեք վահանակի հիմնական ցուցանիշերը։"
+      "description": "Կառավարեք  միջոցառումներների ամբողջական էկոհամակարգը։"
     },
     "codeTable": {
       "breadcrumbs": "Վահանակ / Կոդերի աղյուսակ",
@@ -467,23 +499,42 @@
       "resetConfirmDescription": "Սա կվերականգնի demo բովանդակությունը localStorage-ում։",
       "resetSuccess": "Admin-ի տվյալները վերականգնվել են։"
     },
+    "profile": {
+      "breadcrumbs": "Վահանակ / Պրոֆիլ",
+      "title": "Պրոֆիլ",
+      "description": "Կառավարեք admin հաշվի տվյալներն ու հրապարակային պրոֆիլի տեղեկությունը։",
+      "signOut": "Դուրս գալ"
+    },
     "actions": {
-      "createEvent": "Ստեղծել նոր միջոցառում",
-      "createItem": "Ստեղծել տարր",
-      "createBooking": "Ստեղծել ամրագրում",
+      "createEvent": "Նոր միջոցառում",
+      "createItem": "Նոր տարր",
+      "createBooking": "Նոր ամրագրում",
       "exportCsv": "Արտահանել CSV",
       "exportSuccess": "Արտահանումը սկսվել է։",
       "edit": "Խմբագրել",
+      "search": "Փնտրել",
       "delete": "Ջնջել",
       "more": "Ավելին",
       "bulkDelete": "Զանգվածային ջնջում",
+      "deleteConfirmTitle": "Ջնջե՞լ այս տարրը",
+      "deleteConfirmMessage": "Գործողությունը հնարավոր չէ հետարկել:",
+      "bulkDeleteConfirmTitle": "Ջնջե՞լ ընտրված տարրերը",
+      "bulkDeleteConfirmMessage": "{{count}} տարր կհեռացվի մշտապես:",
+      "deleteSuccess": "Տարրը հաջողությամբ ջնջվեց:",
+      "bulkDeleteSuccess": "Ընտրված տարրերը հաջողությամբ ջնջվեցին:",
       "save": "Պահպանել",
-      "saveChanges": "Պահպանել փոփոխությունները",
+      "saveChanges": "Պահպանել\nփոփոխությունները",
       "cancel": "Չեղարկել",
       "confirm": "Հաստատել",
       "editItem": "Խմբագրել տարրը",
       "createSuccess": "Տարրը հաջողությամբ ստեղծվել է։",
       "updateSuccess": "Փոփոխությունները պահպանվել են։"
+    },
+    "createContent": {
+      "title": "Նոր բովանդակություն",
+      "description": "Ընտրեք ստեղծելիք բովանդակության տեսակը։",
+      "typePlaceholder": "Ընտրեք բովանդակության տեսակը",
+      "continue": "Շարունակել"
     },
     "filters": {
       "searchEvent": "Անվանում կամ ID...",
@@ -520,6 +571,9 @@
       "quote": "Քարթ",
       "rating": "Վարկանիշ",
       "avatarUrl": "Avatar URL",
+      "displayName": "Ցուցադրվող անուն",
+      "jobTitle": "Պաշտոն",
+      "bio": "Իմ մասին",
       "email": "Email",
       "eventDate": "Միջոցառումների ամսաթիվ",
       "serviceType": "Ծառայությունների տիպ",

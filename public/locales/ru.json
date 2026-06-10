@@ -14,6 +14,7 @@
     },
     "cta": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ",
     "language": "RU",
+    "languageSelector": "Выбрать язык, текущий: {{language}}",
     "menuToggle": "Открыть меню навигации",
     "themeToggle": "Переключить тему",
     "login": {
@@ -464,15 +465,28 @@
       "contact": "Контакты",
       "bookings": "Бронирования",
       "events": "События",
-      "statistics": "Статистика",
       "codeTable": "Таблица кодов",
       "settings": "Настройки"
     },
     "sidebar": {
       "newEvent": "Новое событие",
-      "addContent": "Добавить контент",
+      "addContent": "Новый контент",
       "support": "Поддержка",
       "logout": "Выйти"
+    },
+    "support": {
+      "title": "Поддержка",
+      "description": "Нужна помощь с панелью администратора? Свяжитесь с нашей командой по контактам ниже.",
+      "emailSubject": "Поддержка Dream & Celebrate Admin",
+      "emailSupport": "Написать в поддержку",
+      "email": "Email",
+      "phone": "Телефон",
+      "hours": "Часы работы"
+    },
+    "seo": {
+      "siteName": "Dream & Celebrate Admin",
+      "defaultDescription": "Управление контентом сайта, бронированиями, услугами и событиями Dream & Celebrate.",
+      "pageTitle": "{{page}} | {{siteName}}"
     },
     "header": {
       "systemHealth": "Состояние системы",
@@ -485,13 +499,30 @@
       "accountSettings": "Настройки аккаунта",
       "viewWebsite": "Открыть сайт"
     },
+    "notifications": {
+      "title": "Уведомления",
+      "markAllRead": "Отметить все как прочитанные",
+      "empty": "Новых уведомлений нет.",
+      "pendingBookingTitle": "Новая заявка",
+      "pendingBookingMessage": "{{name}} запросил(а) {{service}}",
+      "draftContentTitle": "Черновик",
+      "draftContentMessage": "«{{title}}» ожидает публикации ({{type}})",
+      "upcomingEventTitle": "Предстоящее событие",
+      "upcomingEventMessage": "{{title}} запланировано на {{date}}",
+      "types": {
+        "service": "Услуга",
+        "event": "Событие",
+        "galleryItem": "Галерея",
+        "testimonial": "Отзыв"
+      }
+    },
     "dashboard": {
       "breadcrumbs": "Панель / Обзор",
       "title": "Панель управления",
       "welcomeTitle": "С возвращением, админ! 👋",
       "welcomeDescription": "Управляйте контентом сайта свадебного агентства отсюда.",
       "exportData": "Экспорт данных",
-      "addNewItem": "Добавить элемент",
+      "addNewItem": "Новый элемент",
       "description": "Отслеживайте активность контента, бронирования и ключевые показатели студии.",
       "stats": {
         "services": "Всего услуг",
@@ -512,6 +543,12 @@
         "contentType": "Тип контента",
         "allContent": "Весь контент",
         "dateRange": "Диапазон дат",
+        "allTime": "За всё время",
+        "last30Days": "Последние 30 дней",
+        "last90Days": "Последние 90 дней",
+        "thisYear": "Этот год",
+        "lastYear": "Прошлый год",
+        "year2024": "2024",
         "selectRange": "Выберите диапазон",
         "filters": "Фильтры"
       },
@@ -522,7 +559,7 @@
       },
       "contentTypes": {
         "service": "Услуга",
-        "experience": "Опыт",
+        "experience": "Событие",
         "testimonial": "Отзыв",
         "gallery": "Галерея"
       },
@@ -589,11 +626,6 @@
       "title": "Менеджер ресурсов",
       "description": "Курируйте и управляйте экосистемой luxury-событий."
     },
-    "statistics": {
-      "breadcrumbs": "Панель / Статистика",
-      "title": "Менеджер статистики",
-      "description": "Управляйте ключевыми метриками на обзорной панели."
-    },
     "codeTable": {
       "breadcrumbs": "Панель / Таблица кодов",
       "title": "Таблица кодов",
@@ -608,23 +640,42 @@
       "resetConfirmDescription": "Это восстановит демо-контент в localStorage.",
       "resetSuccess": "Данные админки сброшены."
     },
+    "profile": {
+      "breadcrumbs": "Панель / Профиль",
+      "title": "Профиль",
+      "description": "Управляйте данными аккаунта и публичной информацией профиля.",
+      "signOut": "Выйти"
+    },
     "actions": {
-      "createEvent": "Создать событие",
-      "createItem": "Создать элемент",
-      "createBooking": "Создать бронирование",
+      "createEvent": "Новое событие",
+      "createItem": "Новый элемент",
+      "createBooking": "Новое бронирование",
       "exportCsv": "Экспорт CSV",
       "exportSuccess": "Экспорт запущен.",
       "edit": "Редактировать",
+      "search": "Поиск",
       "delete": "Удалить",
       "more": "Ещё",
       "bulkDelete": "Массовое удаление",
+      "deleteConfirmTitle": "Удалить этот элемент?",
+      "deleteConfirmMessage": "Это действие нельзя отменить.",
+      "bulkDeleteConfirmTitle": "Удалить выбранные элементы?",
+      "bulkDeleteConfirmMessage": "{{count}} элементов будет удалено безвозвратно.",
+      "deleteSuccess": "Элемент успешно удалён.",
+      "bulkDeleteSuccess": "Выбранные элементы успешно удалены.",
       "save": "Сохранить",
-      "saveChanges": "Сохранить изменения",
+      "saveChanges": "Сохранить\nизменения",
       "cancel": "Отмена",
       "confirm": "Подтвердить",
       "editItem": "Редактировать элемент",
       "createSuccess": "Элемент успешно создан.",
       "updateSuccess": "Изменения сохранены."
+    },
+    "createContent": {
+      "title": "Новый контент",
+      "description": "Выберите тип контента, который хотите создать.",
+      "typePlaceholder": "Выберите тип контента",
+      "continue": "Продолжить"
     },
     "filters": {
       "searchEvent": "Название или ID...",
@@ -661,6 +712,9 @@
       "quote": "Цитата",
       "rating": "Рейтинг",
       "avatarUrl": "URL аватара",
+      "displayName": "Отображаемое имя",
+      "jobTitle": "Должность",
+      "bio": "О себе",
       "email": "Email",
       "eventDate": "Дата события",
       "serviceType": "Тип услуги",

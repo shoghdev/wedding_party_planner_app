@@ -1,11 +1,19 @@
 import { Spin } from 'antd';
+import { Suspense } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { AdminDocumentHead } from '@/components/admin/AdminDocumentHead';
 import { AdminLayout } from '@/components/admin/AdminLayout';
-import { AdminLoginPage } from '@/pages/admin/AdminLoginPage';
+import { AdminRouteFallback } from '@/components/admin/AdminRouteFallback';
 import { AdminRoutes } from '@/routes/AdminRoutes';
 import { useAdminAuth } from '@/store/AdminAuthProvider';
 import { AdminProvider } from '@/store/AdminProvider';
 import type { ThemeMode } from '@/types/theme';
+import { lazyNamed } from '@/utils/lazyNamed';
+
+const AdminLoginPage = lazyNamed(
+  () => import('@/pages/admin/AdminLoginPage'),
+  'AdminLoginPage',
+);
 
 type AdminAppProps = Readonly<{
   themeMode: ThemeMode;
@@ -19,9 +27,12 @@ export const AdminApp = ({ themeMode, onThemeToggle }: AdminAppProps) => {
 
   if (isLoading) {
     return (
-      <div style={{ display: 'grid', placeItems: 'center', minHeight: '100vh' }}>
-        <Spin size="large" />
-      </div>
+      <>
+        <AdminDocumentHead />
+        <div style={{ display: 'grid', placeItems: 'center', minHeight: '100vh' }}>
+          <Spin size="large" />
+        </div>
+      </>
     );
   }
 
@@ -34,11 +45,19 @@ export const AdminApp = ({ themeMode, onThemeToggle }: AdminAppProps) => {
       return <Navigate to="/admin" replace />;
     }
 
-    return <AdminLoginPage />;
+    return (
+      <>
+        <AdminDocumentHead />
+        <Suspense fallback={<AdminRouteFallback fullScreen />}>
+          <AdminLoginPage />
+        </Suspense>
+      </>
+    );
   }
 
   return (
     <AdminProvider>
+      <AdminDocumentHead />
       <AdminLayout themeMode={themeMode} onThemeToggle={onThemeToggle}>
         <AdminRoutes />
       </AdminLayout>

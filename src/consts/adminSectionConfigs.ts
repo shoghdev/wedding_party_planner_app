@@ -190,33 +190,6 @@ export const ADMIN_BOOKINGS_CONFIG: AdminListSectionConfig = {
   tableColumns: ['detail', 'date', 'email', 'status'],
 };
 
-export const ADMIN_STATISTICS_CONFIG: AdminListSectionConfig = {
-  sectionKey: 'statistics',
-  titleKey: 'admin.statistics.title',
-  descriptionKey: 'admin.statistics.description',
-  breadcrumbsKey: 'admin.statistics.breadcrumbs',
-  createLabelKey: 'admin.actions.createItem',
-  exportLabelKey: 'admin.actions.exportCsv',
-  searchPlaceholderKey: 'admin.filters.searchTitle',
-  searchFields: ['label', 'value', 'trend'],
-  hasStatusFilter: false,
-  fields: [
-    { name: 'label', labelKey: 'admin.fields.label', type: 'text', required: true },
-    { name: 'value', labelKey: 'admin.fields.value', type: 'text', required: true },
-    { name: 'trend', labelKey: 'admin.fields.trend', type: 'text', required: true },
-    { name: 'iconKey', labelKey: 'admin.fields.iconKey', type: 'text', required: true },
-  ],
-  defaultValues: {
-    label: '',
-    value: '',
-    trend: '',
-    iconKey: 'bookings',
-  },
-  getDetailTitle: (record) => String(record.label ?? ''),
-  getDetailMeta: (record) => String(record.trend ?? ''),
-  tableColumns: ['detail'],
-};
-
 export const ADMIN_CODE_TABLE_CONFIG: AdminListSectionConfig = {
   sectionKey: 'codeTable',
   titleKey: 'admin.codeTable.title',

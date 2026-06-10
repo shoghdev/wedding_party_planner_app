@@ -102,6 +102,36 @@
   }
 }
 
+@media (max-width: 575px) {
+  .imageCol {
+    min-height: clamp(12rem, 38vw, 16rem);
+    aspect-ratio: 16 / 11;
+  }
+
+  .skeleton {
+    min-height: clamp(12rem, 38vw, 16rem) !important;
+  }
+
+  .textCol {
+    padding: clamp(1.5rem, 5vw, 2rem) clamp(1rem, 4vw, 1.25rem);
+    min-height: auto;
+  }
+
+  .title {
+    font-size: clamp(1.375rem, 5.5vw, 1.75rem);
+    text-align: center;
+  }
+
+  .paragraph {
+    font-size: 0.9375rem;
+    max-width: none;
+  }
+
+  .signature {
+    text-align: center;
+  }
+}
+
 @media (min-width: 576px) {
   .imageCol {
     aspect-ratio: 16 / 10;

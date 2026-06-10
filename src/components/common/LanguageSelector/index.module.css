@@ -30,14 +30,11 @@
   transform: translateY(0);
 }
 
-.flag {
-  font-size: 16px;
+.code {
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
   line-height: 1;
-  transition: transform var(--duration-interaction) var(--ease-smooth);
-}
-
-.selector:hover .flag {
-  transform: scale(1.08);
 }
 
 .chevron {
@@ -98,4 +95,13 @@
 .selectorAdmin .chevron {
   color: var(--color-text-muted);
   font-size: 0.5625rem;
+}
+
+.selectorAdminCompact {
+  min-width: 2.35rem;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  justify-content: center;
+  gap: 0;
 }

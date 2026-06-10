@@ -11,3 +11,13 @@
   justify-content: flex-end;
   margin-top: 0.5rem;
 }
+
+@media (max-width: 575px) {
+  .formCard {
+    padding: 1rem;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}

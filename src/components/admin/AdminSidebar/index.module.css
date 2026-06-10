@@ -191,3 +191,57 @@
 }
 
 
+
+.footerLinksCollapsed {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+}
+
+
+
+.footerIconBtn {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 2.25rem;
+
+  padding: 0.45rem;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--color-text-muted);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  border-radius: 0.5rem;
+
+  transition: background-color 0.25s var(--ease-smooth);
+
+}
+
+
+
+.footerIconBtn:hover {
+
+  background: var(--admin-gold-soft);
+
+  color: var(--color-text);
+
+}
+
+
