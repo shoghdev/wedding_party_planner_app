@@ -49,21 +49,22 @@ export const AdminListSection = ({ config }: AdminListSectionProps) => {
   useEffect(() => {
     const editId = searchParams.get('edit');
 
-    if (!editId || resource.isModalOpen) {
+    if (!editId) {
       return;
     }
 
     const item = resource.allItems.find((entry) => entry.id === editId);
 
-    if (item) {
-      resource.openEditModal(item);
+    if (!item) {
       return;
     }
+
+    resource.openEditModal(item);
 
     const nextParams = new URLSearchParams(searchParams);
     nextParams.delete('edit');
     setSearchParams(nextParams, { replace: true });
-  }, [resource.allItems, resource.isModalOpen, resource.openEditModal, searchParams, setSearchParams]);
+  }, [resource.allItems, resource.openEditModal, searchParams, setSearchParams]);
 
   useEffect(() => {
     if (searchParams.get('create') !== '1' || resource.isModalOpen) {
@@ -300,13 +301,13 @@ export const AdminListSection = ({ config }: AdminListSectionProps) => {
         ? String(resource.editingItem.createdAt)
         : new Date().toISOString();
 
+    clearActionParams();
+
     resource.saveItem({
       ...payload,
       id,
       ...(config.sectionKey === 'bookings' ? { createdAt } : {}),
     } as AdminListRecord);
-
-    clearActionParams();
 
     messageApi.success(
       isEditing ? t('admin.actions.updateSuccess') : t('admin.actions.createSuccess'),
