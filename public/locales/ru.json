@@ -13,7 +13,11 @@
       "contact": "КОНТАКТЫ"
     },
     "cta": "ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ",
-    "language": "RU",
+    "languages": {
+      "en": "Английский",
+      "ru": "Русский",
+      "am": "Армянский"
+    },
     "languageSelector": "Выбрать язык, текущий: {{language}}",
     "menuToggle": "Открыть меню навигации",
     "themeToggle": "Переключить тему",
@@ -431,6 +435,20 @@
     "quickLinks": "ССЫЛКИ",
     "services": "УСЛУГИ",
     "contact": "КОНТАКТЫ",
+    "newsletter": {
+      "title": "ВДОХНОВЕНИЕ",
+      "description": "Получайте советы по планированию, идеи и эксклюзивные предложения.",
+      "placeholder": "Ваш email",
+      "submit": "ПОДПИСАТЬСЯ",
+      "emailRequired": "Введите email.",
+      "emailInvalid": "Введите корректный email.",
+      "emailSubject": "Подписка на рассылку от {{email}}",
+      "success": "Спасибо за подписку!",
+      "alreadySubscribed": "Этот email уже подписан на рассылку.",
+      "error": "Что-то пошло не так. Попробуйте снова.",
+      "errorWithReason": "Не удалось подписаться: {{reason}}",
+      "configError": "Email не настроен. Добавьте ключи EmailJS в .env и перезапустите dev server."
+    },
     "links": {
       "home": "Главная",
       "about": "О нас",

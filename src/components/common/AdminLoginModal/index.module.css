@@ -1,6 +1,11 @@
+.modal :global(.ant-modal-content) {
+  overflow: hidden;
+}
+
 .modal :global(.ant-modal-title) {
   font-family: var(--font-serif);
   font-size: 1.5rem;
+  line-height: 1.3;
 }
 
 .description {
@@ -13,4 +18,71 @@
 
 .alert {
   margin-bottom: 16px;
+}
+
+@media (max-width: 767px) {
+  .modal {
+    top: 0.75rem !important;
+    max-width: calc(100vw - 1.5rem) !important;
+    margin: 0 auto !important;
+    padding-bottom: 0.75rem;
+  }
+
+  .modal :global(.ant-modal-content) {
+    max-height: calc(100dvh - 1.5rem);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal :global(.ant-modal-body) {
+    padding-block: 0.75rem;
+  }
+
+  .modal :global(.ant-modal-title) {
+    font-size: 1.25rem;
+  }
+
+  .modal :global(.ant-form-item) {
+    margin-bottom: 0.85rem;
+  }
+
+  .description {
+    margin-bottom: 0.85rem;
+    font-size: 0.875rem;
+  }
+
+  .alert {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .modal {
+    top: 0.5rem !important;
+    max-width: calc(100vw - 1rem) !important;
+    padding-bottom: 0.5rem;
+  }
+
+  .modal :global(.ant-modal-header) {
+    padding: 0.75rem 1rem;
+  }
+
+  .modal :global(.ant-modal-body) {
+    padding: 0.65rem 1rem 0.85rem;
+  }
+
+  .modal :global(.ant-modal-close) {
+    top: 0.75rem;
+    inset-inline-end: 1rem;
+  }
+
+  .modal :global(.ant-form-item) {
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
 }

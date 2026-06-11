@@ -14,8 +14,11 @@ export const Logo = ({ tone = 'default' }: LogoProps) => {
 
   return (
     <Link to="/" className={logoClass} aria-label={t('header.logo.title')}>
-      <span className={styles.title}>
+      <span className={styles.titleFull}>
         Dream <em className={styles.ampersand}>&</em> Celebrate
+      </span>
+      <span className={styles.titleCompact} aria-hidden="true">
+        D<em className={styles.ampersand}>&</em>C
       </span>
       <span className={styles.tagline}>{t('header.logo.tagline')}</span>
     </Link>
