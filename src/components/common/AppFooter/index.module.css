@@ -152,6 +152,11 @@
 
 .newsletterCol {
   max-width: 320px;
+  margin-bottom: 24px;
+}
+
+.subscribeItem:global(.ant-form-item) {
+  margin-bottom: 0;
 }
 
 .newsletterText {
@@ -197,6 +202,7 @@
 
   .desktopGrid {
     display: flex;
+    margin-bottom: 24px;
   }
 
   .socials {

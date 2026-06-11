@@ -10,13 +10,19 @@
   opacity: 0.88;
 }
 
-.title {
+.title,
+.titleFull,
+.titleCompact {
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: 0.02em;
   transition: color var(--duration-theme) var(--ease-smooth);
+}
+
+.titleCompact {
+  display: none;
 }
 
 .ampersand {
@@ -36,7 +42,8 @@
   transition: color var(--duration-theme) var(--ease-smooth);
 }
 
-.logoHeader .title {
+.logoHeader .titleFull,
+.logoHeader .titleCompact {
   color: var(--header-text);
   font-weight: 500;
 }
@@ -54,11 +61,12 @@
   font-size: 8px;
 }
 
-@media (min-width: 1024px) {
-  .logoHeader .title {
+@media (min-width: 768px) {
+  .logoHeader .titleFull {
     font-size: 1.35rem;
   }
 }
+
 
 @media (min-width: 1024px) and (max-width: 1364px) {
   .logoHeader .title {
@@ -68,5 +76,6 @@
   .logoHeader .tagline {
     font-size: 7px;
     letter-spacing: 0.22em;
+
   }
 }

@@ -6,7 +6,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { AdminLoginModal } from '@/components/common/AdminLoginModal';
 import { LanguageSelector } from '@/components/common/LanguageSelector';
 import { Logo } from '@/components/common/Logo';
-import { PageContainer } from '@/components/common/PageContainer';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { useHeaderAdminLogin } from '@/hooks/useHeaderAdminLogin';
 import type { ThemeMode } from '@/types/theme';
@@ -70,10 +69,35 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
 
   return (
     <header className={headerClass}>
-      <PageContainer>
+      <div className={styles.headerContainer}>
         <div className={styles.mainBar}>
-          <div className={styles.logoSlot}>
-            <Logo tone="header" />
+          <div className={styles.brandCluster}>
+            <div className={styles.logoSlot}>
+              <Logo tone="header" />
+            </div>
+            <div className={styles.mobileQuickActions}>
+              {isLoginAvailable ? (
+                <button
+                  type="button"
+                  className={styles.loginBtn}
+                  onClick={openLogin}
+                  aria-label={t('header.login.button')}
+                >
+                  <LoginOutlined />
+                </button>
+              ) : null}
+              <div className={styles.mobileLanguage}>
+                <LanguageSelector variant="header" />
+              </div>
+              <button
+                type="button"
+                className={styles.mobileMenuBtn}
+                onClick={() => setMenuOpen(true)}
+                aria-label={t('header.menuToggle')}
+              >
+                <MenuOutlined />
+              </button>
+            </div>
           </div>
 
           <nav className={styles.nav} aria-label={t('header.mainNav')}>
@@ -82,8 +106,12 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
 
           <div className={styles.actions}>
             <div className={styles.utilities}>
-              <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
-              <LanguageSelector variant="header" />
+              <div className={styles.themeToggleWrap}>
+                <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
+              </div>
+              <div className={styles.desktopLanguage}>
+                <LanguageSelector variant="header" />
+              </div>
             </div>
             <Link to="/booking">
               <Button type="primary" size="middle" className={styles.ctaBtn}>
@@ -93,24 +121,16 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
             {isLoginAvailable ? (
               <button
                 type="button"
-                className={styles.loginBtn}
+                className={[styles.loginBtn, styles.desktopLoginBtn].join(' ')}
                 onClick={openLogin}
                 aria-label={t('header.login.button')}
               >
                 <LoginOutlined />
               </button>
             ) : null}
-            <button
-              type="button"
-              className={styles.mobileMenuBtn}
-              onClick={() => setMenuOpen(true)}
-              aria-label={t('header.menuToggle')}
-            >
-              <MenuOutlined />
-            </button>
           </div>
         </div>
-      </PageContainer>
+      </div>
 
       <Drawer
         title={t('header.logo.title')}

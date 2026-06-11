@@ -15,6 +15,14 @@
   box-shadow: var(--header-shadow);
 }
 
+.headerContainer {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 20px;
+  box-sizing: border-box;
+}
+
 .mainBar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -26,6 +34,30 @@
 .logoSlot {
   grid-column: 2;
   justify-self: center;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.brandCluster {
+  display: contents;
+}
+
+.mobileQuickActions {
+  display: none;
+}
+
+.mobileLanguage {
+  display: none;
+  flex-shrink: 0;
+}
+
+.desktopLanguage {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.desktopLoginBtn {
+  display: inline-flex;
 }
 
 .nav {
@@ -83,12 +115,18 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
 }
 
 .utilities {
   display: none;
   align-items: center;
   gap: 12px;
+}
+
+.themeToggleWrap {
+  display: inline-flex;
 }
 
 .loginBtn {
@@ -115,6 +153,13 @@
   color: var(--header-nav-active);
   border-color: var(--header-hover-border);
   background: var(--header-hover-bg);
+}
+
+.loginBtn :global(.anticon) {
+  display: inline-flex;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1;
 }
 
 .drawerLoginBtn:hover {
@@ -188,20 +233,33 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  border: none;
+  padding: 0;
+  border: 1px solid var(--header-border);
   border-radius: 6px;
-  background: transparent;
+  background: var(--header-bg);
   color: var(--header-text);
   font-size: 20px;
   cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
   transition:
     color var(--duration-interaction) var(--ease-smooth),
+    border-color var(--duration-interaction) var(--ease-smooth),
     background-color var(--duration-interaction) var(--ease-smooth),
     transform var(--duration-interaction) var(--ease-smooth);
 }
 
+.mobileMenuBtn :global(.anticon) {
+  display: inline-flex;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1;
+}
+
 .mobileMenuBtn:hover {
   color: var(--header-nav-active);
+  border-color: var(--header-hover-border);
   background: var(--header-hover-bg);
 }
 
@@ -211,15 +269,6 @@
 
 .drawer :global(.ant-drawer-header-title) {
   font-family: var(--font-serif);
-}
-
-.drawerUtilities {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--color-border);
 }
 
 .drawerNav {
@@ -354,27 +403,191 @@
   .mobileMenuBtn {
     display: none;
   }
+
+  .mobileQuickActions {
+    display: none;
+  }
+
+  .desktopLanguage {
+    display: inline-flex;
+  }
+
+  .mobileLanguage {
+    display: none;
+  }
+
+  .desktopLoginBtn {
+    display: inline-flex;
+  }
 }
 
 @media (max-width: 1023px) {
+  .headerContainer {
+    padding-inline: 12px;
+  }
+
   .mainBar {
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 54px;
+    gap: 8px;
+    overflow: visible;
+  }
+
+  .brandCluster {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 60px);
+    gap: 6px;
+    overflow: hidden;
   }
 
   .logoSlot {
-    grid-column: 1;
-    justify-self: start;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .mobileQuickActions {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 4px;
+  }
+
+  .mobileLanguage {
+    display: inline-flex;
+  }
+
+  .desktopLanguage {
+    display: none;
+  }
+
+  .desktopLoginBtn {
+    display: none;
   }
 
   .actions {
-    grid-column: 3;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 4px;
+    overflow: visible;
   }
 
   .utilities {
     display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 4px;
+    padding: 2px 4px;
+    border-radius: 6px;
+    background: var(--header-hover-bg);
+  }
+
+  .themeToggleWrap {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .loginBtn,
+  .mobileMenuBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 15px;
+    border-radius: 5px;
+    background: var(--header-bg);
+    flex-shrink: 0;
+  }
+
+  .mobileMenuBtn {
+    font-size: 16px;
+    border: 1px solid var(--header-border);
   }
 
   .ctaBtn:global(.ant-btn-primary) {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    padding-inline: 10px;
+  }
+
+  .brandCluster {
+    gap: 4px;
+  }
+
+  .mobileQuickActions {
+    gap: 3px;
+  }
+
+  .actions {
+    gap: 3px;
+  }
+
+  .utilities {
+    gap: 3px;
+    padding: 2px;
+  }
+
+  .loginBtn,
+  .mobileMenuBtn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .mobileMenuBtn {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .headerContainer {
+    padding-inline: 8px;
+  }
+
+  .mainBar {
+    min-height: 48px;
+    gap: 6px;
+  }
+
+  .loginBtn,
+  .mobileMenuBtn {
+    width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .mobileMenuBtn {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .utilities {
+    display: flex;
+    gap: 8px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav {
+    gap: 18px;
+  }
+
+  .navLink {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .mainBar {
+    gap: 16px;
   }
 }

@@ -1,8 +1,10 @@
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
-import { Alert, Button, Form, Input, Modal } from 'antd';
+import { Alert, Button, Form, Grid, Input, Modal } from 'antd';
 import { useTranslation } from 'react-i18next';
 import type { AdminLoginFormValues } from '@/types/adminAuth';
 import styles from './index.module.css';
+
+const { useBreakpoint } = Grid;
 
 type AdminLoginModalProps = Readonly<{
   open: boolean;
@@ -20,6 +22,9 @@ export const AdminLoginModal = ({
   onSubmit,
 }: AdminLoginModalProps) => {
   const { t } = useTranslation();
+  const screens = useBreakpoint();
+  const isCompact = !screens.sm;
+  const inputSize = !screens.md ? 'small' : isCompact ? 'middle' : 'large';
   const [form] = Form.useForm<AdminLoginFormValues>();
 
   const handleClose = () => {
@@ -34,6 +39,8 @@ export const AdminLoginModal = ({
       onCancel={handleClose}
       footer={null}
       destroyOnHidden
+      centered={!isCompact}
+      width="min(100%, 28rem)"
       className={styles.modal}
     >
       <p className={styles.description}>{t('header.login.description')}</p>
@@ -61,7 +68,7 @@ export const AdminLoginModal = ({
             prefix={<MailOutlined />}
             placeholder={t('admin.login.emailPlaceholder')}
             autoComplete="email"
-            size="large"
+            size={inputSize}
           />
         </Form.Item>
 
@@ -74,11 +81,11 @@ export const AdminLoginModal = ({
             prefix={<LockOutlined />}
             placeholder={t('admin.login.passwordPlaceholder')}
             autoComplete="current-password"
-            size="large"
+            size={inputSize}
           />
         </Form.Item>
 
-        <Button type="primary" htmlType="submit" block size="large" loading={isSubmitting}>
+        <Button type="primary" htmlType="submit" block size={inputSize} loading={isSubmitting}>
           {t('header.login.submit')}
         </Button>
       </Form>

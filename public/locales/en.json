@@ -13,7 +13,11 @@
       "contact": "CONTACT"
     },
     "cta": "BOOK A CONSULTATION",
-    "language": "EN",
+    "languages": {
+      "en": "English",
+      "ru": "Russian",
+      "am": "Armenian"
+    },
     "languageSelector": "Select language, current: {{language}}",
     "menuToggle": "Open navigation menu",
     "themeToggle": "Toggle color theme",
@@ -499,7 +503,13 @@
       "placeholder": "Your email address",
       "submit": "SUBSCRIBE",
       "emailRequired": "Please enter your email address.",
-      "emailInvalid": "Please enter a valid email address."
+      "emailInvalid": "Please enter a valid email address.",
+      "emailSubject": "Newsletter subscription from {{email}}",
+      "success": "Thank you for subscribing!",
+      "alreadySubscribed": "You are already subscribed with this email.",
+      "error": "Something went wrong. Please try again.",
+      "errorWithReason": "Could not subscribe: {{reason}}",
+      "configError": "Email is not configured yet. Please add your EmailJS keys to .env and restart the dev server."
     },
     "links": {
       "home": "Home",
@@ -807,7 +817,7 @@
       "decorImageUrl": "Decor Image URL",
       "siteName": "Site Name",
       "supportEmail": "Support Email",
-      "defaultLocale": "Default Locale",
+      "defaultLocale": "Default Language",
       "maintenanceMode": "Maintenance Mode"
     },
     "locales": {
