@@ -13,7 +13,11 @@
       "contact": "ԿԱՊ"
     },
     "cta": "ԳՐԱՆՑՎԵԼ ԽՈՐՀՐԴԱՏՈՒԹՅԱՆ",
-    "language": "AM",
+    "languages": {
+      "en": "Անգլերեն",
+      "ru": "Ռուսերեն",
+      "am": "Հայերեն"
+    },
     "languageSelector": "Ընտրել լեզուն, ընթացիկ՝ {{language}}",
     "menuToggle": "Բացել նավիգացիոն մենյուն",
     "themeToggle": "Փոխել թեման",
@@ -318,6 +322,36 @@
   },
   "footer": {
     "tagline": "Ստեղծում ենք անմոռանալի տոնակատարություններ",
+    "quickLinks": "ԱՐԱԳ ՀՂՈՒՄՆԵՐ",
+    "services": "ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐ",
+    "contact": "ԿԱՊ ՄԵԶ ՀԵՏ",
+    "newsletter": {
+      "title": "Մնացե՛ք ներշնչված",
+      "description": "Ստացեք պլանավորման խորհուրդներ, ոգեշնչում և բացառիկ առաջարկներ։",
+      "placeholder": "Ձեր էլ. փոստի հասցեն",
+      "submit": "Բաժանորդագրվել",
+      "emailRequired": "Մուտքագրեք ձեր էլ. փոստի հասցեն։",
+      "emailInvalid": "Մուտքագրեք վավեր email։",
+      "emailSubject": "Բաժանորդագրություն {{email}}-ից",
+      "success": "Շնորհակալություն բաժանորդագրման համար։",
+      "alreadySubscribed": "Դուք արդեն բաժանորդագրված եք այս email-ով։",
+      "error": "Ինչ-որ բան սխալ գնաց։ Խնդրում ենք կրկին փորձել։",
+      "errorWithReason": "Չհաջողվեց բաժանորդագրվել՝ {{reason}}",
+      "configError": "Email-ը դեռ կարգավորված չէ։ Ավելացրեք EmailJS բանալիները .env-ում և վերագործարկեք dev server-ը։"
+    },
+    "links": {
+      "home": "Գլխավոր",
+      "about": "Մեր մասին",
+      "services": "Ծառայություններ",
+      "portfolio": "Պորտֆոլիո",
+      "contact": "Կապ"
+    },
+    "serviceLinks": {
+      "weddings": "Հարսանիքներ",
+      "corporate": "Կորպորատիվ միջոցառումներ",
+      "private": "Մասնավոր խնջույքներ",
+      "consultation": "Խորհրդատվություն"
+    },
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Երևան, ՀՀ",
@@ -596,8 +630,8 @@
       "decorImageUrl": "Դեկորի պատկերի URL",
       "siteName": "Կայքի անվանում",
       "supportEmail": "Աջակցության email",
-      "defaultLocale": "Արդադային լեզու",
-      "maintenanceMode": "Սպասարկման րեջիմ"
+      "defaultLocale": "Հիմնական լեզու",
+      "maintenanceMode": "Սպասարկման ռեժիմը։"
     },
     "locales": {
       "en": "Անգլերեն",
