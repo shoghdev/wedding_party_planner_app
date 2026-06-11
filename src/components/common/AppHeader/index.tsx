@@ -179,7 +179,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
           })}
           <div className={styles.drawerCtaGroup}>
             <Link to="/booking" onClick={() => setMenuOpen(false)}>
-              <Button type="primary" block size="large" className={styles.drawerCta}>
+              <Button type="primary" block size="small" className={styles.drawerCta}>
                 {t('header.cta')}
               </Button>
             </Link>
