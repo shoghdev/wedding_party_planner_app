@@ -13,7 +13,7 @@ export const ServicesHeroSection = () => {
   return (
     <section className={styles.section}>
       <PageContainer>
-        <Row gutter={[48, 48]} align="middle">
+        <Row gutter={[{ xs: 24, sm: 32, lg: 32, xl: 48 }, 48]} align="middle">
           <Col xs={24} lg={11} xl={10}>
             <RevealOnScroll variant="fadeLeft">
               <div className={styles.content}>

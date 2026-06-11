@@ -27,6 +27,8 @@
   --duration-theme: 0.45s;
   --duration-interaction: 0.3s;
   --duration-reveal: 0.85s;
+  --layout-max-width: 1364px;
+  --layout-gutter: 20px;
   --header-bg: #ffffff;
   --header-text: #333333;
   --header-text-muted: #5a5a5a;

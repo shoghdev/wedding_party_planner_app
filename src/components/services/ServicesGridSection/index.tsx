@@ -28,10 +28,14 @@ export const ServicesGridSection = () => {
         ) : (
           <>
             <div className={styles.desktopGrid}>
-              <Row gutter={[24, 24]}>
+              <Row gutter={[24, 24]} align="stretch">
                 {data?.cards.map((service, index) => (
                   <Col key={service.id} xs={24} sm={12} lg={6}>
-                    <RevealOnScroll variant="fadeUp" delay={index * 100}>
+                    <RevealOnScroll
+                      variant="fadeUp"
+                      delay={index * 100}
+                      className={styles.cardReveal}
+                    >
                       <ServiceCard
                         service={service}
                         learnMoreKey="servicesPage.learnMore"
@@ -46,8 +50,12 @@ export const ServicesGridSection = () => {
             <div className={styles.carouselWrap}>
               <Carousel dots draggable>
                 {data?.cards.map((service, index) => (
-                  <div key={service.id}>
-                    <RevealOnScroll variant="fadeUp" delay={index * 100}>
+                  <div key={service.id} className={styles.cardSlot}>
+                    <RevealOnScroll
+                      variant="fadeUp"
+                      delay={index * 100}
+                      className={styles.cardReveal}
+                    >
                       <ServiceCard
                         service={service}
                         learnMoreKey="servicesPage.learnMore"

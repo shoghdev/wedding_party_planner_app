@@ -210,7 +210,17 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1364px) {
+  .visual {
+    max-width: min(32rem, 100%);
+  }
+
+  .content {
+    padding-right: 0.5rem;
+  }
+}
+
+@media (min-width: 1365px) {
   .visual {
     max-width: 50rem;
   }

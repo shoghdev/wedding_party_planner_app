@@ -77,6 +77,14 @@
   font-size: 9px;
 }
 
+@media (min-width: 1024px) and (max-width: 1364px) {
+  .selectorHeader {
+    min-height: 36px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
 .selectorAdmin {
   min-height: 2.75rem;
   padding: 0.45rem 0.85rem;

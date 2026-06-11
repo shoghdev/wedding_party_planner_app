@@ -32,6 +32,7 @@ export const ServiceDetailModal = ({ service, open, onClose }: ServiceDetailModa
       destroyOnHidden
       centered
       className={styles.modal}
+      classNames={{ mask: styles.modalMask }}
       aria-labelledby="service-detail-title"
     >
       <div className={styles.heroImage}>
@@ -81,7 +82,7 @@ export const ServiceDetailModal = ({ service, open, onClose }: ServiceDetailModa
       </div>
 
       <div className={styles.footer}>
-        <Button type="primary" className={styles.ctaBtn} href="#contact" onClick={onClose}>
+        <Button type="primary" className={styles.ctaBtn} href="/booking" onClick={onClose}>
           {t('servicesPage.modal.cta')}
         </Button>
       </div>

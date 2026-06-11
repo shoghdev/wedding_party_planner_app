@@ -6,8 +6,9 @@ import { createRoot } from 'react-dom/client';
 import App from '@/App.tsx';
 import '@/i18n';
 import '@/styles/animations.css';
-import '@/styles/global.css';
 import '@/styles/variables.css';
+import '@/styles/layout.css';
+import '@/styles/global.css';
 
 const emailJsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY?.trim();
 const isAdminRoute =

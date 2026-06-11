@@ -67,12 +67,15 @@
   }
 }
 
-@media (max-width: 1023px) {
-  .logoHeader .titleFull {
-    font-size: clamp(0.75rem, 2.8vw, 0.9375rem);
+
+@media (min-width: 1024px) and (max-width: 1364px) {
+  .logoHeader .title {
+    font-size: 1.15rem;
   }
 
   .logoHeader .tagline {
-    display: none;
+    font-size: 7px;
+    letter-spacing: 0.22em;
+
   }
 }

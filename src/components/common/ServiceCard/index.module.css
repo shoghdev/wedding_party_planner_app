@@ -4,12 +4,14 @@
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
   height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .cardImage {
   aspect-ratio: 4 / 3;
+  flex-shrink: 0;
   overflow: hidden;
   border-radius: 14px 14px 0 0;
 }
@@ -27,17 +29,25 @@
 
 .cardBody {
   padding: 22px 24px 28px;
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
+  min-height: var(--service-card-body-min-height, 208px);
 }
 
 .cardTitle {
   font-family: var(--font-serif);
   font-size: 1.2rem;
   font-weight: 600;
+  line-height: 1.35;
   color: var(--color-text);
   margin: 0 0 10px;
+  flex-shrink: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(1.2rem * 1.35 * 2);
 }
 
 .cardDescription {
@@ -46,7 +56,13 @@
   line-height: 1.65;
   color: var(--color-text-muted);
   margin: 0 0 18px;
-  flex: 1;
+  flex: 1 1 auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  min-height: calc(14px * 1.65 * 3);
+  max-height: calc(14px * 1.65 * 3);
 }
 
 .learnMore {
@@ -59,6 +75,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  margin-top: auto;
+  flex-shrink: 0;
+  align-self: flex-start;
+  max-width: 100%;
   transition: gap 0.2s, opacity 0.2s;
   background: none;
   border: none;
@@ -70,4 +90,22 @@
 .learnMore:hover {
   gap: 10px;
   opacity: 0.85;
+}
+
+@media (min-width: 768px) {
+  .cardBody {
+    --service-card-body-min-height: 216px;
+  }
+
+  .cardDescription {
+    -webkit-line-clamp: 4;
+    min-height: calc(14px * 1.65 * 4);
+    max-height: calc(14px * 1.65 * 4);
+  }
+}
+
+@media (min-width: 1365px) {
+  .cardBody {
+    --service-card-body-min-height: 220px;
+  }
 }

@@ -321,6 +321,50 @@
   transform: translateY(-1px);
 }
 
+@media (min-width: 1024px) and (max-width: 1364px) {
+  .mainBar {
+    gap: 12px;
+    min-height: 76px;
+  }
+
+  .logoSlot {
+    min-width: 0;
+  }
+
+  .nav {
+    gap: clamp(10px, 1.4vw, 16px);
+    padding-inline: 8px;
+    min-width: 0;
+  }
+
+  .navLink {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding-bottom: 8px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .utilities {
+    gap: 8px;
+  }
+
+  .ctaBtn:global(.ant-btn-primary) {
+    height: 40px;
+    padding-inline: 14px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .loginBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
 @media (min-width: 1024px) {
   .mainBar {
     display: flex;
