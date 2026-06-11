@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -23,7 +23,9 @@
       "description": "Sign in to access the admin panel.",
       "submit": "Sign In",
       "success": "Welcome back! Redirecting to admin panel..."
-    }
+    },
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
   },
   "home": {
     "hero": {
@@ -823,6 +825,46 @@
     },
     "validation": {
       "required": "This field is required."
+    }
+  },
+  "common": {
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "pinterest": "Pinterest"
+    }
+  },
+  "booking": {
+    "title": "Book Your Event Planner",
+    "success_message": "Request submitted successfully!",
+    "submit_button": "Submit Request",
+    "labels": {
+      "full_name": "Full Name",
+      "email": "Email",
+      "date": "Event Date",
+      "event_type": "Event Type",
+      "guests": "Estimated Guest Count",
+      "notes": "Notes"
+    },
+    "placeholders": {
+      "full_name": "Enter your name",
+      "email": "example@mail.com",
+      "event_type": "Select event type",
+      "notes": "Tell us about your dream vision..."
+    },
+    "validation": {
+      "required_name": "Please enter your name.",
+      "required_email": "Please enter your email.",
+      "invalid_email": "Please enter a valid email address.",
+      "required_date": "Please select a date.",
+      "required_type": "Please select an event type.",
+      "required_guests": "Please specify the guest count."
+    },
+    "types": {
+      "wedding": "Wedding",
+      "corporate": "Corporate",
+      "birthday": "Birthday",
+      "anniversary": "Anniversary"
     }
   }
 }

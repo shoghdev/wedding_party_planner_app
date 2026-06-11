@@ -1,0 +1,18 @@
+/* Shared horizontal rhythm aligned with PageContainer */
+@media (min-width: 768px) {
+  :root {
+    --layout-gutter: 32px;
+  }
+}
+
+@media (min-width: 1365px) {
+  :root {
+    --layout-gutter: 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --layout-gutter: 16px;
+  }
+}

@@ -1,4 +1,4 @@
-﻿{
+{
   "header": {
     "logo": {
       "title": "Dream & Celebrate",
@@ -23,7 +23,9 @@
       "description": "Войдите, чтобы открыть панель администратора.",
       "submit": "Войти",
       "success": "С возвращением! Перенаправление в админ-панель..."
-    }
+    },
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation"
   },
   "home": {
     "hero": {
@@ -110,7 +112,11 @@
         "one": "Свадебный приём в саду",
         "two": "Элегантная сервировка",
         "three": "Цветочная арка церемонии",
-        "four": "Вечернее освещение праздника"
+        "four": "Вечернее освещение праздника",
+        "five": "Bridal bouquet close-up",
+        "six": "Reception dance floor",
+        "seven": "Outdoor ceremony aisle",
+        "eight": "Cake and dessert display"
       }
     }
   },
@@ -232,6 +238,45 @@
       "paragraphTwo": "Каждое событие для нас уникально.",
       "signature": "— Команда Dream & Celebrate ♡",
       "imageAlt": "Свадебный стол с цветами"
+    },
+    "stats": {
+      "events": {
+        "value": "150+",
+        "label": "Спланированных мероприятий"
+      },
+      "years": {
+        "value": "8+",
+        "label": "Лет опыта"
+      },
+      "couples": {
+        "value": "50+",
+        "label": "Счастливых пар"
+      },
+      "dedication": {
+        "value": "100%",
+        "label": "Преданность"
+      }
+    },
+    "different": {
+      "title": "Что делает нас особенными",
+      "items": {
+        "personalized": {
+          "title": "Индивидуальный подход",
+          "description": "Каждое мероприятие создаётся с учётом вашей уникальной истории, стиля и видения."
+        },
+        "creative": {
+          "title": "Креативный и стильный дизайн",
+          "description": "Свежие и элегантные концепции, которые делают ваше торжество по-настоящему уникальным."
+        },
+        "stressFree": {
+          "title": "Беззаботный процесс",
+          "description": "Мы берём на себя все детали, чтобы вы могли наслаждаться моментом."
+        },
+        "trusted": {
+          "title": "Надёжные отношения",
+          "description": "Долгосрочное сотрудничество с парами, поставщиками и площадками, которым можно доверять."
+        }
+      }
     }
   },
   "experience": {
@@ -423,7 +468,24 @@
       "email": "Email",
       "phone": "Телефон",
       "message": "Сообщение",
-      "submit": "Отправить"
+      "submit": "Отправить",
+      "namePlaceholder": "Your name",
+      "nameRequired": "Please enter your name.",
+      "emailPlaceholder": "Your email address",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phonePlaceholder": "Your phone number",
+      "phoneRequired": "Please enter your phone number.",
+      "messagePlaceholder": "Tell us about your event...",
+      "messageRequired": "Please enter your message.",
+      "emailSubject": "Contact from {{name}} - {{phone}}",
+      "success": "Thank you! Your message has been sent.",
+      "error": "Something went wrong. Please try again.",
+      "errorWithReason": "Could not send: {{reason}}",
+      "configError": "Email is not configured yet. Please add your EmailJS keys to .env and restart the dev server."
+    },
+    "follow": {
+      "title": "Следите за нами"
     }
   },
   "footer": {
@@ -447,7 +509,15 @@
     "phone": "+374 10 123 456",
     "email": "hello@dreamandcelebrate.com",
     "address": "Ереван, РА",
-    "copyright": "© {{year}} Dream & Celebrate. Все права защищены."
+    "copyright": "© {{year}} Dream & Celebrate. Все права защищены.",
+    "newsletter": {
+      "title": "ОСТАВАЙТЕСЬ ВДОХНОВЛЁННЫМИ",
+      "description": "Получайте советы по планированию, вдохновение и эксклюзивные предложения.",
+      "placeholder": "Ваш адрес электронной почты",
+      "submit": "ПОДПИСАТЬСЯ",
+      "emailRequired": "Пожалуйста, введите ваш адрес электронной почты.",
+      "emailInvalid": "Пожалуйста, введите корректный адрес электронной почты."
+    }
   },
   "admin": {
     "brand": {
@@ -755,6 +825,46 @@
     },
     "validation": {
       "required": "Это поле обязательно."
+    }
+  },
+  "common": {
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "pinterest": "Pinterest"
+    }
+  },
+  "booking": {
+    "title": "Забронируйте вашего организатора мероприятий",
+    "success_message": "Заявка успешно отправлена!",
+    "submit_button": "Отправить заявку",
+    "labels": {
+      "full_name": "Полное имя",
+      "email": "Электронная почта",
+      "date": "Дата мероприятия",
+      "event_type": "Тип мероприятия",
+      "guests": "Предполагаемое количество гостей",
+      "notes": "Примечания"
+    },
+    "placeholders": {
+      "full_name": "Введите ваше имя",
+      "email": "example@mail.com",
+      "event_type": "Выберите тип мероприятия",
+      "notes": "Расскажите о вашей мечте..."
+    },
+    "validation": {
+      "required_name": "Пожалуйста, введите ваше имя.",
+      "required_email": "Пожалуйста, введите вашу электронную почту.",
+      "invalid_email": "Пожалуйста, введите корректный адрес электронной почты.",
+      "required_date": "Пожалуйста, выберите дату.",
+      "required_type": "Пожалуйста, выберите тип мероприятия.",
+      "required_guests": "Пожалуйста, укажите количество гостей."
+    },
+    "types": {
+      "wedding": "Свадьба",
+      "corporate": "Корпоратив",
+      "birthday": "День рождения",
+      "anniversary": "Годовщина"
     }
   }
 }

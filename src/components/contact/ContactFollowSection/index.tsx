@@ -8,19 +8,11 @@ import { RevealOnScroll } from '@/components/common/RevealOnScroll';
 import styles from './index.module.css';
 
 const SOCIAL_LINKS = [
-  {
-    href: 'https://instagram.com',
-    label: 'Instagram',
-    icon: <InstagramOutlined />,
-  },
-  {
-    href: 'https://facebook.com',
-    label: 'Facebook',
-    icon: <FacebookOutlined />,
-  },
+  { href: 'https://instagram.com', key: 'instagram', icon: <InstagramOutlined /> },
+  { href: 'https://facebook.com', key: 'facebook', icon: <FacebookOutlined /> },
   {
     href: 'https://pinterest.com',
-    label: 'Pinterest',
+    key: 'pinterest',
     icon: (
       <span className={styles.pinterestMark} aria-hidden>
         P
@@ -42,11 +34,11 @@ export const ContactFollowSection = () => {
         </RevealOnScroll>
         <div className={styles.socials}>
           {SOCIAL_LINKS.map((link, index) => (
-            <RevealOnScroll key={link.label} variant="scaleIn" delay={index * 80}>
+            <RevealOnScroll key={link.key} variant="scaleIn" delay={index * 80}>
               <a
                 href={link.href}
                 className={styles.socialLink}
-                aria-label={link.label}
+                aria-label={t(`common.social.${link.key}`)}
                 target="_blank"
                 rel="noreferrer"
               >

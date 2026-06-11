@@ -137,8 +137,26 @@
   display: block;
 }
 
+.carouselWrap :global(.slick-slide > div) {
+  height: 100%;
+}
+
+.carouselWrap :global(.slick-slide) {
+  display: flex !important;
+  align-items: stretch;
+}
+
+.cardSlot {
+  height: 100%;
+  display: flex;
+}
+
 .desktopGrid {
   display: none;
+}
+
+.desktopGrid :global(.ant-col) {
+  display: flex;
 }
 
 @media (min-width: 768px) {

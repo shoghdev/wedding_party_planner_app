@@ -30,10 +30,10 @@ export const HeroSection = () => {
                 />
                 <p className={styles.description}>{t('home.hero.description')}</p>
                 <div className={styles.actions}>
-                  <Button type="primary" size="large" href="#services">
+                  <Button type="primary" size="large" href="/services">
                     {t('home.hero.primaryCta')}
                   </Button>
-                  <Button size="large" className={styles.outlineBtn} href="#portfolio">
+                  <Button size="large" className={styles.outlineBtn} href="/portfolio">
                     {t('home.hero.secondaryCta')}
                   </Button>
                 </div>

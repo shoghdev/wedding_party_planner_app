@@ -335,7 +335,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1365px) {
   .layout {
     grid-template-columns:
       minmax(0, 1fr)

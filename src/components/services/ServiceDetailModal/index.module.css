@@ -1,7 +1,15 @@
+.modal:global(.ant-modal) {
+  width: min(56rem, calc(100vw - 1.5rem)) !important;
+  max-width: min(56rem, calc(100vw - 1.5rem)) !important;
+}
+
 .modal :global(.ant-modal-content) {
   padding: 0;
   overflow: hidden;
   border-radius: 14px;
+  max-height: min(92vh, 73rem);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal :global(.ant-modal-header) {
@@ -10,13 +18,20 @@
 
 .modal :global(.ant-modal-body) {
   padding: 0;
-  max-height: min(88vh, 52rem);
+  max-height: min(92vh, 73rem);
   overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.modalMask {
+  background: rgba(14, 10, 12, 0.52) !important;
+  backdrop-filter: blur(8px) saturate(100%);
+  -webkit-backdrop-filter: blur(8px) saturate(100%);
 }
 
 .modal :global(.ant-modal-close) {
   top: 12px;
-  inset-inline-end: 12px;
+  inset-inline-end: 22px;
   z-index: 2;
   width: 2.25rem;
   height: 2.25rem;
@@ -171,8 +186,9 @@
 }
 
 @media (min-width: 768px) {
-  .modal :global(.ant-modal) {
-    max-width: min(40rem, 92vw) !important;
+  .modal:global(.ant-modal) {
+    width: min(56rem, 94vw) !important;
+    max-width: min(56rem, 94vw) !important;
   }
 
   .benefitList,

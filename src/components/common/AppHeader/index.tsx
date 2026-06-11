@@ -76,7 +76,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
             <Logo tone="header" />
           </div>
 
-          <nav className={styles.nav} aria-label="Main navigation">
+          <nav className={styles.nav} aria-label={t('header.mainNav')}>
             {NAV_ITEMS.map(renderNavLink)}
           </nav>
 
@@ -124,7 +124,7 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
           <ThemeToggle mode={themeMode} onToggle={onThemeToggle} variant="header" />
           <LanguageSelector variant="header" />
         </div>
-        <nav className={styles.drawerNav} aria-label="Mobile navigation">
+        <nav className={styles.drawerNav} aria-label={t('header.mobileNav')}>
           {NAV_ITEMS.map((item) => {
             const className = [
               styles.drawerNavLink,

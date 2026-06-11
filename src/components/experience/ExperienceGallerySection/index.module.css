@@ -71,9 +71,26 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) and (max-width: 1364px) {
   .section {
-    padding-inline: 40px;
+    padding-inline: var(--layout-gutter, 32px);
+  }
+
+  .strip {
+    gap: 0.125rem;
+    max-width: 100%;
+    padding-inline: 0;
+    margin-inline: auto;
+  }
+
+  .frame {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (min-width: 1365px) {
+  .section {
+    padding-inline: var(--layout-gutter, 40px);
   }
 
   .strip {

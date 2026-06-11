@@ -262,7 +262,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1365px) {
   .panel {
     padding-right: min(40%, 32rem);
     padding-left: clamp(2.5rem, 5vw, 4rem);

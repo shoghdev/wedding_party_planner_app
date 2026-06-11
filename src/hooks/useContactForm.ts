@@ -34,7 +34,9 @@ export const useContactForm = () => {
       message.error(
         isConfigError
           ? t('contact.form.configError')
-          : t('contact.form.errorWithReason', { reason: errorMessage }),
+          : errorMessage === 'UNKNOWN'
+            ? t('contact.form.error')
+            : t('contact.form.errorWithReason', { reason: errorMessage }),
       );
       return false;
     } finally {

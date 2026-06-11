@@ -160,7 +160,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1365px) {
   .media {
     max-width: clamp(27rem, 40vw, 36rem);
   }

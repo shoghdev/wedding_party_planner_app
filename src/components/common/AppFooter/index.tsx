@@ -15,39 +15,43 @@ import { FOOTER_QUICK_LINKS, FOOTER_SERVICE_LINKS } from './consts';
 import { FooterNewsletter } from './FooterNewsletter';
 import { styles } from './styles';
 
-const SocialLinks = () => (
-  <div className={styles.socials}>
-    <a
-      href="https://instagram.com"
-      className={styles.socialLink}
-      aria-label="Instagram"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <InstagramOutlined />
-    </a>
-    <a
-      href="https://pinterest.com"
-      className={styles.socialLink}
-      aria-label="Pinterest"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span aria-hidden className={styles.pinterestMark}>
-        P
-      </span>
-    </a>
-    <a
-      href="https://facebook.com"
-      className={styles.socialLink}
-      aria-label="Facebook"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <FacebookOutlined />
-    </a>
-  </div>
-);
+const SocialLinks = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className={styles.socials}>
+      <a
+        href="https://instagram.com"
+        className={styles.socialLink}
+        aria-label={t('common.social.instagram')}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <InstagramOutlined />
+      </a>
+      <a
+        href="https://pinterest.com"
+        className={styles.socialLink}
+        aria-label={t('common.social.pinterest')}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span aria-hidden className={styles.pinterestMark}>
+          P
+        </span>
+      </a>
+      <a
+        href="https://facebook.com"
+        className={styles.socialLink}
+        aria-label={t('common.social.facebook')}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FacebookOutlined />
+      </a>
+    </div>
+  );
+};
 
 export const AppFooter = () => {
   const { t } = useTranslation();
