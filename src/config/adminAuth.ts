@@ -15,6 +15,12 @@ export const isLocalAdminAuthConfigured = (): boolean => true;
 export const validateAdminCredentials = (email: string, password: string): boolean => {
   const trimmedEmail = email.trim();
   const trimmedPassword = password.trim();
+  const expectedEmail = import.meta.env.VITE_ADMIN_EMAIL?.trim();
+  const expectedPassword = import.meta.env.VITE_ADMIN_PASSWORD?.trim();
+
+  if (expectedEmail && expectedPassword) {
+    return trimmedEmail === expectedEmail && trimmedPassword === expectedPassword;
+  }
 
   return trimmedEmail.includes('@') && trimmedPassword.length > 0;
 };

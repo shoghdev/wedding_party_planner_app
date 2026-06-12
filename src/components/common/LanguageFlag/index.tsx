@@ -33,7 +33,7 @@ const FlagEn = ({ clipSuffix }: { clipSuffix: string }) => (
   </svg>
 );
 
-const FlagRu = (_props: { clipSuffix: string }) => (
+const FlagRu = () => (
   <svg viewBox={FLAG_VIEWBOX} aria-hidden className={styles.flagSvg}>
     <rect width="60" height="13.33" fill="#fff" />
     <rect y="13.33" width="60" height="13.33" fill="#0039A6" />
@@ -41,7 +41,7 @@ const FlagRu = (_props: { clipSuffix: string }) => (
   </svg>
 );
 
-const FlagAm = (_props: { clipSuffix: string }) => (
+const FlagAm = () => (
   <svg viewBox={FLAG_VIEWBOX} aria-hidden className={styles.flagSvg}>
     <rect width="60" height="13.33" fill="#D90012" />
     <rect y="13.33" width="60" height="13.33" fill="#0033A0" />
@@ -54,8 +54,8 @@ const FLAG_COMPONENTS: Record<
   (props: { clipSuffix: string }) => React.ReactElement
 > = {
   en: FlagEn,
-  ru: FlagRu,
-  am: FlagAm,
+  ru: () => <FlagRu />,
+  am: () => <FlagAm />,
 };
 
 export const LanguageFlag = ({ language, className, title }: LanguageFlagProps) => {

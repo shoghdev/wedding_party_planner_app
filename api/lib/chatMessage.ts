@@ -27,6 +27,21 @@ const MESSAGE_MAX_LENGTH = 2000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
+ * Normalizes Vercel/Node request bodies that may arrive as JSON objects or raw strings.
+ */
+export const parseRequestBody = (body: unknown): unknown => {
+  if (typeof body === 'string') {
+    try {
+      return JSON.parse(body) as unknown;
+    } catch {
+      return body;
+    }
+  }
+
+  return body;
+};
+
+/**
  * Validates and normalizes the incoming chat message body.
  */
 export const validateChatMessage = (body: unknown): ChatMessageValidationResult => {
@@ -160,6 +175,10 @@ export const processSendMessageRequest = async (
 
   const telegramConfig = getTelegramConfigFromEnv(env);
 
+  // #region agent log
+  fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/lib/chatMessage.ts:processSendMessageRequest',message:'telegram config check',data:{hasBotToken:Boolean(env.TELEGRAM_BOT_TOKEN?.trim()),hasChatId:Boolean(env.TELEGRAM_CHAT_ID?.trim()),configFound:Boolean(telegramConfig)},timestamp:Date.now(),hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+
   if (!telegramConfig) {
     return {
       ok: false,
@@ -168,5 +187,11 @@ export const processSendMessageRequest = async (
     };
   }
 
-  return sendMessageToTelegram(validation.data, telegramConfig);
+  const telegramResult = await sendMessageToTelegram(validation.data, telegramConfig);
+
+  // #region agent log
+  fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/lib/chatMessage.ts:sendMessageToTelegram-result',message:'telegram api result',data:{ok:telegramResult.ok,status:telegramResult.status,error:telegramResult.error},timestamp:Date.now(),hypothesisId:'C'})}).catch(()=>{});
+  // #endregion
+
+  return telegramResult;
 };
