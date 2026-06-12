@@ -1,5 +1,5 @@
 .section {
-  padding-block: 64px 88px;
+  padding-block: 0 clamp(4rem, 10vw, 7.5rem);
   background: var(--color-bg);
 }
 
@@ -39,6 +39,12 @@
 
 .desktopGrid :global(.ant-col) {
   display: flex;
+}
+
+@media (max-width: 575px) {
+  .section {
+    padding-block: 0 clamp(3rem, 8vw, 4.5rem);
+  }
 }
 
 @media (min-width: 768px) {
