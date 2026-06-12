@@ -1,7 +1,7 @@
 .section {
-  padding-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem);
-  overflow: hidden;
-  background: var(--color-hero-bg);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 6rem);
+  overflow-x: clip;
+  background: var(--color-about-bg);
 }
 
 .content {

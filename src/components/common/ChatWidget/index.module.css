@@ -1,0 +1,63 @@
+.root {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 1000;
+}
+
+.panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(4.5rem + 0.75rem);
+  width: min(calc(100vw - 2rem), 22.5rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-soft);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.panelDescription {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.closeButton {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.floatButton {
+  box-shadow: var(--shadow-card);
+}
+
+@media (max-width: 480px) {
+  .panel {
+    width: min(calc(100vw - 1.5rem), 20rem);
+    padding: 1rem;
+  }
+}
