@@ -76,19 +76,6 @@ export const AppHeader = ({ themeMode, onThemeToggle }: AppHeaderProps) => {
               <Logo tone="header" />
             </div>
             <div className={styles.mobileQuickActions}>
-              {isLoginAvailable ? (
-                <button
-                  type="button"
-                  className={styles.loginBtn}
-                  onClick={openLogin}
-                  aria-label={t('header.login.button')}
-                >
-                  <LoginOutlined />
-                </button>
-              ) : null}
-              <div className={styles.mobileLanguage}>
-                <LanguageSelector variant="header" />
-              </div>
               <button
                 type="button"
                 className={styles.mobileMenuBtn}
