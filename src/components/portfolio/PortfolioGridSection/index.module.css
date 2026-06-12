@@ -7,7 +7,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
+  gap: 32px;
 }
 
 .gridItemLink {
@@ -18,8 +18,8 @@
 
 .gridItem {
   margin: 0;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 10px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
   transition:
@@ -36,7 +36,7 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 7px;
   background: var(--color-about-bg);
 }
 
@@ -56,9 +56,9 @@
 }
 
 .titleCaption {
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-size: clamp(0.9375rem, 1.9vw, 1.0625rem);
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.02em;
@@ -81,7 +81,7 @@
   display: flex;
   align-items: flex-end;
   min-height: 42%;
-  padding: 1.25rem 1rem 1rem;
+  padding: 1rem 0.875rem 0.875rem;
   transform: translateY(100%);
   opacity: 0;
   pointer-events: none;
@@ -106,7 +106,7 @@
   position: relative;
   z-index: 1;
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  font-size: clamp(0.9375rem, 1.9vw, 1.0625rem);
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: 0.02em;
@@ -132,8 +132,8 @@
 }
 
 .skeletonCard {
-  padding: 20px;
-  border-radius: 12px;
+  padding: 16px;
+  border-radius: 10px;
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
 }
@@ -142,7 +142,7 @@
   width: 100% !important;
   aspect-ratio: 1;
   height: auto !important;
-  border-radius: 8px;
+  border-radius: 7px;
 }
 
 .loadMoreWrap {
@@ -187,6 +187,9 @@
 @media (min-width: 992px) {
   .grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1080px;
+    margin-inline: auto;
   }
 }
 
