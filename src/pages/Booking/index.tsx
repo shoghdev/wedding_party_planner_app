@@ -16,7 +16,7 @@ const BookingPage: React.FC = () => {
       fullName: values.fullName as string,
       email: values.email as string,
       eventDate: eventDate && typeof eventDate.toISOString === 'function' ? eventDate.toISOString() : '',
-      eventType: values.eventType as string,
+      eventType: values.eventType as BookingRequest['eventType'],
       guestCount: values.guestCount as number,
       notes: values.notes as string | undefined,
     };
