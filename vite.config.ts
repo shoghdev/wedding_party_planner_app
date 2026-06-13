@@ -2,7 +2,7 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import type { IncomingMessage } from 'node:http';
 import { fileURLToPath, URL } from 'node:url';
-import { processSendMessageRequest } from './lib/telegramMessage';
+import { processSendMessageRequest } from './api/send-message';
 
 const readRequestBody = (request: IncomingMessage): Promise<string> =>
   new Promise((resolve, reject) => {
