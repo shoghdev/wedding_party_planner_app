@@ -12,10 +12,19 @@ export type SendMessageResult = Readonly<{
   error?: string;
 }>;
 
+type ChatMessageValidationResult =
+  | { valid: true; data: ChatMessagePayload }
+  | { valid: false; error: string };
+
+const isValidationFailure = (
+  result: ChatMessageValidationResult,
+): result is { valid: false; error: string } => result.valid === false;
+
 const NAME_MAX_LENGTH = 100;
 const EMAIL_MAX_LENGTH = 254;
 const MESSAGE_MAX_LENGTH = 2000;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TELEGRAM_REQUEST_TIMEOUT_MS = 8_000;
 
 export const parseRequestBody = (body: unknown): unknown => {
   if (typeof body === 'string') {
@@ -29,9 +38,7 @@ export const parseRequestBody = (body: unknown): unknown => {
   return body;
 };
 
-const validateChatMessage = (
-  body: unknown,
-): { valid: true; data: ChatMessagePayload } | { valid: false; error: string } => {
+const validateChatMessage = (body: unknown): ChatMessageValidationResult => {
   if (!body || typeof body !== 'object') {
     return { valid: false, error: 'Invalid request body.' };
   }
@@ -99,32 +106,49 @@ const sendMessageToTelegram = async (
   data: ChatMessagePayload,
   config: { botToken: string; chatId: string },
 ): Promise<SendMessageResult> => {
-  const response = await fetch(`https://api.telegram.org/bot${config.botToken}/sendMessage`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      chat_id: config.chatId,
-      text: formatTelegramMessage(data),
-    }),
-  });
-
-  let payload: { ok: boolean; description?: string } | null = null;
-
   try {
-    payload = (await response.json()) as { ok: boolean; description?: string };
-  } catch {
-    payload = null;
-  }
+    const response = await fetch(`https://api.telegram.org/bot${config.botToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: config.chatId,
+        text: formatTelegramMessage(data),
+      }),
+      signal: AbortSignal.timeout(TELEGRAM_REQUEST_TIMEOUT_MS),
+    });
 
-  if (!response.ok || !payload?.ok) {
+    let payload: { ok: boolean; description?: string } | null = null;
+
+    try {
+      payload = (await response.json()) as { ok: boolean; description?: string };
+    } catch {
+      payload = null;
+    }
+
+    if (!response.ok || !payload?.ok) {
+      return {
+        ok: false,
+        status: 502,
+        error: payload?.description ?? 'Failed to deliver message to Telegram.',
+      };
+    }
+
+    return { ok: true, status: 200 };
+  } catch (error) {
+    if (error instanceof Error && error.name === 'TimeoutError') {
+      return {
+        ok: false,
+        status: 504,
+        error: 'Telegram API timed out. Please try again.',
+      };
+    }
+
     return {
       ok: false,
       status: 502,
-      error: payload?.description ?? 'Failed to deliver message to Telegram.',
+      error: 'Failed to deliver message to Telegram.',
     };
   }
-
-  return { ok: true, status: 200 };
 };
 
 export const processSendMessageRequest = async (
@@ -133,15 +157,11 @@ export const processSendMessageRequest = async (
 ): Promise<SendMessageResult> => {
   const validation = validateChatMessage(body);
 
-  if (!validation.valid) {
+  if (isValidationFailure(validation)) {
     return { ok: false, status: 400, error: validation.error };
   }
 
   const telegramConfig = getTelegramConfigFromEnv(env);
-
-  // #region agent log
-  fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/send-message.ts:processSendMessageRequest',message:'telegram config check',data:{hasBotToken:Boolean(env.TELEGRAM_BOT_TOKEN?.trim()),hasChatId:Boolean(env.TELEGRAM_CHAT_ID?.trim()),configFound:Boolean(telegramConfig)},timestamp:Date.now(),hypothesisId:'A'})}).catch(()=>{});
-  // #endregion
 
   if (!telegramConfig) {
     return {
@@ -151,48 +171,45 @@ export const processSendMessageRequest = async (
     };
   }
 
-  const telegramResult = await sendMessageToTelegram(validation.data, telegramConfig);
-
-  // #region agent log
-  fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/send-message.ts:sendMessageToTelegram-result',message:'telegram api result',data:{ok:telegramResult.ok,status:telegramResult.status,error:telegramResult.error},timestamp:Date.now(),hypothesisId:'C'})}).catch(()=>{});
-  // #endregion
-
-  return telegramResult;
+  return sendMessageToTelegram(validation.data, telegramConfig);
 };
 
+type VercelRequest = Readonly<{
+  method?: string;
+  body?: unknown;
+}>;
+
+type VercelResponse = Readonly<{
+  setHeader: (name: string, value: string) => VercelResponse;
+  status: (statusCode: number) => VercelResponse;
+  json: (data: unknown) => void;
+}>;
+
 /**
- * Vercel serverless handler (Web Request/Response — Node.js 18+).
+ * Vercel serverless handler (Node req/res — widest compatibility on Vercel).
  */
-export default async function handler(request: Request): Promise<Response> {
-  // #region agent log
-  fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/send-message.ts:handler-entry',message:'handler invoked',data:{method:request.method,hasBotToken:Boolean(process.env.TELEGRAM_BOT_TOKEN?.trim()),hasChatId:Boolean(process.env.TELEGRAM_CHAT_ID?.trim())},timestamp:Date.now(),hypothesisId:'B'})}).catch(()=>{});
-  // #endregion
+export default async function handler(request: VercelRequest, response: VercelResponse) {
+  response.setHeader('Content-Type', 'application/json');
 
   if (request.method !== 'POST') {
-    return Response.json({ success: false, error: 'Method not allowed.' }, { status: 405 });
+    response.status(405).json({ success: false, error: 'Method not allowed.' });
+    return;
   }
 
   try {
-    const rawText = await request.text();
-    const body = parseRequestBody(rawText.length > 0 ? rawText : undefined);
-    const result = await processSendMessageRequest(body, process.env);
-
-    // #region agent log
-    fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/send-message.ts:handler-result',message:'processSendMessageRequest finished',data:{ok:result.ok,status:result.status,error:result.error},timestamp:Date.now(),hypothesisId:'A-C-E'})}).catch(()=>{});
-    // #endregion
+    const result = await processSendMessageRequest(
+      parseRequestBody(request.body),
+      process.env,
+    );
 
     if (!result.ok) {
-      return Response.json({ success: false, error: result.error }, { status: result.status });
+      response.status(result.status).json({ success: false, error: result.error });
+      return;
     }
 
-    return Response.json({ success: true });
+    response.status(200).json({ success: true });
   } catch (error) {
     const crashMessage = error instanceof Error ? error.message : 'Unknown server error';
-
-    // #region agent log
-    fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'api/send-message.ts:handler-crash',message:'handler threw',data:{crashMessage},timestamp:Date.now(),hypothesisId:'B'})}).catch(()=>{});
-    // #endregion
-
-    return Response.json({ success: false, error: crashMessage }, { status: 500 });
+    response.status(500).json({ success: false, error: crashMessage });
   }
 }

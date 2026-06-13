@@ -1,12 +1,29 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
+import type { IncomingMessage } from 'node:http';
 import { fileURLToPath, URL } from 'node:url';
 import { processSendMessageRequest } from './api/send-message';
+
+const readRequestBody = (request: IncomingMessage): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+
+    request.on('data', (chunk: Buffer) => chunks.push(Buffer.from(chunk)));
+    request.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+    request.on('error', reject);
+  });
 
 const createApiDevPlugin = (env: Record<string, string>): Plugin => ({
   name: 'chat-api-dev-server',
   configureServer(server) {
-    server.middlewares.use('/api/send-message', async (request, response) => {
+    server.middlewares.use(async (request, response, next) => {
+      const requestUrl = request.url?.split('?')[0];
+
+      if (requestUrl !== '/api/send-message') {
+        next();
+        return;
+      }
+
       if (request.method !== 'POST') {
         response.statusCode = 405;
         response.setHeader('Content-Type', 'application/json');
@@ -15,18 +32,9 @@ const createApiDevPlugin = (env: Record<string, string>): Plugin => ({
       }
 
       try {
-        const chunks: Buffer[] = [];
-
-        for await (const chunk of request) {
-          chunks.push(Buffer.from(chunk));
-        }
-
-        const body = JSON.parse(Buffer.concat(chunks).toString('utf8')) as unknown;
+        const rawBody = await readRequestBody(request);
+        const body = rawBody.length > 0 ? (JSON.parse(rawBody) as unknown) : undefined;
         const result = await processSendMessageRequest(body, env);
-
-        // #region agent log
-        fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'vite.config.ts:api-dev-middleware',message:'dev api result',data:{ok:result.ok,status:result.status,error:result.error,hasBotToken:Boolean(env.TELEGRAM_BOT_TOKEN?.trim()),hasChatId:Boolean(env.TELEGRAM_CHAT_ID?.trim())},timestamp:Date.now(),hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
 
         response.statusCode = result.status;
         response.setHeader('Content-Type', 'application/json');
