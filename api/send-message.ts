@@ -16,6 +16,10 @@ type ChatMessageValidationResult =
   | { valid: true; data: ChatMessagePayload }
   | { valid: false; error: string };
 
+const isValidationFailure = (
+  result: ChatMessageValidationResult,
+): result is { valid: false; error: string } => result.valid === false;
+
 const NAME_MAX_LENGTH = 100;
 const EMAIL_MAX_LENGTH = 254;
 const MESSAGE_MAX_LENGTH = 2000;
@@ -153,7 +157,7 @@ export const processSendMessageRequest = async (
 ): Promise<SendMessageResult> => {
   const validation = validateChatMessage(body);
 
-  if (validation.valid === false) {
+  if (isValidationFailure(validation)) {
     return { ok: false, status: 400, error: validation.error };
   }
 

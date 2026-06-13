@@ -1,13 +1,20 @@
 import axios from 'axios';
-import { api } from '@/api/index';
 import type { ChatMessageFormValues, SendChatMessageResponse } from '@/types/chat';
+
+const chatApi = axios.create({
+  baseURL: '/api',
+  timeout: 20_000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
 /**
  * Sends a website chat message to the serverless API, which forwards it to Telegram.
  */
 export const sendChatMessage = async (values: ChatMessageFormValues): Promise<void> => {
   try {
-    const { data } = await api.post<SendChatMessageResponse>('/send-message', values);
+    const { data } = await chatApi.post<SendChatMessageResponse>('/send-message', values);
 
     if (!data.success) {
       throw new Error(data.error ?? 'UNKNOWN');
