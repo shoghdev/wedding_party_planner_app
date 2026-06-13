@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
-import { processSendMessageRequest } from './api/lib/chatMessage';
+import { processSendMessageRequest } from './api/send-message';
 
 const createApiDevPlugin = (env: Record<string, string>): Plugin => ({
   name: 'chat-api-dev-server',
