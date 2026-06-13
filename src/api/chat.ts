@@ -3,11 +3,22 @@ import type { ChatMessageFormValues, SendChatMessageResponse } from '@/types/cha
 
 const chatApi = axios.create({
   baseURL: '/api',
-  timeout: 20_000,
+  timeout: 15_000,
   headers: {
     'Content-Type': 'application/json',
   },
 });
+
+const isTimeoutError = (error: unknown): boolean => {
+  if (!axios.isAxiosError(error)) {
+    return false;
+  }
+
+  return (
+    error.code === 'ECONNABORTED' ||
+    (typeof error.message === 'string' && error.message.includes('timeout'))
+  );
+};
 
 /**
  * Sends a website chat message to the serverless API, which forwards it to Telegram.
@@ -20,11 +31,13 @@ export const sendChatMessage = async (values: ChatMessageFormValues): Promise<vo
       throw new Error(data.error ?? 'UNKNOWN');
     }
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      if (error.code === 'ECONNABORTED') {
-        throw new Error('Request timed out. Please try again.');
-      }
+    if (isTimeoutError(error)) {
+      throw new Error(
+        'The chat service did not respond. Restart the dev server (pnpm run dev) or redeploy on Vercel.',
+      );
+    }
 
+    if (axios.isAxiosError(error)) {
       const responseData = error.response?.data;
       const structuredError =
         typeof responseData === 'object' && responseData !== null

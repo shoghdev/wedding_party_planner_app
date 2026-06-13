@@ -2,7 +2,7 @@ import { defineConfig, loadEnv, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import type { IncomingMessage } from 'node:http';
 import { fileURLToPath, URL } from 'node:url';
-import { processSendMessageRequest } from './api/send-message';
+import { processSendMessageRequest } from './lib/telegramMessage';
 
 const readRequestBody = (request: IncomingMessage): Promise<string> =>
   new Promise((resolve, reject) => {
@@ -15,6 +15,7 @@ const readRequestBody = (request: IncomingMessage): Promise<string> =>
 
 const createApiDevPlugin = (env: Record<string, string>): Plugin => ({
   name: 'chat-api-dev-server',
+  enforce: 'pre',
   configureServer(server) {
     server.middlewares.use(async (request, response, next) => {
       const requestUrl = request.url?.split('?')[0];
@@ -56,7 +57,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
-    plugins: [react(), createApiDevPlugin(env)],
+    plugins: [createApiDevPlugin(env), react()],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
