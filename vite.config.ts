@@ -24,10 +24,6 @@ const createApiDevPlugin = (env: Record<string, string>): Plugin => ({
         const body = JSON.parse(Buffer.concat(chunks).toString('utf8')) as unknown;
         const result = await processSendMessageRequest(body, env);
 
-        // #region agent log
-        fetch('http://127.0.0.1:7733/ingest/a202e5c3-9902-41d8-81d9-a6873062a80b',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'36ced1'},body:JSON.stringify({sessionId:'36ced1',location:'vite.config.ts:api-dev-middleware',message:'dev api result',data:{ok:result.ok,status:result.status,error:result.error,hasBotToken:Boolean(env.TELEGRAM_BOT_TOKEN?.trim()),hasChatId:Boolean(env.TELEGRAM_CHAT_ID?.trim())},timestamp:Date.now(),hypothesisId:'A'})}).catch(()=>{});
-        // #endregion
-
         response.statusCode = result.status;
         response.setHeader('Content-Type', 'application/json');
         response.end(
